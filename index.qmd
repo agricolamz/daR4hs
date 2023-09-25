@@ -1,0 +1,37 @@
+---
+title: "Конспек курса 'Введение в анализ данных на R для гуманитарных и социальных наук'"
+format: 
+  html: 
+    number-sections: true
+execute:
+  echo: true
+  warning: false
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r}
+#| message: false
+
+library(tidyverse)
+library(lubridate)
+library(glue)
+library(checkdown)
+```
+
+
+## Введение в R
+
+## Трансформация данных
+
+## Визуализация данных
+
+## Работа со строками
+
+## Работа с текстами
+
+## Работа со временем
+
+## Работа с геоданными
+
+## Основа регрессионного анализа

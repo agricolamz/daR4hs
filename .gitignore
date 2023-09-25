@@ -4,6 +4,6 @@
 .Ruserdata
 .DS_Store
 .Rproj
-index.qmd
-index.html
-index_files/*
+answers.qmd
+answers.html
+answers_files/*
