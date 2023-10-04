@@ -1,4 +1,4 @@
-# References {.unnumbered}
+# Список литературы {.unnumbered}
 
 ::: {#refs}
 :::

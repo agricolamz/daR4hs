@@ -1,3 +1,7 @@
+---
+language: custom.yml
+---
+
 # Введение в R
 
 ## Установка R и RStudio
@@ -20,7 +24,7 @@ sudo apt-get install r-cran-base
 
 ```{r}
 #| echo: false
-sessionInfo()$R.version$version.string
+sessionInfo()$R.version$version.string |> cat()
 ```
 
 Некоторые люди не любят устанавливать лишние программы себе на компьютер, несколько вариантов есть и для них:
