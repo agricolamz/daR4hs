@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -175,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#установка-r" id="toc-установка-r" class="nav-link active" data-scroll-target="#установка-r"><span class="header-section-number">1.1</span> Установка R</a></li>
+  <li><a href="#установка-r-и-rstudio" id="toc-установка-r-и-rstudio" class="nav-link active" data-scroll-target="#установка-r-и-rstudio"><span class="header-section-number">1.1</span> Установка R и RStudio</a></li>
   </ul>
 </nav>
     </div>
@@ -199,10 +218,43 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="установка-r" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="установка-r"><span class="header-section-number">1.1</span> Установка R</h2>
+<section id="установка-r-и-rstudio" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="установка-r-и-rstudio"><span class="header-section-number">1.1</span> Установка R и RStudio</h2>
+<p>В данной книге используется исключительно R <span class="citation" data-cites="r_core_team">(<a href="references.html#ref-r_core_team" role="doc-biblioref">R Core Team 2023</a>)</span>, так что для занятий понадобятся:</p>
+<ul>
+<li>R
+<ul>
+<li><a href="https://cran.r-project.org/bin/windows/base/">на Windows</a></li>
+<li><a href="https://cran.r-project.org/bin/macosx/">на Mac</a></li>
+<li><a href="https://cran.rstudio.com/bin/linux/">на Linux</a>, также можно добавить зеркало и установить из командной строки:</li>
+</ul></li>
+</ul>
+<pre><code>sudo apt-get install r-cran-base</code></pre>
+<ul>
+<li>RStudio — IDE для R (<a href="https://www.rstudio.com/products/rstudio/download/">можно скачать здесь</a>)</li>
+<li>и некоторые пакеты на R</li>
+</ul>
+<p>Часто можно увидеть или услышать, что R — язык программирования для “статистической обработки данных”. Изначально это, конечно, было правдой, но уже давно R — это полноценный язык программирования, который при помощи своих пакетов позволяет решать огромный спектр задач. В данной книге используется следующая версия R:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "R version 4.3.1 (2023-06-16)"</code></pre>
+</div>
+</div>
+<p>Некоторые люди не любят устанавливать лишние программы себе на компьютер, несколько вариантов есть и для них:</p>
+<ul>
+<li><a href="https://posit.cloud/">RStudio cloud</a> — полная функциональность RStudio с некоторыми ограничениями;</li>
+<li><a href="https://jupyter.org/">Jupyter</a> ноутбуки;</li>
+<li><a href="https://colab.research.google.com">Google Colab</a> (нужно в настройках переключить ядро);</li>
+<li><a href="https://code.visualstudio.com/">VS Code</a> — другое IDE, которое также позволяет работать с R;</li>
+<li>в принципе, в IDE нет нужды, можно работать из терминала, после установки, нужно всего лишь набрать <code>R</code>.</li>
+</ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-r_core_team" class="csl-entry" role="listitem">
+R Core Team. 2023. <em>R: A Language and Environment for Statistical Computing</em>. Vienna, Austria: R Foundation for Statistical Computing. <a href="https://www.R-project.org/">https://www.R-project.org/</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
