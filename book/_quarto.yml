@@ -5,8 +5,7 @@ project:
 book:
   title: "daR4hs"
   author: "Г. А. Мороз"
-  repo-url: https://github.com/agricolamz/daR4hs/
-  repo-actions: [edit]
+  repo-url: https://agricolamz.github.io/daR4hs/
   chapters:
     - index.qmd
     - 1_introduction_to_r.qmd

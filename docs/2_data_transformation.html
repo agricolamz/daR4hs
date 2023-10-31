@@ -91,7 +91,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">daR4hs</a> 
         <div class="sidebar-tools-main">
-    <a href="https://github.com/agricolamz/daR4hs/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://agricolamz.github.io/daR4hs/" rel="" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
 </div>
     </div>
       </div>
@@ -174,7 +174,22 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#использование-конвеера-пайпа" id="toc-использование-конвеера-пайпа" class="nav-link active" data-scroll-target="#использование-конвеера-пайпа"><span class="header-section-number">2.1</span> Использование конвеера (пайпа)</a></li>
+  <li><a href="#функции-семейства-slice" id="toc-функции-семейства-slice" class="nav-link" data-scroll-target="#функции-семейства-slice"><span class="header-section-number">2.2</span> Функции семейства <code>slice()</code></a></li>
+  <li><a href="#функции-семейства-filter" id="toc-функции-семейства-filter" class="nav-link" data-scroll-target="#функции-семейства-filter"><span class="header-section-number">2.3</span> Функции семейства <code>filter()</code></a></li>
+  <li><a href="#функции-count-distinct-arrange" id="toc-функции-count-distinct-arrange" class="nav-link" data-scroll-target="#функции-count-distinct-arrange"><span class="header-section-number">2.4</span> Функции <code>count()</code>, <code>distinct()</code>, <code>arrange()</code></a></li>
+  <li><a href="#функция-mutate" id="toc-функция-mutate" class="nav-link" data-scroll-target="#функция-mutate"><span class="header-section-number">2.5</span> Функция <code>mutate()</code></a></li>
+  <li><a href="#функция-group_by-summarise-и-group_by-mutate" id="toc-функция-group_by-summarise-и-group_by-mutate" class="nav-link" data-scroll-target="#функция-group_by-summarise-и-group_by-mutate"><span class="header-section-number">2.6</span> Функция <code>group_by() |&gt; summarise()</code> и <code>group_by() |&gt; mutate()</code></a></li>
+  <li><a href="#функция-across" id="toc-функция-across" class="nav-link" data-scroll-target="#функция-across"><span class="header-section-number">2.7</span> Функция <code>across()</code></a></li>
+  <li><a href="#функции-семейства-pivot_..." id="toc-функции-семейства-pivot_..." class="nav-link" data-scroll-target="#функции-семейства-pivot_..."><span class="header-section-number">2.8</span> Функции семейства <code>pivot_...()</code></a></li>
+  <li><a href="#функции-семейства-bind_..." id="toc-функции-семейства-bind_..." class="nav-link" data-scroll-target="#функции-семейства-bind_..."><span class="header-section-number">2.9</span> Функции семейства <code>bind_...()</code></a></li>
+  <li><a href="#функции-семейства-..._join" id="toc-функции-семейства-..._join" class="nav-link" data-scroll-target="#функции-семейства-..._join"><span class="header-section-number">2.10</span> Функции семейства <code>..._join()</code></a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -196,8 +211,38 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="использование-конвеера-пайпа" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="использование-конвеера-пайпа"><span class="header-section-number">2.1</span> Использование конвеера (пайпа)</h2>
+</section>
+<section id="функции-семейства-slice" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="функции-семейства-slice"><span class="header-section-number">2.2</span> Функции семейства <code>slice()</code></h2>
+</section>
+<section id="функции-семейства-filter" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="функции-семейства-filter"><span class="header-section-number">2.3</span> Функции семейства <code>filter()</code></h2>
+</section>
+<section id="функции-count-distinct-arrange" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="функции-count-distinct-arrange"><span class="header-section-number">2.4</span> Функции <code>count()</code>, <code>distinct()</code>, <code>arrange()</code></h2>
+</section>
+<section id="функция-mutate" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="функция-mutate"><span class="header-section-number">2.5</span> Функция <code>mutate()</code></h2>
+</section>
+<section id="функция-group_by-summarise-и-group_by-mutate" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="функция-group_by-summarise-и-group_by-mutate"><span class="header-section-number">2.6</span> Функция <code>group_by() |&gt; summarise()</code> и <code>group_by() |&gt; mutate()</code></h2>
+</section>
+<section id="функция-across" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="функция-across"><span class="header-section-number">2.7</span> Функция <code>across()</code></h2>
+</section>
+<section id="функции-семейства-pivot_..." class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="функции-семейства-pivot_..."><span class="header-section-number">2.8</span> Функции семейства <code>pivot_...()</code></h2>
+</section>
+<section id="функции-семейства-bind_..." class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="функции-семейства-bind_..."><span class="header-section-number">2.9</span> Функции семейства <code>bind_...()</code></h2>
+</section>
+<section id="функции-семейства-..._join" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="функции-семейства-..._join"><span class="header-section-number">2.10</span> Функции семейства <code>..._join()</code></h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -449,4 +494,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/agricolamz/daR4hs/edit/main/2_data_transformation.qmd" class="toc-action">Edit this page</a></p></div></div></div></div></footer></body></html>
+</body></html>
