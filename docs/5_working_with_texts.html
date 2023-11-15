@@ -243,6 +243,137 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>В пакете <code>readr</code> (входит в <code>tidyverse</code>) для чтения текста есть функция <code>read_lines()</code>. В качестве первой переменной может выступать путь к файлу на компьютере или интернет ссылка:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>alices_adventures_in_wonderland <span class="ot">&lt;-</span> <span class="fu">read_lines</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_alices_adventures_in_wonderland.txt"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alices_adventures_in_wonderland, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "The Project Gutenberg eBook of Alice's Adventures in Wonderland"         
+ [2] "    "                                                                    
+ [3] "This ebook is for the use of anyone anywhere in the United States and"   
+ [4] "most other parts of the world at no cost and with almost no restrictions"
+ [5] "whatsoever. You may copy it, give it away or re-use it under the terms"  
+ [6] "of the Project Gutenberg License included with this ebook or online"     
+ [7] "at www.gutenberg.org. If you are not located in the United States,"      
+ [8] "you will have to check the laws of the country where you are located"    
+ [9] "before using this eBook."                                                
+[10] ""                                                                        
+[11] "Title: Alice's Adventures in Wonderland"                                 
+[12] ""                                                                        
+[13] ""                                                                        
+[14] "Author: Lewis Carroll"                                                   
+[15] ""                                                                        
+[16] "Release date: June 27, 2008 [eBook #11]"                                 
+[17] "                Most recently updated: March 30, 2021"                   
+[18] ""                                                                        
+[19] "Language: English"                                                       
+[20] ""                                                                        </code></pre>
+</div>
+</div>
+<p>В большинстве случаев, тексты получится считать, однако иногда при работе со старыми архивами могут возникнуть проблемы с кодировками, например, все тексты в старейшей интернет-библиотеке Максима Машкова (&lt;lib.ru&gt;) записаны в <code>KOI8-R</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_lines</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_the_captains_daughter_koi8r.txt"</span>,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] " \xe1\xcc\xc5\xcb\xd3\xc1\xce\xc4\xd2 \xf3\xc5\xd2\xc7\xc5\xc5\xd7\xc9\xde \xf0\xd5\xdb\xcb\xc9\xce. \xeb\xc1\xd0\xc9\xd4\xc1\xce\xd3\xcb\xc1\xd1 \xc4\xcf\xde\xcb\xc1"
+ [2] ""                                                                                                                                                                      
+ [3] " ---------------------------------------------------------------"                                                                                                      
+ [4] " OCR: \xef\xcc\xc5\xc7 \xeb\xcf\xcc\xc5\xd3\xce\xc9\xcb\xcf\xd7"                                                                                                       
+ [5] " Origin: http://www.magister.msk.ru/library/pushkin/pushkin.htm ? http://www.magister.msk.ru/library/pushkin/pushkin.htm"                                              
+ [6] " ---------------------------------------------------------------"                                                                                                      
+ [7] ""                                                                                                                                                                      
+ [8] " \xe2\xc5\xd2\xc5\xc7\xc9 \xde\xc5\xd3\xd4\xd8 \xd3\xcd\xcf\xcc\xcf\xc4\xd5."                                                                                          
+ [9] " \xf0\xcf\xd3\xcc\xcf\xd7\xc9\xc3\xc1"                                                                                                                                 
+[10] ""                                                                                                                                                                      
+[11] ""                                                                                                                                                                      
+[12] ""                                                                                                                                                                      
+[13] " \xe7\xec\xe1\xf7\xe1 I. \xf3\xe5\xf2\xf6\xe1\xee\xf4 \xe7\xf7\xe1\xf2\xe4\xe9\xe9."                                                                                   
+[14] ""                                                                                                                                                                      
+[15] ""                                                                                                                                                                      </code></pre>
+</div>
+</div>
+<p>В функциях пакета <code>readr</code> (т. е. не только <code>read_lines()</code>, но и в функциях <code>read_csv()</code>, <code>read_tsv()</code> и т. п.) есть аргумент <code>locale</code>, который позволяет эксплицитно указать кодировку, а при считывании происходит процесс конвертации в стандартный для многих операционных систем <code>UTF-8</code>. Для текстов на русском языке важны следующие кодировки</p>
+<ul>
+<li><code>KOI8-R</code>, а для украинского языка — <code>KOI8-U</code>;</li>
+<li><code>CP1251</code> (также известная под названием <code>Windows-1251</code>) покрывает и другие кириллические письменности такие как украинский, белорусский, болгарский, сербский, македонский и другие.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_lines</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_the_captains_daughter_koi8r.txt"</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"KOI8-R"</span>), </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] " Александр Сергеевич Пушкин. Капитанская дочка"                                                                          
+ [2] ""                                                                                                                        
+ [3] " ---------------------------------------------------------------"                                                        
+ [4] " OCR: Олег Колесников"                                                                                                   
+ [5] " Origin: http://www.magister.msk.ru/library/pushkin/pushkin.htm ? http://www.magister.msk.ru/library/pushkin/pushkin.htm"
+ [6] " ---------------------------------------------------------------"                                                        
+ [7] ""                                                                                                                        
+ [8] " Береги честь смолоду."                                                                                                  
+ [9] " Пословица"                                                                                                              
+[10] ""                                                                                                                        
+[11] ""                                                                                                                        
+[12] ""                                                                                                                        
+[13] " ГЛАВА I. СЕРЖАНТ ГВАРДИИ."                                                                                              
+[14] ""                                                                                                                        
+[15] ""                                                                                                                        </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_lines</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_the_captains_daughter_cp1251.txt"</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"CP1251"</span>),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] " Александр Сергеевич Пушкин. Капитанская дочка"                                                                          
+ [2] ""                                                                                                                        
+ [3] " ---------------------------------------------------------------"                                                        
+ [4] " OCR: Олег Колесников"                                                                                                   
+ [5] " Origin: http://www.magister.msk.ru/library/pushkin/pushkin.htm ? http://www.magister.msk.ru/library/pushkin/pushkin.htm"
+ [6] " ---------------------------------------------------------------"                                                        
+ [7] ""                                                                                                                        
+ [8] " Береги честь смолоду."                                                                                                  
+ [9] " Пословица"                                                                                                              
+[10] ""                                                                                                                        
+[11] ""                                                                                                                        
+[12] ""                                                                                                                        
+[13] " ГЛАВА I. СЕРЖАНТ ГВАРДИИ."                                                                                              
+[14] ""                                                                                                                        
+[15] ""                                                                                                                        </code></pre>
+</div>
+</div>
+<p>Для просмотра и изменения кодировки внутри R следует использовать функцию <code>Encoding()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"fa</span><span class="sc">\xE7</span><span class="st">ile"</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "fa\xe7ile"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Encoding</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "unknown"</code></pre>
+</div>
+</div>
+<p>Теперь можем использовать функцию присваивания:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Encoding</span>(x) <span class="ot">&lt;-</span> <span class="st">"latin1"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "façile"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Encoding</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "latin1"</code></pre>
+</div>
+</div>
+<p>Если необходимо преобразовать из одной кодировки в другую, следует использовать функцию <code>iconv()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">iconv</span>(x, <span class="st">"latin1"</span>, <span class="st">"UTF-8"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Encoding</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "UTF-8"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "façile"</code></pre>
+</div>
+</div>
 
 
 </section>
