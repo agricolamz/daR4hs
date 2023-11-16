@@ -718,7 +718,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 3,330 more rows</code></pre>
 </div>
 </div>
-<p>В приведенном выше коде интерес представляет функция <code>fill()</code>, которая заполнила пропущенные значения <code>NA</code> значениями выше. В остальном мы использовали не сложные регулярные выражения из <span class="quarto-unresolved-ref">?sec-regex</span>. Кроме того мы воспользовались встроенными функциями <code>as.roman()</code> и <code>as.numeric()</code>, чтобы преобразовать римские номера глав в арабские. Теперь мы готовы анализировать частотность слов. Создадим переменную <code>tidy_alice</code> и посчитаем слова в каждой из глав:</p>
+<p>В приведенном выше коде интерес представляет функция <code>fill()</code>, которая заполнила пропущенные значения <code>NA</code> значениями выше. В остальном мы использовали не сложные регулярные выражения из <a href="4_working_with_strings.html#sec-regex"><span>Раздел&nbsp;4.8</span></a>. Кроме того мы воспользовались встроенными функциями <code>as.roman()</code> и <code>as.numeric()</code>, чтобы преобразовать римские номера глав в арабские. Теперь мы готовы анализировать частотность слов. Создадим переменную <code>tidy_alice</code> и посчитаем слова в каждой из глав:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>alice_cleaned <span class="sc">|&gt;</span> </span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(<span class="at">output =</span> <span class="st">"word"</span>, <span class="at">input =</span> text) <span class="ot">-&gt;</span></span>
@@ -777,7 +777,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 1,139 more rows</code></pre>
 </div>
 </div>
-<p>Так что используя функцию из семейства <code>..._join()</code> (см. <span class="quarto-unresolved-ref">?sec-joins</span>), мы можем повторить наш анализ:</p>
+<p>Так что используя функцию из семейства <code>..._join()</code> (см. <a href="2_data_transformation.html#sec-joins"><span>Раздел&nbsp;2.10</span></a>), мы можем повторить наш анализ:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>tidy_alice <span class="sc">|&gt;</span> </span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(chapter_title, word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
@@ -1346,6 +1346,9 @@ Joining with `by = join_by(ngram_2)`</code></pre>
 20            10    conj &lt;NA&gt;   SpaceAfter=No
 21             5   punct &lt;NA&gt; SpacesAfter=\\n</code></pre>
 </div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doc2vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
