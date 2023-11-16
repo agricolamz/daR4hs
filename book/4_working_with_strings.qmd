@@ -307,7 +307,7 @@ stri_trans_general("stringi", "latin-greek")
 stri_trans_general("stringi", "latin-armenian")
 ```
 
-## Регулярные выражения
+## Регулярные выражения {#sec-regex}
 
 Большинство функций из раздела об операциях над векторами (`str_detect()`, `str_extract()`, `str_remove()` и т. п.) имеют следующую структуру:
 
