@@ -222,6 +222,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#библиотека-tidytext" id="toc-библиотека-tidytext" class="nav-link" data-scroll-target="#библиотека-tidytext"><span class="header-section-number">5.3</span> Библиотека <code>tidytext</code></a></li>
   <li><a href="#пакет-stopwords" id="toc-пакет-stopwords" class="nav-link" data-scroll-target="#пакет-stopwords"><span class="header-section-number">5.4</span> Пакет <code>stopwords</code></a></li>
   <li><a href="#пакет-udpipe" id="toc-пакет-udpipe" class="nav-link" data-scroll-target="#пакет-udpipe"><span class="header-section-number">5.5</span> Пакет <code>udpipe</code></a></li>
+  <li><a href="#векторизация-текстов" id="toc-векторизация-текстов" class="nav-link" data-scroll-target="#векторизация-текстов"><span class="header-section-number">5.6</span> Векторизация текстов</a></li>
   </ul>
 </nav>
     </div>
@@ -856,7 +857,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n, ngram))<span class="sc">+</span></span>
 <span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
 <span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>chapter_title, <span class="at">scales =</span> <span class="st">"free"</span>)<span class="sc">+</span></span>
-<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reordered</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reordered</span>() <span class="sc">+</span> </span>
 <span id="cb68-16"><a href="#cb68-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(ngram_1)`
@@ -1347,9 +1348,97 @@ Joining with `by = join_by(ngram_2)`</code></pre>
 21             5   punct &lt;NA&gt; SpacesAfter=\\n</code></pre>
 </div>
 </div>
+<p>Функция <code>udipipe()</code> также принимает датафрейм со столбцами <code>doc_id</code> и <code>text</code> — это позволяет сохранить в получившейся таблице структуру, которая важна в исследовании, так как в переменную <code>doc_id</code> можно спрятать всю необходимую информацию.</p>
+</section>
+<section id="векторизация-текстов" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="векторизация-текстов"><span class="header-section-number">5.6</span> Векторизация текстов</h2>
+<p>Векторизация слов и текстов — это операция, которая позволяет превратить наборы текстов в набор числовых значений, которые потом можно использовать для кластеризации текстов. Мы будем использовать для этой цели дефолтные значения достаточно старых моделей, которые мы используем в практике из-за их скорости. Датасет, который мы будем векторизовывать содержит 300 аннотаций из научных журналов по трем тематикам: лингвистике, медицине и экономике (каждой дисциплины по 100 аннотаций).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doc2vec)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>abstracts_dataset <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_abstracts.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 300 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (6): id, author, title, journal, abstract, field
+dbl (1): publication_year
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(abstracts_dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [300 × 7] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ id              : chr [1:300] "https://openalex.org/W3122280204" "https://openalex.org/W1995933606" "https://openalex.org/W2048988271" "https://openalex.org/W2010854286" ...
+ $ author          : chr [1:300] "Troy Davig; Eric M. Leeper" "Wing Suen; Pak Hung Mo" "Pravin Krishna; Jennifer P. Poole; Mine Zeynep Senses" "Perry Mehrling" ...
+ $ title           : chr [1:300] "Generalizing the Taylor Principle" "Simple Analytics of Productive Consumption" "Trade, Labor Market Frictions, and Residual Wage Inequality across Worker Groups" "Three Principles for Market-Based Credit Regulation" ...
+ $ publication_year: num [1:300] 2007 1994 2012 2012 1996 ...
+ $ journal         : chr [1:300] "The American Economic Review" "Journal of Political Economy" "The American Economic Review" "The American Economic Review" ...
+ $ abstract        : chr [1:300] "The paper generalizes the Taylor principle—the proposition that central banks can stabilize the macroeconomy by"| __truncated__ "Productive consumption adds to utility and income at the same time. The shadow price of a productive good is eq"| __truncated__ "Using a matched employer-employee data set, we study the effects of trade liberalization on wage dispersion in "| __truncated__ "A key lesson of the financial crisis 2007-09 is that the Bagehot Rule, “lend freely but at a high rate,” needs "| __truncated__ ...
+ $ field           : chr [1:300] "economics" "economics" "economics" "economics" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   id = col_character(),
+  ..   author = col_character(),
+  ..   title = col_character(),
+  ..   publication_year = col_double(),
+  ..   journal = col_character(),
+  ..   abstract = col_character(),
+  ..   field = col_character()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+</div>
+<p>Мы будем использовать функцию <code>paragraph2vec()</code> из пакета <code>doc2vec</code>. Сначала мы приведем наш датасет к виду датафрейма с переменными <code>doc_id</code> и <code>text</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doc2vec)</span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a>abstracts_dataset <span class="sc">|&gt;</span></span>
+<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">doc_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb111-5"><a href="#cb111-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">text =</span> abstract) <span class="sc">|&gt;</span></span>
+<span id="cb111-6"><a href="#cb111-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(doc_id, text) <span class="sc">|&gt;</span> </span>
+<span id="cb111-7"><a href="#cb111-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paragraph2vec</span>(<span class="at">threads =</span> <span class="dv">15</span>) <span class="ot">-&gt;</span></span>
+<span id="cb111-8"><a href="#cb111-8" aria-hidden="true" tabindex="-1"></a>  model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Получившиеся эмбединги можно получить</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(model, <span class="at">which =</span> <span class="st">"docs"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 300  50</code></pre>
+</div>
+</div>
+<p>Функция <code>dim()</code> говорит о размерности получившейся таблицы — 300 аннотаций, 50 числовых значений. Теперь можно воспользоваться методами уменьшения размерности для того, чтобы 50-мерное пространство схлопнуть до 2-мерного. Существует много алгоритмов, которые это делают, я воспользуюсь алгоритмом UMAP (Uniform Manifold Approximation and Projection):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(uwot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'Matrix'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:tidyr':
+
+    expand, pack, unpack</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(model, <span class="at">which =</span> <span class="st">"docs"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">umap</span>(<span class="at">metric =</span> <span class="st">"cosine"</span>, <span class="at">init =</span> <span class="st">"pca"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(abstracts_dataset) <span class="sc">|&gt;</span> </span>
+<span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(V1, V2, <span class="at">color =</span> field))<span class="sc">+</span></span>
+<span id="cb118-6"><a href="#cb118-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb118-7"><a href="#cb118-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_ellipse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The `x` argument of `as_tibble.matrix()` must have unique column names if
+`.name_repair` is omitted as of tibble 2.0.0.
+ℹ Using compatibility `.name_repair`.</code></pre>
+</div>
+<div class="cell-output-display">
+<p><img src="5_working_with_texts_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Мы видим, что у аннотаций есть что-то общее, но в общем, аннотации распадаются на три группы. Важно, что расцветка у нас уже была в датасете и алгоритм векторизации ее не видел, так что получившееся пространство отражает карту анализируемых текстов. Стоит отметить, что качесвто получишвегося пространства напрямую зависит от объема данных.</p>
 
 
 </section>
