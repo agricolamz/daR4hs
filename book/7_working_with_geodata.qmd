@@ -199,6 +199,8 @@ sync(m_2014, m_2015)
 
 ### Работа с полигонами и полилиниями
 
+Линия
+
 ```{r}
 #| message: false
 moscow_metro <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w7_moscow_metro.csv")
@@ -212,12 +214,16 @@ moscow_metro |>
                color = "tomato") |> 
   addCircles(lng = ~longitude,
              lat = ~latitude)
+```
 
+Полигоны
+
+```{r}
 moscow_metro |> 
   filter(line_name == "кольцевая") |> 
   leaflet() |> 
   addTiles() |> 
-  addPolylines(lng = ~longitude,
+  addPolygons(lng = ~longitude,
                lat = ~latitude, 
                color = "brown") |> 
   addCircles(lng = ~longitude,
