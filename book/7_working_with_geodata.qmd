@@ -188,7 +188,7 @@ unwelcomed |>
 Включим библиотеку:
 
 ```{r}
-library("leafsync")
+library(leafsync)
 ```
 
 И теперь соединим две карты воедино:
@@ -231,5 +231,62 @@ moscow_metro |>
              label = ~name)
 ```
 
+К сожалению, `leaflet` не такой удобный, как скажем `ggplot2`, поэтому для того, чтобы нарисовать много отдельных линий или полигонов, нужно использовать цикл:
+
+```{r}
+moscow_metro |> 
+  leaflet() |> 
+  addTiles() ->
+  moscow_map
+
+walk(unique(moscow_metro$line_name), function(i){
+  moscow_map <<- moscow_map |> 
+    addPolylines(lng = ~longitude,
+                 lat = ~latitude,
+                 data = moscow_metro |> filter(line_name == i)) |> 
+    addCircles(lng = ~longitude,
+               lat = ~latitude,
+               data = moscow_metro |> filter(line_name == i))
+})
+
+moscow_map
+```
+
+## `ggplot2` и другие пакеты
+
+```{r}
+library(maps)
+map_data("world") %>% 
+  filter(region != "Antarctica") ->
+  world
+
+world |> 
+  ggplot(aes(long, lat))+
+  geom_map(map = world, aes(map_id = region), color = "grey80", fill = "grey95")+
+  geom_point(data = unwelcomed, aes(lon, lat),  alpha = 0.5, size = 0.2)+
+  coord_quickmap()+
+  theme_void()
+```
 
 
+```{r}
+world |> 
+  ggplot(aes(long, lat))+
+  geom_map(map = world, aes(map_id = region), color = "grey80", fill = "grey95")+
+  geom_point(data = unwelcomed, aes(lon, lat),  alpha = 0.5, size = 0.2)+
+  coord_quickmap()+
+  theme_void()+
+  facet_wrap(~collapsed_cause)
+```
+
+
+### Проекции
+
+```{r}
+states <- map_data("state")
+
+states |> 
+  ggplot(aes(long, lat)) +
+  geom_polygon(aes(group = group)) +
+  coord_map("albers",  lat0 = 45.5, lat1 = 29.5)
+```
