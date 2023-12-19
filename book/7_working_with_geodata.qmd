@@ -15,6 +15,7 @@
 
 ```{r}
 #| fig-cap: "Географические примитивы из [@lovelace2019] (CC BY-NC-ND 4.0)"
+#| echo: false
 
 knitr::include_graphics("images/07_geographical_classes.png")
 ```
@@ -25,19 +26,24 @@ knitr::include_graphics("images/07_geographical_classes.png")
 
 Мы пойдем необычным путем и начнем с инструмента, который создает динамические карты --- пакета `leaflet`, который является оберткой для одноименного популярного пакета для визаулизации карт в интернете на JS.
 
-Для начала включим библиотеку:
-```{r, message=FALSE}
+Для начала включим библиотеки:
+```{r}
+#| message: false
+
 library("leaflet")
+library("tidyverse")
 ```
 
 [Здесь доступен cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/leaflet.pdf), посвященный пакету `leaflet`.
 
 ### `.csv` файлы
 
-Источником географических данных могут быть обычные привычные нам csv файлы. Например, вот [здесь](https://raw.githubusercontent.com/agricolamz/DS_for_DH/master/data/death_of_migrants_and_refugees_from_the_Unwelcomed_project.csv), хранится датасет из проекта [The Unwelcomed](http://alhadaqa.com/2019/08/the_unwelcomed/) Мохамада А. Вэйкда (Mohamad A. Waked), содержащий информацию о месте и причинах смерти мигрантов и беженцев по всему миру с января 2014 года по июнь 2019 года.
+Источником географических данных могут быть обычные привычные нам csv файлы. Например, вот [здесь](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w7_death_of_migrants_and_refugees_from_the_Unwelcomed_project.csv), хранится датасет из проекта [The Unwelcomed](http://alhadaqa.com/2019/08/the_unwelcomed/) Мохамада А. Вэйкда (Mohamad A. Waked), содержащий информацию о месте и причинах смерти мигрантов и беженцев по всему миру с января 2014 года по июнь 2019 года.
 
-```{r, message=FALSE}
-unwelcomed <- read_csv("https://raw.githubusercontent.com/agricolamz/DS_for_DH/master/data/death_of_migrants_and_refugees_from_the_Unwelcomed_project.csv")
+```{r}
+#| message: false
+
+unwelcomed <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w7_death_of_migrants_and_refugees_from_the_Unwelcomed_project.csv")
 ```
 
 * `id` --- идентификационный номер;
@@ -91,7 +97,8 @@ pal_cat(unwelcomed$collapsed_cause[1])
 
 Теперь в переменную `pal_cat` записана функция, которая возварщает цвета в зависимости от значения. В качестве первого аргумента в фукнций `colorNumeric()`, `colorFactor()`, `colorBin()` или `colorQuantile()` отправляется палитра, которую пользователь может задать сам или использовать уже имеющуюся (их можно посмотреть при помощи команды `RColorBrewer::display.brewer.all()`):
 
-```{r, fig.height=9}
+```{r}
+#| fig-height: 9
 RColorBrewer::display.brewer.all()
 ```
 
@@ -119,7 +126,7 @@ unwelcomed |>
 unwelcomed |> 
   filter(str_detect(date, "2014")) |> 
   leaflet() |> 
-  addProviderTiles("Stamen.TonerLite") |> 
+  addProviderTiles("Esri.WorldPhysical") |> 
   addCircles(lng = ~lon,
              lat = ~lat,
              label = ~total_death_missing, # пусть возникает подпись с количеством
@@ -139,7 +146,7 @@ unwelcomed |>
 unwelcomed |> 
   filter(str_detect(date, "2014")) |> 
   leaflet() |> 
-  addProviderTiles("Stamen.TonerLite") |> 
+  addTiles() |> 
   addCircles(lng = ~lon,
              lat = ~lat,
              label = ~total_death_missing, # пусть возникает подпись с количеством
@@ -158,7 +165,7 @@ unwelcomed |>
 unwelcomed |> 
   filter(str_detect(date, "2015")) |> 
   leaflet() |> 
-  addProviderTiles("Stamen.TonerLite") |> 
+  addTiles() |> 
   addCircles(lng = ~lon,
              lat = ~lat,
              label = ~total_death_missing, # пусть возникает подпись с количеством
