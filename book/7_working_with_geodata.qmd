@@ -55,12 +55,16 @@ unwelcomed <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main
 * `date` --- дата происшедшего;
 * `total_death_missing` --- количество погибших/пропавших;
 * `location` --- место происшедшего;
-* `lat` --- широта;
+* `lat` --- широта;[^conversion]
 * `lon` --- долгота;
 * `collapsed_region` --- обобщенная информация о регионе;
 * `region` --- информация о регионе;
 * `collapsed_cause` --- обобщенная информация о причине смерти;
 * `cause_of_death` --- информация о причине смерти.
+
+[^conversion]: Информация о широте и долготе иногда записывают в градусах, минутах и секундах, а иногда в десятичной записи, в R обычно используется десятичная запись. В интернете легко найти конвертеры из одного формата в другой и обратно.
+
+
 
 Самый простой способ нанести на карту координаты, это использовать комбинацию функций `leaflet() |> addCircles()`:
 
@@ -196,38 +200,30 @@ sync(m_2014, m_2015)
 ### Работа с полигонами и полилиниями
 
 ```{r}
+#| message: false
 moscow_metro <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w7_moscow_metro.csv")
 
-moscow_metro |>  
-  group_by(line)  |>  
-  summarize(m = mean(attr_data))  |>  
-  st_cast("LINESTRING")
-
-library(sf)
 moscow_metro |> 
-  st_as_sf(coords = c("latitude","longitude"))
-  sf::st_set_crs(4326) |> 
-  st_cast("LINESTRING")
-
-
-moscow_metro |> 
-  group_by(line) |> 
-  reframe(lines = sf::st_multilinestring(latitude, longitude))
-
-
-
-
-library(sf)
-l <-  st_read("/home/agricolamz/Desktop/testdata-master/vector/shape/polygonz.shp", layer = )
-
-l |> 
+  filter(line_name == "сокольническая") |> 
   leaflet() |> 
-  addPolygons()
+  addTiles() |> 
+  addPolylines(lng = ~longitude,
+               lat = ~latitude, 
+               color = "tomato") |> 
+  addCircles(lng = ~longitude,
+             lat = ~latitude)
+
+moscow_metro |> 
+  filter(line_name == "кольцевая") |> 
+  leaflet() |> 
+  addTiles() |> 
+  addPolylines(lng = ~longitude,
+               lat = ~latitude, 
+               color = "brown") |> 
+  addCircles(lng = ~longitude,
+             lat = ~latitude,
+             label = ~name)
 ```
-
-
-Информация о широте и долготе иногда записывают в градусах, минутах и секундах, а иногда в десятичной записи, в R обычно используется десятичная запись. В интернете легко найти конвертеры из одного формата в другой и обратно.
-
 
 
 
