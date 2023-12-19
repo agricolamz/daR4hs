@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Работа с геоданными
 
 ## Векторная и растровая графика
@@ -191,6 +196,27 @@ sync(m_2014, m_2015)
 ### Работа с полигонами и полилиниями
 
 ```{r}
+moscow_metro <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w7_moscow_metro.csv")
+
+moscow_metro |>  
+  group_by(line)  |>  
+  summarize(m = mean(attr_data))  |>  
+  st_cast("LINESTRING")
+
+library(sf)
+moscow_metro |> 
+  st_as_sf(coords = c("latitude","longitude"))
+  sf::st_set_crs(4326) |> 
+  st_cast("LINESTRING")
+
+
+moscow_metro |> 
+  group_by(line) |> 
+  reframe(lines = sf::st_multilinestring(latitude, longitude))
+
+
+
+
 library(sf)
 l <-  st_read("/home/agricolamz/Desktop/testdata-master/vector/shape/polygonz.shp", layer = )
 
