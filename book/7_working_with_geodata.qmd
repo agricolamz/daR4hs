@@ -32,6 +32,7 @@ knitr::include_graphics("images/07_geographical_classes.png")
 Мы пойдем необычным путем и начнем с инструмента, который создает динамические карты --- пакета `leaflet`, который является оберткой для одноименного популярного пакета для визаулизации карт в интернете на JS.
 
 Для начала включим библиотеки:
+
 ```{r}
 #| message: false
 
@@ -63,8 +64,6 @@ unwelcomed <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main
 * `cause_of_death` --- информация о причине смерти.
 
 [^conversion]: Информация о широте и долготе иногда записывают в градусах, минутах и секундах, а иногда в десятичной записи, в R обычно используется десятичная запись. В интернете легко найти конвертеры из одного формата в другой и обратно.
-
-
 
 Самый простой способ нанести на карту координаты, это использовать комбинацию функций `leaflet() |> addCircles()`:
 
@@ -224,14 +223,14 @@ moscow_metro |>
   leaflet() |> 
   addTiles() |> 
   addPolygons(lng = ~longitude,
-               lat = ~latitude, 
-               color = "brown") |> 
+              lat = ~latitude, 
+              color = "brown") |> 
   addCircles(lng = ~longitude,
              lat = ~latitude,
              label = ~name)
 ```
 
-К сожалению, `leaflet` не такой удобный, как скажем `ggplot2`, поэтому для того, чтобы нарисовать много отдельных линий или полигонов, нужно использовать цикл:
+К сожалению, `leaflet` не такой удобный, как, скажем, `ggplot2`, поэтому для того, чтобы нарисовать много отдельных линий или полигонов, нужно использовать цикл:
 
 ```{r}
 moscow_metro |> 
@@ -242,17 +241,21 @@ moscow_metro |>
 walk(unique(moscow_metro$line_name), function(i){
   moscow_map <<- moscow_map |> 
     addPolylines(lng = ~longitude,
-                 lat = ~latitude,
+                 lat = ~latitude, 
+                 label = ~line_name, 
+                 weight = 2,
                  data = moscow_metro |> filter(line_name == i)) |> 
     addCircles(lng = ~longitude,
                lat = ~latitude,
+               label = ~name, 
                data = moscow_metro |> filter(line_name == i))
 })
 
 moscow_map
 ```
 
-## `ggplot2` и другие пакеты
+
+## `ggplot2`, `maps` и другие пакеты
 
 ```{r}
 library(maps)
