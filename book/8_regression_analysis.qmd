@@ -208,7 +208,7 @@ $$\hat\beta_0 = \bar y - \hat\beta_1\times\bar x$$
 Давайте попробуем смоделировать количество слов *и* в рассказах М. Зощенко в зависимости от длины рассказа:
 ```{r}
 #| message: false
-zo <- read_tsv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv")
+zo <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv")
 
 zo |> 
   filter(word == "и") |> 
@@ -264,7 +264,7 @@ summary(fit)
 * `Multiple R-squared` и	`Adjusted R-squared` --- одна из оценок модели, показывает связь между переменными. Без поправок совпадает с квадратом коэффициента корреляции Пирсона.
 * `F-statistic` --- $F$-статистика полученная при проведении теста, проверяющего, не являются ли хотя бы один из коэффицинтов статистически значимо отличается от нуля. Совпадает с результатами дисперсионного анализа (ANOVA).
 
-Теперь мы можем даже предсказывать значения, которые мы еще не видели. Например, сколько будет и в рассказе Зощенко длиной 1000 слов?
+Теперь мы можем даже предсказывать значения, которые мы еще не видели. Например, сколько будет *и* в рассказе Зощенко длиной 1000 слов?
 
 ```{r}
 #| echo: false
@@ -294,8 +294,8 @@ predict(fit, tibble(n_words = 1000))
 
 ```{r}
 #| message: false
-chekhov <- read_tsv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv")
-zoshenko <- read_tsv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv")
+chekhov <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv")
+zoshenko <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv")
 
 chekhov$author <- "Чехов"
 zoshenko$author <- "Зощенко"
@@ -350,7 +350,7 @@ tibble(author = c("Чехов", "Зощенко"),
 
 Если переменная `dummy_chekhov` принимает значение 1, значит речь о рассказе Чехова, а если принимает значение 0, то о рассказе Зощенко. Если вставить нашу переменную в регрессионную формулу получится следующее:
 
-$$y_i = \hat\beta_0 + \hat\beta_1 \times \text{dummy_chekhov} + \epsilon_i,$$
+$$y_i = \hat\beta_0 + \hat\beta_1 \times \text{dummy\_chekhov} + \epsilon_i$$
 
 Так как  `dummy_chekhov` принимает либо значение 1, либо значение 0, то получается, что модель предсказывает лишь два значения:
 
@@ -394,7 +394,7 @@ iris |>
 Запустим регрессию:
 
 ```{r}
-fit3 <- lm(Petal.Length ~ Sepal.Length+ Species, data = iris)
+fit3 <- lm(Petal.Length ~ Sepal.Length + Species, data = iris)
 summary(fit3)
 ```
 

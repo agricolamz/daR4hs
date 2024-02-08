@@ -610,7 +610,7 @@ F-statistic: 144.4 on 1 and 64 DF,  p-value: &lt; 2.2e-16</code></pre>
 <li><code>Multiple R-squared</code> и <code>Adjusted R-squared</code> — одна из оценок модели, показывает связь между переменными. Без поправок совпадает с квадратом коэффициента корреляции Пирсона.</li>
 <li><code>F-statistic</code> — <span class="math inline">\(F\)</span>-статистика полученная при проведении теста, проверяющего, не являются ли хотя бы один из коэффицинтов статистически значимо отличается от нуля. Совпадает с результатами дисперсионного анализа (ANOVA).</li>
 </ul>
-<p>Теперь мы можем даже предсказывать значения, которые мы еще не видели. Например, сколько будет и в рассказе Зощенко длиной 1000 слов?</p>
+<p>Теперь мы можем даже предсказывать значения, которые мы еще не видели. Например, сколько будет <em>и</em> в рассказе Зощенко длиной 1000 слов?</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -630,7 +630,7 @@ F-statistic: 144.4 on 1 and 64 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 <section id="категориальные-переменные" class="level3" data-number="8.3.3">
 <h3 data-number="8.3.3" class="anchored" data-anchor-id="категориальные-переменные"><span class="header-section-number">8.3.3</span> Категориальные переменные</h3>
-<p>Что если мы хотим включить в наш анализ категориальные переменные? Давайте рассмотрим простой пример с <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.tsv">рассказами Чехова</a> и <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv">Зощенко</a>, которые мы рассматривали в прошлом разделе. Мы будем анализировать логарифм доли слов деньги:</p>
+<p>Что если мы хотим включить в наш анализ категориальные переменные? Давайте рассмотрим простой пример с <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv">рассказами Чехова</a> и <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv">Зощенко</a>, которые мы рассматривали в прошлом разделе. Мы будем анализировать логарифм доли слов деньги:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>chekhov <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv"</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>zoshenko <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv"</span>)</span>
@@ -702,7 +702,7 @@ mean in group Зощенко   mean in group Чехов
 </div>
 </div>
 <p>Если переменная <code>dummy_chekhov</code> принимает значение 1, значит речь о рассказе Чехова, а если принимает значение 0, то о рассказе Зощенко. Если вставить нашу переменную в регрессионную формулу получится следующее:</p>
-<p><span class="math display">\[y_i = \hat\beta_0 + \hat\beta_1 \times \text{dummy_chekhov} + \epsilon_i,\]</span></p>
+<p><span class="math display">\[y_i = \hat\beta_0 + \hat\beta_1 \times \text{dummy\_chekhov} + \epsilon_i\]</span></p>
 <p>Так как <code>dummy_chekhov</code> принимает либо значение 1, либо значение 0, то получается, что модель предсказывает лишь два значения:</p>
 <p><span class="math display">\[y_i = \left\{\begin{array}{ll}\hat\beta_0 + \hat\beta_1 \times 1 + \epsilon_i = \hat\beta_0 + \hat\beta_1 + \epsilon_i\text{, если рассказ Чехова}\\
 \hat\beta_0 + \hat\beta_1 \times 0 + \epsilon_i = \hat\beta_0 + \epsilon_i\text{, если рассказ Зощенко}
@@ -762,7 +762,7 @@ F-statistic: 32.34 on 1 and 125 DF,  p-value: 8.665e-08</code></pre>
 </div>
 <p>Запустим регрессию:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>fit3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length<span class="sc">+</span> Species, <span class="at">data =</span> iris)</span>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>fit3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length <span class="sc">+</span> Species, <span class="at">data =</span> iris)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
