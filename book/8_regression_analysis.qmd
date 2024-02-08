@@ -116,10 +116,10 @@ set.seed(42)
 sample_1 <- rnorm(25, mean = 40, sd = 5)
 sample_2 <- rnorm(25, mean = 50, sd = 4.5)
 
-tibble(sample_1, sample_2) %>% 
-  pivot_longer(names_to = "dataset", values_to = "values", sample_1:sample_2) %>% 
-  group_by(dataset) %>% 
-  mutate(mean = mean(values)) %>% 
+tibble(sample_1, sample_2) |> 
+  pivot_longer(names_to = "dataset", values_to = "values", sample_1:sample_2) |> 
+  group_by(dataset) |> 
+  mutate(mean = mean(values)) |> 
   ggplot(aes(values, fill = dataset))+
   geom_dotplot(show.legend = FALSE)+
   geom_vline(aes(xintercept = mean, color = dataset), size = 2, linetype = 2, show.legend = FALSE)
@@ -151,7 +151,7 @@ t.test(sample_1, sample_2)
 
 set.seed(42)
 tibble(x = rnorm(100)+1,
-       y = rnorm(100)+3) %>% 
+       y = rnorm(100)+3) |> 
   ggplot(aes(x, y))+
   geom_point(alpha = 0)+
   geom_hline(yintercept = 0)+
@@ -182,13 +182,13 @@ $$y_i = \hat\beta_0 + \hat\beta_1 \times x_i + \epsilon_i,$$
 
 set.seed(42)
 tibble(x = rnorm(30, mean = 50, sd = 10), 
-       y = x + rnorm(30, sd = 10)) %>% 
+       y = x + rnorm(30, sd = 10)) |> 
   mutate(x = x - mean(x)+ 50,
          y = y - mean(y)+ 55) ->
   df
 
 coef <- round(coef(lm(y~x, data = df)), 3)
-df %>% 
+df |> 
   ggplot(aes(x, y))+
   geom_point(size = 2)+
   geom_smooth(se = FALSE, method = "lm")+
@@ -208,11 +208,11 @@ $$\hat\beta_0 = \bar y - \hat\beta_1\times\bar x$$
 Давайте попробуем смоделировать количество слов *и* в рассказах М. Зощенко в зависимости от длины рассказа:
 ```{r}
 #| message: false
-zo <- read_tsv("https://github.com/agricolamz/DS_for_DH/raw/master/data/tidy_zoshenko.csv")
+zo <- read_tsv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv")
 
-zo %>% 
-  filter(word == "и") %>% 
-  distinct() %>% 
+zo |> 
+  filter(word == "и") |> 
+  distinct() |> 
   ggplot(aes(n_words, n))+
   geom_point()+
   labs(x = "количество слов в рассказе",
@@ -221,14 +221,16 @@ zo %>%
 
 Мы видим, несколько одиночных точек, давайте избавимся от них и добавим регрессионную линию при помощи функции `geom_smooth()`:
 
-```{r, message=FALSE}
-zo %>% 
+```{r}
+#| message: false
+
+zo |> 
   filter(word == "и",
-         n_words < 1500) %>% 
+         n_words < 1500) |> 
   distinct() ->
   zo_filtered
 
-zo_filtered %>%   
+zo_filtered |>   
   ggplot(aes(n_words, n))+
   geom_point()+
   geom_smooth(method = "lm", se = FALSE)+
@@ -259,19 +261,17 @@ summary(fit)
 * `Std. Error` -- стандартная ошибка среднего;
 * `t value` -- $t$-статистика, полученная при проведении одновыборочного $t$-теста, сравнивающего данный коэфициент с 0;
 * `Pr(>|t|)` -- полученное $p$-значение;
-* `Multiple R-squared` и	`Adjusted R-squared` --- одна из оценок модели, показывает связь между переменными. Без поправок совпадает с квадратом коэффициента корреляции Пирсона:
-
-```{r}
-cor(zo_filtered$n_words, zo_filtered$n)^2
-```
-
+* `Multiple R-squared` и	`Adjusted R-squared` --- одна из оценок модели, показывает связь между переменными. Без поправок совпадает с квадратом коэффициента корреляции Пирсона.
 * `F-statistic` --- $F$-статистика полученная при проведении теста, проверяющего, не являются ли хотя бы один из коэффицинтов статистически значимо отличается от нуля. Совпадает с результатами дисперсионного анализа (ANOVA).
 
 Теперь мы можем даже предсказывать значения, которые мы еще не видели. Например, сколько будет и в рассказе Зощенко длиной 1000 слов?
 
-```{r, echo = FALSE, message=FALSE}
+```{r}
+#| echo: false
+#| message: false
+
 pr <- predict(fit, tibble(n_words = 1000))
-zo_filtered %>%   
+zo_filtered |>   
   ggplot(aes(n_words, n))+
   geom_point()+
   geom_smooth(method = "lm", se = FALSE)+
@@ -288,64 +288,34 @@ zo_filtered %>%
 predict(fit, tibble(n_words = 1000))
 ```
 
-```{block, type = "rmdtask"}
-Постройте ленейную ргерессию на основании [рассказов А. Чехова](https://github.com/agricolamz/DS_for_DH/raw/master/data/tidy_chekhov.tsv), предсказывая количество и на основании количства слов. При моделировании используйте только рассказы длиной меньше 2500 слов. Укажите свободный член получившейся модели, округлив его до 3 знаков после запятой.
-```
-
-```{r, results='asis', echo = FALSE, message = FALSE}
-chekhov <- read_tsv("https://github.com/agricolamz/DS_for_DH/raw/master/data/tidy_chekhov.tsv")
-
-chekhov %>% 
-  filter(word == "и",
-         n_words < 2500) %>%
-  lm(data = ., n~n_words) ->
-  fit_ch
-check_question(round(fit_ch$coefficients[1], 3))
-```
-
-```{block, type = "rmdtask"}
-Укажите угловой коффициент получившейся модели, округлив его до 3 знаков после запятой.
-```
-
-
-```{r, results='asis', echo = FALSE, message = FALSE}
-check_question(round(fit_ch$coefficients[2], 3))
-```
-
-```{block, type = "rmdtask"}
-Укажите предсказания модели для рассказа длиной 1000 слов, округлив получнное значение до 3 знаков после запятой.
-```
-
-```{r, results='asis', echo = FALSE, message = FALSE}
-check_question(round(predict(fit_ch, tibble(n_words = 1000)), 3))
-```
-
-
 ### Категориальные переменные
 
-Что если мы хотим включить в наш анализ категориальные переменные? Давайте рассмотрим простой пример с [рассказами Чехова](https://github.com/agricolamz/DS_for_DH/raw/master/data/tidy_chekhov.tsv) и [Зощенко](https://github.com/agricolamz/DS_for_DH/raw/master/data/tidy_zoshenko.csv), которые мы рассматривали в прошлом разделе. Мы будем анализировать логарифм доли слов деньги:
+Что если мы хотим включить в наш анализ категориальные переменные? Давайте рассмотрим простой пример с [рассказами Чехова](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.tsv) и [Зощенко](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv), которые мы рассматривали в прошлом разделе. Мы будем анализировать логарифм доли слов деньги:
 
-```{r, message=FALSE}
-chekhov <- read_tsv("https://github.com/agricolamz/DS_for_DH/raw/master/data/tidy_chekhov.tsv")
-zoshenko <- read_tsv("https://github.com/agricolamz/DS_for_DH/raw/master/data/tidy_zoshenko.csv")
+```{r}
+#| message: false
+chekhov <- read_tsv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.tsv")
+zoshenko <- read_tsv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv")
 
 chekhov$author <- "Чехов"
 zoshenko$author <- "Зощенко"
 
-chekhov %>% 
-  bind_rows(zoshenko) %>% 
-  filter(str_detect(word, "деньг")) %>% 
-  group_by(author, titles, n_words) %>% 
-  summarise(n = sum(n)) %>% 
+chekhov |> 
+  bind_rows(zoshenko) |> 
+  filter(str_detect(word, "деньг")) |> 
+  group_by(author, titles, n_words) |> 
+  summarise(n = sum(n)) |> 
   mutate(log_ratio = log(n/n_words)) ->
   checkov_zoshenko
 ```
 
 Визуализация выглядит так:
-```{r, echo = FALSE}
-checkov_zoshenko %>% 
-  group_by(author) %>% 
-  mutate(mean = mean(log_ratio)) %>% 
+```{r}
+#| echo: false
+
+checkov_zoshenko |> 
+  group_by(author) |> 
+  mutate(mean = mean(log_ratio)) |> 
   ggplot(aes(author, log_ratio))+
   geom_violin()+
   geom_hline(aes(yintercept = mean), linetype = 2)+
@@ -358,7 +328,7 @@ checkov_zoshenko %>%
 ```{r}
 t.test(log_ratio~author, 
        data = checkov_zoshenko, 
-       var.equal =TRUE) # здесь я мухлюю, отключая поправку Уэлча
+       var.equal = TRUE) # здесь я мухлюю, отключая поправку Уэлча
 ```
 
 Разница между группами является статистически значимой (t(125) = 5.6871, p-value = 8.665e-08).
@@ -399,12 +369,6 @@ summary(fit2)
 
 Во-первых стоит обратить внимание на то, что R сам преобразовал нашу категориальную переменную в dummy-переменную `authorЧехов`. Во-вторых, можно заметить, что значения t-статистики и p-value совпадают с результатами полученными нами в t-тесте выше. Статистическти значимый коэффициент при аргументе `authorЧехов` следует интерпретировать как разницу средних между логарифмом долей в рассказах Чехова и Зощенко.
 
-
-```{block, type = "rmdtask"}
-В работе (Coretta 2017, https://goo.gl/NrfgJm) рассматривается отношения между длительностью гласного и придыхание согласного. Автор собрал данные 5 носителей исландского. Дальше он извлек длительность гласного, после которого были придыхательные и непридыхательные. Скачайте [данные](https://raw.githubusercontent.com/agricolamz/DS_for_DH/master/data/icelandic.csv) и постройте регрессионную модель, предсказывающую длительность гласного на основе .
-```
-
-
 ### Множественная регрессия
 
 Множественная регрессия позволяет проанализировать связь между зависимой и несколькими зависимыми переменными. Формула множественной регрессии не сильно отличается от формулы обычной линейной регрессии:
@@ -422,7 +386,7 @@ $$y_i = \hat\beta_0 + \hat\beta_1 \times x_{1i}+ \dots+ \hat\beta_n \times x_{ni
 Попробуем предсказать длину лепестка на основе длины чашелистик и вида ириса:
 
 ```{r}
-iris %>% 
+iris |> 
   ggplot(aes(Sepal.Length, Petal.Length, color = Species))+
   geom_point()
 ```
@@ -437,15 +401,16 @@ summary(fit3)
 Все предикторы статистически значимы. Давайте посмотрим предсказания модели для всех наблюдений:
 
 ```{r}
-iris %>% 
-  mutate(prediction = predict(fit3)) %>% 
+iris |> 
+  mutate(prediction = predict(fit3)) |> 
   ggplot(aes(Sepal.Length, prediction, color = Species))+
   geom_point()
 ```
 
 Всегда имеет смысл визуализировать, что нам говорит наша модель. Если использовать пакет `ggeffects` (или предшествовавший ему пакет `effects`), это можно сделать не сильно задумываясь, как это делать:
 
-```{r, message = FALSE}
+```{r}
+#| message: false
 library(ggeffects)
 plot(ggpredict(fit3, terms = c("Sepal.Length", "Species")))
 ```
