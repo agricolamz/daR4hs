@@ -297,9 +297,6 @@ predict(fit, tibble(n_words = 1000))
 chekhov <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv")
 zoshenko <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv")
 
-chekhov$author <- "Чехов"
-zoshenko$author <- "Зощенко"
-
 chekhov |> 
   bind_rows(zoshenko) |> 
   filter(str_detect(word, "деньг")) |> 
