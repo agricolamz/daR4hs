@@ -522,15 +522,18 @@ mean of x mean of y
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="первая-регрессия"><span class="header-section-number">8.3.2</span> Первая регрессия</h3>
 <p>Давайте попробуем смоделировать количество слов <em>и</em> в рассказах М. Зощенко в зависимости от длины рассказа:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>zo <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv"</span>)</span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>zoshenko <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv"</span>)</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>zo <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>zoshenko <span class="sc">|&gt;</span> </span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(word <span class="sc">==</span> <span class="st">"и"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n_words, n))<span class="sc">+</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"количество слов в рассказе"</span>,</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"количество и"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="ot">-&gt;</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  zoshenko_filtered</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>zoshenko_filtered <span class="sc">|&gt;</span>   </span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n_words, n))<span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"количество слов в рассказе"</span>,</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"количество и"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -539,20 +542,14 @@ mean of x mean of y
 </div>
 </div>
 </div>
-<p>Мы видим, несколько одиночных точек, давайте избавимся от них и добавим регрессионную линию при помощи функции <code>geom_smooth()</code>:</p>
+<p>Давайте избавимся от них и добавим регрессионную линию при помощи функции <code>geom_smooth()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>zo <span class="sc">|&gt;</span> </span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(word <span class="sc">==</span> <span class="st">"и"</span>,</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>         n_words <span class="sc">&lt;</span> <span class="dv">1500</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="ot">-&gt;</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  zo_filtered</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>zo_filtered <span class="sc">|&gt;</span>   </span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n_words, n))<span class="sc">+</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"количество слов в рассказе"</span>,</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"количество и"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>zoshenko_filtered <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n_words, n))<span class="sc">+</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"количество слов в рассказе"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"количество и"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -563,12 +560,12 @@ mean of x mean of y
 </div>
 <p>Чтобы получить формулу этой линии нужно запустить функцию, которая оценивает линейную регрессию:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(n<span class="sc">~</span>n_words, <span class="at">data =</span> zo_filtered)</span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(n<span class="sc">~</span>n_words, <span class="at">data =</span> zoshenko_filtered)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = n ~ n_words, data = zo_filtered)
+lm(formula = n ~ n_words, data = zoshenko_filtered)
 
 Coefficients:
 (Intercept)      n_words  
@@ -583,7 +580,7 @@ Coefficients:
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
-lm(formula = n ~ n_words, data = zo_filtered)
+lm(formula = n ~ n_words, data = zoshenko_filtered)
 
 Residuals:
      Min       1Q   Median       3Q      Max 
@@ -632,19 +629,16 @@ F-statistic: 144.4 on 1 and 64 DF,  p-value: &lt; 2.2e-16</code></pre>
 <h3 data-number="8.3.3" class="anchored" data-anchor-id="категориальные-переменные"><span class="header-section-number">8.3.3</span> Категориальные переменные</h3>
 <p>Что если мы хотим включить в наш анализ категориальные переменные? Давайте рассмотрим простой пример с <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv">рассказами Чехова</a> и <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv">Зощенко</a>, которые мы рассматривали в прошлом разделе. Мы будем анализировать логарифм доли слов деньги:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>chekhov <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv"</span>)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>zoshenko <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv"</span>)</span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>chekhov <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv"</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>zoshenko <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv"</span>)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>chekhov<span class="sc">$</span>author <span class="ot">&lt;-</span> <span class="st">"Чехов"</span></span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>zoshenko<span class="sc">$</span>author <span class="ot">&lt;-</span> <span class="st">"Зощенко"</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>chekhov <span class="sc">|&gt;</span> </span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(zoshenko) <span class="sc">|&gt;</span> </span>
-<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(word, <span class="st">"деньг"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(author, titles, n_words) <span class="sc">|&gt;</span> </span>
-<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span> </span>
-<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_ratio =</span> <span class="fu">log</span>(n<span class="sc">/</span>n_words)) <span class="ot">-&gt;</span></span>
-<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  checkov_zoshenko</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>chekhov <span class="sc">|&gt;</span> </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(zoshenko) <span class="sc">|&gt;</span> </span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(word, <span class="st">"деньг"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(author, titles, n_words) <span class="sc">|&gt;</span> </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_ratio =</span> <span class="fu">log</span>(n<span class="sc">/</span>n_words)) <span class="ot">-&gt;</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  checkov_zoshenko</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Визуализация выглядит так:</p>
 <div class="cell">
@@ -666,13 +660,13 @@ F-statistic: 144.4 on 1 and 64 DF,  p-value: &lt; 2.2e-16</code></pre>
     Two Sample t-test
 
 data:  log_ratio by author
-t = 5.6871, df = 125, p-value = 8.665e-08
+t = 6.3897, df = 124, p-value = 3.045e-09
 alternative hypothesis: true difference in means between group Зощенко and group Чехов is not equal to 0
 95 percent confidence interval:
- 0.8606107 1.7793181
+ 1.009976 1.916472
 sample estimates:
 mean in group Зощенко   mean in group Чехов 
-            -5.021262             -6.341226 </code></pre>
+            -4.878002             -6.341226 </code></pre>
 </div>
 </div>
 <p>Разница между группами является статистически значимой (t(125) = 5.6871, p-value = 8.665e-08).</p>
@@ -718,19 +712,19 @@ Call:
 lm(formula = log_ratio ~ author, data = checkov_zoshenko)
 
 Residuals:
-    Min      1Q  Median      3Q     Max 
--2.8652 -0.6105 -0.0607  0.6546  3.2398 
+     Min       1Q   Median       3Q      Max 
+-2.24643 -0.61293 -0.05149  0.65130  3.09655 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)  -5.0213     0.2120 -23.680  &lt; 2e-16 ***
-authorЧехов  -1.3200     0.2321  -5.687 8.67e-08 ***
+(Intercept)   -4.878      0.210  -23.22  &lt; 2e-16 ***
+authorЧехов   -1.463      0.229   -6.39 3.05e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 0.9717 on 125 degrees of freedom
-Multiple R-squared:  0.2056,    Adjusted R-squared:  0.1992 
-F-statistic: 32.34 on 1 and 125 DF,  p-value: 8.665e-08</code></pre>
+Residual standard error: 0.9393 on 124 degrees of freedom
+Multiple R-squared:  0.2477,    Adjusted R-squared:  0.2416 
+F-statistic: 40.83 on 1 and 124 DF,  p-value: 3.045e-09</code></pre>
 </div>
 </div>
 <p>Во-первых стоит обратить внимание на то, что R сам преобразовал нашу категориальную переменную в dummy-переменную <code>authorЧехов</code>. Во-вторых, можно заметить, что значения t-статистики и p-value совпадают с результатами полученными нами в t-тесте выше. Статистическти значимый коэффициент при аргументе <code>authorЧехов</code> следует интерпретировать как разницу средних между логарифмом долей в рассказах Чехова и Зощенко.</p>

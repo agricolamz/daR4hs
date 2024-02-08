@@ -208,29 +208,26 @@ $$\hat\beta_0 = \bar y - \hat\beta_1\times\bar x$$
 Давайте попробуем смоделировать количество слов *и* в рассказах М. Зощенко в зависимости от длины рассказа:
 ```{r}
 #| message: false
-zo <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv")
+zoshenko <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv")
 
-zo |> 
+zoshenko |> 
   filter(word == "и") |> 
-  distinct() |> 
+  distinct() ->
+  zoshenko_filtered
+
+zoshenko_filtered |>   
   ggplot(aes(n_words, n))+
   geom_point()+
   labs(x = "количество слов в рассказе",
        y = "количество и")
 ```
 
-Мы видим, несколько одиночных точек, давайте избавимся от них и добавим регрессионную линию при помощи функции `geom_smooth()`:
+Давайте избавимся от них и добавим регрессионную линию при помощи функции `geom_smooth()`:
 
 ```{r}
 #| message: false
 
-zo |> 
-  filter(word == "и",
-         n_words < 1500) |> 
-  distinct() ->
-  zo_filtered
-
-zo_filtered |>   
+zoshenko_filtered |> 
   ggplot(aes(n_words, n))+
   geom_point()+
   geom_smooth(method = "lm", se = FALSE)+
@@ -241,7 +238,7 @@ zo_filtered |>
 Чтобы получить формулу этой линии нужно запустить функцию, которая оценивает линейную регрессию:
 
 ```{r}
-fit <- lm(n~n_words, data = zo_filtered)
+fit <- lm(n~n_words, data = zoshenko_filtered)
 fit
 ```
 
@@ -271,7 +268,7 @@ summary(fit)
 #| message: false
 
 pr <- predict(fit, tibble(n_words = 1000))
-zo_filtered |>   
+zoshenko_filtered |>   
   ggplot(aes(n_words, n))+
   geom_point()+
   geom_smooth(method = "lm", se = FALSE)+
