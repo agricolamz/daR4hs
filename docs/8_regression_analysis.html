@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -69,6 +123,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -186,7 +269,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#о-статистике" id="toc-о-статистике" class="nav-link active" data-scroll-target="#о-статистике"><span class="header-section-number">8.1</span> О статистике</a></li>
-  <li><a href="#тест-стьюдента-t-test" id="toc-тест-стьюдента-t-test" class="nav-link" data-scroll-target="#тест-стьюдента-t-test"><span class="header-section-number">8.2</span> Тест Стьюдента (t-test)</a></li>
+  <li><a href="#тест-стьюдента-t-тест" id="toc-тест-стьюдента-t-тест" class="nav-link" data-scroll-target="#тест-стьюдента-t-тест"><span class="header-section-number">8.2</span> Тест Стьюдента (t-тест)</a>
+  <ul class="collapse">
+  <li><a href="#двухвыборочный-тест-стьюдента" id="toc-двухвыборочный-тест-стьюдента" class="nav-link" data-scroll-target="#двухвыборочный-тест-стьюдента"><span class="header-section-number">8.2.1</span> Двухвыборочный тест Стьюдента</a></li>
+  </ul></li>
   <li><a href="#корреляция" id="toc-корреляция" class="nav-link" data-scroll-target="#корреляция"><span class="header-section-number">8.3</span> Корреляция</a></li>
   <li><a href="#регрессионный-анализ" id="toc-регрессионный-анализ" class="nav-link" data-scroll-target="#регрессионный-анализ"><span class="header-section-number">8.4</span> Регрессионный анализ</a></li>
   </ul>
@@ -214,6 +300,9 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="о-статистике" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="о-статистике"><span class="header-section-number">8.1</span> О статистике</h2>
 <p>Статистика имеет большое значение в науке, и все чаще, она позволяет принимать решения правительствам, корпорациям и т. п. В области принятия решений статистику сейчас теснят методы машинного обучения, однако в науке все же статистика продолжает занимать важное место, помогая подтвердить обнаруженные факты, делать решения на основе данных и делать предсказания.</p>
@@ -221,8 +310,170 @@ ul.task-list li input[type="checkbox"] {
 <p>Важно помнить, что статистика позволяет лишь моделировать процессы, которые стоят за генерацией данных. В связи с этим не стоит считать, что статистический вывод позволяет узнать правду или сделать правильный выбор: правильность и истинность любого конкретного случая зависит от научных установок исследователя, ответственного применения методов с соблюдением всех ограничений на их применение, качества сбора данных и теоретического обоснования процедуры анализа. Я призываю смотреть на статистику как на инструмент, который помогает в принятии решений, предсказании и моделировании: если вы забили шуруп молотком, то, вероятно, вашу задачу вы решили, но молоток сам по себе не несет ответственности за результат.</p>
 <p>Сейчас широко распространены две школы статистического анализа: фриквентисткий (еще можно встретить термин <em>частотный</em>) и байесовский. Разница между этими подходами заключается в их основных принципах. Частотный подход основан на оценке статистического параметра на основе частоты его появления в выборке, в то время как байесовский подход позволяет представить оценку статистического параметра как распределение вероятностей, соединяя априорные знания о предметной области и новые данные. Фриквентистские методы получили широкое распространение в XX веке, а байесовская методы применялись задолго до фриквентистских, однако с развитием вычислительных мощностей в XXI веке популярность байесовских методов растет. В данном главе мы будем опираться на фриквентистские методы, так как погружение в байесовские методы требует некоторой значительной подготовки.</p>
 </section>
-<section id="тест-стьюдента-t-test" class="level2" data-number="8.2">
-<h2 data-number="8.2" class="anchored" data-anchor-id="тест-стьюдента-t-test"><span class="header-section-number">8.2</span> Тест Стьюдента (t-test)</h2>
+<section id="тест-стьюдента-t-тест" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="тест-стьюдента-t-тест"><span class="header-section-number">8.2</span> Тест Стьюдента (t-тест)</h2>
+<p>Первый статистический метод, который обычно обсуждают в фриквентистской статистике — это тест Стьюдента. Основное его применение заключается в сравнении средних значений двух групп (двухвыборочный тест) или среднего одной группы с некоторым значением (одновыборочный тест). Среди возможных задач, которые можно решить при помощи теста Стьюдента:</p>
+<ul>
+<li>оценить эффект нового лекарства по сравнению со старым;</li>
+<li>оценить эффект нового метода обучения на результатах тестов групп студентов;</li>
+<li>оценить отличие какого-нибудь параметра популяции (например, избыточного веса) по сравнению с нормой.</li>
+</ul>
+<p>Теперь мы обсудим стандартную процедуру фриквентистской статистики. Допустим мы сравниваем средние двух групп А и B. Принято создавать две гипотезы:</p>
+<ul>
+<li><span class="math inline">\(H_0\)</span> — (нулевая гипотеза) разница между группами не является статистически значимой, т. е. наблюдаемые данные могут происходят из одного ожидаемого распределения.</li>
+<li><span class="math inline">\(H_1\)</span> — (альтернативная гипотеза) разница является статистически значимой, т. е. наблюдаемые данные не могут происходят из одного ожидаемого распределения.</li>
+</ul>
+<p>Нулевая гипотеза — это гипотеза, которую каждый исследователь в случае успеха отвергнет, и примет альтернативную. После применения статистического критерия (каждый критерий зависит от конкретного статистического теста, а выбор теста зависит от типа данных) исследователь считает вероятность наблюдать такой или более экстремальный результат, если верна нулевая гипотеза (<strong>p-value, p-уровень значимости</strong>).</p>
+<p>В тесте Стьюдента таким распределением является t-распредление. Распределение, которое напоминает нормальное распределение, но имеет более широкие края:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>T-распределение имеет один параметр, который принято называть степенями свободы (degree of freedom, df). Чем больше сетпеней свободы, тем больше t-распределение похоже на нормальное распределение. Обычно этот параметр напрямую связывают с количеством наблюдений.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="sc">-</span><span class="dv">7</span>, <span class="dv">7</span>, <span class="at">by =</span> <span class="fl">0.01</span>), <span class="dv">4</span>),</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">df =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">75</span>), <span class="dv">1401</span>),</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">dt</span>(x, <span class="at">df =</span>df)) <span class="sc">|&gt;</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y, <span class="at">color =</span> <span class="fu">as.factor</span>(df)))<span class="sc">+</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Давайте разберем на примере. Из статьи <span class="citation" data-cites="stepanova11">(<a href="references.html#ref-stepanova11" role="doc-biblioref">Stepanova 2011</a>)</span> мы знаем, что носители русского языка в среднем говорят 5.31 слога в секунду со стандартным отклонением 1,93 (мужчины 5.46 слога в секунду со средним отклонением 2.02, женщины 5.23 слога в секунду со средним отклонением 1.84, дети 3.86 слога в секунду со средним отклонением 1.67). Мы опросили 30 носителей деревни N и выяснили, что средняя равна 7, а стандартное отклонение равно 2. Является ли данная разница статистически значимой? Рассмотрим данные</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">30</span>, <span class="at">mean =</span> <span class="dv">7</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>data</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  9.741917  5.870604  7.726257  8.265725  7.808537  6.787751 10.023044
+ [8]  6.810682 11.036847  6.874572  9.609739 11.573291  4.222279  6.442422
+[15]  6.733357  8.271901  6.431494  1.687089  2.119066  9.640227  6.386723
+[22]  3.437383  6.656165  9.429349 10.790387  6.139062  6.485461  3.473674
+[29]  7.920195  5.720010</code></pre>
+</div>
+</div>
+<p>Вот так можно визуализировать наш вопрос:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(data) <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(data))<span class="sc">+</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>()<span class="sc">+</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fu">mean</span>(data), <span class="at">size =</span> <span class="dv">2</span>, <span class="at">linetype =</span> <span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="fl">5.31</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">color =</span> <span class="st">"red"</span>)<span class="sc">+</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="at">geom =</span> <span class="st">"text"</span>, <span class="at">x =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">y =</span> <span class="fl">0.75</span>, <span class="at">label =</span> <span class="st">"среднее согласно</span><span class="sc">\n</span><span class="st">[Stepanova 2011]"</span>, <span class="at">size =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Применяем тест Стьюдента. Так как мы сравниваем нашу выборку с некоторым эталонным значением, мы применяем одновыборочный тест Стьюдента, а эталонное значение записываем в аргумент <code>mu</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(data, <span class="at">mu =</span> <span class="fl">5.31</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One Sample t-test
+
+data:  data
+t = 3.9871, df = 29, p-value = 0.0004143
+alternative hypothesis: true mean is not equal to 5.31
+95 percent confidence interval:
+ 6.199903 8.074444
+sample estimates:
+mean of x 
+ 7.137174 </code></pre>
+</div>
+</div>
+<p>Если мы хотим визуализировать t-статистику, которую мы получили на t-распределении, получится вот такой график:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">7</span>, <span class="dv">7</span>, <span class="at">by =</span> <span class="fl">0.01</span>),</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">dt</span>(x, <span class="at">df =</span> <span class="dv">29</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y))<span class="sc">+</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">linetype =</span> <span class="dv">2</span>, <span class="at">xintercept =</span> <span class="fl">3.9871</span>)<span class="sc">+</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"t-распределение с параметром df = 29"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Если бы значение t-критерия оказалось где-то посередине, то тест Стьюдента бы выдал p-value больше 0.05 и тогда у нас бы не было оснований ни для отвержения, ни для принятия нулевой гипотезы.</p>
+<section id="двухвыборочный-тест-стьюдента" class="level3" data-number="8.2.1">
+<h3 data-number="8.2.1" class="anchored" data-anchor-id="двухвыборочный-тест-стьюдента"><span class="header-section-number">8.2.1</span> Двухвыборочный тест Стьюдента</h3>
+<p>Логика двухвыборочного теста идентична логике одновыброчного, с тем лишь исключением, что мы сравниваем две группы:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  sample_1 and sample_2
+t = -5.0632, df = 41.295, p-value = 9.005e-06
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -11.046695  -4.748026
+sample estimates:
+mean of x mean of y 
+ 40.93768  48.83504 </code></pre>
+</div>
+</div>
+<p>На практике разница видна только в названии аргументов. Представим, что у нас есть две выборки:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>sample_1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 46.85479 37.17651 41.81564 43.16431 42.02134 39.46938 47.55761 39.52670
+ [9] 50.09212 39.68643 46.52435 51.43323 33.05570 38.60606 39.33339 43.17975
+[17] 38.57874 26.71772 27.79767 46.60057 38.46681 31.09346 39.14041 46.07337
+[25] 49.47597</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>sample_2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 48.06289 48.84229 42.06577 52.07044 47.12002 52.04953 53.17177 54.65797
+ [9] 47.25983 52.27230 42.27346 46.46993 46.17092 39.13607 50.16255 50.92699
+[17] 48.37524 53.41173 46.72983 43.84274 51.94768 46.34873 56.49846 48.05849
+[25] 52.95042</code></pre>
+</div>
+</div>
+<p>Тогда для того, чтобы применит тест Стьюдента, нужно запустить следующий код:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(sample_1, sample_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  sample_1 and sample_2
+t = -5.0632, df = 41.295, p-value = 9.005e-06
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -11.046695  -4.748026
+sample estimates:
+mean of x mean of y 
+ 40.93768  48.83504 </code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="корреляция" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="корреляция"><span class="header-section-number">8.3</span> Корреляция</h2>
@@ -231,6 +482,11 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="8.4" class="anchored" data-anchor-id="регрессионный-анализ"><span class="header-section-number">8.4</span> Регрессионный анализ</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-stepanova11" class="csl-entry" role="listitem">
+Stepanova, S. 2011. <span>“Russian Spontaneous Speech Rate-Based on the Speech Corpus of <span>R</span>ussian <span>E</span>veryday <span>I</span>nteraction.”</span> In <em>Proceedings of 17th International Congress of Phonetic Sciences</em>, edited by Wai Sum Lee, 1902–5.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
