@@ -273,8 +273,15 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#двухвыборочный-тест-стьюдента" id="toc-двухвыборочный-тест-стьюдента" class="nav-link" data-scroll-target="#двухвыборочный-тест-стьюдента"><span class="header-section-number">8.2.1</span> Двухвыборочный тест Стьюдента</a></li>
   </ul></li>
-  <li><a href="#корреляция" id="toc-корреляция" class="nav-link" data-scroll-target="#корреляция"><span class="header-section-number">8.3</span> Корреляция</a></li>
-  <li><a href="#регрессионный-анализ" id="toc-регрессионный-анализ" class="nav-link" data-scroll-target="#регрессионный-анализ"><span class="header-section-number">8.4</span> Регрессионный анализ</a></li>
+  <li><a href="#регрессионный-анализ" id="toc-регрессионный-анализ" class="nav-link" data-scroll-target="#регрессионный-анализ"><span class="header-section-number">8.3</span> Регрессионный анализ</a>
+  <ul class="collapse">
+  <li><a href="#основы" id="toc-основы" class="nav-link" data-scroll-target="#основы"><span class="header-section-number">8.3.1</span> Основы</a></li>
+  <li><a href="#первая-регрессия" id="toc-первая-регрессия" class="nav-link" data-scroll-target="#первая-регрессия"><span class="header-section-number">8.3.2</span> Первая регрессия</a></li>
+  <li><a href="#категориальные-переменные" id="toc-категориальные-переменные" class="nav-link" data-scroll-target="#категориальные-переменные"><span class="header-section-number">8.3.3</span> Категориальные переменные</a></li>
+  <li><a href="#множественная-регрессия" id="toc-множественная-регрессия" class="nav-link" data-scroll-target="#множественная-регрессия"><span class="header-section-number">8.3.4</span> Множественная регрессия</a></li>
+  <li><a href="#сравнение-моделей" id="toc-сравнение-моделей" class="nav-link" data-scroll-target="#сравнение-моделей"><span class="header-section-number">8.3.5</span> Сравнение моделей</a></li>
+  <li><a href="#послесловие" id="toc-послесловие" class="nav-link" data-scroll-target="#послесловие"><span class="header-section-number">8.3.6</span> Послесловие</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -475,11 +482,441 @@ mean of x mean of y
 </div>
 </section>
 </section>
-<section id="корреляция" class="level2" data-number="8.3">
-<h2 data-number="8.3" class="anchored" data-anchor-id="корреляция"><span class="header-section-number">8.3</span> Корреляция</h2>
+<section id="регрессионный-анализ" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="регрессионный-анализ"><span class="header-section-number">8.3</span> Регрессионный анализ</h2>
+<section id="основы" class="level3" data-number="8.3.1">
+<h3 data-number="8.3.1" class="anchored" data-anchor-id="основы"><span class="header-section-number">8.3.1</span> Основы</h3>
+<p>Суть регрессионного анализа в моделировании связи между двумя и более переменными при помощи прямой на плоскости. Формула прямой зависит от двух параметров: свободного члена (intercept) и углового коэффициента (slope).</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Когда мы пытаемся научиться предсказывать данные одной переменной <span class="math inline">\(Y\)</span> при помощи другой переменной <span class="math inline">\(X\)</span>, мы получаем похожую формулу:</p>
+<p><span class="math display">\[y_i = \hat\beta_0 + \hat\beta_1 \times x_i + \epsilon_i,\]</span> где</p>
+<ul>
+<li><span class="math inline">\(x_i\)</span> — <span class="math inline">\(i\)</span>-ый элемент вектора значений <span class="math inline">\(X\)</span>;</li>
+<li><span class="math inline">\(y_i\)</span> — <span class="math inline">\(i\)</span>-ый элемент вектора значений <span class="math inline">\(Y\)</span>;</li>
+<li><span class="math inline">\(\hat\beta_0\)</span> — оценка случайного члена (intercept);</li>
+<li><span class="math inline">\(\hat\beta_1\)</span> — оценка углового коэффициента (slope);</li>
+<li><span class="math inline">\(\epsilon_i\)</span> — <span class="math inline">\(i\)</span>-ый остаток, разница между оценкой модели (<span class="math inline">\(\hat\beta_0 + \hat\beta_1 \times x_i\)</span>) и реальным значением <span class="math inline">\(y_i\)</span>; весь вектор остатков иногда называют случайным шумом (на графике выделены красным).</li>
+</ul>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Задача регрессии — оценить параметры <span class="math inline">\(\hat\beta_0\)</span> и <span class="math inline">\(\hat\beta_1\)</span>, если нам известны все значения <span class="math inline">\(x_i\)</span> и <span class="math inline">\(y_i\)</span> и мы пытаемся минимизировать значния <span class="math inline">\(\epsilon_i\)</span>. В данном конкретном случае, задачу можно решить аналитически и получить следующие формулы:</p>
+<p><span class="math display">\[\hat\beta_1 = \frac{(\sum_{i=1}^n x_i\times y_i)-n\times\bar x \times \bar y}{\sum_{i = 1}^n(x_i-\bar x)^2}\]</span></p>
+<p><span class="math display">\[\hat\beta_0 = \bar y - \hat\beta_1\times\bar x\]</span></p>
 </section>
-<section id="регрессионный-анализ" class="level2" data-number="8.4">
-<h2 data-number="8.4" class="anchored" data-anchor-id="регрессионный-анализ"><span class="header-section-number">8.4</span> Регрессионный анализ</h2>
+<section id="первая-регрессия" class="level3" data-number="8.3.2">
+<h3 data-number="8.3.2" class="anchored" data-anchor-id="первая-регрессия"><span class="header-section-number">8.3.2</span> Первая регрессия</h3>
+<p>Давайте попробуем смоделировать количество слов <em>и</em> в рассказах М. Зощенко в зависимости от длины рассказа:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>zo <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>zo <span class="sc">|&gt;</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(word <span class="sc">==</span> <span class="st">"и"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n_words, n))<span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"количество слов в рассказе"</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"количество и"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Мы видим, несколько одиночных точек, давайте избавимся от них и добавим регрессионную линию при помощи функции <code>geom_smooth()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>zo <span class="sc">|&gt;</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(word <span class="sc">==</span> <span class="st">"и"</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>         n_words <span class="sc">&lt;</span> <span class="dv">1500</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="ot">-&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  zo_filtered</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>zo_filtered <span class="sc">|&gt;</span>   </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n_words, n))<span class="sc">+</span></span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"количество слов в рассказе"</span>,</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"количество и"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Чтобы получить формулу этой линии нужно запустить функцию, которая оценивает линейную регрессию:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">lm</span>(n<span class="sc">~</span>n_words, <span class="at">data =</span> zo_filtered)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>fit</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n ~ n_words, data = zo_filtered)
+
+Coefficients:
+(Intercept)      n_words  
+   -1.47184      0.04405  </code></pre>
+</div>
+</div>
+<p>Вот мы и получили коэффициенты, теперь мы видим, что наша модель считает следующее:</p>
+<p><span class="math display">\[n = -1.47184 + 0.04405 \times n\_words\]</span></p>
+<p>Более подробную информцию можно посмотреть, если запустить модель в функцию <code>summary()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = n ~ n_words, data = zo_filtered)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-19.6830  -4.3835   0.8986   4.6486  19.6413 
+
+Coefficients:
+             Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept) -1.471840   2.467149  -0.597    0.553    
+n_words      0.044049   0.003666  12.015   &lt;2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 7.945 on 64 degrees of freedom
+Multiple R-squared:  0.6928,    Adjusted R-squared:  0.688 
+F-statistic: 144.4 on 1 and 64 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>В разделе <code>Coefficients</code> содержится информацию про наши коэффициенты:</p>
+<ul>
+<li><code>Estimate</code> – полученная оценка коэффициентов;</li>
+<li><code>Std. Error</code> – стандартная ошибка среднего;</li>
+<li><code>t value</code> – <span class="math inline">\(t\)</span>-статистика, полученная при проведении одновыборочного <span class="math inline">\(t\)</span>-теста, сравнивающего данный коэфициент с 0;</li>
+<li><code>Pr(&gt;|t|)</code> – полученное <span class="math inline">\(p\)</span>-значение;</li>
+<li><code>Multiple R-squared</code> и <code>Adjusted R-squared</code> — одна из оценок модели, показывает связь между переменными. Без поправок совпадает с квадратом коэффициента корреляции Пирсона.</li>
+<li><code>F-statistic</code> — <span class="math inline">\(F\)</span>-статистика полученная при проведении теста, проверяющего, не являются ли хотя бы один из коэффицинтов статистически значимо отличается от нуля. Совпадает с результатами дисперсионного анализа (ANOVA).</li>
+</ul>
+<p>Теперь мы можем даже предсказывать значения, которые мы еще не видели. Например, сколько будет и в рассказе Зощенко длиной 1000 слов?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(fit, <span class="fu">tibble</span>(<span class="at">n_words =</span> <span class="dv">1000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1 
+42.57715 </code></pre>
+</div>
+</div>
+</section>
+<section id="категориальные-переменные" class="level3" data-number="8.3.3">
+<h3 data-number="8.3.3" class="anchored" data-anchor-id="категориальные-переменные"><span class="header-section-number">8.3.3</span> Категориальные переменные</h3>
+<p>Что если мы хотим включить в наш анализ категориальные переменные? Давайте рассмотрим простой пример с <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.tsv">рассказами Чехова</a> и <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv">Зощенко</a>, которые мы рассматривали в прошлом разделе. Мы будем анализировать логарифм доли слов деньги:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>chekhov <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv"</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>zoshenko <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv"</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>chekhov<span class="sc">$</span>author <span class="ot">&lt;-</span> <span class="st">"Чехов"</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>zoshenko<span class="sc">$</span>author <span class="ot">&lt;-</span> <span class="st">"Зощенко"</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>chekhov <span class="sc">|&gt;</span> </span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(zoshenko) <span class="sc">|&gt;</span> </span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(word, <span class="st">"деньг"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(author, titles, n_words) <span class="sc">|&gt;</span> </span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">sum</span>(n)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">log_ratio =</span> <span class="fu">log</span>(n<span class="sc">/</span>n_words)) <span class="ot">-&gt;</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  checkov_zoshenko</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Визуализация выглядит так:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Красной точкой обозначены средние значения, так что мы видим, что между двумя писателями есть разница, но является ли она статистически значимой? В прошлом разделе, мы рассмотрели, что в таком случае можно сделать t-test:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(log_ratio<span class="sc">~</span>author, </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> checkov_zoshenko, </span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>) <span class="co"># здесь я мухлюю, отключая поправку Уэлча</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  log_ratio by author
+t = 5.6871, df = 125, p-value = 8.665e-08
+alternative hypothesis: true difference in means between group Зощенко and group Чехов is not equal to 0
+95 percent confidence interval:
+ 0.8606107 1.7793181
+sample estimates:
+mean in group Зощенко   mean in group Чехов 
+            -5.021262             -6.341226 </code></pre>
+</div>
+</div>
+<p>Разница между группами является статистически значимой (t(125) = 5.6871, p-value = 8.665e-08).</p>
+<p>Для того, чтобы запустить регрессию на категориальных данных категориальная переменная автоматически разбивается на группу бинарных dummy-переменных:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">author =</span> <span class="fu">c</span>(<span class="st">"Чехов"</span>, <span class="st">"Зощенко"</span>),</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">dummy_chekhov =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>),</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">dummy_zoshenko =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  author  dummy_chekhov dummy_zoshenko
+  &lt;chr&gt;           &lt;dbl&gt;          &lt;dbl&gt;
+1 Чехов               1              0
+2 Зощенко             0              1</code></pre>
+</div>
+</div>
+<p>Дальше для регрессионного анализа выкидывают одну из переменных, так как иначе модель не сойдется (dummy-переменных всегда n-1, где n — количество категорий в переменной).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">author =</span> <span class="fu">c</span>(<span class="st">"Чехов"</span>, <span class="st">"Зощенко"</span>),</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">dummy_chekhov =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  author  dummy_chekhov
+  &lt;chr&gt;           &lt;dbl&gt;
+1 Чехов               1
+2 Зощенко             0</code></pre>
+</div>
+</div>
+<p>Если переменная <code>dummy_chekhov</code> принимает значение 1, значит речь о рассказе Чехова, а если принимает значение 0, то о рассказе Зощенко. Если вставить нашу переменную в регрессионную формулу получится следующее:</p>
+<p><span class="math display">\[y_i = \hat\beta_0 + \hat\beta_1 \times \text{dummy_chekhov} + \epsilon_i,\]</span></p>
+<p>Так как <code>dummy_chekhov</code> принимает либо значение 1, либо значение 0, то получается, что модель предсказывает лишь два значения:</p>
+<p><span class="math display">\[y_i = \left\{\begin{array}{ll}\hat\beta_0 + \hat\beta_1 \times 1 + \epsilon_i = \hat\beta_0 + \hat\beta_1 + \epsilon_i\text{, если рассказ Чехова}\\
+\hat\beta_0 + \hat\beta_1 \times 0 + \epsilon_i = \hat\beta_0 + \epsilon_i\text{, если рассказ Зощенко}
+\end{array}\right.\]</span></p>
+<p>Таким образом, получается, что свободный член <span class="math inline">\(\beta_0\)</span> и угловой коэффициент <span class="math inline">\(\beta_1\)</span> в регресси с категориальной переменной получает другую интерпретацию. Одно из значений переменной кодируется при помощи <span class="math inline">\(\beta_0\)</span>, а сумма коэффициентов <span class="math inline">\(\beta_0+\beta_1\)</span> дают другое значение переменной. Так что <span class="math inline">\(\beta_1\)</span> — это разница между оценками двух значений переменной.</p>
+<p>Давайте теперь запустим регрессию на этих же данных:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>fit2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(log_ratio<span class="sc">~</span>author, <span class="at">data =</span> checkov_zoshenko)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = log_ratio ~ author, data = checkov_zoshenko)
+
+Residuals:
+    Min      1Q  Median      3Q     Max 
+-2.8652 -0.6105 -0.0607  0.6546  3.2398 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  -5.0213     0.2120 -23.680  &lt; 2e-16 ***
+authorЧехов  -1.3200     0.2321  -5.687 8.67e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.9717 on 125 degrees of freedom
+Multiple R-squared:  0.2056,    Adjusted R-squared:  0.1992 
+F-statistic: 32.34 on 1 and 125 DF,  p-value: 8.665e-08</code></pre>
+</div>
+</div>
+<p>Во-первых стоит обратить внимание на то, что R сам преобразовал нашу категориальную переменную в dummy-переменную <code>authorЧехов</code>. Во-вторых, можно заметить, что значения t-статистики и p-value совпадают с результатами полученными нами в t-тесте выше. Статистическти значимый коэффициент при аргументе <code>authorЧехов</code> следует интерпретировать как разницу средних между логарифмом долей в рассказах Чехова и Зощенко.</p>
+</section>
+<section id="множественная-регрессия" class="level3" data-number="8.3.4">
+<h3 data-number="8.3.4" class="anchored" data-anchor-id="множественная-регрессия"><span class="header-section-number">8.3.4</span> Множественная регрессия</h3>
+<p>Множественная регрессия позволяет проанализировать связь между зависимой и несколькими зависимыми переменными. Формула множественной регрессии не сильно отличается от формулы обычной линейной регрессии:</p>
+<p><span class="math display">\[y_i = \hat\beta_0 + \hat\beta_1 \times x_{1i}+ \dots+ \hat\beta_n \times x_{ni} + \epsilon_i,\]</span></p>
+<ul>
+<li><span class="math inline">\(x_{ki}\)</span> — <span class="math inline">\(i\)</span>-ый элемент векторов значений <span class="math inline">\(X_1, \dots, X_n\)</span>;</li>
+<li><span class="math inline">\(y_i\)</span> — <span class="math inline">\(i\)</span>-ый элемент вектора значений <span class="math inline">\(Y\)</span>;</li>
+<li><span class="math inline">\(\hat\beta_0\)</span> — оценка случайного члена (intercept);</li>
+<li><span class="math inline">\(\hat\beta_k\)</span> — коэфциент при переменной <span class="math inline">\(X_{k}\)</span>;</li>
+<li><span class="math inline">\(\epsilon_i\)</span> — <span class="math inline">\(i\)</span>-ый остаток, разница между оценкой модели (<span class="math inline">\(\hat\beta_0 + \hat\beta_1 \times x_i\)</span>) и реальным значением <span class="math inline">\(y_i\)</span>; весь вектор остатков иногда называют случайным шумом.</li>
+</ul>
+<p>В такой регресии предикторы могут быть как числовыми, так и категориальными (со всеми вытекающими последствиями, которые мы обсудили в предудщем разделе). Такую регрессию чаще всего сложно визуализировать, так как в одну регрессионную линию вкладываются сразу несколько переменных.</p>
+<p>Попробуем предсказать длину лепестка на основе длины чашелистик и вида ириса:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Sepal.Length, Petal.Length, <span class="at">color =</span> Species))<span class="sc">+</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Запустим регрессию:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>fit3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length<span class="sc">+</span> Species, <span class="at">data =</span> iris)</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Petal.Length ~ Sepal.Length + Species, data = iris)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.76390 -0.17875  0.00716  0.17461  0.79954 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       -1.70234    0.23013  -7.397 1.01e-11 ***
+Sepal.Length       0.63211    0.04527  13.962  &lt; 2e-16 ***
+Speciesversicolor  2.21014    0.07047  31.362  &lt; 2e-16 ***
+Speciesvirginica   3.09000    0.09123  33.870  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2826 on 146 degrees of freedom
+Multiple R-squared:  0.9749,    Adjusted R-squared:  0.9744 
+F-statistic:  1890 on 3 and 146 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p>Все предикторы статистически значимы. Давайте посмотрим предсказания модели для всех наблюдений:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prediction =</span> <span class="fu">predict</span>(fit3)) <span class="sc">|&gt;</span> </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Sepal.Length, prediction, <span class="at">color =</span> Species))<span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Всегда имеет смысл визуализировать, что нам говорит наша модель. Если использовать пакет <code>ggeffects</code> (или предшествовавший ему пакет <code>effects</code>), это можно сделать не сильно задумываясь, как это делать:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggeffects)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">ggpredict</span>(fit3, <span class="at">terms =</span> <span class="fu">c</span>(<span class="st">"Sepal.Length"</span>, <span class="st">"Species"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Как видно из графиков, наша модель имеет одинаковые угловые коэффициенты (slope) для каждого из видов ириса и разные свободные члены (intercept).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Petal.Length ~ Sepal.Length + Species, data = iris)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-0.76390 -0.17875  0.00716  0.17461  0.79954 
+
+Coefficients:
+                  Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)       -1.70234    0.23013  -7.397 1.01e-11 ***
+Sepal.Length       0.63211    0.04527  13.962  &lt; 2e-16 ***
+Speciesversicolor  2.21014    0.07047  31.362  &lt; 2e-16 ***
+Speciesvirginica   3.09000    0.09123  33.870  &lt; 2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 0.2826 on 146 degrees of freedom
+Multiple R-squared:  0.9749,    Adjusted R-squared:  0.9744 
+F-statistic:  1890 on 3 and 146 DF,  p-value: &lt; 2.2e-16</code></pre>
+</div>
+</div>
+<p><span class="math display">\[y_i = \left\{\begin{array}{ll} -1.70234 + 0.63211 \times \text{Sepal.Length} + \epsilon_i\text{, если вид setosa}\\
+-1.70234 + 2.2101 + 0.63211 \times \text{Sepal.Length} + \epsilon_i\text{, если вид versicolor} \\
+-1.70234 + 3.09 + 0.63211 \times \text{Sepal.Length} + \epsilon_i\text{, если вид virginica}
+\end{array}\right.\]</span></p>
+</section>
+<section id="сравнение-моделей" class="level3" data-number="8.3.5">
+<h3 data-number="8.3.5" class="anchored" data-anchor-id="сравнение-моделей"><span class="header-section-number">8.3.5</span> Сравнение моделей</h3>
+<p>Как нам решить, какая модель лучше? Ведь теперь можно добавить сколько угодно предикторов? Давайте создадим новую модель без предиктора <code>Species</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>fit4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(Petal.Length <span class="sc">~</span> Sepal.Length, <span class="at">data =</span> iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>можно сравнивать статистическую значимость предикторов</li>
+<li>можно сравнивать <span class="math inline">\(R^2\)</span></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit3)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.9743786</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit4)<span class="sc">$</span>adj.r.squared</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7583327</code></pre>
+</div>
+</div>
+<ul>
+<li>чаще всего используют так называемые информационные критерии, самый популярный – AIC (Akaike information criterion). Сами по себе значение этого критерия не имеет значения – только в сравнении моделей, построенных на похожих данных. Чем меньше значение, тем модель лучше.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(fit3, fit4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     df       AIC
+fit3  5  52.47418
+fit4  3 387.13500</code></pre>
+</div>
+</div>
+</section>
+<section id="послесловие" class="level3" data-number="8.3.6">
+<h3 data-number="8.3.6" class="anchored" data-anchor-id="послесловие"><span class="header-section-number">8.3.6</span> Послесловие</h3>
+<ul>
+<li>сущетсвуют ограничения на применение линейной регресии
+<ul>
+<li>связь между предсказываемой переменной и предикторами должна быть линейной</li>
+<li>остатки должны быть нормально распределены (оценивайте визуально)</li>
+<li>дисперсия остатков вокруг регрессионной линии должно быть постоянно (гомоскидастично)</li>
+<li>предикторы не должны коррелировать друг с другом</li>
+<li>все наблюдения в регрессии должны быть независимы друг от друга</li>
+</ul></li>
+</ul>
+<p>Вот так вот выглядят остатки нашей модели на основе датасета <code>iris</code>. Смотрите <a href="https://www.qualtrics.com/support/stats-iq/analyses/regression-guides/interpreting-residual-plots-improve-regression/">пост</a>, в котором обсуждается, как интерпретировать график остатков.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit3, <span class="at">which=</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="8_regression_analysis_files/figure-html/unnamed-chunk-34-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>сущетсвуют трюки, позволяющие автоматически отбирать модели (см. функцию <code>step()</code>)</li>
+<li>существует достаточно большое семейство регрессий, который зависят от типа независимой (предсказываемой) переменной или ее распределения
+<ul>
+<li>логистическая (если предсказываемая переменная имеет два возможных исхода)</li>
+<li>мультиномиальная (если предсказываемая переменная имеет больше двух возможных дискретных исхода)</li>
+<li>нелиненые регресии (если связь между переменными нелинейна)</li>
+<li>регрессия со смешанными эффектами (если внутри данных есть группировки, т. е. наблюдения не независимы)</li>
+<li>и другие.</li>
+</ul></li>
+</ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -487,6 +924,7 @@ mean of x mean of y
 Stepanova, S. 2011. <span>“Russian Spontaneous Speech Rate-Based on the Speech Corpus of <span>R</span>ussian <span>E</span>veryday <span>I</span>nteraction.”</span> In <em>Proceedings of 17th International Congress of Phonetic Sciences</em>, edited by Wai Sum Lee, 1902–5.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->

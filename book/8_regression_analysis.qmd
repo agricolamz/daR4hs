@@ -290,11 +290,11 @@ predict(fit, tibble(n_words = 1000))
 
 ### Категориальные переменные
 
-Что если мы хотим включить в наш анализ категориальные переменные? Давайте рассмотрим простой пример с [рассказами Чехова](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.tsv) и [Зощенко](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv), которые мы рассматривали в прошлом разделе. Мы будем анализировать логарифм доли слов деньги:
+Что если мы хотим включить в наш анализ категориальные переменные? Давайте рассмотрим простой пример с [рассказами Чехова](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv) и [Зощенко](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv), которые мы рассматривали в прошлом разделе. Мы будем анализировать логарифм доли слов деньги:
 
 ```{r}
 #| message: false
-chekhov <- read_tsv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.tsv")
+chekhov <- read_tsv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv")
 zoshenko <- read_tsv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv")
 
 chekhov$author <- "Чехов"
