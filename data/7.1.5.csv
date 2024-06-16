@@ -1,0 +1,660 @@
+language,glottocode,latitude,longitude,value
+Tanzanian Ngoni,tanz1241,-11.779,35.459,absent
+Cakfem-Mushere-Jibyal,cakf1236,9.00924,9.16071,absent
+Kom (India),komi1270,24.8688,94.534,absent
+Central Chong,cent2314,12.608611,102.270556,absent
+Domaaki,doma1260,36.3258,74.7984,absent
+Ramoaaina,ramo1244,-4.17306,152.451,absent
+Paunaka,paun1241,-14.353747,-63.086994,absent
+Katukína do Biá-Ipixuna,katu1276,-6.45399,-68.7678,absent
+Semelai,seme1247,2.82799,102.806,absent
+Shipibo-Conibo,ship1254,-7.17105,-74.8219,absent
+North Moluccan Malay,nort2828,-0.86437,128.323,absent
+Warumungu,waru1265,-20.6479,134.375,absent
+Nyahkur,nyah1250,15.8909,101.515,absent
+Kele (Papua New Guinea),kele1258,-2.09163,147.064,absent
+Central Cagayan Agta,cent2084,17.9571,121.857,absent
+Gambera,gamb1251,-14.29546,126.27131,absent
+Komi-Zyrian,komi1268,64.0527,54.946,absent
+Bit,bitt1240,21.3474,101.916,absent
+Kuanyama,kuan1247,-17.7176,16.58,absent
+Kalanga,kala1384,-21.2887,27.401,absent
+Hruso,hrus1242,27.27,92.63,absent
+Ndobo,ndob1238,1.32539,18.6151,absent
+Jerung,jeru1240,27.1741,86.2547,absent
+Southern Jinghpaw,kach1280,25.4634,97.3278,absent
+Nilamba,nila1242,-4.50002,34.3068,absent
+Aisi,musa1266,-5.37407,145.197,absent
+Dura,dura1244,28.173,84.435,absent
+Baikeno,baik1238,-9.32991,124.256,absent
+Imonda,imon1245,-3.31228,141.171,absent
+Iwam,iwam1256,-4.27346,141.817,absent
+Mortlockese,mort1237,5.50735,153.710778,absent
+Ulithian,ulit1238,9.961388,139.603611,absent
+Evenki,even1259,61.972,94.689,absent
+Desano,desa1247,0.58157,-69.4955,absent
+Tulu,tulu1258,12.8114,75.2651,absent
+Kinshasa Lingala,ling1263,-4.409174,15.28532,absent
+Namia,nami1256,-3.85538,141.788,absent
+Korean,kore1280,37.5,128,absent
+Luiseno-Juaneño,luis1253,33.3184,-116.939,absent
+Udi,udii1243,40.9,47.7236,absent
+Tuki,tuki1240,4.64348,11.5353,absent
+Maxakalí,maxa1247,-16.9402,-40.7891,absent
+Tuvinian,tuvi1240,51.7,94.36667,absent
+Jur Modo,jurm1239,6.03321,29.974,absent
+Waja,waja1259,9.91175,11.7206,absent
+Lovono,vano1237,-11.6107,166.7984,absent
+Indian Kurux,kuru1302,24.4644,86.4657,absent
+Woods Cree,wood1236,57,-99,absent
+Hu,huuu1240,22.0163,100.881,absent
+Sierra de Juárez Zapotec,sier1250,17.4219,-96.6191,absent
+Livvi,livv1243,61.6565,29.0726,absent
+Wanman,wanm1242,-22.7078,122.325,absent
+Wotu,wotu1240,-2.59593,120.9,absent
+Godoberi,ghod1238,42.7428,46.2252,absent
+Kenuzi-Dongola,kenu1236,21.2837,31.8992,absent
+Xishanba Lalo,xish1235,24.8709,100.711,absent
+Bodo Gadaba,bodo1267,18.3857,82.771,absent
+Toba-Maskoy,toba1268,-21.5474,-58.0158,absent
+Girawa,gira1247,-5.35342,145.423,absent
+Rongpo,rong1264,30.528,79.567,absent
+Pacoh,paco1243,16.3353,107.094,absent
+Kwini,kwin1241,-14.2515,126.562,absent
+Nend,nend1239,-5.04271,144.886,absent
+Kim Mun,kimm1245,22.9856,105.024,absent
+Cavineña,cavi1250,-13.3544,-66.6277,absent
+Eastern Kikongo,east2782,-5.25,15.5,absent
+Northwest Sahaptin,yaki1237,46.2655,-120.756,absent
+Turkic Khalaj,turk1303,34.4224,50.3222,absent
+Umanakaina,uman1240,-9.89671,149.658,absent
+Yaka-Pelende-Lonzo,yaka1269,-5.984,16.775,absent
+Shwe Palaung,shwe1236,23.6729,97.7972,absent
+Litoka,lito1235,2.69,19.24,absent
+Mwera (Chimwera),mwer1248,-9.75639,38.8762,absent
+Biafada,biaf1240,11.467,-15.1347,absent
+Wusa Nasu,wusa1235,25.7707,102.367,absent
+Kamula,kamu1260,-7.28798,142.639,absent
+Molale,mola1238,44.556,-122.857,absent
+Rukai,ruka1240,22.7738,120.844,absent
+Millcayac,mill1237,-31.79729,-67.569581,absent
+Meyah,meya1236,-1.18016,133.618,absent
+Buol,buol1237,0.97727,121.519,absent
+Leco,leco1242,-15.0092,-67.8818,absent
+Ngarnawu,ngar1285,-15.700055,127.452018,absent
+Nakanai,naka1262,-5.59931,150.888,absent
+Isnag,isna1241,18.2139,121.16,absent
+Akajeru,akaj1239,13.1525,92.9504,absent
+Tsez,dido1241,42.2646,45.8096,absent
+Shilluk,shil1265,9.85472,31.7926,absent
+Chitimacha,chit1248,30.3386,-90.9123,absent
+Muduapa,mudu1242,-4.69751,149.489,absent
+Kanyaki-Kagbaaga-Kajoko Bidyogo,bidy1244,11.1097,-16.1497,absent
+Yele,yele1255,-11.3796,154.127,absent
+Bouna Kulango,boun1243,8.46011,-2.74627,absent
+Nhengatu,nhen1239,1.04503,-66.9646,absent
+Wappo,wapp1239,38.25,-122.5,absent
+Movono,tang1347,-15.5643,166.958,absent
+Rade,rade1240,12.979,108.41,absent
+Katso,kats1235,24.6,102.4,absent
+Ratahan,rata1244,1.07592,124.858,absent
+Yessan-Mayo,yess1239,-4.15721,142.574,absent
+Abu' Arapesh,abua1245,-3.461612,142.917031,absent
+Brao,lave1249,14.5994,107.008,absent
+Seimat,seim1238,-1.2666667,144.25,absent
+Seediq,taro1264,23.9032,121.358,absent
+Zaiwa,zaiw1241,24.1726,98.3643,absent
+Siberian Evenki,sibe1251,61.972,94.689,absent
+Rengao,reng1252,14.456,107.9459,absent
+Lala,lala1268,-8.93195,146.749,absent
+Tawallammat Tamajaq,tawa1286,13.9878,4.47692,absent
+Kwerba,nucl1595,-2.2137,138.486,absent
+Kanamarí do Juruá-Japurá-Xeruã-Itaquaí-Jutaí,cuti1242,-6.45399,-68.7678,absent
+She,shee1238,23.0399,114.814,absent
+Panytyima,pany1241,-22.7816,118.723,absent
+Waiwai,waiw1244,1.50881,-59.1417,absent
+Fuyug,fuyu1242,-8.6371,147.312,absent
+Reyesano,reye1240,-14.8333,-67.0833,absent
+East Taa,huaa1248,-24.20022,20.79583,absent
+Xhosa,xhos1239,-31.0389,28.0769,absent
+Loup A,loup1243,42.364,-72.731,absent
+Cha'palaa,chac1249,0.71489,-79.0508,absent
+Huli,huli1244,-5.97212,142.963,absent
+Buglere,bugl1243,8.57695,-81.25648,absent
+Ludian,ludi1246,61.853,33.7346,absent
+Tetun Dili,tetu1246,-8.58405,125.583,absent
+Shoshoni,shos1248,41,-116,absent
+Crimean Tatar,crim1257,45,34.08,absent
+Ersu,ersu1241,29.2867,102.213,absent
+Yámana,yama1264,-55.2748,-68.2648,absent
+Southern Pumi,sout2729,27.8408,100.622,absent
+Gobu,gobu1238,5.01201,20.0194,absent
+Tombonuo,tomb1244,6.2892,117.322,absent
+Balantak,bala1315,-0.86809,123.289,absent
+Angaataha,anga1290,-7.15012,146.352,absent
+Hindi,hind1269,25,77,absent
+Kele-Foma,kele1255,0.36906,24.3098,absent
+Pilagá,pila1245,-25.0058,-60.1537,absent
+Garo,garo1247,25.2954,90.462,absent
+Kryz,kryt1240,41.1811,48.1846,absent
+Mengen,meng1267,-5.47036,151.373,absent
+Blang,blan1242,22.0092,99.7405,absent
+Ayacucho Quechua,ayac1239,-13.84714,-74.32246,absent
+Mara Chin,mara1382,22.1138,93.0387,absent
+Shanenawa,shan1283,-8.00919,-73.3264,absent
+Bini,bini1246,6.40701,5.70426,absent
+Chamalal,cham1309,42.5024,45.995,absent
+Awadhi,awad1243,27.5907,82.4663,absent
+Thavung,aheu1239,17.7655,104.229,absent
+Chukchi,chuk1273,68.6436,170.045,absent
+Tübatulabal,tuba1278,35.327,-117.163,absent
+Tibetan,tibe1272,28.3681,90.1872,absent
+Yimas,yima1243,-4.71731,143.572,absent
+Betawi,beta1252,-6.21174,107.022,absent
+Lugbara,lugb1240,3.02245,30.8642,absent
+Kutenai,kute1249,48.7892,-115.065,absent
+Southern Selkup,sout3262,58.6626,85.8581,absent
+Northwestern Kolami,nort2699,20.1022,78.4934,absent
+Congo Swahili,cong1236,-7.2692,27.4196,absent
+Old Mon,oldm1242,14.83,100.5,absent
+Manda-Matumba,mand1423,-10.3991,34.7424,absent
+Pitta Pitta,pitt1247,-22.7952,139.983,absent
+Ngarinyin,ngar1284,-16.4006,126.433,absent
+Matsés,mats1244,-5.73914,-72.6281,absent
+Pele-Ata,pele1245,-5.58045,151.05,absent
+Wiru,wiru1244,-6.35863,144.214,absent
+Acoli,acol1236,3.57738,32.5147,absent
+Meramera,mera1242,-4.97468,151.528,absent
+Barain,bare1279,10.970124,17.911727,absent
+Kensiu,kens1248,5.98085,101.026,absent
+Achumawi,achu1247,41.0979,-121.191,absent
+Lezgian,lezg1247,41.5157,47.8951,absent
+Ama (Sudan),amas1236,12.0993,29.4332,absent
+Whitesands,whit1269,-19.5019,169.381,absent
+Gweno,gwen1239,-3.68407,37.6827,absent
+Panare,enap1235,6.95035,-65.8483,absent
+Elip,elip1238,4.45694,11.193,absent
+Chiru,chir1283,25.4643,94.4072,absent
+Sengseng,seng1281,-6.16474,149.784,absent
+Marathi,mara1378,17.9344,76.6665,absent
+Nsenga,nsen1242,-15.3946,31.3544,absent
+Yami,yami1254,22.055,121.544,absent
+Kwegu,kweg1241,5.40416,36.1702,absent
+Gumawana,guma1254,-9.28497,150.762,absent
+Kala Lagaw Ya,kala1377,-10.6748,142.196,absent
+Korowai,koro1312,-5.26952,140.047,absent
+Sie,siee1239,-18.8181,169.166,absent
+Akha,akha1245,21.2309,100.964,absent
+Bashkir,bash1264,53.5967,56.5594,absent
+Duhumbi,chug1252,27.4177713,92.2255891,absent
+North-Central Dargwa,darg1241,42.4257,47.4388,absent
+Ulch,ulch1241,51.8521,140.29,absent
+Geba Karen,geba1237,19.4991,96.9492,absent
+Chrau,chra1242,10.8021,107.293,absent
+Makwe,makw1236,-10.4673,40.0274,absent
+Mina (Cameroon),mina1276,10.38053,13.84054,absent
+Tami,tami1290,-6.70017,147.732,absent
+Eastern Newari,east2773,27.576985,86.033964,absent
+Galambu,gala1264,10.1258,10.2542,absent
+Itonama,iton1250,-12.80431,-64.35748,absent
+Tamasheq,tama1365,14.2038,-2.41269,absent
+Bafaw-Balong,bafa1247,4.53307,9.522,absent
+North Azerbaijani,nort2697,40.9777,46.4737,absent
+Fulniô,fuln1247,-9.02591,-37.1402,absent
+Luo (Kenya and Tanzania),luok1236,-0.93296,34.4896,absent
+Sa,saaa1241,-15.9534,168.228,absent
+Western Magar,west2418,28.2462,83.511,absent
+Southern Aymara,sout2996,-17.1417,-70.3442,absent
+Rumai Palaung,ruma1248,23.6404,97.3172,absent
+Manat,payn1244,-4.94303,144.879,absent
+Luyi,luya1241,-15.01,22.67,absent
+North Saami,nort2671,68.725,22.1113,absent
+Labuk-Kinabatangan Kadazan,labu1249,5.51924,117.507,absent
+Baba Malay,baba1267,1.75414,103.076,absent
+Gizrra,gizr1240,-9.183,142.804,absent
+Munumburru,munu1238,-14.700834,126.754387,absent
+Resígaro,resi1247,-1.169535,-71.60524,absent
+Khakas,khak1248,50.7393,107.169,absent
+Nahavaq,sout2857,-16.5116,167.477,absent
+Wirangu,wira1265,-32,134,absent
+Bantoanon,bant1288,12.5194,122.034,absent
+Lahu Shi,lahu1252,21.2078,100.97,absent
+Sora,sora1254,19.1213,84.19,absent
+Latvian,latv1249,56.826108,24.309118,absent
+Pinai-Hagahai,pina1252,-5.12624,144.137,absent
+Northeast Maidu,nort2952,40.4102,-120.645,absent
+Kedang,keda1252,-8.23039,123.77,absent
+Tagwana Senoufo,tagw1240,8.67053,-5.17372,absent
+Tahaggart Tamahaq,taha1241,22.5908,8.73169,absent
+Saamia,saam1283,0.3652,34.0335,absent
+Kulung (Nepal),kulu1253,27.1606,87.5717,absent
+Eastern Penan,east2485,4.5915,114.584,absent
+Dzao Min,dzao1238,24.9754,112.326,absent
+Dhimal,dhim1246,26.6283,88.3798,absent
+Tsafiki,colo1256,-0.21181,-79.2347,absent
+Ukrainian,ukra1253,49.796,29.945,absent
+Suena,suen1241,-7.76339,147.534,absent
+Zulu,zulu1248,-28.9,30.2,absent
+Chocangacakha,choc1275,27.46961,91.21954,absent
+Tundra Nenets,nene1249,66.1775,71.0234,absent
+Karao,kara1487,16.5655,120.956,absent
+Toda,toda1252,11.4184,77.0168,absent
+Tainae,tain1253,-7.40306,145.682,absent
+North Efate,nort2836,-17.5774,168.375,absent
+Rumu,rumu1243,-7.17149,144.179,absent
+Central Lisu,hual1240,26.91,98.94,absent
+Biwat,biwa1243,-4.39429,143.873,absent
+Southern Grebo,sout2826,4.47607,-7.56872,absent
+Washo,wash1253,38.8184,-119.64,absent
+Mann,mann1248,7.04616,-8.86405,absent
+Poyanáwa,poya1241,-7.46909,-73.0758,absent
+Bankon,bank1256,4.3702,9.6403,absent
+Isthmus-Cosoleacaque Nahuatl,isth1240,17.9401,-94.7347,absent
+Rembong-Wangka,remb1250,-8.53361,120.973,absent
+Athpariya,athp1241,26.8794,87.3296,absent
+Lendu,lend1245,2.1898,30.6794,absent
+Atampaya,atam1239,-11.0018,142.273,absent
+Ingush,ingu1240,43.11,45.03,absent
+Sochiapam Chinantec,soch1239,17.7985,-96.6079,absent
+Nyaturu,nyat1246,-5.12263,34.6657,absent
+Pangutaran Sama,pang1291,6.27167,120.536,absent
+Turkmen,turk1304,37.0872,59.1757,absent
+Kusunda,kusu1250,28.33,82.6,absent
+Marind,nucl1622,-8.15651,140.009,absent
+Kuvi,kuvi1243,18.8832,83.7552,absent
+Western Cham,west2650,12.4771,104.026,absent
+Jennu Kurumba,jenn1240,11.5041,76.5767,absent
+Lashi,lash1243,26.0992,98.5481,absent
+Kwaza,kwaz1243,-11.6667,-61.1833,absent
+Curripaco,curr1243,0.69618,-67.5028,absent
+Gata',gata1239,18.6076,82.984,absent
+Yandruwandha,yand1253,-28.4744,140.583,absent
+Selepet,sele1250,-6.03532,147.234,absent
+Santa María Quiegolani Zapotec,sant1451,16.033,-96.0486,absent
+Skolt Saami,skol1241,68.8326,29.7204,absent
+Tupinambá,tupi1273,-22.807778,-42.106389,absent
+Idi-Taeme,idii1243,-8.75976,142.301,absent
+Western Panjabi,west2386,30.0948,75.3474,absent
+Gagauz,gaga1249,44.5988,28.0277,absent
+Sherdukpen,sher1257,27.0035,92.5799,absent
+Tarama-Minna,tara1319,24.7564,125.363,absent
+Yora,yora1241,-11.3704,-72.0409,absent
+Maykulan,mayk1239,-20.4352,140.481,absent
+Ngala-Santandrea,ngal1296,6.63187,24.61853,absent
+Burushaski,buru1296,36.2161,74.8236,absent
+Anindilyakwa,anin1240,-13.99904,136.6415,absent
+Chuj,chuj1250,15.8399,-91.76,absent
+Mapos Buang,mapo1242,-6.86672,146.774,absent
+Mpoto,mpot1240,-11.13767,34.71269,absent
+Latin,lati1261,41.9026,12.4502,absent
+Tswana,tswa1253,-24.368,24.7587,absent
+Malua Bay,malu1245,-15.9813,167.208,absent
+Gros Ventre,gros1243,48.4834,-108.738,absent
+Äiwoo,ayiw1239,-10.282595,166.328715,absent
+Eastern Cham,east2563,11.2853,108.49,absent
+Wemale,nort2864,-3.05143,128.839,absent
+Keapara,keap1239,-10.1342,147.95,absent
+Kaki Ae,kaki1249,-7.9946,145.816,absent
+Gedaged,geda1237,-5.18175,145.781,absent
+Rabha,rabh1238,25.8248,91.1689,absent
+Lega-Shabunda,lega1249,-3.83196,27.1424,absent
+Biao Mon,biao1256,24.6451,113.469,absent
+Sakha,yaku1245,61.6974,133.98,absent
+Trió,trio1238,2.53616,-55.7599,absent
+Pite Saami,pite1240,66.4011,17.4261,absent
+Hunzib,hunz1247,42.0808,46.1369,absent
+Siawi,siaw1243,-4.05312,141.42,absent
+Psikye,psik1239,10.677,13.569,absent
+Koya,koya1251,17.6772,81.2096,absent
+Central Kanuri,cent2050,11.8,13.13,absent
+Nanai,nana1257,48.4343,134.797,absent
+Maniq,tong1308,6.88137,100.102,absent
+Nama (Namibia),nama1264,-25.0747,17.9767,absent
+Mor (Mor Islands),morm1235,-2.87055,135.95,absent
+Saisiyat,sais1237,24.6043,121.067,absent
+Yawuru,yawu1244,-18.004,122.693,absent
+Uduk,uduk1239,9.16012,34.2293,absent
+Nuclear Nias,nucl1464,0.90691,97.4961,absent
+Mocoví,moco1246,-28.097,-60.4145,absent
+Hieroglyphic Luwian,hier1240,40.019722,34.615278000000004,absent
+Tboli,tbol1240,6.20377,124.538,absent
+Konzo,konz1239,0.32395,29.8696,absent
+Kaulong,kaul1240,-6.08192,149.696,absent
+Northern Emberá,nort2972,7.12761,-77.574,absent
+Asuri,asur1254,21.5721,83.4562,absent
+Tule-Kaweah Yokuts,tule1245,36.05354,-118.768616,absent
+Awad Bing,awad1244,-5.59896,146.355,absent
+Kaska,kask1239,61.9942,-132.412,absent
+Yulu-Binga,yulu1243,8.04124,23.6166,absent
+Tanema,tane1237,-11.68,166.97,absent
+Matbat,matb1237,-1.8801,130.075,absent
+Akkadian,akka1240,33.1,44.1,absent
+Lango (Uganda),lang1324,2.13867,33.0553,absent
+Toaripi,toar1246,-8.07231,146.206,absent
+Thayore,thay1249,-14.8159,142.034,absent
+Imbabura Highland Quichua,imba1240,0.31776,-78.3729,absent
+Bininj Kun-Wok,gunw1252,-12.3398,133.358,absent
+Erzya,erzy1239,52.8548,45.3901,absent
+Bih,biha1246,12.483333,108.016667,absent
+Khaling,khal1275,27.3912,87.5053,absent
+Iyo,iyoo1238,-5.84161,146.092,absent
+Tawra,diga1241,28.4993,96.8803,absent
+Bukiyip,buki1249,-3.47169,143.111,absent
+Puluwatese,pulu1242,7.35695,149.2005,absent
+Hakka Chinese,hakk1236,25,116,absent
+Kabardian,kaba1278,43.5082,43.3918,absent
+To'abaita,toab1237,-8.39233,160.619,absent
+Halh Mongolian,halh1238,48.324,106.289,absent
+Mwani,mwan1247,-12.5821,40.4601,absent
+Kharia,khar1287,22.3571,84.3922,absent
+Madngele,madn1237,-13.9479,130.6,absent
+Kui (India),kuii1252,19.2043,83.5859,absent
+Waimiri-Atroari,waim1253,-0.61832,-60.4259,absent
+Drung,drun1238,28.00792,98.49449,absent
+Batak Toba,bata1289,2.35498,99.1761,absent
+Riantana,rian1263,-7.50746,138.484,absent
+Hertevin,hert1241,37.373,42.5192,absent
+Taushiro,taus1253,-3.22497,-75.5603,absent
+Yawa,nucl1454,-1.77196,136.263,absent
+Konai,kona1242,-5.66011,142.069,absent
+Kado,kado1242,21.5259,100.092,absent
+Jehai,jeha1242,5.63695,101.541,absent
+Cholón,chol1284,-9.23129,-75.9621,absent
+Budukh,budu1248,41.2272,48.3353,absent
+Baga Sitemu,baga1272,10.4793,-14.4756,absent
+Duala,dual1243,4.10208,9.61877,absent
+Highland Popoluca,high1276,18.198,-94.9109,absent
+Cogui,cogu1240,10.9485,-73.8043,absent
+Maranunggu,mara1386,-13.6754,130.12,absent
+Ese Ejja,esee1248,-11.7268,-67.515,absent
+Papitalai,papi1254,-2.06222,147.417,absent
+Narua,yong1270,27.8,100.9,absent
+Sirayaic,sira1267,22.9777,120.315,absent
+Kesawai,kesa1244,-5.76797,145.58,absent
+Badaga,bada1257,11.3094,76.5974,absent
+Sunwar,sunw1242,27.5201,86.2476,absent
+Ingrian,ingr1248,59.47403,29.71145,absent
+Northern Karelian,nort2673,65.1691,30.8655,absent
+Mekeo,meke1243,-8.23853,146.586,absent
+Nyangumarta,nyan1301,-20.6271,121.391,absent
+Nggem,ngge1241,-3.62735,139.011,absent
+Nêlêmwa-Nixumwak,kuma1276,-20.4035,164.193,absent
+Shasta,shas1239,41.7587,-122.738,absent
+Wuvulu-Aua,wuvu1239,-1.73938,142.851,absent
+Duruwa,duru1236,19.0534,82.4881,absent
+Mangga Buang,mang1404,-6.99891,146.685,absent
+Isconahua,isco1239,-7.75236,-74.5193,absent
+Hung,hung1275,18.7849,104.772,absent
+Kinikinao,guan1270,-19.1667,-54.0333,absent
+Ruching Palaung,ruch1235,21.6176,98.0915,absent
+Bugan,buga1247,23.6124,104.963,absent
+Tataltepec Chatino,tata1258,16.2963,-97.5311,absent
+Ngandi,ngan1295,-12.8448,134.649,absent
+Surgut Khanty,surg1248,61.25,73.35,absent
+Dera (Indonesia),dera1245,-3.52309,140.947,absent
+Ashéninka Perené,ashe1272,-10.9777,-74.9153,absent
+Pemon,pemo1248,4.97031,-61.4033,absent
+Ngalkbun,ngal1292,-13.9783,133.936,absent
+Chintang,chhi1245,26.961,87.1899,absent
+Raji,raji1240,28.6151,81.577,absent
+Siwi,siwi1239,29.200415,25.519627,absent
+Kol (Papua New Guinea),kolp1236,-5.21042,151.583,absent
+Telefol,tele1256,-5.07444,141.731,absent
+Umbugarla,umbu1235,-12.9325,131.825,absent
+Gyele,gyel1242,2.47457,10.2493,absent
+Dobel,dobe1238,-6.32531,134.638,absent
+Eastern Panjabi,panj1256,30.0368,75.6702,absent
+Tunen,tune1261,4.75,10.67,absent
+Bushoong,bush1247,-4.69463,21.4556,absent
+Nawuri,nawu1242,8.45116,0.04947,absent
+Akoose,akoo1248,4.9243,9.65522,absent
+Hokkaido Ainu,ainu1240,43.633654,142.46167,absent
+Wadjiginy,wadj1254,-12.8596,130.737,absent
+Ati,atii1237,11.1539,122.512,absent
+Arta,arta1239,16.4185,121.656,present
+Bullom So,bull1247,9,-13.16,present
+Apinayé,apin1244,-6.10774,-47.6315,present
+Onondaga,onon1246,42.92,-76.12,present
+Puyuma,puyu1239,22.643,120.996,present
+Notsi,nots1237,-3.0557,151.661,present
+Gamo,gamo1243,6.27645,37.23808,present
+Wik-Mungkan,wikm1247,-13.98051,141.81611,present
+Catawba,cata1286,34.9685,-80.8857,present
+Namakura,nama1268,-16.8979,168.569,present
+Sininkere,sini1242,13.7206,-0.78772,present
+Shabo,shab1252,7.64407,35.223,present
+Kumbainggar,kumb1268,-29.8189,152.913,present
+Toma,toma1245,8.20383,-9.23439,present
+Aghwan,aghw1237,40.374444,47.126667,present
+Niuafo'ou,niua1240,-15.6014,-175.64,present
+Xinca-Yupiltepeque,xinc1243,14.194497,-89.790974,present
+Beria,zagh1240,17.4842,23.4626,present
+Occitan,occi1239,44.1415,6.82979,present
+Ga'dang,gada1258,17.2238,121.455,present
+Auye,auye1238,-3.43705,136.096,present
+Baure,baur1253,-13.61,-63.68,present
+Papapana,papa1265,-5.92283,155.289,present
+Kailibo Aklanon,akla1241,11.5543,122.354,present
+Caribbean Javanese,cari1276,5.62695,-54.6305,present
+Biak,biak1248,-0.9523,135.879,present
+Tamambo,malo1243,-15.6835,167.16,present
+West Uvean,west2516,-20.4145,166.589,present
+Iaai,iaai1238,-20.6301,166.59,present
+Siamou,siam1242,10.998,-4.92143,present
+Samoan,samo1305,-13.92,-171.83,present
+Cayubaba,cayu1262,-13.2482,-65.4822,present
+Anufo,anuf1239,10.2839,0.56021,present
+Mundang,mund1325,9.83195,14.4751,present
+Anuta,anut1237,-11.61,169.85,present
+Lomeriano-Ignaciano Chiquitano,chiq1248,-16.769554,-61.817795,present
+Sinaugoro,sina1266,-9.79791,147.861,present
+Xamtanga,xamt1239,12.4479,38.8352,present
+Marovo,maro1244,-8.37943,157.747,present
+Columbia-Wenatchi,colu1241,48.217,-118.454,present
+Emai,emai1242,7.09089,5.84494,present
+Ga,gaaa1244,5.65488,-0.18598,present
+Kugere-Kuxinge,bayo1255,12.6881,-16.3947,present
+Adang,adan1251,-8.18958,124.448,present
+Naxi,naxi1245,27.5,100,present
+Sikaiana,sika1261,-8.378194,162.72952,present
+Western Neo-Aramaic,west2763,33.8162,36.484,present
+Mangareva,mang1401,-23.1095,-134.97,present
+Akan,akan1250,6.34756,-1.33254,present
+'Are'are,area1240,-9.20699,161.158,present
+Zaniza Zapotec,zani1235,16.6804,-97.2876,present
+Tariana,tari1256,0.440205,-68.9042,present
+Keerak,kera1248,12.3652,-16.6857,present
+Tempasuk Dusun,temp1235,6.36389,116.545,present
+North Giziga,nort3047,10.6755,14.219,present
+Yecuatla Totonac,yecu1235,20.1765,-96.8741,present
+Paama,paam1238,-16.47548,168.23693,present
+Northern Lushootseed,lush1252,48.42,-122.529,present
+Tohono O'odham,toho1245,31.7973,-111.995,present
+Zoogocho Zapotec,zoog1238,17.2016,-96.3433,present
+Yapese,yape1248,9.55811,138.125,present
+Tsou,tsou1248,23.216,120.787,present
+Ute-Southern Paiute,utes1238,40.0965,-110.305,present
+Chakali,chak1271,9.83446,-1.90181,present
+Mokilese,moki1238,6.65651,159.776,present
+West Malagasy Sakalava,saka1291,-20.28,44.32,present
+Farefare,fare1241,11.0918,-0.81109,present
+Masana,masa1322,10.0606,15.4748,present
+Banda-Bambari,band1344,6.21563,20.9827,present
+Matumbi,matu1259,-8.53734,39.0409,present
+Meriam,meri1244,-9.59575,143.773,present
+Teop,teop1238,-5.67474,154.971,present
+Mailu,mail1248,-10.3657,149.521,present
+Chimariko,chim1301,41,-123,present
+Icelandic,icel1247,63.4837,-19.0212,present
+Rama,rama1270,11.5007,-83.8571,present
+South Efate,sout2856,-17.7006,168.377,present
+Eastern Highland Otomi,east2556,20.5991,-98.0978,present
+Wayuu,wayu1243,11.395566,-72.199791,present
+Nukuoro,nuku1260,3.84,154.975,present
+Logo,logo1259,3.32608,29.8866,present
+Nehan,neha1247,-4.56875,154.2,present
+Baram Kayan,bara1370,3.51211,114.482,present
+Akuntsu,akun1241,-12.8322,-60.9716,present
+Nauete,naue1237,-8.70733,126.741,present
+Guruntum-Mbaaru,guru1271,9.87332,10.162,present
+Jambi Malay,jamb1236,-2.6469,103.13,present
+Wandamen,wand1267,-2.25622,133.996,present
+Wala,wala1266,-8.81936,160.741,present
+Apma,apma1240,-15.8559,168.189,present
+Kotiria,guan1269,1.07554,-69.5705,present
+Kambera,kamb1299,-9.88447,120.235,present
+Tayart Tamajeq,taya1257,16.9232,7.6743,present
+Ma'di,madi1260,3.62499,31.8471,present
+Epena,epen1239,4.25877,-77.3566,present
+Yaouré,yaou1238,6.95282,-5.57851,present
+Lepcha,lepc1244,27.0869,88.5726,present
+Bwaidoka,bwai1242,-9.51158,150.297,present
+Tukang Besi North,tuka1248,-5.30994,123.578,present
+Musom,muso1238,-6.53817,146.93,present
+Temoaya Otomi,temo1245,19.6001,-99.6541,present
+Coptic,copt1239,29.472,31.2053,present
+Luang,luan1263,-8.18378,127.944,present
+Lusengo,luse1252,0.16988,18.3991,present
+Sulka,sulk1246,-5.03471,151.891,present
+Pukapuka,puka1242,-10.91,-165.83,present
+Selaru,sela1259,-8.18376,130.961,present
+Hozo,hozo1236,9.38875,34.60448,present
+Tonga (Tonga Islands),tong1325,-21.17,-175.25,present
+Lele (Chad),lele1276,9.158,15.81149,present
+Oroha,oroh1237,-9.7386,161.513,present
+Wolaytta,wola1242,6.32668,37.7537,present
+Tungag,tung1290,-2.52188,150.198,present
+East-Central Tangkhul Naga,tang1336,25.0489,94.3567,present
+Tobelo,tobe1252,1.0946,128.154,present
+Tektiteko,tekt1235,15.4599,-92.1136,present
+Samba Daka,samb1311,8.06905,11.7077,present
+Banao Itneg,bana1288,17.5643,121.05,present
+Cebuano,cebu1242,8.38799,124.367,present
+Sakizaya,saki1247,24.026316,121.531394,present
+Ega,egaa1242,5.56081,-5.41732,present
+Car Nicobarese,carn1240,9.18853,92.7671,present
+Bahamas Creole English,baha1260,25.032149,-77.390587,present
+Chuwabu,chuw1238,-17.3428,37.1231,present
+Marori,moro1289,-8.5692,140.688,present
+Buwal,buwa1243,10.6151,13.8838,present
+Hiligaynon,hili1240,10.4018,122.974,present
+Vaeakau-Taumako,pile1238,-10.173335,166.247188,present
+Tatana,tata1257,5.49808,115.553,present
+K'iche',kich1262,14.5278,-91.1696,present
+Yaqui,yaqu1251,29.9446,-110.681,present
+Amharic,amha1245,11.708182,39.543456,present
+Ben Tey Dogon,bent1238,14.78,-2.94,present
+Yakoma,yako1252,4.1651,22.1702,present
+Bella Coola,bell1243,52.3448,-126.689,present
+Tumulung Sisaala,tumu1242,10.63451,-1.79707,present
+Arhuaco,arhu1242,10.7018,-73.6363,present
+Ancient Hebrew,anci1244,31.7761,35.1725,present
+Martuthunira,mart1255,-20.9294,116.607,present
+Rotuman,rotu1241,-12.5008,177.066,present
+Andoque,ando1256,-0.53751,-72.0869,present
+Catalan,stan1289,41.453,1.569,present
+French,stan1290,48,2,present
+Western Karaboro,west2466,10.6298,-4.76482,present
+South-Central Koongo,koon1244,-5.57722,14.4771,present
+Loniu,loni1238,-2.06124,147.35,present
+Xinka-Jumaytepeque,xink1235,14.341898,-90.256519,present
+Central Bontoc,cent2292,17.08,120.92,present
+Loma (Liberia),loma1260,7.91585,-9.69906,present
+Rapoisi,rapo1238,-5.78724,154.834,present
+Northern Ngbandi,nort2774,3.56357,21.85251,present
+Zarma,zarm1239,12.8554,2.41173,present
+Khana,khan1278,4.70908,7.44363,present
+Anta-Komnzo-Wára-Wérè-Kémä,wara1294,-8.64917,141.52,present
+Mopán Maya,mopa1243,16.3533,-89.0673,present
+Muruwari,muru1266,-28.9618,146.546,present
+Western Farsi,west2369,32.9,53.3,present
+Beja,beja1238,17.2436,36.6666,present
+Tawala,tawa1275,-10.3115,150.644,present
+Lowland Tarahumara,lowl1265,27.4623,-107.854,present
+Umbu-Ungu,umbu1258,-5.9513,143.97,present
+Mangaia-Old Rapa,rapa1245,-27.6304,-144.338,present
+Central Dusun,cent2100,6.02998,116.681,present
+Duna,duna1248,-5.41439,142.475,present
+Sabah Bisaya,saba1267,5.30433,115.512,present
+Tagabawa,taga1272,6.9712,125.175,present
+Tiri,tiri1261,-21.8147,165.792,present
+Bilua,bilu1245,-7.92388,156.663,present
+Ghari,ghar1239,-9.4791,159.917,present
+Mayangna,maya1285,14.1259,-84.3439,present
+Dutch,dutc1256,52,5,present
+Libyan Arabic,liby1240,22.0032,15.0014,present
+Xokleng,xokl1240,-26.9217,-49.5886,present
+Kaqchikel,kaqc1270,14.4662,-90.9881,present
+Hausa States Fulfulde,nige1253,10.9972,11.1188,present
+Chamacoco,cham1315,-20.5899,-58.2005,present
+Hadiyya,hadi1240,7.57377,37.7577,present
+Chamicuro,cham1318,-5.1149,-75.6778,present
+Tondi Songway Kiini,tond1249,15.262989,-2.816163,present
+Gardabani Bohtan Neo-Aramaic,boht1238,41.459,45.084,present
+Tojolabal,tojo1241,16.2572,-91.7825,present
+Choctaw,choc1276,32.25,-88.5,present
+Laal,laal1242,10.0063,17.6143,present
+Bunan,gahr1239,32.2168,77.9596,present
+Arigidi,arig1246,7.56324,5.89556,present
+Tezoatlán Mixtec,tezo1238,17.6155,-97.9002,present
+Ewe,ewee1241,6.46061,0.814975,present
+Pumé,pume1238,7.10677,-67.5996,present
+Eleme,elem1253,4.72964,7.267,present
+Antankarana Malagasy,anta1255,-13.2164,49.2402,present
+Port Sandwich,port1285,-16.4952,167.78,present
+Tengger,teng1272,-7.89069,113.037,present
+Baybayanon,bayb1234,10.6956,124.8086,present
+Kusaghe-Njela,kusa1251,-8.04056,157.463,present
+Wawa,wawa1246,6.68974,11.7802,present
+Dupaninan Agta,dupa1235,17.3748,122.188,present
+Bandial,band1340,12.5258,-16.4245,present
+East Kewa,east2516,-6.32989,143.931,present
+Salka-Tsishingini,tsis1238,10.2882,5.11073,present
+Portuguese,port1283,39.91,-8.1,present
+Rawa,rawa1267,-5.83155,145.937,present
+Upper Chehalis,uppe1439,46.7981,-123.169,present
+Wedau,weda1241,-10.1246,150.172,present
+Tirax,maee1241,-15.9914,167.288,present
+Yue Chinese,yuec1235,23,113,present
+Wolane,wola1253,8.23,38.14,present
+Sheko,shek1245,7.05022,35.2826,present
+Western Frisian,west2354,53.143,5.86091,present
+Dera (Nigeria),dera1248,10.072,12.0256,present
+Lagwan,lagw1237,11.5592,14.9884,present
+Northern Kankanay,nort2877,17.1057,120.786,present
+Mlahsô,mlah1239,37.0311,41.2209,present
+Cicipu,cici1237,11.0417,5.54073,present
+Central Wambo,mbal1255,-17.578884,16.027517,present
+Barok,baro1253,-3.47672,152.193,present
+Mlabri,mlab1235,18.5533,101.163,present
+Northern Qiang,nort2722,32.2766,103.192,present
+Pangasinan,pang1290,15.9377,120.365,present
+Ga'anda,gaan1243,10.2955,12.6479,present
+Tangam,tang1377,28.95,94.98,present
+Tikopia,tiko1237,-12.2766,168.822,present
+Ömie,omie1241,-9.03136,148.107,present
+Lotud,lotu1250,6.13732,116.232,present
+Neo-Mandaic,nucl1706,31.3443,48.8128,present
+Itzá,itza1241,17.0269,-89.8734,present
+Ulwa,ulwa1239,12.932292,-83.581467,present
+Birri,birr1240,5.33,24.6,present
+Milang,mila1245,28.5539908,95.186127,present
+Northern Haida,nort2938,54.004532,-132.079257,present
+Arosi,aros1241,-10.2441,161.432,present
+Kera,kera1255,9.88165,15.1419,present
+Rongmei Naga,rong1266,25.098,93.7869,present
+Karitiâna,kari1311,-9.37937,-64.1522,present
+Sìcìté Sénoufo,sici1249,11.1789,-5.28932,present
+Cori,cori1240,9.59,8.06,present
+Sierra Negra Nahuatl,sier1248,18.45,-96.9,present
+Saposa,sapo1253,-5.64103,154.732,present
+Zabana,zaba1237,-7.74311,158.753,present
+Javanese,java1254,-7.001,109.287,present
+Uripiv-Wala-Rano-Atchin,urip1239,-16.00951,167.34643,present
+Huichol,huic1243,21.954,-104.062,present
+Alsea-Yaquina,alse1251,44.408,-123.94,present
+Western Durango Nahuatl,west2778,22.6,-104.9,present
+Orya,orya1242,-2.76483,139.89,present
+Degema,dege1246,4.73373,6.80991,present
+Sukur,suku1272,10.8933,13.6437,present
+Nicaragua Creole English,nica1252,12.4402,-83.7386,present

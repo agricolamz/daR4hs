@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>daR4hs - 5&nbsp; Работа с текстами</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./6_working_with_time.html" rel="next">
+<link href="./4_working_with_strings.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5_working_with_texts.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Работа с текстами</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">daR4hs</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://agricolamz.github.io/daR4hs/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Введение</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./1_introduction_to_r.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Введение в R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./2_data_transformation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Трансформация данных</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./3_data_visualization.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Визуализация данных</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./4_working_with_strings.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Работа со строками</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./5_working_with_texts.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Работа с текстами</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./6_working_with_time.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Работа со временем</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./7_working_with_geodata.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Работа с геоданными</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./8_regression_analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Основы статистического анализа</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./9_introduction_to_quarto.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Введение в <code>quarto</code></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Список литературы</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sec-encoding" id="toc-sec-encoding" class="nav-link active" data-scroll-target="#sec-encoding"><span class="header-section-number">5.1</span> Загрузка текстов в R</a></li>
+  <li><a href="#библиотеки-текстов" id="toc-библиотеки-текстов" class="nav-link" data-scroll-target="#библиотеки-текстов"><span class="header-section-number">5.2</span> Библиотеки текстов</a>
+  <ul class="collapse">
+  <li><a href="#пакет-gutenbergr" id="toc-пакет-gutenbergr" class="nav-link" data-scroll-target="#пакет-gutenbergr"><span class="header-section-number">5.2.1</span> Пакет <code>gutenbergr</code></a></li>
+  <li><a href="#пакет-rperseus" id="toc-пакет-rperseus" class="nav-link" data-scroll-target="#пакет-rperseus"><span class="header-section-number">5.2.2</span> Пакет <code>rperseus</code></a></li>
+  <li><a href="#библиотека-lib.ru" id="toc-библиотека-lib.ru" class="nav-link" data-scroll-target="#библиотека-lib.ru"><span class="header-section-number">5.2.3</span> Библиотека lib.ru</a></li>
+  </ul></li>
+  <li><a href="#библиотека-tidytext" id="toc-библиотека-tidytext" class="nav-link" data-scroll-target="#библиотека-tidytext"><span class="header-section-number">5.3</span> Библиотека <code>tidytext</code></a></li>
+  <li><a href="#пакет-stopwords" id="toc-пакет-stopwords" class="nav-link" data-scroll-target="#пакет-stopwords"><span class="header-section-number">5.4</span> Пакет <code>stopwords</code></a></li>
+  <li><a href="#пакет-udpipe" id="toc-пакет-udpipe" class="nav-link" data-scroll-target="#пакет-udpipe"><span class="header-section-number">5.5</span> Пакет <code>udpipe</code></a></li>
+  <li><a href="#векторизация-текстов" id="toc-векторизация-текстов" class="nav-link" data-scroll-target="#векторизация-текстов"><span class="header-section-number">5.6</span> Векторизация текстов</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Работа с текстами</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Не существует какого-то единого алгоритма анализа текстов, многое зависит от задач. Однако все обычные сферы анализа данных применимы к текстам: иногда нужно выделить какие-то составляющие текста (частота встречаемости каких-то единиц, сентимент анализ), иногда нужно выделить уникальные единицы свойственные какой-то группе текстов (мера tf-idf), иногда нужно кластеризовать тексты, чтобы найти похожие/разные тексты (например, класическая задача определения спамерских сообщений). Такие задачи находятся на стыке лингвистики и компьютерных наук. Существуют и более сложные/интеллектуальные задачи, которые традиционно относят к области исскуственного интеллекта, такие как перевод с одного языка на другой, саммаризация текста, вопросно-ответные системы и другие. В данном разделе мы коснемся лишь первой группы задач и пакеты, написанные на R для их решения.</p>
+<section id="sec-encoding" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="sec-encoding"><span class="header-section-number">5.1</span> Загрузка текстов в R</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>В пакете <code>readr</code> (входит в <code>tidyverse</code>) для чтения текста есть функция <code>read_lines()</code>. В качестве первой переменной может выступать путь к файлу на компьютере или интернет ссылка:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>alices_adventures_in_wonderland <span class="ot">&lt;-</span> <span class="fu">read_lines</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_alices_adventures_in_wonderland.txt"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(alices_adventures_in_wonderland, <span class="dv">20</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "The Project Gutenberg eBook of Alice's Adventures in Wonderland"         
+ [2] "    "                                                                    
+ [3] "This ebook is for the use of anyone anywhere in the United States and"   
+ [4] "most other parts of the world at no cost and with almost no restrictions"
+ [5] "whatsoever. You may copy it, give it away or re-use it under the terms"  
+ [6] "of the Project Gutenberg License included with this ebook or online"     
+ [7] "at www.gutenberg.org. If you are not located in the United States,"      
+ [8] "you will have to check the laws of the country where you are located"    
+ [9] "before using this eBook."                                                
+[10] ""                                                                        
+[11] "Title: Alice's Adventures in Wonderland"                                 
+[12] ""                                                                        
+[13] ""                                                                        
+[14] "Author: Lewis Carroll"                                                   
+[15] ""                                                                        
+[16] "Release date: June 27, 2008 [eBook #11]"                                 
+[17] "                Most recently updated: March 30, 2021"                   
+[18] ""                                                                        
+[19] "Language: English"                                                       
+[20] ""                                                                        </code></pre>
+</div>
+</div>
+<p>В большинстве случаев, тексты получится считать, однако иногда при работе со старыми архивами могут возникнуть проблемы с кодировками, например, все тексты в старейшей интернет-библиотеке на русском языке — библиотеке Максима Машкова (<a href="lib.ru">lib.ru</a>) — записаны в <code>KOI8-R</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_lines</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_the_captains_daughter_koi8r.txt"</span>,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] " \xe1\xcc\xc5\xcb\xd3\xc1\xce\xc4\xd2 \xf3\xc5\xd2\xc7\xc5\xc5\xd7\xc9\xde \xf0\xd5\xdb\xcb\xc9\xce. \xeb\xc1\xd0\xc9\xd4\xc1\xce\xd3\xcb\xc1\xd1 \xc4\xcf\xde\xcb\xc1"
+ [2] ""                                                                                                                                                                      
+ [3] " ---------------------------------------------------------------"                                                                                                      
+ [4] " OCR: \xef\xcc\xc5\xc7 \xeb\xcf\xcc\xc5\xd3\xce\xc9\xcb\xcf\xd7"                                                                                                       
+ [5] " Origin: http://www.magister.msk.ru/library/pushkin/pushkin.htm ? http://www.magister.msk.ru/library/pushkin/pushkin.htm"                                              
+ [6] " ---------------------------------------------------------------"                                                                                                      
+ [7] ""                                                                                                                                                                      
+ [8] " \xe2\xc5\xd2\xc5\xc7\xc9 \xde\xc5\xd3\xd4\xd8 \xd3\xcd\xcf\xcc\xcf\xc4\xd5."                                                                                          
+ [9] " \xf0\xcf\xd3\xcc\xcf\xd7\xc9\xc3\xc1"                                                                                                                                 
+[10] ""                                                                                                                                                                      
+[11] ""                                                                                                                                                                      
+[12] ""                                                                                                                                                                      
+[13] " \xe7\xec\xe1\xf7\xe1 I. \xf3\xe5\xf2\xf6\xe1\xee\xf4 \xe7\xf7\xe1\xf2\xe4\xe9\xe9."                                                                                   
+[14] ""                                                                                                                                                                      
+[15] ""                                                                                                                                                                      </code></pre>
+</div>
+</div>
+<p>В функциях пакета <code>readr</code> (т. е. не только <code>read_lines()</code>, но и в функциях <code>read_csv()</code>, <code>read_tsv()</code> и т. п.) есть аргумент <code>locale</code>, который позволяет эксплицитно указать кодировку, а при считывании происходит процесс конвертации в стандартный для многих операционных систем <code>UTF-8</code>. Для текстов на русском языке важны следующие кодировки</p>
+<ul>
+<li><code>KOI8-R</code>, а для украинского языка — <code>KOI8-U</code>;</li>
+<li><code>CP1251</code> (также известная под названием <code>Windows-1251</code>) покрывает и другие кириллические письменности такие как украинский, белорусский, болгарский, сербский, македонский и другие.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_lines</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_the_captains_daughter_koi8r.txt"</span>,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"KOI8-R"</span>), </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] " Александр Сергеевич Пушкин. Капитанская дочка"                                                                          
+ [2] ""                                                                                                                        
+ [3] " ---------------------------------------------------------------"                                                        
+ [4] " OCR: Олег Колесников"                                                                                                   
+ [5] " Origin: http://www.magister.msk.ru/library/pushkin/pushkin.htm ? http://www.magister.msk.ru/library/pushkin/pushkin.htm"
+ [6] " ---------------------------------------------------------------"                                                        
+ [7] ""                                                                                                                        
+ [8] " Береги честь смолоду."                                                                                                  
+ [9] " Пословица"                                                                                                              
+[10] ""                                                                                                                        
+[11] ""                                                                                                                        
+[12] ""                                                                                                                        
+[13] " ГЛАВА I. СЕРЖАНТ ГВАРДИИ."                                                                                              
+[14] ""                                                                                                                        
+[15] ""                                                                                                                        </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_lines</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_the_captains_daughter_cp1251.txt"</span>,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"CP1251"</span>),</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] " Александр Сергеевич Пушкин. Капитанская дочка"                                                                          
+ [2] ""                                                                                                                        
+ [3] " ---------------------------------------------------------------"                                                        
+ [4] " OCR: Олег Колесников"                                                                                                   
+ [5] " Origin: http://www.magister.msk.ru/library/pushkin/pushkin.htm ? http://www.magister.msk.ru/library/pushkin/pushkin.htm"
+ [6] " ---------------------------------------------------------------"                                                        
+ [7] ""                                                                                                                        
+ [8] " Береги честь смолоду."                                                                                                  
+ [9] " Пословица"                                                                                                              
+[10] ""                                                                                                                        
+[11] ""                                                                                                                        
+[12] ""                                                                                                                        
+[13] " ГЛАВА I. СЕРЖАНТ ГВАРДИИ."                                                                                              
+[14] ""                                                                                                                        
+[15] ""                                                                                                                        </code></pre>
+</div>
+</div>
+<p>Для просмотра и изменения кодировки внутри R следует использовать функцию <code>Encoding()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="st">"fa</span><span class="sc">\xE7</span><span class="st">ile"</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "fa\xe7ile"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Encoding</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "unknown"</code></pre>
+</div>
+</div>
+<p>Теперь можем использовать функцию присваивания:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Encoding</span>(x) <span class="ot">&lt;-</span> <span class="st">"latin1"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "façile"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Encoding</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "latin1"</code></pre>
+</div>
+</div>
+<p>Если необходимо преобразовать из одной кодировки в другую, следует использовать функцию <code>iconv()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">iconv</span>(x, <span class="st">"latin1"</span>, <span class="st">"UTF-8"</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">Encoding</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "UTF-8"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>x</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "façile"</code></pre>
+</div>
+</div>
+</section>
+<section id="библиотеки-текстов" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="библиотеки-текстов"><span class="header-section-number">5.2</span> Библиотеки текстов</h2>
+<section id="пакет-gutenbergr" class="level3" data-number="5.2.1">
+<h3 data-number="5.2.1" class="anchored" data-anchor-id="пакет-gutenbergr"><span class="header-section-number">5.2.1</span> Пакет <code>gutenbergr</code></h3>
+<p>Пакет <code>gutenbergr</code> является API для очень старого <a href="http://www.gutenberg.org/">проекта Gutenberg</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Все самое важное в пакете хранится во встроенном датасете <code>gutenberg_metadata</code> — аналоге:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gutenberg_metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [72,569 × 8] (S3: tbl_df/tbl/data.frame)
+ $ gutenberg_id       : int [1:72569] 1 2 3 4 5 6 7 8 9 10 ...
+ $ title              : chr [1:72569] "The Declaration of Independence of the United States of America" "The United States Bill of Rights\r\nThe Ten Original Amendments to the Constitution of the United States" "John F. Kennedy's Inaugural Address" "Lincoln's Gettysburg Address\r\nGiven November 19, 1863 on the battlefield near Gettysburg, Pennsylvania, USA" ...
+ $ author             : chr [1:72569] "Jefferson, Thomas" "United States" "Kennedy, John F. (John Fitzgerald)" "Lincoln, Abraham" ...
+ $ gutenberg_author_id: int [1:72569] 1638 1 1666 3 1 4 NA 3 3 NA ...
+ $ language           : chr [1:72569] "en" "en" "en" "en" ...
+ $ gutenberg_bookshelf: chr [1:72569] "Politics/American Revolutionary War/United States Law" "Politics/American Revolutionary War/United States Law" "" "US Civil War" ...
+ $ rights             : chr [1:72569] "Public domain in the USA." "Public domain in the USA." "Public domain in the USA." "Public domain in the USA." ...
+ $ has_text           : logi [1:72569] TRUE TRUE TRUE TRUE TRUE TRUE ...
+ - attr(*, "date_updated")= Date[1:1], format: "2022-12-19"</code></pre>
+</div>
+</div>
+<p>Например, сейчас мы можем понять, сколько книг на разных языках можно скачать из проекта:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>gutenberg_metadata <span class="sc">|&gt;</span> </span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(language, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 112 × 2
+   language     n
+   &lt;chr&gt;    &lt;int&gt;
+ 1 en       58568
+ 2 fr        3606
+ 3 fi        2571
+ 4 de        2142
+ 5 nl        1041
+ 6 it         939
+ 7 es         836
+ 8 pt         647
+ 9 hu         497
+10 zh         443
+# ℹ 102 more rows</code></pre>
+</div>
+</div>
+<p>Как видно, в основном это тексты на английском. Сколько авторов в датасете?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>gutenberg_metadata <span class="sc">|&gt;</span> </span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(author, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 23,865 × 2
+   author                                  n
+   &lt;chr&gt;                               &lt;int&gt;
+ 1 Various                              3804
+ 2 &lt;NA&gt;                                 2586
+ 3 Anonymous                             877
+ 4 Shakespeare, William                  332
+ 5 Twain, Mark                           245
+ 6 Lytton, Edward Bulwer Lytton, Baron   226
+ 7 Dickens, Charles                      189
+ 8 Ebers, Georg                          175
+ 9 Verne, Jules                          174
+10 Balzac, Honoré de                     153
+# ℹ 23,855 more rows</code></pre>
+</div>
+</div>
+<p>Сколько произведений Джейн Остин (не перепутайте с другими Остин) есть в датасете?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>gutenberg_metadata <span class="sc">|&gt;</span> </span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(author <span class="sc">==</span> <span class="st">"Austen, Jane"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(gutenberg_id, title)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 31 × 2
+   gutenberg_id title                    
+          &lt;int&gt; &lt;chr&gt;                    
+ 1          105 Persuasion               
+ 2          121 Northanger Abbey         
+ 3          141 Mansfield Park           
+ 4          158 Emma                     
+ 5          161 Sense and Sensibility    
+ 6          946 Lady Susan               
+ 7         1212 Love and Freindship [sic]
+ 8         1342 Pride and Prejudice      
+ 9        19839 Emma                     
+10        20682 Northanger Abbey         
+# ℹ 21 more rows</code></pre>
+</div>
+</div>
+<p>Давайте скачаем “Эмму”:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>emma <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="dv">158</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Determining mirror for Project Gutenberg from https://www.gutenberg.org/robot/harvest</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Using mirror http://aleph.gutenberg.org</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>emma</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16,488 × 2
+   gutenberg_id text            
+          &lt;int&gt; &lt;chr&gt;           
+ 1          158 "Emma"          
+ 2          158 ""              
+ 3          158 "by Jane Austen"
+ 4          158 ""              
+ 5          158 ""              
+ 6          158 "Contents"      
+ 7          158 ""              
+ 8          158 " VOLUME I."    
+ 9          158 " CHAPTER I."   
+10          158 " CHAPTER II."  
+# ℹ 16,478 more rows</code></pre>
+</div>
+</div>
+<p>Можно скачивать сразу несколько книг. Давайте добавим еще “Леди Сьюзен”:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>books <span class="ot">&lt;-</span> <span class="fu">gutenberg_download</span>(<span class="fu">c</span>(<span class="dv">158</span>, <span class="dv">946</span>), <span class="at">meta_fields =</span> <span class="st">"title"</span>)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>books</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 19,028 × 3
+   gutenberg_id text             title
+          &lt;int&gt; &lt;chr&gt;            &lt;chr&gt;
+ 1          158 "Emma"           Emma 
+ 2          158 ""               Emma 
+ 3          158 "by Jane Austen" Emma 
+ 4          158 ""               Emma 
+ 5          158 ""               Emma 
+ 6          158 "Contents"       Emma 
+ 7          158 ""               Emma 
+ 8          158 " VOLUME I."     Emma 
+ 9          158 " CHAPTER I."    Emma 
+10          158 " CHAPTER II."   Emma 
+# ℹ 19,018 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>books <span class="sc">|&gt;</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(title)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  title          n
+  &lt;chr&gt;      &lt;int&gt;
+1 Emma       16488
+2 Lady Susan  2540</code></pre>
+</div>
+</div>
+<p>Обратите на аргумент <code>meta_fields</code>, который позволяет кроме самого текста добавить метаданные из <code>gutenberg_metadata</code> в получившийся датафрейм.</p>
+</section>
+<section id="пакет-rperseus" class="level3" data-number="5.2.2">
+<h3 data-number="5.2.2" class="anchored" data-anchor-id="пакет-rperseus"><span class="header-section-number">5.2.2</span> Пакет <code>rperseus</code></h3>
+<p>Пакет <code>rperseus</code> предоставляет API для текстов <a href="http://www.perseus.tufts.edu/">Perseus Digital Library</a>, где хранятся тексты на греческом и латинском языках.</p>
+<p>На момент создания этих материалов пакет не был опубликован в CRAN, так что для его установки нужно выполнить следующую команду (если в вашей системе не стоит пакета <code>remotes</code>, то его можно установить при помощи стандартных <code>install.packages("remotes")</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"ropensci/rperseus"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Загружаем библиотеку:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rperseus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Библиотечный каталог пакета <code>rperseus</code> находиться в переменной <code>perseus_catalog</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(perseus_catalog)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tibble [2,291 × 5] (S3: tbl_df/tbl/data.frame)
+ $ urn        : chr [1:2291] "urn:cts:latinLit:stoa0215b.stoa001.opp-lat1" "urn:cts:latinLit:stoa0215b.stoa002.opp-lat1" "urn:cts:latinLit:stoa0215b.stoa003.opp-lat1" "urn:cts:latinLit:phi9500.phi035.opp-lat1" ...
+ $ group_name : chr [1:2291] "Orientius Saint active 430-440" "Orientius Saint active 430-440" "Orientius Saint active 430-440" "Anonymous" ...
+ $ label      : chr [1:2291] "Commonitorium" "Carmina" "Orationes" "Epitaphium Ennodii" ...
+ $ description: chr [1:2291] "Orientius Saint active 430-440, Commonitorium" "Orientius Saint active 430-440, Carmina" "Orientius Saint active 430-440, Orationes" "Anonymous, Epitaphium Ennodii" ...
+ $ language   : chr [1:2291] "lat" "lat" "lat" "lat" ...</code></pre>
+</div>
+</div>
+<p>На каких языках содержаться тексты?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>perseus_catalog <span class="sc">|&gt;</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(language)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7 × 2
+  language     n
+  &lt;chr&gt;    &lt;int&gt;
+1 eng        309
+2 ger         10
+3 grc        888
+4 hct         39
+5 hpt         39
+6 lat        903
+7 oth        103</code></pre>
+</div>
+</div>
+<p>А документации объясняется:</p>
+<ul>
+<li><code>grc</code> — греческий;</li>
+<li><code>lat</code> — латинский;</li>
+<li><code>eng</code> — английский;</li>
+<li><code>hpt</code> — иврит с огласовками;</li>
+<li><code>hct</code> — иврит без огласовок;</li>
+<li><code>ger</code> — немецкий;</li>
+<li><code>oth</code> — другие языки.</li>
+</ul>
+<p>Чтобы скачивать тексты, нужно использовать индексы из переменной <code>urn</code>. Давайте скачаем “Исповедь” Августина:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>augustins_confession <span class="ot">&lt;-</span> <span class="fu">get_perseus_text</span>(<span class="st">"urn:cts:latinLit:stoa0040.stoa001.opp-lat1"</span>)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>augustins_confession</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 13 × 7
+   text                      urn   group_name label description language section
+   &lt;chr&gt;                     &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;int&gt;
+ 1 "Magnus es, domine, et l… urn:… Augustinus Conf… Augustine … lat            1
+ 2 "LIBER SECVNDVS. Recorda… urn:… Augustinus Conf… Augustine … lat            2
+ 3 "LIBER TERTIVS. Veni Kar… urn:… Augustinus Conf… Augustine … lat            3
+ 4 "LIBER QVARTVS. Per idem… urn:… Augustinus Conf… Augustine … lat            4
+ 5 "LIBER QVINTVS. Accipe s… urn:… Augustinus Conf… Augustine … lat            5
+ 6 "LIBER SEXTVS. Spes mea … urn:… Augustinus Conf… Augustine … lat            6
+ 7 "LIBER SEPTIMVS. Iam mor… urn:… Augustinus Conf… Augustine … lat            7
+ 8 "LIBER OCTAVVS. Deus men… urn:… Augustinus Conf… Augustine … lat            8
+ 9 "LIBER NONVS. s o domine… urn:… Augustinus Conf… Augustine … lat            9
+10 "LIBER DECIMVS. Cognosca… urn:… Augustinus Conf… Augustine … lat           10
+11 "LIBER VNDECIMVS. Numqui… urn:… Augustinus Conf… Augustine … lat           11
+12 "LIBER DVODECIMVS. Multa… urn:… Augustinus Conf… Augustine … lat           12
+13 "LIBER TERTIVS DECIMVS. … urn:… Augustinus Conf… Augustine … lat           13</code></pre>
+</div>
+</div>
+<p>Кроме того, можно скачать лишь фрагмент, если мы заранее знаем деление книги:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_perseus_text</span>(<span class="st">"urn:cts:latinLit:stoa0040.stoa001.opp-lat1"</span>, <span class="at">excerpt =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 7
+  text                       urn   group_name label description language section
+  &lt;chr&gt;                      &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;dbl&gt;
+1 "LIBER QVARTVS. Per idem … urn:… Augustinus Conf… Augustine … lat            4</code></pre>
+</div>
+</div>
+<p>К сожалению, пакет не позволяет скачивать много текстов за раз, но в документации описано как это можно сделать при помощи цикла. Кому-то может показаться полезной функция <code>perseus_parallel()</code>, которая позволяет видеть параллельные фрагменты текста. Проиллюстрируем это на примере Эвменид Эсхила:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_perseus_text</span>(<span class="st">"urn:cts:greekLit:tlg0085.tlg007.perseus-eng2"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>) <span class="ot">-&gt;</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  aeschylus_eumenides_eng</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">get_perseus_text</span>(<span class="st">"urn:cts:greekLit:tlg0085.tlg007.perseus-grc2"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>) <span class="ot">-&gt;</span></span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  aeschylus_eumenides_grc</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>aeschylus_eumenides_eng <span class="sc">|&gt;</span> </span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(aeschylus_eumenides_grc) <span class="sc">|&gt;</span> </span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">perseus_parallel</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="5_working_with_texts_files/figure-html/eumenides-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="библиотека-lib.ru" class="level3" data-number="5.2.3">
+<h3 data-number="5.2.3" class="anchored" data-anchor-id="библиотека-lib.ru"><span class="header-section-number">5.2.3</span> Библиотека lib.ru</h3>
+<p>Для текстов на русском языке отдельного пакета не написали, однако на сайте библиотеки <a href="lib.ru">lib.ru</a> они уже представлены в машиночитаемом виде, нужно всего лишь выбрать вариант отображение txt, полученную ссылку считать в R, указав корректную кодировку (см. <a href="#sec-encoding" class="quarto-xref"><span>Раздел 5.1</span></a>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_lines</span>(<span class="st">"http://lib.ru/LITRA/PUSHKIN/kapitan.txt_Ascii.txt"</span>,</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"KOI8-R"</span>),</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] " \024Александр Сергеевич Пушкин. Капитанская дочка\025"                                                                  
+ [2] ""                                                                                                                        
+ [3] " ---------------------------------------------------------------"                                                        
+ [4] " OCR: Олег Колесников"                                                                                                   
+ [5] " Origin: http://www.magister.msk.ru/library/pushkin/pushkin.htm ? http://www.magister.msk.ru/library/pushkin/pushkin.htm"
+ [6] " ---------------------------------------------------------------"                                                        
+ [7] ""                                                                                                                        
+ [8] " Береги честь смолоду."                                                                                                  
+ [9] " Пословица"                                                                                                              
+[10] ""                                                                                                                        
+[11] ""                                                                                                                        
+[12] ""                                                                                                                        
+[13] " \024ГЛАВА I. СЕРЖАНТ ГВАРДИИ.\025"                                                                                      
+[14] ""                                                                                                                        
+[15] ""                                                                                                                        </code></pre>
+</div>
+</div>
+<p>Если вам нужно скачать весь текст, разумеется, аргумент <code>n_max</code> нужно убрать, он отвечает за количество скачанных строк.</p>
+</section>
+</section>
+<section id="библиотека-tidytext" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="библиотека-tidytext"><span class="header-section-number">5.3</span> Библиотека <code>tidytext</code></h2>
+<p>Сейчас скачанные тексты записывались в таблицу, где одна строка содержала один абзац. Однако для анализа текста нужно уметь работать с отдельными словами в нем. Для этого тексты нужно привести в tidy формат. С этим отлично справляется пакет <code>tidytext</code> (онлайн книга доступна <a href="https://www.tidytextmining.com/">здесь</a>). Основное “оружие” пакета <code>tidytext</code> функция <code>unnest_tokens()</code>, которая переводит текст в tidy формат. В аргумент <code>output</code> подается вектор с именем будущей переменной, а аргумент <code>input</code> принимает переменную с текстом.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>alices_adventures_in_wonderland <span class="sc">|&gt;</span>  </span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">text =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(<span class="at">output =</span> <span class="st">"word"</span>, <span class="at">input =</span> text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 29,891 × 1
+   word      
+   &lt;chr&gt;     
+ 1 the       
+ 2 project   
+ 3 gutenberg 
+ 4 ebook     
+ 5 of        
+ 6 alice's   
+ 7 adventures
+ 8 in        
+ 9 wonderland
+10 this      
+# ℹ 29,881 more rows</code></pre>
+</div>
+</div>
+<p>По умолчанию функция <code>unnest_tokens()</code> удаляет знаки препинания и приводит слова к нижнему регистру. Давайте для удобства удалим все вплоть до оглавления и создадим датафрейм, в которых будет понятно, где какая глава книги:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>alices_adventures_in_wonderland <span class="sc">|&gt;</span> </span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">text =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">54</span><span class="sc">:</span><span class="dv">3405</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">chapter =</span> <span class="fu">str_extract</span>(text, <span class="st">"CHAPTER .{1,4}</span><span class="sc">\\</span><span class="st">."</span>),</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">chapter_title =</span> <span class="fu">ifelse</span>(<span class="fu">str_detect</span>(text, <span class="st">"CHAPTER .{1,4}</span><span class="sc">\\</span><span class="st">."</span>), <span class="fu">lead</span>(text), <span class="cn">NA</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fill</span>(chapter, chapter_title)  <span class="sc">|&gt;</span> </span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(text <span class="sc">!=</span> chapter) <span class="sc">|&gt;</span> </span>
+<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">chapter =</span> <span class="fu">str_remove</span>(chapter, <span class="st">"CHAPTER "</span>),</span>
+<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">chapter =</span> <span class="fu">str_remove</span>(chapter, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>),</span>
+<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">chapter =</span> <span class="fu">as.numeric</span>(<span class="fu">as.roman</span>(chapter)),</span>
+<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a>         <span class="at">chapter_title =</span> <span class="fu">fct_reorder</span>(chapter_title, chapter)) <span class="ot">-&gt;</span></span>
+<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>  alice_cleaned</span>
+<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a>alice_cleaned</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3,340 × 3
+   text                                                    chapter chapter_title
+   &lt;chr&gt;                                                     &lt;dbl&gt; &lt;fct&gt;        
+ 1 "Down the Rabbit-Hole"                                        1 Down the Rab…
+ 2 ""                                                            1 Down the Rab…
+ 3 ""                                                            1 Down the Rab…
+ 4 "Alice was beginning to get very tired of sitting by h…       1 Down the Rab…
+ 5 "bank, and of having nothing to do: once or twice she …       1 Down the Rab…
+ 6 "the book her sister was reading, but it had no pictur…       1 Down the Rab…
+ 7 "conversations in it, “and what is the use of a book,”…       1 Down the Rab…
+ 8 "“without pictures or conversations?”"                        1 Down the Rab…
+ 9 ""                                                            1 Down the Rab…
+10 "So she was considering in her own mind (as well as sh…       1 Down the Rab…
+# ℹ 3,330 more rows</code></pre>
+</div>
+</div>
+<p>В приведенном выше коде интерес представляет функция <code>fill()</code>, которая заполнила пропущенные значения <code>NA</code> значениями выше. В остальном мы использовали не сложные регулярные выражения из <a href="4_working_with_strings.html#sec-regex" class="quarto-xref"><span>Раздел 4.8</span></a>. Кроме того мы воспользовались встроенными функциями <code>as.roman()</code> и <code>as.numeric()</code>, чтобы преобразовать римские номера глав в арабские. Теперь мы готовы анализировать частотность слов. Создадим переменную <code>tidy_alice</code> и посчитаем слова в каждой из глав:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>alice_cleaned <span class="sc">|&gt;</span> </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(<span class="at">output =</span> <span class="st">"word"</span>, <span class="at">input =</span> text) <span class="ot">-&gt;</span></span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  tidy_alice</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>tidy_alice <span class="sc">|&gt;</span> </span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(chapter_title, word, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 7,526 × 3
+   chapter_title                     word      n
+   &lt;fct&gt;                             &lt;chr&gt; &lt;int&gt;
+ 1 Who Stole the Tarts?              the     183
+ 2 The Queen’s Croquet-Ground        the     168
+ 3 Alice’s Evidence                  the     168
+ 4 A Mad Tea-Party                   the     158
+ 5 The Lobster Quadrille             the     158
+ 6 Pig and Pepper                    the     150
+ 7 The Mock Turtle’s Story           the     144
+ 8 The Rabbit Sends in a Little Bill the     128
+ 9 The Rabbit Sends in a Little Bill and     107
+10 A Caucus-Race and a Long Tale     the     101
+# ℹ 7,516 more rows</code></pre>
+</div>
+</div>
+<p>В основном, конечно, слова бессмысленные, но давайте посмотрим первый десяток самых частотных слов в каждой из глав:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>tidy_alice <span class="sc">|&gt;</span> </span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(chapter_title, word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(chapter_title) <span class="sc">|&gt;</span> </span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n, word))<span class="sc">+</span></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>chapter_title, <span class="at">scales =</span> <span class="st">"free"</span>)<span class="sc">+</span></span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="5_working_with_texts_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Хорошие знатоки “Алисы в Зазеркалье”, конечно многое понимают из распределения местоимений <em>you</em> и, наверное, догадываются, почему это слово становиться первым, однако в большинстве случаев служебные слова неинформативны при анализе текстов. Для этого для некоторых языков составили списки стоп-слов — служебных слов, которые никак не приближают к пониманию текста. Отдельный список уже встроен в пакет <code>tidytext</code> в переменную <code>stop_words</code> (см. также следующий раздел):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>stop_words</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1,149 × 2
+   word        lexicon
+   &lt;chr&gt;       &lt;chr&gt;  
+ 1 a           SMART  
+ 2 a's         SMART  
+ 3 able        SMART  
+ 4 about       SMART  
+ 5 above       SMART  
+ 6 according   SMART  
+ 7 accordingly SMART  
+ 8 across      SMART  
+ 9 actually    SMART  
+10 after       SMART  
+# ℹ 1,139 more rows</code></pre>
+</div>
+</div>
+<p>Так что используя функцию из семейства <code>..._join()</code> (см. <a href="2_data_transformation.html#sec-joins" class="quarto-xref"><span>Раздел 2.10</span></a>), мы можем повторить наш анализ:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>tidy_alice <span class="sc">|&gt;</span> </span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(chapter_title, word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">|&gt;</span> </span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(chapter_title) <span class="sc">|&gt;</span> </span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n, word))<span class="sc">+</span></span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>chapter_title, <span class="at">scales =</span> <span class="st">"free"</span>)<span class="sc">+</span></span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="5_working_with_texts_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Получившийся результат уже значительно интереснее, однако алфавитный порядок слов в каждом фасете немного мешает. Для того, чтобы победить это в пакете <code>tidytext</code> есть нескольок функций:</p>
+<ul>
+<li><code>reorder_within()</code> — функция которая позволяет указать группировку, внутри которой нужно упорядочить единицы;</li>
+<li><code>scale_y_reordered()</code>/<code>scale_x_reordered()</code> — функция, которая маскирует работу <code>reorder_within()</code> при отображении на графике.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>tidy_alice <span class="sc">|&gt;</span> </span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(chapter_title, word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(stop_words) <span class="sc">|&gt;</span> </span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(chapter_title) <span class="sc">|&gt;</span> </span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">reorder_within</span>(word, <span class="at">within =</span> chapter_title, <span class="at">by =</span> n)) <span class="sc">|&gt;</span> </span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n, word))<span class="sc">+</span></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>chapter_title, <span class="at">scales =</span> <span class="st">"free"</span>)<span class="sc">+</span></span>
+<span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reordered</span>()<span class="sc">+</span></span>
+<span id="cb64-11"><a href="#cb64-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="5_working_with_texts_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Важно отметить, что разделение на слова не единственная цель функции <code>unnest_tokens()</code>, важным бывает анализировать сочетания слов: биграммы, триграммы и т. д.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>alice_cleaned <span class="sc">|&gt;</span> </span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(<span class="at">output =</span> <span class="st">"ngram"</span>, <span class="at">input =</span> text, <span class="at">token =</span> <span class="st">"ngrams"</span>, <span class="at">n =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 25,159 × 3
+   chapter chapter_title        ngram        
+     &lt;dbl&gt; &lt;fct&gt;                &lt;chr&gt;        
+ 1       1 Down the Rabbit-Hole down the     
+ 2       1 Down the Rabbit-Hole the rabbit   
+ 3       1 Down the Rabbit-Hole rabbit hole  
+ 4       1 Down the Rabbit-Hole &lt;NA&gt;         
+ 5       1 Down the Rabbit-Hole &lt;NA&gt;         
+ 6       1 Down the Rabbit-Hole alice was    
+ 7       1 Down the Rabbit-Hole was beginning
+ 8       1 Down the Rabbit-Hole beginning to 
+ 9       1 Down the Rabbit-Hole to get       
+10       1 Down the Rabbit-Hole get very     
+# ℹ 25,149 more rows</code></pre>
+</div>
+</div>
+<p>В связи с этим можно повторить наш анализ с биграммами:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>alice_cleaned <span class="sc">|&gt;</span> </span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(<span class="at">output =</span> <span class="st">"ngram"</span>, <span class="at">input =</span> text, <span class="at">token =</span> <span class="st">"ngrams"</span>, <span class="at">n =</span> <span class="dv">2</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(ngram, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"ngram_1"</span>, <span class="st">"ngram_2"</span>), <span class="at">sep =</span> <span class="st">" "</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(<span class="fu">tibble</span>(<span class="at">ngram_1 =</span> stop_words<span class="sc">$</span>word)) <span class="sc">|&gt;</span> </span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(<span class="fu">tibble</span>(<span class="at">ngram_2 =</span> stop_words<span class="sc">$</span>word)) <span class="sc">|&gt;</span> </span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ngram =</span> <span class="fu">str_c</span>(ngram_1, <span class="st">" "</span>, ngram_2)) <span class="sc">|&gt;</span> </span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(chapter_title, ngram, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span></span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(chapter_title) <span class="sc">|&gt;</span> </span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ngram =</span> <span class="fu">reorder_within</span>(ngram, <span class="at">within =</span> chapter_title, <span class="at">by =</span> n)) <span class="sc">|&gt;</span> </span>
+<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n, ngram))<span class="sc">+</span></span>
+<span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
+<span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>chapter_title, <span class="at">scales =</span> <span class="st">"free"</span>)<span class="sc">+</span></span>
+<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_reordered</span>() <span class="sc">+</span> </span>
+<span id="cb68-16"><a href="#cb68-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(ngram_1)`
+Joining with `by = join_by(ngram_2)`</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="5_working_with_texts_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="пакет-stopwords" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="пакет-stopwords"><span class="header-section-number">5.4</span> Пакет <code>stopwords</code></h2>
+<p>Выше мы упомянули, что в пакет <code>tidytext</code> встроен список английских стопслов. Стопслова для других язков можно раздобыть списки для других языков, используя пакет <code>stopwords</code>. Вместо имени языка, функция принимает ISO код языыка:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stopwords)</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopwords</span>(<span class="st">"ru"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] "и"       "в"       "во"      "не"      "что"     "он"      "на"     
+  [8] "я"       "с"       "со"      "как"     "а"       "то"      "все"    
+ [15] "она"     "так"     "его"     "но"      "да"      "ты"      "к"      
+ [22] "у"       "же"      "вы"      "за"      "бы"      "по"      "только" 
+ [29] "ее"      "мне"     "было"    "вот"     "от"      "меня"    "еще"    
+ [36] "нет"     "о"       "из"      "ему"     "теперь"  "когда"   "даже"   
+ [43] "ну"      "вдруг"   "ли"      "если"    "уже"     "или"     "ни"     
+ [50] "быть"    "был"     "него"    "до"      "вас"     "нибудь"  "опять"  
+ [57] "уж"      "вам"     "сказал"  "ведь"    "там"     "потом"   "себя"   
+ [64] "ничего"  "ей"      "может"   "они"     "тут"     "где"     "есть"   
+ [71] "надо"    "ней"     "для"     "мы"      "тебя"    "их"      "чем"    
+ [78] "была"    "сам"     "чтоб"    "без"     "будто"   "человек" "чего"   
+ [85] "раз"     "тоже"    "себе"    "под"     "жизнь"   "будет"   "ж"      
+ [92] "тогда"   "кто"     "этот"    "говорил" "того"    "потому"  "этого"  
+ [99] "какой"   "совсем"  "ним"     "здесь"   "этом"    "один"    "почти"  
+[106] "мой"     "тем"     "чтобы"   "нее"     "кажется" "сейчас"  "были"   
+[113] "куда"    "зачем"   "сказать" "всех"    "никогда" "сегодня" "можно"  
+[120] "при"     "наконец" "два"     "об"      "другой"  "хоть"    "после"  
+[127] "над"     "больше"  "тот"     "через"   "эти"     "нас"     "про"    
+[134] "всего"   "них"     "какая"   "много"   "разве"   "сказала" "три"    
+[141] "эту"     "моя"     "впрочем" "хорошо"  "свою"    "этой"    "перед"  
+[148] "иногда"  "лучше"   "чуть"    "том"     "нельзя"  "такой"   "им"     
+[155] "более"   "всегда"  "конечно" "всю"     "между"  </code></pre>
+</div>
+</div>
+<p>Пакет предоставляет несколько источников списков:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stopwords_getsources</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "snowball"      "stopwords-iso" "misc"          "smart"        
+[5] "marimo"        "ancient"       "nltk"          "perseus"      </code></pre>
+</div>
+</div>
+<p>Давайте посмотрим какие языки сейчас доступны:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(<span class="fu">stopwords_getsources</span>(), stopwords_getlanguages)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+ [1] "da" "de" "en" "es" "fi" "fr" "hu" "ir" "it" "nl" "no" "pt" "ro" "ru" "sv"
+
+[[2]]
+ [1] "af" "ar" "hy" "eu" "bn" "br" "bg" "ca" "zh" "hr" "cs" "da" "nl" "en" "eo"
+[16] "et" "fi" "fr" "gl" "de" "el" "ha" "he" "hi" "hu" "id" "ga" "it" "ja" "ko"
+[31] "ku" "la" "lt" "lv" "ms" "mr" "no" "fa" "pl" "pt" "ro" "ru" "sk" "sl" "so"
+[46] "st" "es" "sw" "sv" "th" "tl" "tr" "uk" "ur" "vi" "yo" "zu"
+
+[[3]]
+[1] "ar" "ca" "el" "gu" "zh"
+
+[[4]]
+[1] "en"
+
+[[5]]
+[1] "en"    "de"    "ru"    "ar"    "he"    "zh_tw" "zh_cn" "ko"    "ja"   
+
+[[6]]
+[1] "grc" "la" 
+
+[[7]]
+ [1] "ar" "az" "da" "nl" "en" "fi" "fr" "de" "el" "hu" "id" "it" "kk" "ne" "no"
+[16] "pt" "ro" "ru" "sl" "es" "sv" "tg" "tr"
+
+[[8]]
+[1] "grc" "la" </code></pre>
+</div>
+</div>
+<p>Мы видим, что есть несколько источников для русского языка:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">stopwords</span>(<span class="st">"ru"</span>, <span class="at">source =</span> <span class="st">"snowball"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 159</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">stopwords</span>(<span class="st">"ru"</span>, <span class="at">source =</span> <span class="st">"stopwords-iso"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 559</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">stopwords</span>(<span class="st">"ru"</span>, <span class="at">source =</span> <span class="st">"marimo"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 333</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">stopwords</span>(<span class="st">"ru"</span>, <span class="at">source =</span> <span class="st">"nltk"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 151</code></pre>
+</div>
+</div>
+<p>В результате мы можем сделать анализ аналогичный анализу Алисы из прошлого раздела для русского текста:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>captains_daughter <span class="ot">&lt;-</span> <span class="fu">read_lines</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_the_captains_daughter_koi8r.txt"</span>,</span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"KOI8-R"</span>))</span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a>captains_daughter <span class="sc">|&gt;</span> </span>
+<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">text =</span> _) <span class="sc">|&gt;</span> </span>
+<span id="cb84-6"><a href="#cb84-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(<span class="at">output =</span> <span class="st">"word"</span>, <span class="at">input =</span> text) <span class="sc">|&gt;</span> </span>
+<span id="cb84-7"><a href="#cb84-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(<span class="fu">tibble</span>(<span class="at">word =</span> <span class="fu">stopwords</span>(<span class="st">"ru"</span>, <span class="at">source =</span> <span class="st">"stopwords-iso"</span>))) <span class="sc">|&gt;</span> </span>
+<span id="cb84-8"><a href="#cb84-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-9"><a href="#cb84-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">15</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb84-10"><a href="#cb84-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">word =</span> <span class="fu">fct_reorder</span>(word, n)) <span class="sc">|&gt;</span> </span>
+<span id="cb84-11"><a href="#cb84-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(n, word))<span class="sc">+</span></span>
+<span id="cb84-12"><a href="#cb84-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
+<span id="cb84-13"><a href="#cb84-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">y =</span> <span class="cn">NULL</span>, <span class="at">caption =</span> <span class="st">"А. С. Пушкин 'Капитанская дочка'"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(word)`</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="5_working_with_texts_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="пакет-udpipe" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="пакет-udpipe"><span class="header-section-number">5.5</span> Пакет <code>udpipe</code></h2>
+<p>Пакет <code>udpipe</code> представляет лемматизацию, морфологический и синтаксический анализ разных языков. Туториал можно найти <a href="https://bnosac.github.io/udpipe/docs/doc1.html">здесь</a>, там же есть список доступных языков.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(udpipe)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Модели качаются очень долго.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>enmodel <span class="ot">&lt;-</span> <span class="fu">udpipe_download_model</span>(<span class="at">language =</span> <span class="st">"english"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Downloading udpipe model from https://raw.githubusercontent.com/jwijffels/udpipe.models.ud.2.5/master/inst/udpipe-ud-2.5-191206/english-ewt-ud-2.5-191206.udpipe to /home/agricolamz/work/online_course/r_for_humanities_and_social_sciences/tasks/repo/book/english-ewt-ud-2.5-191206.udpipe</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> - This model has been trained on version 2.5 of data from https://universaldependencies.org</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> - The model is distributed under the CC-BY-SA-NC license: https://creativecommons.org/licenses/by-nc-sa/4.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> - Visit https://github.com/jwijffels/udpipe.models.ud.2.5 for model license details.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> - For a list of all models and their licenses (most models you can download with this package have either a CC-BY-SA or a CC-BY-SA-NC license) read the documentation at ?udpipe_download_model. For building your own models: visit the documentation by typing vignette('udpipe-train', package = 'udpipe')</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Downloading finished, model stored at '/home/agricolamz/work/online_course/r_for_humanities_and_social_sciences/tasks/repo/book/english-ewt-ud-2.5-191206.udpipe'</code></pre>
+</div>
+</div>
+<p>Теперь можно распарсить какое-нибудь предложение:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">udpipe</span>(<span class="st">"The want of Miss Taylor would be felt every hour of every day."</span>,</span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">object =</span> enmodel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   doc_id paragraph_id sentence_id
+1    doc1            1           1
+2    doc1            1           1
+3    doc1            1           1
+4    doc1            1           1
+5    doc1            1           1
+6    doc1            1           1
+7    doc1            1           1
+8    doc1            1           1
+9    doc1            1           1
+10   doc1            1           1
+11   doc1            1           1
+12   doc1            1           1
+13   doc1            1           1
+14   doc1            1           1
+                                                         sentence start end
+1  The want of Miss Taylor would be felt every hour of every day.     1   3
+2  The want of Miss Taylor would be felt every hour of every day.     5   8
+3  The want of Miss Taylor would be felt every hour of every day.    10  11
+4  The want of Miss Taylor would be felt every hour of every day.    13  16
+5  The want of Miss Taylor would be felt every hour of every day.    18  23
+6  The want of Miss Taylor would be felt every hour of every day.    25  29
+7  The want of Miss Taylor would be felt every hour of every day.    31  32
+8  The want of Miss Taylor would be felt every hour of every day.    34  37
+9  The want of Miss Taylor would be felt every hour of every day.    39  43
+10 The want of Miss Taylor would be felt every hour of every day.    45  48
+11 The want of Miss Taylor would be felt every hour of every day.    50  51
+12 The want of Miss Taylor would be felt every hour of every day.    53  57
+13 The want of Miss Taylor would be felt every hour of every day.    59  61
+14 The want of Miss Taylor would be felt every hour of every day.    62  62
+   term_id token_id  token  lemma  upos xpos
+1        1        1    The    the   DET   DT
+2        2        2   want   want  NOUN   NN
+3        3        3     of     of   ADP   IN
+4        4        4   Miss   miss PROPN  NNP
+5        5        5 Taylor Taylor PROPN  NNP
+6        6        6  would  would   AUX   MD
+7        7        7     be     be   AUX   VB
+8        8        8   felt   feel  VERB  VBN
+9        9        9  every  every   DET   DT
+10      10       10   hour   hour  NOUN   NN
+11      11       11     of     of   ADP   IN
+12      12       12  every  every   DET   DT
+13      13       13    day    day  NOUN   NN
+14      14       14      .      . PUNCT    .
+                                 feats head_token_id    dep_rel deps
+1            Definite=Def|PronType=Art             2        det &lt;NA&gt;
+2                          Number=Sing             8 nsubj:pass &lt;NA&gt;
+3                                 &lt;NA&gt;             5       case &lt;NA&gt;
+4                          Number=Sing             5   compound &lt;NA&gt;
+5                          Number=Sing             2       nmod &lt;NA&gt;
+6                         VerbForm=Fin             8        aux &lt;NA&gt;
+7                         VerbForm=Inf             8   aux:pass &lt;NA&gt;
+8  Tense=Past|VerbForm=Part|Voice=Pass             0       root &lt;NA&gt;
+9                                 &lt;NA&gt;            10        det &lt;NA&gt;
+10                         Number=Sing             8   obl:tmod &lt;NA&gt;
+11                                &lt;NA&gt;            13       case &lt;NA&gt;
+12                                &lt;NA&gt;            13        det &lt;NA&gt;
+13                         Number=Sing            10       nmod &lt;NA&gt;
+14                                &lt;NA&gt;             8      punct &lt;NA&gt;
+              misc
+1             &lt;NA&gt;
+2             &lt;NA&gt;
+3             &lt;NA&gt;
+4             &lt;NA&gt;
+5             &lt;NA&gt;
+6             &lt;NA&gt;
+7             &lt;NA&gt;
+8             &lt;NA&gt;
+9             &lt;NA&gt;
+10            &lt;NA&gt;
+11            &lt;NA&gt;
+12            &lt;NA&gt;
+13   SpaceAfter=No
+14 SpacesAfter=\\n</code></pre>
+</div>
+</div>
+<p>Скачаем русскую модель:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>rumodel <span class="ot">&lt;-</span> <span class="fu">udpipe_download_model</span>(<span class="at">language =</span> <span class="st">"russian-syntagrus"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Downloading udpipe model from https://raw.githubusercontent.com/jwijffels/udpipe.models.ud.2.5/master/inst/udpipe-ud-2.5-191206/russian-syntagrus-ud-2.5-191206.udpipe to /home/agricolamz/work/online_course/r_for_humanities_and_social_sciences/tasks/repo/book/russian-syntagrus-ud-2.5-191206.udpipe</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> - This model has been trained on version 2.5 of data from https://universaldependencies.org</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> - The model is distributed under the CC-BY-SA-NC license: https://creativecommons.org/licenses/by-nc-sa/4.0</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> - Visit https://github.com/jwijffels/udpipe.models.ud.2.5 for model license details.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> - For a list of all models and their licenses (most models you can download with this package have either a CC-BY-SA or a CC-BY-SA-NC license) read the documentation at ?udpipe_download_model. For building your own models: visit the documentation by typing vignette('udpipe-train', package = 'udpipe')</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Downloading finished, model stored at '/home/agricolamz/work/online_course/r_for_humanities_and_social_sciences/tasks/repo/book/russian-syntagrus-ud-2.5-191206.udpipe'</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">udpipe</span>(<span class="st">"Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина."</span>,</span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">object =</span> rumodel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   doc_id paragraph_id sentence_id
+1    doc1            1           1
+2    doc1            1           1
+3    doc1            1           1
+4    doc1            1           1
+5    doc1            1           1
+6    doc1            1           1
+7    doc1            1           1
+8    doc1            1           1
+9    doc1            1           1
+10   doc1            1           1
+11   doc1            1           1
+12   doc1            1           1
+13   doc1            1           1
+14   doc1            1           1
+15   doc1            1           1
+16   doc1            1           1
+17   doc1            1           1
+18   doc1            1           1
+19   doc1            1           1
+20   doc1            1           1
+21   doc1            1           1
+                                                                                      sentence
+1  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+2  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+3  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+4  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+5  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+6  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+7  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+8  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+9  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+10 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+11 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+12 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+13 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+14 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+15 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+16 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+17 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+18 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+19 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+20 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+21 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+   start end term_id token_id       token       lemma  upos xpos
+1      1   4       1        1        Жила        жить  VERB &lt;NA&gt;
+2      5   5       2        2           -           - PUNCT &lt;NA&gt;
+3      6   9       3        3        была        быть   AUX &lt;NA&gt;
+4     11  12       4        4          на          на   ADP &lt;NA&gt;
+5     14  18       5        5       свете        свет  NOUN &lt;NA&gt;
+6     20  24       6        6       крыса       крыса  NOUN &lt;NA&gt;
+7     26  26       7        7           в           в   ADP &lt;NA&gt;
+8     28  34       8        8     морском     морской   ADJ &lt;NA&gt;
+9     36  40       9        9       порту        порт  NOUN &lt;NA&gt;
+10    42  52      10       10 Вальпараисо Вальпараисо   ADV &lt;NA&gt;
+11    53  53      11       11           ,           , PUNCT &lt;NA&gt;
+12    55  56      12       12          на          на   ADP &lt;NA&gt;
+13    58  63      13       13      складе       склад  NOUN &lt;NA&gt;
+14    65  68      14       14        мяса        мясо  NOUN &lt;NA&gt;
+15    70  70      15       15           и           и CCONJ &lt;NA&gt;
+16    72  76      16       16       маиса        маис  NOUN &lt;NA&gt;
+17    77  77      17       17           ,           , PUNCT &lt;NA&gt;
+18    79  83      18       18       какао       какао  NOUN &lt;NA&gt;
+19    85  85      19       19           и           и CCONJ &lt;NA&gt;
+20    87  90      20       20        вина        вино  NOUN &lt;NA&gt;
+21    91  91      21       21           .           . PUNCT &lt;NA&gt;
+                                                                          feats
+1  Aspect=Imp|Gender=Fem|Mood=Ind|Number=Sing|Tense=Past|VerbForm=Fin|Voice=Act
+2                                                                          &lt;NA&gt;
+3  Aspect=Imp|Gender=Fem|Mood=Ind|Number=Sing|Tense=Past|VerbForm=Fin|Voice=Act
+4                                                                          &lt;NA&gt;
+5                                 Animacy=Inan|Case=Loc|Gender=Masc|Number=Sing
+6                                 Animacy=Inan|Case=Gen|Gender=Masc|Number=Sing
+7                                                                          &lt;NA&gt;
+8                                   Case=Loc|Degree=Pos|Gender=Masc|Number=Sing
+9                                 Animacy=Inan|Case=Loc|Gender=Masc|Number=Sing
+10                                                                   Degree=Pos
+11                                                                         &lt;NA&gt;
+12                                                                         &lt;NA&gt;
+13                                Animacy=Inan|Case=Loc|Gender=Masc|Number=Sing
+14                                Animacy=Inan|Case=Gen|Gender=Neut|Number=Sing
+15                                                                         &lt;NA&gt;
+16                                Animacy=Inan|Case=Gen|Gender=Masc|Number=Sing
+17                                                                         &lt;NA&gt;
+18                                Animacy=Inan|Case=Gen|Gender=Neut|Number=Sing
+19                                                                         &lt;NA&gt;
+20                                Animacy=Inan|Case=Gen|Gender=Neut|Number=Sing
+21                                                                         &lt;NA&gt;
+   head_token_id dep_rel deps            misc
+1              5   nsubj &lt;NA&gt;   SpaceAfter=No
+2              1   punct &lt;NA&gt;   SpaceAfter=No
+3              5     cop &lt;NA&gt;            &lt;NA&gt;
+4              5    case &lt;NA&gt;            &lt;NA&gt;
+5              0    root &lt;NA&gt;            &lt;NA&gt;
+6              5    nmod &lt;NA&gt;            &lt;NA&gt;
+7              9    case &lt;NA&gt;            &lt;NA&gt;
+8              9    amod &lt;NA&gt;            &lt;NA&gt;
+9              6    nmod &lt;NA&gt;            &lt;NA&gt;
+10             6  advmod &lt;NA&gt;   SpaceAfter=No
+11            13   punct &lt;NA&gt;            &lt;NA&gt;
+12            13    case &lt;NA&gt;            &lt;NA&gt;
+13            10    conj &lt;NA&gt;            &lt;NA&gt;
+14            13    nmod &lt;NA&gt;            &lt;NA&gt;
+15            16      cc &lt;NA&gt;            &lt;NA&gt;
+16            14    conj &lt;NA&gt;   SpaceAfter=No
+17            18   punct &lt;NA&gt;            &lt;NA&gt;
+18            10    conj &lt;NA&gt;            &lt;NA&gt;
+19            20      cc &lt;NA&gt;            &lt;NA&gt;
+20            10    conj &lt;NA&gt;   SpaceAfter=No
+21             5   punct &lt;NA&gt; SpacesAfter=\\n</code></pre>
+</div>
+</div>
+<p>После того как модель скачана можно к ней обращаться просто по имени файла:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">udpipe</span>(<span class="st">"Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина."</span>,</span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">object =</span> <span class="st">"russian-syntagrus-ud-2.5-191206.udpipe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   doc_id paragraph_id sentence_id
+1    doc1            1           1
+2    doc1            1           1
+3    doc1            1           1
+4    doc1            1           1
+5    doc1            1           1
+6    doc1            1           1
+7    doc1            1           1
+8    doc1            1           1
+9    doc1            1           1
+10   doc1            1           1
+11   doc1            1           1
+12   doc1            1           1
+13   doc1            1           1
+14   doc1            1           1
+15   doc1            1           1
+16   doc1            1           1
+17   doc1            1           1
+18   doc1            1           1
+19   doc1            1           1
+20   doc1            1           1
+21   doc1            1           1
+                                                                                      sentence
+1  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+2  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+3  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+4  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+5  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+6  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+7  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+8  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+9  Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+10 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+11 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+12 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+13 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+14 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+15 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+16 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+17 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+18 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+19 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+20 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+21 Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина.
+   start end term_id token_id       token       lemma  upos xpos
+1      1   4       1        1        Жила        жить  VERB &lt;NA&gt;
+2      5   5       2        2           -           - PUNCT &lt;NA&gt;
+3      6   9       3        3        была        быть   AUX &lt;NA&gt;
+4     11  12       4        4          на          на   ADP &lt;NA&gt;
+5     14  18       5        5       свете        свет  NOUN &lt;NA&gt;
+6     20  24       6        6       крыса       крыса  NOUN &lt;NA&gt;
+7     26  26       7        7           в           в   ADP &lt;NA&gt;
+8     28  34       8        8     морском     морской   ADJ &lt;NA&gt;
+9     36  40       9        9       порту        порт  NOUN &lt;NA&gt;
+10    42  52      10       10 Вальпараисо Вальпараисо   ADV &lt;NA&gt;
+11    53  53      11       11           ,           , PUNCT &lt;NA&gt;
+12    55  56      12       12          на          на   ADP &lt;NA&gt;
+13    58  63      13       13      складе       склад  NOUN &lt;NA&gt;
+14    65  68      14       14        мяса        мясо  NOUN &lt;NA&gt;
+15    70  70      15       15           и           и CCONJ &lt;NA&gt;
+16    72  76      16       16       маиса        маис  NOUN &lt;NA&gt;
+17    77  77      17       17           ,           , PUNCT &lt;NA&gt;
+18    79  83      18       18       какао       какао  NOUN &lt;NA&gt;
+19    85  85      19       19           и           и CCONJ &lt;NA&gt;
+20    87  90      20       20        вина        вино  NOUN &lt;NA&gt;
+21    91  91      21       21           .           . PUNCT &lt;NA&gt;
+                                                                          feats
+1  Aspect=Imp|Gender=Fem|Mood=Ind|Number=Sing|Tense=Past|VerbForm=Fin|Voice=Act
+2                                                                          &lt;NA&gt;
+3  Aspect=Imp|Gender=Fem|Mood=Ind|Number=Sing|Tense=Past|VerbForm=Fin|Voice=Act
+4                                                                          &lt;NA&gt;
+5                                 Animacy=Inan|Case=Loc|Gender=Masc|Number=Sing
+6                                 Animacy=Inan|Case=Gen|Gender=Masc|Number=Sing
+7                                                                          &lt;NA&gt;
+8                                   Case=Loc|Degree=Pos|Gender=Masc|Number=Sing
+9                                 Animacy=Inan|Case=Loc|Gender=Masc|Number=Sing
+10                                                                   Degree=Pos
+11                                                                         &lt;NA&gt;
+12                                                                         &lt;NA&gt;
+13                                Animacy=Inan|Case=Loc|Gender=Masc|Number=Sing
+14                                Animacy=Inan|Case=Gen|Gender=Neut|Number=Sing
+15                                                                         &lt;NA&gt;
+16                                Animacy=Inan|Case=Gen|Gender=Masc|Number=Sing
+17                                                                         &lt;NA&gt;
+18                                Animacy=Inan|Case=Gen|Gender=Neut|Number=Sing
+19                                                                         &lt;NA&gt;
+20                                Animacy=Inan|Case=Gen|Gender=Neut|Number=Sing
+21                                                                         &lt;NA&gt;
+   head_token_id dep_rel deps            misc
+1              5   nsubj &lt;NA&gt;   SpaceAfter=No
+2              1   punct &lt;NA&gt;   SpaceAfter=No
+3              5     cop &lt;NA&gt;            &lt;NA&gt;
+4              5    case &lt;NA&gt;            &lt;NA&gt;
+5              0    root &lt;NA&gt;            &lt;NA&gt;
+6              5    nmod &lt;NA&gt;            &lt;NA&gt;
+7              9    case &lt;NA&gt;            &lt;NA&gt;
+8              9    amod &lt;NA&gt;            &lt;NA&gt;
+9              6    nmod &lt;NA&gt;            &lt;NA&gt;
+10             6  advmod &lt;NA&gt;   SpaceAfter=No
+11            13   punct &lt;NA&gt;            &lt;NA&gt;
+12            13    case &lt;NA&gt;            &lt;NA&gt;
+13            10    conj &lt;NA&gt;            &lt;NA&gt;
+14            13    nmod &lt;NA&gt;            &lt;NA&gt;
+15            16      cc &lt;NA&gt;            &lt;NA&gt;
+16            14    conj &lt;NA&gt;   SpaceAfter=No
+17            18   punct &lt;NA&gt;            &lt;NA&gt;
+18            10    conj &lt;NA&gt;            &lt;NA&gt;
+19            20      cc &lt;NA&gt;            &lt;NA&gt;
+20            10    conj &lt;NA&gt;   SpaceAfter=No
+21             5   punct &lt;NA&gt; SpacesAfter=\\n</code></pre>
+</div>
+</div>
+<p>Функция <code>udipipe()</code> также принимает датафрейм со столбцами <code>doc_id</code> и <code>text</code> — это позволяет сохранить в получившейся таблице структуру, которая важна в исследовании, так как в переменную <code>doc_id</code> можно спрятать всю необходимую информацию.</p>
+</section>
+<section id="векторизация-текстов" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="векторизация-текстов"><span class="header-section-number">5.6</span> Векторизация текстов</h2>
+<p>Векторизация слов и текстов — это операция, которая позволяет превратить наборы текстов в набор числовых значений, которые потом можно использовать для кластеризации текстов. Мы будем использовать для этой цели дефолтные значения достаточно старых моделей, которые мы используем в практике из-за их скорости. Датасет, который мы будем векторизовывать содержит 300 аннотаций из научных журналов по трем тематикам: лингвистике, медицине и экономике (каждой дисциплины по 100 аннотаций).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>abstracts_dataset <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_abstracts.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 300 Columns: 7
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (6): id, author, title, journal, abstract, field
+dbl (1): publication_year
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(abstracts_dataset)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>spc_tbl_ [300 × 7] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+ $ id              : chr [1:300] "https://openalex.org/W3122280204" "https://openalex.org/W1995933606" "https://openalex.org/W2048988271" "https://openalex.org/W2010854286" ...
+ $ author          : chr [1:300] "Troy Davig; Eric M. Leeper" "Wing Suen; Pak Hung Mo" "Pravin Krishna; Jennifer P. Poole; Mine Zeynep Senses" "Perry Mehrling" ...
+ $ title           : chr [1:300] "Generalizing the Taylor Principle" "Simple Analytics of Productive Consumption" "Trade, Labor Market Frictions, and Residual Wage Inequality across Worker Groups" "Three Principles for Market-Based Credit Regulation" ...
+ $ publication_year: num [1:300] 2007 1994 2012 2012 1996 ...
+ $ journal         : chr [1:300] "The American Economic Review" "Journal of Political Economy" "The American Economic Review" "The American Economic Review" ...
+ $ abstract        : chr [1:300] "The paper generalizes the Taylor principle—the proposition that central banks can stabilize the macroeconomy by"| __truncated__ "Productive consumption adds to utility and income at the same time. The shadow price of a productive good is eq"| __truncated__ "Using a matched employer-employee data set, we study the effects of trade liberalization on wage dispersion in "| __truncated__ "A key lesson of the financial crisis 2007-09 is that the Bagehot Rule, “lend freely but at a high rate,” needs "| __truncated__ ...
+ $ field           : chr [1:300] "economics" "economics" "economics" "economics" ...
+ - attr(*, "spec")=
+  .. cols(
+  ..   id = col_character(),
+  ..   author = col_character(),
+  ..   title = col_character(),
+  ..   publication_year = col_double(),
+  ..   journal = col_character(),
+  ..   abstract = col_character(),
+  ..   field = col_character()
+  .. )
+ - attr(*, "problems")=&lt;externalptr&gt; </code></pre>
+</div>
+</div>
+<p>Мы будем использовать функцию <code>paragraph2vec()</code> из пакета <code>doc2vec</code>. Сначала мы приведем наш датасет к виду датафрейма с переменными <code>doc_id</code> и <code>text</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(doc2vec)</span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a>abstracts_dataset <span class="sc">|&gt;</span></span>
+<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">doc_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb111-5"><a href="#cb111-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">text =</span> abstract) <span class="sc">|&gt;</span></span>
+<span id="cb111-6"><a href="#cb111-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(doc_id, text) <span class="sc">|&gt;</span> </span>
+<span id="cb111-7"><a href="#cb111-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paragraph2vec</span>(<span class="at">threads =</span> <span class="dv">15</span>) <span class="ot">-&gt;</span></span>
+<span id="cb111-8"><a href="#cb111-8" aria-hidden="true" tabindex="-1"></a>  model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Получившиеся эмбединги можно получить</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(model, <span class="at">which =</span> <span class="st">"docs"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 300  50</code></pre>
+</div>
+</div>
+<p>Функция <code>dim()</code> говорит о размерности получившейся таблицы — 300 аннотаций, 50 числовых значений. Теперь можно воспользоваться методами уменьшения размерности для того, чтобы 50-мерное пространство схлопнуть до 2-мерного. Существует много алгоритмов, которые это делают, я воспользуюсь алгоритмом UMAP (Uniform Manifold Approximation and Projection):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(uwot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Matrix</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'Matrix'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:tidyr':
+
+    expand, pack, unpack</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(model, <span class="at">which =</span> <span class="st">"docs"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb118-2"><a href="#cb118-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">umap</span>(<span class="at">metric =</span> <span class="st">"cosine"</span>, <span class="at">init =</span> <span class="st">"pca"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb118-3"><a href="#cb118-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb118-4"><a href="#cb118-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(abstracts_dataset) <span class="sc">|&gt;</span> </span>
+<span id="cb118-5"><a href="#cb118-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(V1, V2, <span class="at">color =</span> field))<span class="sc">+</span></span>
+<span id="cb118-6"><a href="#cb118-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb118-7"><a href="#cb118-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_ellipse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The `x` argument of `as_tibble.matrix()` must have unique column names if
+`.name_repair` is omitted as of tibble 2.0.0.
+ℹ Using compatibility `.name_repair`.</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="5_working_with_texts_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Мы видим, что у аннотаций есть что-то общее, но в общем, аннотации распадаются на три группы. Важно, что расцветка у нас уже была в датасете и алгоритм векторизации ее не видел, так что получившееся пространство отражает карту анализируемых текстов. Стоит отметить, что качесвто получишвегося пространства напрямую зависит от объема данных.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./4_working_with_strings.html" class="pagination-link  aria-label=" &lt;span="" со="" строками&lt;="" span&gt;"="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Работа со строками</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./6_working_with_time.html" class="pagination-link" aria-label="<span class='chapter-number'>6</span>&nbsp; <span class='chapter-title'>Работа со временем</span>">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Работа со временем</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

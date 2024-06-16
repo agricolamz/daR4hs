@@ -1,0 +1,12 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+.Rproj
+answers.zip
+answers.qmd
+answers.rmarkdown
+answers.html
+answers_files/*
+images/*

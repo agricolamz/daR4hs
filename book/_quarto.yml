@@ -1,0 +1,27 @@
+project:
+  type: book
+  output-dir: ../docs
+
+book:
+  title: "daR4hs"
+  author: "Г. А. Мороз"
+  repo-url: https://agricolamz.github.io/daR4hs/
+  chapters:
+    - index.qmd
+    - 1_introduction_to_r.qmd
+    - 2_data_transformation.qmd
+    - 3_data_visualization.qmd
+    - 4_working_with_strings.qmd
+    - 5_working_with_texts.qmd
+    - 6_working_with_time.qmd
+    - 7_working_with_geodata.qmd
+    - 8_regression_analysis.qmd
+    - 9_introduction_to_quarto.qmd
+    - references.qmd
+
+bibliography: references.bib
+language: custom.yml
+
+format:
+  html:
+    theme: cosmo
