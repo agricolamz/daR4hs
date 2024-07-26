@@ -26,7 +26,10 @@ tibble(x = factor(types, levels = types),
   theme_minimal()+
   coord_flip()+
   labs(x = "", y = "")+
-  theme(axis.text.x = element_blank(), panel.grid.major = element_blank(), panel.grid.minor = element_blank())
+  theme(axis.text.x = element_blank(), 
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(),
+        text = element_text(size = 18))
 ```
 
 Кажется, что время --- просто обычная числовая переменная, на которой определены все обычные операции сложения вычитания и т. п. Однако стоит держать в голове несколько фактов:
@@ -221,7 +224,7 @@ ceiling_date(ymd("2020-01-16"), unit = "year")
 
 ## Визуализация времени: данные Левада-центра
 
-Пакет `tidyverse` понимает переменные типа дата, и позволяет их фильтровать и визуализировать. Возьмем для примера [датасет](https://raw.githubusercontent.com/agricolamz/DS_for_DH/master/data/death_of_migrants_and_refugees_from_the_Unwelcomed_project.csv) из проекта [The Unwelcomed](http://alhadaqa.com/2019/08/the_unwelcomed/) Мохамада А. Вэйкда (Mohamad A. Waked), содержащий информацию о месте и причинах смерти мигрантов и беженцев по всему миру с января 2014 года по июнь 2019 года.
+Пакет `tidyverse` понимает переменные типа дата, и позволяет их фильтровать и визуализировать. Возьмем для примера [датасет](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w6_death_of_migrants_and_refugees_from_the_Unwelcomed_project.csv) из проекта [The Unwelcomed](http://alhadaqa.com/2019/08/the_unwelcomed/) Мохамада А. Вэйкда (Mohamad A. Waked), содержащий информацию о месте и причинах смерти мигрантов и беженцев по всему миру с января 2014 года по июнь 2019 года.
 
 ```{r}
 #| message: false
@@ -246,10 +249,10 @@ unwelcomed |>
 
 ![](images/11-levada.png)
 
-На первый взгляд, в этом графике нет ничего странного, однако если присмотреться к динамической версии на сайте Левада-центра, можно обнаружить, что на идущие подряд измерения расположены на одинаковом расстоянии друг от друга, например, 05.2014, 07.2014, 11.2014. Вот [здесь](https://raw.githubusercontent.com/agricolamz/DS_for_DH/master/data/2019.01_levada_countries.csv) можно скачать данные, по которым строился этот график. Вот как он выглядит, если считать временную переменную как время
+На первый взгляд, в этом графике нет ничего странного, однако если присмотреться к динамической версии на сайте Левада-центра, можно обнаружить, что на идущие подряд измерения расположены на одинаковом расстоянии друг от друга, например, 05.2014, 07.2014, 11.2014. Вот [здесь](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w6_2019.01_levada_countries.csv) можно скачать данные, по которым строился этот график. Вот как он выглядит, если считать временную переменную как время
 
 ```{r, warning=FALSE,message=FALSE}
-levada <- read_csv("https://raw.githubusercontent.com/agricolamz/DS_for_DH/master/data/2019.01_levada_countries.csv")
+levada <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w6_2019.01_levada_countries.csv")
 levada |> 
   mutate(date = str_c("1-", date),
          date = dmy(date)) |> 
@@ -263,20 +266,3 @@ levada |>
 ```
 
 На графике теперь видно, насколько регулярно проводились опросы: в начале 90-ых опросы проводились реже, потом часто, потом в районе 2010 года был перерыв. График Левада-центра можно оправдать тем, что они представляют данные от замера к замеру, так что по оси x находится как бы категориальная переменная со значениями `замер 05.2014`, `замер 07.2014`, `замер 11.2014` и т. д. Однако это совсем неочевидно из графика.
-
-```{block, type = "rmdtask"}
-Используя весь датасет Левада-центра, постройте следующий график.
-```
-
-```{r, echo=FALSE, warning=FALSE}
-levada |> 
-  mutate(date = str_c("1-", date),
-         date = dmy(date)) |> 
-  pivot_longer(names_to = "answer", values_to = "number", good:no_answer) |> 
-  ggplot(aes(date, number, color = answer))+
-  geom_line()+
-  labs(x = "", y = "", caption = "данные Левада-центра")+
-  scale_y_continuous(limits = c(0, 100))+
-  theme(legend.position = "bottom", legend.title = element_blank())+
-  facet_wrap(~towards, scales = "free")
-```

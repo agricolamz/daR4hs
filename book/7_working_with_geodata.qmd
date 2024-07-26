@@ -44,12 +44,12 @@ library("tidyverse")
 
 ### `.csv` файлы
 
-Источником географических данных могут быть обычные привычные нам csv файлы. Например, вот [здесь](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w7_death_of_migrants_and_refugees_from_the_Unwelcomed_project.csv), хранится датасет из проекта [The Unwelcomed](http://alhadaqa.com/2019/08/the_unwelcomed/) Мохамада А. Вэйкда (Mohamad A. Waked), содержащий информацию о месте и причинах смерти мигрантов и беженцев по всему миру с января 2014 года по июнь 2019 года.
+Источником географических данных могут быть обычные привычные нам csv файлы. Например, вот [здесь](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w6_death_of_migrants_and_refugees_from_the_Unwelcomed_project.csv), хранится датасет из проекта [The Unwelcomed](http://alhadaqa.com/2019/08/the_unwelcomed/) Мохамада А. Вэйкда (Mohamad A. Waked), содержащий информацию о месте и причинах смерти мигрантов и беженцев по всему миру с января 2014 года по июнь 2019 года.
 
 ```{r}
 #| message: false
 
-unwelcomed <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w7_death_of_migrants_and_refugees_from_the_Unwelcomed_project.csv")
+unwelcomed <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w6_death_of_migrants_and_refugees_from_the_Unwelcomed_project.csv")
 ```
 
 * `id` --- идентификационный номер;
