@@ -363,24 +363,24 @@ mtcars
 iris
 ```
 
-
 ## Работа с пакетами
+
+Все богатство R находиться в его огромной инфраструктуре пакетов, которые может разрабатывать кто угодно. Чтобы их установить, нужно использовать команду `install.packages()`. Начнем с установки центрального для курса пакета: `tidyverse`:  
 
 ```{r}
 #| eval: false
-install.packages("lingtypology")
-install.packages(c("lingtypology", "checkdown"))
 
-library(lingtypology)
-lingtypology::map.feature(c("Russian", "German", "Mandarin Chinese"))
+install.packages("tidyverse")
+```
 
-mtcars
-iris
+Помните, что если вы установили пакет, это не значит, что функции пакета вам доступны. Пакет еще нужно включить
 
-gl <- lingtypology::glottolog
+![](images/01_03_install_packages.png)
 
+Проверим, что все установилось, запустим пакет.
+
+```{r}
 library(tidyverse)
-
 ```
 
 ## Чтение и запись табличных данных
