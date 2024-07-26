@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.52">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>daR4hs - 1&nbsp; Введение в R</title>
+<title>1&nbsp; Введение в R – daR4hs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -132,13 +132,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./1_introduction_to_r.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Введение в R</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -242,13 +242,15 @@ div.csl-indent {
   <li><a href="#установка-r-и-rstudio" id="toc-установка-r-и-rstudio" class="nav-link active" data-scroll-target="#установка-r-и-rstudio"><span class="header-section-number">1.1</span> Установка R и RStudio</a></li>
   <li><a href="#знакомство-с-rstudio" id="toc-знакомство-с-rstudio" class="nav-link" data-scroll-target="#знакомство-с-rstudio"><span class="header-section-number">1.2</span> Знакомство с RStudio</a></li>
   <li><a href="#r-как-калькулятор" id="toc-r-как-калькулятор" class="nav-link" data-scroll-target="#r-как-калькулятор"><span class="header-section-number">1.3</span> R как калькулятор</a></li>
-  <li><a href="#создание-переменных" id="toc-создание-переменных" class="nav-link" data-scroll-target="#создание-переменных"><span class="header-section-number">1.4</span> Создание переменных</a></li>
-  <li><a href="#векторы" id="toc-векторы" class="nav-link" data-scroll-target="#векторы"><span class="header-section-number">1.5</span> Векторы</a></li>
-  <li><a href="#индексация-векторов" id="toc-индексация-векторов" class="nav-link" data-scroll-target="#индексация-векторов"><span class="header-section-number">1.6</span> Индексация векторов</a></li>
-  <li><a href="#функции" id="toc-функции" class="nav-link" data-scroll-target="#функции"><span class="header-section-number">1.7</span> Функции</a></li>
-  <li><a href="#датафреймы-и-их-индексация" id="toc-датафреймы-и-их-индексация" class="nav-link" data-scroll-target="#датафреймы-и-их-индексация"><span class="header-section-number">1.8</span> Датафреймы и их индексация</a></li>
-  <li><a href="#работа-с-пакетами" id="toc-работа-с-пакетами" class="nav-link" data-scroll-target="#работа-с-пакетами"><span class="header-section-number">1.9</span> Работа с пакетами</a></li>
-  <li><a href="#чтение-и-запись-табличных-данных" id="toc-чтение-и-запись-табличных-данных" class="nav-link" data-scroll-target="#чтение-и-запись-табличных-данных"><span class="header-section-number">1.10</span> Чтение и запись табличных данных</a></li>
+  <li><a href="#типы-объектов-в-r" id="toc-типы-объектов-в-r" class="nav-link" data-scroll-target="#типы-объектов-в-r"><span class="header-section-number">1.4</span> Типы объектов в R</a></li>
+  <li><a href="#создание-переменных" id="toc-создание-переменных" class="nav-link" data-scroll-target="#создание-переменных"><span class="header-section-number">1.5</span> Создание переменных</a></li>
+  <li><a href="#векторы" id="toc-векторы" class="nav-link" data-scroll-target="#векторы"><span class="header-section-number">1.6</span> Векторы</a></li>
+  <li><a href="#индексация-векторов" id="toc-индексация-векторов" class="nav-link" data-scroll-target="#индексация-векторов"><span class="header-section-number">1.7</span> Индексация векторов</a></li>
+  <li><a href="#функции" id="toc-функции" class="nav-link" data-scroll-target="#функции"><span class="header-section-number">1.8</span> Функции</a></li>
+  <li><a href="#датафреймы-и-их-индексация" id="toc-датафреймы-и-их-индексация" class="nav-link" data-scroll-target="#датафреймы-и-их-индексация"><span class="header-section-number">1.9</span> Датафреймы и их индексация</a></li>
+  <li><a href="#работа-с-пакетами" id="toc-работа-с-пакетами" class="nav-link" data-scroll-target="#работа-с-пакетами"><span class="header-section-number">1.10</span> Работа с пакетами</a></li>
+  <li><a href="#чтение-и-запись-табличных-данных" id="toc-чтение-и-запись-табличных-данных" class="nav-link" data-scroll-target="#чтение-и-запись-табличных-данных"><span class="header-section-number">1.11</span> Чтение и запись табличных данных</a></li>
+  <li><a href="#как-справятся-с-проблемами" id="toc-как-справятся-с-проблемами" class="nav-link" data-scroll-target="#как-справятся-с-проблемами"><span class="header-section-number">1.12</span> Как справятся с проблемами</a></li>
   </ul>
 </nav>
     </div>
@@ -285,7 +287,7 @@ div.csl-indent {
 <li><a href="https://cran.rstudio.com/bin/linux/">на Linux</a>, также можно установить из командной строки:</li>
 </ul></li>
 </ul>
-<pre><code>sudo apt-get install r-cran-base</code></pre>
+<pre><code>sudo apt-get install r-base</code></pre>
 <ul>
 <li>RStudio — IDE для R (<a href="https://www.rstudio.com/products/rstudio/download/">можно скачать здесь</a>)</li>
 <li>и некоторые пакеты на R</li>
@@ -293,7 +295,7 @@ div.csl-indent {
 <p>Часто можно увидеть или услышать, что R — язык программирования для “статистической обработки данных”. Изначально это, конечно, было правдой, но уже давно R — это полноценный язык программирования, который при помощи своих пакетов позволяет решать огромный спектр задач. В данной книге используется следующая версия R:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
-<pre><code>R version 4.3.2 (2023-10-31)</code></pre>
+<pre><code>R version 4.4.1 (2024-06-14)</code></pre>
 </div>
 </div>
 <p>Некоторые люди не любят устанавливать лишние программы себе на компьютер, несколько вариантов есть и для них:</p>
@@ -363,26 +365,687 @@ div.csl-indent {
 </div>
 </div>
 </section>
-<section id="создание-переменных" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="создание-переменных"><span class="header-section-number">1.4</span> Создание переменных</h2>
+<section id="типы-объектов-в-r" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="типы-объектов-в-r"><span class="header-section-number">1.4</span> Типы объектов в R</h2>
+<p>В R достаточно много разных типов данных, особенно доступных в разных пакетах, но нас будут волновать:</p>
+<ul>
+<li>числа</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fl">23.1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 23.1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fl">32.000032</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 32.00003</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>pi</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.141593</code></pre>
+</div>
+</div>
+<ul>
+<li>строки</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="st">"мама"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "мама"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="st">"мама мыла раму"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "мама мыла раму"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="st">"О все видавшем до края мира,</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="st">О познавшем моря, перешедшем все горы..."</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "О все видавшем до края мира,\nО познавшем моря, перешедшем все горы..."</code></pre>
+</div>
+</div>
+<p><code>\n</code> в выдаче обозначает перенос строки.</p>
+<ul>
+<li>логические операторы</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="cn">FALSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<ul>
+<li>пропущенные значения <code>NA</code> (на самом деле этот объект может быть и строкой, и числом)</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="cn">NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p>Все что написано после знака <code>#</code> не будет исполнятся компилятором, так что таким образом принято оставлять комментарии:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># посчитаем сумму двух чисел</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span><span class="sc">+</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># посчитаем сумму других двух чисел</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">+</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
 </section>
-<section id="векторы" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="векторы"><span class="header-section-number">1.5</span> Векторы</h2>
+<section id="создание-переменных" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="создание-переменных"><span class="header-section-number">1.5</span> Создание переменных</h2>
+<p>Для создания переменных следует задать имя переменной и использовать знак присваивания <code>&lt;-</code> (<code>Alt + -</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>my_var <span class="ot">&lt;-</span> <span class="dv">55</span> <span class="sc">+</span> <span class="dv">412</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Обратите внимание, что резульатат суммы не выводится. Он сохраняется в переменной и не будет показано, пока мы не вызовем переменную. Кроме того будут работать и другие способы присвоения, хотя эти способы и не рекомендованы в R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>my_var <span class="ot">=</span> <span class="dv">55</span><span class="sc">+</span><span class="dv">12</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5512</span><span class="sc">+</span><span class="dv">412</span> <span class="ot">-&gt;</span> my_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Для того, чтобы вызвать нужную переменную, достаточно использовать ее имя:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>my_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5924</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>my_var <span class="sc">+</span> <span class="dv">33</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5957</code></pre>
+</div>
+</div>
+<p>Если хочется поменять значение переменной, то нужно снова использовать присваивание:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>my_var <span class="ot">&lt;-</span> my_var <span class="sc">+</span> <span class="dv">42</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>my_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5966</code></pre>
+</div>
+</div>
+<p>Специфицировать при присваивонии тип переменной никак не нужно:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>my_var2 <span class="ot">&lt;-</span> <span class="st">"Эфывфы вфыв"</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>my_var3 <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>my_var4 <span class="ot">&lt;-</span> <span class="fl">1212.1212124</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>В R есть ограничения на названия переменных (см. подробнее в справке <code>?make.names</code>):</p>
+<ul>
+<li>имя может содержать буквы, числа, точку (<code>.</code>) и нижнее подчеркивание (<code>_</code>);</li>
+<li>имя должно начинаться на букву;</li>
+<li>имя не может совпадать совпадать с одним из зарезервиронных имен: <code>if</code>, <code>else</code>, <code>repeat</code>, <code>while</code>, <code>function</code>, <code>for</code>, <code>in</code>, <code>next</code>, <code>break</code>, <code>TRUE</code>, <code>FALSE</code>, <code>NULL</code>, <code>Inf</code>, <code>NaN</code>, <code>NA</code>, <code>NA_integer_</code>, <code>NA_real_</code>, <code>NA_complex_</code>, <code>NA_character_</code> (см. подробнее в справке <code>?Reserved</code>);</li>
+<li>мы рекомендуем использовать только латинские буквы в названии (хотя любые ASCII символы подойдут);</li>
+<li>мы рекомендуем не называть переменные именами других функций в R, например, <code>filter</code>, <code>source</code> и т. п.</li>
+<li>в разных пакетах R Вы увидите разные стратегии называния функций и переменных, но самая распространенная — с использованием нижнего подчеркивания:
+<ul>
+<li>i_use_snake_case;</li>
+<li>otherPeopleUseCamelCase;</li>
+<li>some.people.use.periods;</li>
+<li>главное: не перемешивать разные стили.</li>
+</ul></li>
+</ul>
 </section>
-<section id="индексация-векторов" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="индексация-векторов"><span class="header-section-number">1.6</span> Индексация векторов</h2>
+<section id="векторы" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="векторы"><span class="header-section-number">1.6</span> Векторы</h2>
+<p>Векторы в R — это один из базовых элементов, который позволяет создавать объекты состоящие из нескольких единиц. Самый простой вектор, который отображает последовательность чисел можно создать следующим образом:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span><span class="sc">:</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 10  9  8  7  6  5  4  3  2  1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="dv">20</span><span class="sc">:-</span><span class="dv">9</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 20 19 18 17 16 15 14 13 12 11 10  9  8  7  6  5  4  3  2  1  0 -1 -2 -3 -4
+[26] -5 -6 -7 -8 -9</code></pre>
+</div>
+</div>
+<p>При помощи двоеточия можно создавать последовательности чисел с шагом один. К получившимся объектам можно применять арифметические операции: они будут применяться к каждому элементу вектора:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>my_var <span class="ot">&lt;-</span> <span class="dv">13</span><span class="sc">:</span><span class="dv">3</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>my_var<span class="sc">*</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 26 24 22 20 18 16 14 12 10  8  6</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>my_var<span class="sc">^</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 2197 1728 1331 1000  729  512  343  216  125   64   27</code></pre>
+</div>
+</div>
+<p>Если же нужно создать вектор, которой последовательностью не является, следует использовать функцию <code>c()</code> (от слова <em>combine</em>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>fibonacci_sequence <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">21</span>, <span class="dv">34</span>, <span class="dv">55</span>, <span class="dv">89</span>, <span class="dv">144</span>)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>cyrillic_syllables <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"сяк"</span>, <span class="st">"учк"</span>, <span class="st">"щип"</span>, <span class="st">"арг"</span>, <span class="st">"фыщ"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Основное правило векторов заключается в том, что элементы вектора должны быть одного типа иначе R будет сам приводить все элементы к единому формату (по-английски это называют coercion):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">9</span>, <span class="dv">11</span>, <span class="cn">TRUE</span>) <span class="co"># TRUE превратится в 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  5  9 11  1</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="st">"в"</span>, <span class="st">"золотой"</span>, <span class="st">"клубочек"</span>, <span class="st">"спрятался"</span>, <span class="dv">1</span>, <span class="st">"дубочек"</span>) <span class="co"># 1 превратится в строку "1"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "в"         "золотой"   "клубочек"  "спрятался" "1"         "дубочек"  </code></pre>
+</div>
+</div>
+<p>Кроме того в R есть встроенные векторы:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>letters</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s"
+[20] "t" "u" "v" "w" "x" "y" "z"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>LETTERS</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J" "K" "L" "M" "N" "O" "P" "Q" "R" "S"
+[20] "T" "U" "V" "W" "X" "Y" "Z"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>month.name</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "January"   "February"  "March"     "April"     "May"       "June"     
+ [7] "July"      "August"    "September" "October"   "November"  "December" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>month.abb</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Jan" "Feb" "Mar" "Apr" "May" "Jun" "Jul" "Aug" "Sep" "Oct" "Nov" "Dec"</code></pre>
+</div>
+</div>
 </section>
-<section id="функции" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="функции"><span class="header-section-number">1.7</span> Функции</h2>
+<section id="индексация-векторов" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="индексация-векторов"><span class="header-section-number">1.7</span> Индексация векторов</h2>
+<p>Чтобы вызвать какой-то элемент вектора, нужно написать в квадратных скобках номер, требуемого элемента:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>letters[<span class="dv">13</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "m"</code></pre>
+</div>
+</div>
+<p>Индексы тоже могут быть вектором. Один и тот же элемент мможно вызвать несколько раз:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>letters[<span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">1</span>, <span class="dv">15</span>, <span class="dv">13</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "m" "a" "o" "m"</code></pre>
+</div>
+</div>
+<p>Кроме того, в качестве индекса можно давать какую-то инструкцию. Например, так мы можем вывести все элементы вектора <code>v</code>, которые на цело делятся на три:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>v <span class="ot">&lt;-</span> <span class="dv">100</span><span class="sc">:</span><span class="dv">1</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>v[v <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 99 96 93 90 87 84 81 78 75 72 69 66 63 60 57 54 51 48 45 42 39 36 33 30 27
+[26] 24 21 18 15 12  9  6  3</code></pre>
+</div>
+</div>
+<p>Эта конструкция достаточно сложная, так что давайте разберем ее поэтапно. Оператор <code>%%</code> возвращает остаток от деления:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>v <span class="sc">%%</span> <span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1
+ [38] 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0
+ [75] 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1 0 2 1</code></pre>
+</div>
+</div>
+<p>Оператор <code>==</code> сравнивает каждый элемент вектора с 0 (см. противоположный оператор — <code>!=</code>) и возвращает логический вектор:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>v <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+ [13] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+ [25] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+ [37] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+ [49] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+ [61] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+ [73] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+ [85] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE
+ [97] FALSE  TRUE FALSE FALSE</code></pre>
+</div>
+</div>
+<p>А потом уже логический вектор <code>TRUE</code> и <code>FALSE</code> подается в качестве индекса вектору и в результате выражение возвращает тоько те элементы, которым соотвествует <code>TRUE</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>v[v <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 99 96 93 90 87 84 81 78 75 72 69 66 63 60 57 54 51 48 45 42 39 36 33 30 27
+[26] 24 21 18 15 12  9  6  3</code></pre>
+</div>
+</div>
+<p>Возможно, внимательный пользователь уже заметил, что индексация в R идет с единицы. При вызове нулевого индекса будет результат нулевой длинны, а если в индексах есть еще другие элементы, нулевой индекс – будет проигнорирован.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>letters[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>character(0)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a>letters[<span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">0</span>, <span class="dv">4</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "b" "d"</code></pre>
+</div>
+</div>
+<p>Индексирование с минусом выдаст все значения вектора за исключением выбранных:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a>letters[<span class="sc">-</span><span class="dv">3</span>] <span class="co"># вектор без буквы c</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "a" "b" "d" "e" "f" "g" "h" "i" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t"
+[20] "u" "v" "w" "x" "y" "z"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>letters[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">9</span>)] <span class="co"># вектор без букв a, d и i</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "b" "c" "e" "f" "g" "h" "j" "k" "l" "m" "n" "o" "p" "q" "r" "s" "t" "u" "v"
+[20] "w" "x" "y" "z"</code></pre>
+</div>
+</div>
 </section>
-<section id="датафреймы-и-их-индексация" class="level2" data-number="1.8">
-<h2 data-number="1.8" class="anchored" data-anchor-id="датафреймы-и-их-индексация"><span class="header-section-number">1.8</span> Датафреймы и их индексация</h2>
+<section id="функции" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="функции"><span class="header-section-number">1.8</span> Функции</h2>
+<p>Основные возможности R скрыты в множестве функций, которые разработчики написали и поместили в пакеты. Функции в R имеют имя (оно ставится до круглых скобок) и аргументы (они перечисляются в круглых скобках по схеме имя аргумента – знак равно – значение). Рассмотрим на примере функции <code>seq()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1 14 27 40 53 66 79 92</code></pre>
+</div>
+</div>
+<p>Данная функция имеет имя — <code>seq</code> и три аргумента: <code>from</code>, <code>to</code> и <code>by</code>. Эта функция порождает вектор чисел арифметической последовательности. Важно отметить, что знак равно в данном случае не является операцией присваивания. Имена аргументов у каждой функции содержатся в определенном строго заданном порядке. Имена аргументов можно опускать:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">100</span>, <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1 14 27 40 53 66 79 92</code></pre>
+</div>
+</div>
+<p>Кроме того, пользователь при желании может подавать аргументы в произвольном порядке (и даже не дописывать названия аргументов), но это возможно только в том, случае, если названия аргументов опознаваемо:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1 14 27 40 53 66 79 92</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="dv">13</span>, <span class="at">to =</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1 14 27 40 53 66 79 92</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">to =</span> <span class="dv">100</span>, <span class="at">from =</span> <span class="dv">1</span>, <span class="at">by =</span> <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1 14 27 40 53 66 79 92</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">by =</span> <span class="dv">13</span>, <span class="at">to =</span> <span class="dv">100</span>, <span class="at">from =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1 14 27 40 53 66 79 92</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">to =</span> <span class="dv">100</span>, <span class="at">by =</span> <span class="dv">13</span>, <span class="at">from =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1 14 27 40 53 66 79 92</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">by =</span> <span class="dv">13</span>, <span class="at">to =</span> <span class="dv">100</span>, <span class="at">from =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1 14 27 40 53 66 79 92</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">f =</span> <span class="dv">1</span>, <span class="at">t =</span> <span class="dv">100</span>, <span class="at">b =</span> <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  1 14 27 40 53 66 79 92</code></pre>
+</div>
+</div>
+<p>Каждый аргумент функции предполагает определенный тип объектов, который подается на вход. Многие функции в R <em>векторизованы</em>, т. е. применимы к векторам. Рассмотрим на примере функции для извлечения корня <code>sqrt()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">4</span>) <span class="co"># применение к вектору длины 1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="co"># применение к вектору длины 100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1]  1.000000  1.414214  1.732051  2.000000  2.236068  2.449490  2.645751
+  [8]  2.828427  3.000000  3.162278  3.316625  3.464102  3.605551  3.741657
+ [15]  3.872983  4.000000  4.123106  4.242641  4.358899  4.472136  4.582576
+ [22]  4.690416  4.795832  4.898979  5.000000  5.099020  5.196152  5.291503
+ [29]  5.385165  5.477226  5.567764  5.656854  5.744563  5.830952  5.916080
+ [36]  6.000000  6.082763  6.164414  6.244998  6.324555  6.403124  6.480741
+ [43]  6.557439  6.633250  6.708204  6.782330  6.855655  6.928203  7.000000
+ [50]  7.071068  7.141428  7.211103  7.280110  7.348469  7.416198  7.483315
+ [57]  7.549834  7.615773  7.681146  7.745967  7.810250  7.874008  7.937254
+ [64]  8.000000  8.062258  8.124038  8.185353  8.246211  8.306624  8.366600
+ [71]  8.426150  8.485281  8.544004  8.602325  8.660254  8.717798  8.774964
+ [78]  8.831761  8.888194  8.944272  9.000000  9.055385  9.110434  9.165151
+ [85]  9.219544  9.273618  9.327379  9.380832  9.433981  9.486833  9.539392
+ [92]  9.591663  9.643651  9.695360  9.746794  9.797959  9.848858  9.899495
+ [99]  9.949874 10.000000</code></pre>
+</div>
+</div>
+<p>Давайте посмотрим на ошибку, которую мы получим, если подадим на вход тип данных, которые функцией не предполагается:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="st">"asdasd"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in sqrt("asdasd"): non-numeric argument to mathematical function</code></pre>
+</div>
+</div>
+<p>Важно отметить, что в реальных данных могут встретиться пропущенные значения (<code>NA</code>), что вызовает <code>NA</code> при применении некоторых функций, так что в них можно встретить аргмент <code>na.rm</code>, например:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25.5</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="cn">NA</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">50</span>, <span class="cn">NA</span>), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 25.5</code></pre>
+</div>
+</div>
+<p>Очень важно, что все функции в R задокументированы, так что список аргументов, их порядок, их значения по умолчанию, примеры использования — все это можно найти в справке, которую можно вызвать, набрав в консоли вопросительный знак и имея функции, например, <code>?seq</code>, <code>?mean</code> и т. п.</p>
 </section>
-<section id="работа-с-пакетами" class="level2" data-number="1.9">
-<h2 data-number="1.9" class="anchored" data-anchor-id="работа-с-пакетами"><span class="header-section-number">1.9</span> Работа с пакетами</h2>
+<section id="датафреймы-и-их-индексация" class="level2" data-number="1.9">
+<h2 data-number="1.9" class="anchored" data-anchor-id="датафреймы-и-их-индексация"><span class="header-section-number">1.9</span> Датафреймы и их индексация</h2>
+<p>Датафрейм — это один из основных объектов в R, в котором обычно импортируют и экспортируют табличные данные. Датафрейм — это собрание векторов одинаковой длинны. Давайте создадим датафрейм:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Анна"</span>, <span class="st">"Вера"</span>, <span class="st">"Михаил"</span>),</span>
+<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">33</span>, <span class="dv">11</span>),</span>
+<span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">color =</span> <span class="fu">c</span>(<span class="st">"голубой"</span>, <span class="st">"зеленый"</span>, <span class="st">"желтый"</span>))</span>
+<span id="cb125-4"><a href="#cb125-4" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    name age   color
+1   Анна  23 голубой
+2   Вера  33 зеленый
+3 Михаил  11  желтый</code></pre>
+</div>
+</div>
+<p>Хоть мы и записывали разные векторы датафрейма в строчку, стандартное представление датафрейма перевернутое: каждый вектор – это столбец. Каждый отдельный вектор датафрейма можно вызвать по имени (и индексировать как обычный вектор):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>color</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "голубой" "зеленый" "желтый" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>name[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Вера"   "Михаил"</code></pre>
+</div>
+</div>
+<p>Кроме того, к элементам датафрейма можно обращаться при помощи индекса в квадратных скобках, сначала идут строки, потом столбцы.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">3</span>,<span class="dv">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "желтый"</code></pre>
+</div>
+</div>
+<p>Если какой-то элемент не нужен, то его оставляют пустым, но запятую ставить обязательно:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">3</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    name age  color
+3 Михаил  11 желтый</code></pre>
+</div>
+</div>
+<p>Еще варианты обращения к элементам датафрейма</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a>df[<span class="dv">3</span>,<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    name  color
+3 Михаил желтый</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a>df[<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    name   color
+1   Анна голубой
+3 Михаил  желтый</code></pre>
+</div>
+</div>
+<p>Кроме того, можно вызывать необходимые столбцы по имени прямо внутри квадратных скобок:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a>df[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"name"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  age   name
+1  23   Анна
+2  33   Вера
+3  11 Михаил</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="st">"age"</span>, <span class="st">"name"</span>, <span class="st">"color"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>В R есть достаточно много встроенных датасетов, вот самые популярные:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a>mtcars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     mpg cyl  disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4           21.0   6 160.0 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag       21.0   6 160.0 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710          22.8   4 108.0  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive      21.4   6 258.0 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout   18.7   8 360.0 175 3.15 3.440 17.02  0  0    3    2
+Valiant             18.1   6 225.0 105 2.76 3.460 20.22  1  0    3    1
+Duster 360          14.3   8 360.0 245 3.21 3.570 15.84  0  0    3    4
+Merc 240D           24.4   4 146.7  62 3.69 3.190 20.00  1  0    4    2
+Merc 230            22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
+Merc 280            19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
+Merc 280C           17.8   6 167.6 123 3.92 3.440 18.90  1  0    4    4
+Merc 450SE          16.4   8 275.8 180 3.07 4.070 17.40  0  0    3    3
+Merc 450SL          17.3   8 275.8 180 3.07 3.730 17.60  0  0    3    3
+Merc 450SLC         15.2   8 275.8 180 3.07 3.780 18.00  0  0    3    3
+Cadillac Fleetwood  10.4   8 472.0 205 2.93 5.250 17.98  0  0    3    4
+Lincoln Continental 10.4   8 460.0 215 3.00 5.424 17.82  0  0    3    4
+Chrysler Imperial   14.7   8 440.0 230 3.23 5.345 17.42  0  0    3    4
+Fiat 128            32.4   4  78.7  66 4.08 2.200 19.47  1  1    4    1
+Honda Civic         30.4   4  75.7  52 4.93 1.615 18.52  1  1    4    2
+Toyota Corolla      33.9   4  71.1  65 4.22 1.835 19.90  1  1    4    1
+Toyota Corona       21.5   4 120.1  97 3.70 2.465 20.01  1  0    3    1
+Dodge Challenger    15.5   8 318.0 150 2.76 3.520 16.87  0  0    3    2
+AMC Javelin         15.2   8 304.0 150 3.15 3.435 17.30  0  0    3    2
+Camaro Z28          13.3   8 350.0 245 3.73 3.840 15.41  0  0    3    4
+Pontiac Firebird    19.2   8 400.0 175 3.08 3.845 17.05  0  0    3    2
+Fiat X1-9           27.3   4  79.0  66 4.08 1.935 18.90  1  1    4    1
+Porsche 914-2       26.0   4 120.3  91 4.43 2.140 16.70  0  1    5    2
+Lotus Europa        30.4   4  95.1 113 3.77 1.513 16.90  1  1    5    2
+Ford Pantera L      15.8   8 351.0 264 4.22 3.170 14.50  0  1    5    4
+Ferrari Dino        19.7   6 145.0 175 3.62 2.770 15.50  0  1    5    6
+Maserati Bora       15.0   8 301.0 335 3.54 3.570 14.60  0  1    5    8
+Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a>iris</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    Sepal.Length Sepal.Width Petal.Length Petal.Width    Species
+1            5.1         3.5          1.4         0.2     setosa
+2            4.9         3.0          1.4         0.2     setosa
+3            4.7         3.2          1.3         0.2     setosa
+4            4.6         3.1          1.5         0.2     setosa
+5            5.0         3.6          1.4         0.2     setosa
+6            5.4         3.9          1.7         0.4     setosa
+7            4.6         3.4          1.4         0.3     setosa
+8            5.0         3.4          1.5         0.2     setosa
+9            4.4         2.9          1.4         0.2     setosa
+10           4.9         3.1          1.5         0.1     setosa
+11           5.4         3.7          1.5         0.2     setosa
+12           4.8         3.4          1.6         0.2     setosa
+13           4.8         3.0          1.4         0.1     setosa
+14           4.3         3.0          1.1         0.1     setosa
+15           5.8         4.0          1.2         0.2     setosa
+16           5.7         4.4          1.5         0.4     setosa
+17           5.4         3.9          1.3         0.4     setosa
+18           5.1         3.5          1.4         0.3     setosa
+19           5.7         3.8          1.7         0.3     setosa
+20           5.1         3.8          1.5         0.3     setosa
+21           5.4         3.4          1.7         0.2     setosa
+22           5.1         3.7          1.5         0.4     setosa
+23           4.6         3.6          1.0         0.2     setosa
+24           5.1         3.3          1.7         0.5     setosa
+25           4.8         3.4          1.9         0.2     setosa
+26           5.0         3.0          1.6         0.2     setosa
+27           5.0         3.4          1.6         0.4     setosa
+28           5.2         3.5          1.5         0.2     setosa
+29           5.2         3.4          1.4         0.2     setosa
+30           4.7         3.2          1.6         0.2     setosa
+31           4.8         3.1          1.6         0.2     setosa
+32           5.4         3.4          1.5         0.4     setosa
+33           5.2         4.1          1.5         0.1     setosa
+34           5.5         4.2          1.4         0.2     setosa
+35           4.9         3.1          1.5         0.2     setosa
+36           5.0         3.2          1.2         0.2     setosa
+37           5.5         3.5          1.3         0.2     setosa
+38           4.9         3.6          1.4         0.1     setosa
+39           4.4         3.0          1.3         0.2     setosa
+40           5.1         3.4          1.5         0.2     setosa
+41           5.0         3.5          1.3         0.3     setosa
+42           4.5         2.3          1.3         0.3     setosa
+43           4.4         3.2          1.3         0.2     setosa
+44           5.0         3.5          1.6         0.6     setosa
+45           5.1         3.8          1.9         0.4     setosa
+46           4.8         3.0          1.4         0.3     setosa
+47           5.1         3.8          1.6         0.2     setosa
+48           4.6         3.2          1.4         0.2     setosa
+49           5.3         3.7          1.5         0.2     setosa
+50           5.0         3.3          1.4         0.2     setosa
+51           7.0         3.2          4.7         1.4 versicolor
+52           6.4         3.2          4.5         1.5 versicolor
+53           6.9         3.1          4.9         1.5 versicolor
+54           5.5         2.3          4.0         1.3 versicolor
+55           6.5         2.8          4.6         1.5 versicolor
+56           5.7         2.8          4.5         1.3 versicolor
+57           6.3         3.3          4.7         1.6 versicolor
+58           4.9         2.4          3.3         1.0 versicolor
+59           6.6         2.9          4.6         1.3 versicolor
+60           5.2         2.7          3.9         1.4 versicolor
+61           5.0         2.0          3.5         1.0 versicolor
+62           5.9         3.0          4.2         1.5 versicolor
+63           6.0         2.2          4.0         1.0 versicolor
+64           6.1         2.9          4.7         1.4 versicolor
+65           5.6         2.9          3.6         1.3 versicolor
+66           6.7         3.1          4.4         1.4 versicolor
+67           5.6         3.0          4.5         1.5 versicolor
+68           5.8         2.7          4.1         1.0 versicolor
+69           6.2         2.2          4.5         1.5 versicolor
+70           5.6         2.5          3.9         1.1 versicolor
+71           5.9         3.2          4.8         1.8 versicolor
+72           6.1         2.8          4.0         1.3 versicolor
+73           6.3         2.5          4.9         1.5 versicolor
+74           6.1         2.8          4.7         1.2 versicolor
+75           6.4         2.9          4.3         1.3 versicolor
+76           6.6         3.0          4.4         1.4 versicolor
+77           6.8         2.8          4.8         1.4 versicolor
+78           6.7         3.0          5.0         1.7 versicolor
+79           6.0         2.9          4.5         1.5 versicolor
+80           5.7         2.6          3.5         1.0 versicolor
+81           5.5         2.4          3.8         1.1 versicolor
+82           5.5         2.4          3.7         1.0 versicolor
+83           5.8         2.7          3.9         1.2 versicolor
+84           6.0         2.7          5.1         1.6 versicolor
+85           5.4         3.0          4.5         1.5 versicolor
+86           6.0         3.4          4.5         1.6 versicolor
+87           6.7         3.1          4.7         1.5 versicolor
+88           6.3         2.3          4.4         1.3 versicolor
+89           5.6         3.0          4.1         1.3 versicolor
+90           5.5         2.5          4.0         1.3 versicolor
+91           5.5         2.6          4.4         1.2 versicolor
+92           6.1         3.0          4.6         1.4 versicolor
+93           5.8         2.6          4.0         1.2 versicolor
+94           5.0         2.3          3.3         1.0 versicolor
+95           5.6         2.7          4.2         1.3 versicolor
+96           5.7         3.0          4.2         1.2 versicolor
+97           5.7         2.9          4.2         1.3 versicolor
+98           6.2         2.9          4.3         1.3 versicolor
+99           5.1         2.5          3.0         1.1 versicolor
+100          5.7         2.8          4.1         1.3 versicolor
+101          6.3         3.3          6.0         2.5  virginica
+102          5.8         2.7          5.1         1.9  virginica
+103          7.1         3.0          5.9         2.1  virginica
+104          6.3         2.9          5.6         1.8  virginica
+105          6.5         3.0          5.8         2.2  virginica
+106          7.6         3.0          6.6         2.1  virginica
+107          4.9         2.5          4.5         1.7  virginica
+108          7.3         2.9          6.3         1.8  virginica
+109          6.7         2.5          5.8         1.8  virginica
+110          7.2         3.6          6.1         2.5  virginica
+111          6.5         3.2          5.1         2.0  virginica
+112          6.4         2.7          5.3         1.9  virginica
+113          6.8         3.0          5.5         2.1  virginica
+114          5.7         2.5          5.0         2.0  virginica
+115          5.8         2.8          5.1         2.4  virginica
+116          6.4         3.2          5.3         2.3  virginica
+117          6.5         3.0          5.5         1.8  virginica
+118          7.7         3.8          6.7         2.2  virginica
+119          7.7         2.6          6.9         2.3  virginica
+120          6.0         2.2          5.0         1.5  virginica
+121          6.9         3.2          5.7         2.3  virginica
+122          5.6         2.8          4.9         2.0  virginica
+123          7.7         2.8          6.7         2.0  virginica
+124          6.3         2.7          4.9         1.8  virginica
+125          6.7         3.3          5.7         2.1  virginica
+126          7.2         3.2          6.0         1.8  virginica
+127          6.2         2.8          4.8         1.8  virginica
+128          6.1         3.0          4.9         1.8  virginica
+129          6.4         2.8          5.6         2.1  virginica
+130          7.2         3.0          5.8         1.6  virginica
+131          7.4         2.8          6.1         1.9  virginica
+132          7.9         3.8          6.4         2.0  virginica
+133          6.4         2.8          5.6         2.2  virginica
+134          6.3         2.8          5.1         1.5  virginica
+135          6.1         2.6          5.6         1.4  virginica
+136          7.7         3.0          6.1         2.3  virginica
+137          6.3         3.4          5.6         2.4  virginica
+138          6.4         3.1          5.5         1.8  virginica
+139          6.0         3.0          4.8         1.8  virginica
+140          6.9         3.1          5.4         2.1  virginica
+141          6.7         3.1          5.6         2.4  virginica
+142          6.9         3.1          5.1         2.3  virginica
+143          5.8         2.7          5.1         1.9  virginica
+144          6.8         3.2          5.9         2.3  virginica
+145          6.7         3.3          5.7         2.5  virginica
+146          6.7         3.0          5.2         2.3  virginica
+147          6.3         2.5          5.0         1.9  virginica
+148          6.5         3.0          5.2         2.0  virginica
+149          6.2         3.4          5.4         2.3  virginica
+150          5.9         3.0          5.1         1.8  virginica</code></pre>
+</div>
+</div>
 </section>
-<section id="чтение-и-запись-табличных-данных" class="level2" data-number="1.10">
-<h2 data-number="1.10" class="anchored" data-anchor-id="чтение-и-запись-табличных-данных"><span class="header-section-number">1.10</span> Чтение и запись табличных данных</h2>
+<section id="работа-с-пакетами" class="level2" data-number="1.10">
+<h2 data-number="1.10" class="anchored" data-anchor-id="работа-с-пакетами"><span class="header-section-number">1.10</span> Работа с пакетами</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"lingtypology"</span>)</span>
+<span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"lingtypology"</span>, <span class="st">"checkdown"</span>))</span>
+<span id="cb146-3"><a href="#cb146-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-4"><a href="#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lingtypology)</span>
+<span id="cb146-5"><a href="#cb146-5" aria-hidden="true" tabindex="-1"></a>lingtypology<span class="sc">::</span><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">"Russian"</span>, <span class="st">"German"</span>, <span class="st">"Mandarin Chinese"</span>))</span>
+<span id="cb146-6"><a href="#cb146-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-7"><a href="#cb146-7" aria-hidden="true" tabindex="-1"></a>mtcars</span>
+<span id="cb146-8"><a href="#cb146-8" aria-hidden="true" tabindex="-1"></a>iris</span>
+<span id="cb146-9"><a href="#cb146-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-10"><a href="#cb146-10" aria-hidden="true" tabindex="-1"></a>gl <span class="ot">&lt;-</span> lingtypology<span class="sc">::</span>glottolog</span>
+<span id="cb146-11"><a href="#cb146-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb146-12"><a href="#cb146-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="чтение-и-запись-табличных-данных" class="level2" data-number="1.11">
+<h2 data-number="1.11" class="anchored" data-anchor-id="чтение-и-запись-табличных-данных"><span class="header-section-number">1.11</span> Чтение и запись табличных данных</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"orange_circumference.csv"</span>)</span>
+<span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"orange_circumference.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-4"><a href="#cb147-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb147-5"><a href="#cb147-5" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"orange_circumference.xlsx"</span>)</span>
+<span id="cb147-6"><a href="#cb147-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-7"><a href="#cb147-7" aria-hidden="true" tabindex="-1"></a>df_2save <span class="ot">&lt;-</span> df[df<span class="sc">$</span>circumference <span class="sc">&gt;</span> <span class="dv">100</span>, ]</span>
+<span id="cb147-8"><a href="#cb147-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-9"><a href="#cb147-9" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(df_2save, <span class="st">"orange_circumference_g100.csv"</span>)</span>
+<span id="cb147-10"><a href="#cb147-10" aria-hidden="true" tabindex="-1"></a><span class="fu">write_tsv</span>(df_2save, <span class="st">"orange_circumference_g100.tsv"</span>)</span>
+<span id="cb147-11"><a href="#cb147-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write_delim</span>(df_2save, <span class="st">"orange_circumference_g100.zsv"</span>, <span class="at">delim =</span> <span class="st">"0"</span>)</span>
+<span id="cb147-12"><a href="#cb147-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-13"><a href="#cb147-13" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"asdasd"</span>)</span>
+<span id="cb147-14"><a href="#cb147-14" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(df_2save, <span class="st">"asdasd/orange_circumference_g100.csv"</span>)</span>
+<span id="cb147-15"><a href="#cb147-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb147-16"><a href="#cb147-16" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
+<span id="cb147-17"><a href="#cb147-17" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/Desktop/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="как-справятся-с-проблемами" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="как-справятся-с-проблемами"><span class="header-section-number">1.12</span> Как справятся с проблемами</h2>
+<p>Код не работает очень часто, очень важно внимательно читать ошибки. Если чтение не помогло, то можно скопировать ошибку в поисковик, скорее всего кто-нибудь на Stack Overflow (место, где принято задавать вопрос) или Posit Community (место для вопросов на R и Python) уже сталкивался с вашей проблемой. Кроме того, никто не может написать пакет на R, который пройдет в основной репозиторий CRAN, не задокументировав все функции пакета. В связи с этим имеет смысл искать ответы во вкладке Help в Rstudio, а также в консоли используя знак вопроса (или два, если ничего не находится) и имя функции, например, <code>?write_csv</code> или <code>??read_xlsx</code>. wd</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -428,18 +1091,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -471,7 +1123,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -506,7 +1198,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -782,12 +1478,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link  aria-label=" введение"="">
+      <a href="./index.html" class="pagination-link" aria-label="Введение">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Введение</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./2_data_transformation.html" class="pagination-link" aria-label="<span class='chapter-number'>2</span>&nbsp; <span class='chapter-title'>Трансформация данных</span>">
+      <a href="./2_data_transformation.html" class="pagination-link" aria-label="Трансформация данных">
         <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Трансформация данных</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
