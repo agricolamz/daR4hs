@@ -279,13 +279,19 @@ zhadina |>
 
 ## Функция `across()`
 
+Функция `across()` позволяет применять одну и то же изменение к группе колонок, которые выбираются набором функций сходных с операциями для функции `select()`. Важно отметить, что трансформация обычно описывается функцией, и имя функции обычно пишут без круглых скобок.
+
 ```{r}
 zhadina |> 
   mutate(across(starts_with("word"), toupper))
 
 zhadina |> 
   mutate(across(where(is.character), toupper))
+```
 
+Функция может так же работать в связке с функцией `group_by() |> summarize()` и `group_by() |> mutate()`:
+
+```{r}
 set.seed(42)
 zhadina |> 
   mutate(new_numeric_value = rnorm(26)) |> 
@@ -304,7 +310,6 @@ zhadina |>
   group_by(type) |> 
   mutate(across(where(is.double), mean))
 ```
-
 
 ## Функции семейства `pivot_...()`
 
@@ -334,8 +339,9 @@ india_langauges_long |>
   pivot_wider(names_from = "L", values_from = "value", values_fill = 0)
 ```
 
-
 ## Функции семейства `bind_...()`
+
+Функции `bind_rows()` и `bind_cols()` позволяют соединять несколько таблиц. Функция `bind_rows()` присоединяет таблицу снизу, при этом она должна иметь столько же переменных и тип переменных должен совпадать с основной таблицей. 
 
 ```{r}
 zhadina_new <- tibble(word_1 = "жадина-говядина",
@@ -346,7 +352,11 @@ zhadina_new <- tibble(word_1 = "жадина-говядина",
 
 zhadina |> 
   bind_rows(zhadina_new)
+```
 
+Функция `bind_cols()` присоединяет таблицу справа, при этом она должна иметь столько же строчек, сколько есть в с основной таблице: 
+
+```{r}
 zhadina_additional_columns <- tibble(new_var1 = rnorm(26),
                                      new_var2 = letters)
 

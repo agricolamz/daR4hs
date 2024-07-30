@@ -291,16 +291,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 100 × 3
        x     y logical
    &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
- 1     1   100 b      
- 2     2    99 a      
- 3     3    98 a      
- 4     4    97 b      
- 5     5    96 a      
+ 1     1   100 a      
+ 2     2    99 c      
+ 3     3    98 b      
+ 4     4    97 c      
+ 5     5    96 b      
  6     6    95 b      
- 7     7    94 b      
- 8     8    93 c      
- 9     9    92 b      
-10    10    91 a      
+ 7     7    94 a      
+ 8     8    93 b      
+ 9     9    92 c      
+10    10    91 c      
 # ℹ 90 more rows</code></pre>
 </div>
 </div>
@@ -468,16 +468,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 10 × 5
    word_1          word_2   word_3     type           n
    &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
- 1 жадина-говядина булка    шоколадина шоколадина   250
- 2 жадина-говядина дома     шоколадина шоколадина    29
- 3 жадина-говядина соленый  помидор    другое        17
- 4 жадина-говядина бука     шоколадина шоколадина    44
- 5 жадина-говядина кошка    шоколадина шоколадина    18
- 6 жадина-говядина кусок    шоколадины шоколадина   113
- 7 жадина-говядина никто ее не ест     другое        10
+ 1 жадина-говядина кислая   капуста    другое        10
+ 2 жадина-говядина кусок    шоколадины шоколадина   113
+ 3 жадина-говядина злая     шоколадина шоколадина    10
+ 4 жадина-говядина кошка    шоколадина шоколадина    18
+ 5 жадина-говядина немецкий барабан    барабан       12
+ 6 жадина-говядина соленый  барабан    барабан       11
+ 7 жадина-говядина соленый  огурец     огурец     26910
  8 жадина-говядина кошка    поросятина другое        42
- 9 жадина-говядина пустая   шоколадина шоколадина  3774
-10 жадина-говядина в *опе   огурец     огурец        11</code></pre>
+ 9 жадина-говядина зеленый  огурец     огурец       343
+10 жадина-говядина соленый  помидор    другое        17</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -485,12 +485,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 7 × 5
   word_1          word_2  word_3     type           n
   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
-1 жадина-говядина в *опе  огурец     огурец        11
-2 жадина-говядина кошка   поросятина другое        42
-3 жадина-говядина простая шоколадина шоколадина    59
-4 жадина-говядина в *опе  шоколадина шоколадина  1117
-5 жадина-говядина дома    шоколадина шоколадина    29
-6 жадина-говядина злая    шоколадина шоколадина    10
+1 жадина-говядина зеленый огурец     огурец       343
+2 жадина-говядина бука    шоколадина шоколадина    44
+3 жадина-говядина кусок   шоколадины шоколадина   113
+4 жадина-говядина на пузе барабан    барабан       14
+5 жадина-говядина пустая  шоколадина шоколадина  3774
+6 жадина-говядина сухая   шоколадина шоколадина    16
 7 жадина-говядина кислая  капуста    другое        10</code></pre>
 </div>
 </div>
@@ -1116,6 +1116,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="функция-across" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="функция-across"><span class="header-section-number">2.9</span> Функция <code>across()</code></h2>
+<p>Функция <code>across()</code> позволяет применять одну и то же изменение к группе колонок, которые выбираются набором функций сходных с операциями для функции <code>select()</code>. Важно отметить, что трансформация обычно описывается функцией, и имя функции обычно пишут без круглых скобок.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"word"</span>), toupper))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1153,6 +1154,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 10 ЖАДИНА-ГОВЯДИНА КИСЛАЯ  КАПУСТА    ДРУГОЕ        10
 # ℹ 16 more rows</code></pre>
 </div>
+</div>
+<p>Функция может так же работать в связке с функцией <code>group_by() |&gt; summarize()</code> и <code>group_by() |&gt; mutate()</code>:</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
 <span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_numeric_value =</span> <span class="fu">rnorm</span>(<span class="dv">26</span>)) <span class="sc">|&gt;</span> </span>
@@ -1299,6 +1303,7 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </section>
 <section id="функции-семейства-bind_..." class="level2" data-number="2.11">
 <h2 data-number="2.11" class="anchored" data-anchor-id="функции-семейства-bind_..."><span class="header-section-number">2.11</span> Функции семейства <code>bind_...()</code></h2>
+<p>Функции <code>bind_rows()</code> и <code>bind_cols()</code> позволяют соединять несколько таблиц. Функция <code>bind_rows()</code> присоединяет таблицу снизу, при этом она должна иметь столько же переменных и тип переменных должен совпадать с основной таблицей.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>zhadina_new <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">word_1 =</span> <span class="st">"жадина-говядина"</span>,</span>
 <span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">word_2 =</span> <span class="st">"пупецкий"</span>,</span>
@@ -1324,6 +1329,9 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 10 жадина-говядина кислая  капуста    другое        10
 # ℹ 17 more rows</code></pre>
 </div>
+</div>
+<p>Функция <code>bind_cols()</code> присоединяет таблицу справа, при этом она должна иметь столько же строчек, сколько есть в с основной таблице:</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>zhadina_additional_columns <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">new_var1 =</span> <span class="fu">rnorm</span>(<span class="dv">26</span>),</span>
 <span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">new_var2 =</span> letters)</span>
 <span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a></span>
