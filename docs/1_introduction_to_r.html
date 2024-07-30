@@ -1006,41 +1006,97 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 </section>
 <section id="работа-с-пакетами" class="level2" data-number="1.10">
 <h2 data-number="1.10" class="anchored" data-anchor-id="работа-с-пакетами"><span class="header-section-number">1.10</span> Работа с пакетами</h2>
+<p>Все богатство R находиться в его огромной инфраструктуре пакетов, которые может разрабатывать кто-угодно: от больших компаний, до частных исследователей. Чтобы их установить, нужно использовать команду <code>install.packages()</code>. Начнем с установки центрального для курса пакета: <code>tidyverse</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"lingtypology"</span>)</span>
-<span id="cb146-2"><a href="#cb146-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"lingtypology"</span>, <span class="st">"checkdown"</span>))</span>
-<span id="cb146-3"><a href="#cb146-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb146-4"><a href="#cb146-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lingtypology)</span>
-<span id="cb146-5"><a href="#cb146-5" aria-hidden="true" tabindex="-1"></a>lingtypology<span class="sc">::</span><span class="fu">map.feature</span>(<span class="fu">c</span>(<span class="st">"Russian"</span>, <span class="st">"German"</span>, <span class="st">"Mandarin Chinese"</span>))</span>
-<span id="cb146-6"><a href="#cb146-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb146-7"><a href="#cb146-7" aria-hidden="true" tabindex="-1"></a>mtcars</span>
-<span id="cb146-8"><a href="#cb146-8" aria-hidden="true" tabindex="-1"></a>iris</span>
-<span id="cb146-9"><a href="#cb146-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb146-10"><a href="#cb146-10" aria-hidden="true" tabindex="-1"></a>gl <span class="ot">&lt;-</span> lingtypology<span class="sc">::</span>glottolog</span>
-<span id="cb146-11"><a href="#cb146-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb146-12"><a href="#cb146-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Следует помнить, что установка пакета не влечет за собой работу всех функций пакета. Пакет еще нужно включить командой <code>library()</code>.</p>
+<p><img src="images/01_03_install_packages.png" class="img-fluid"></p>
+<p>Проверим, что все установилось, запустим пакет.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.1
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
 </div>
 </section>
 <section id="чтение-и-запись-табличных-данных" class="level2" data-number="1.11">
 <h2 data-number="1.11" class="anchored" data-anchor-id="чтение-и-запись-табличных-данных"><span class="header-section-number">1.11</span> Чтение и запись табличных данных</h2>
+<p>Табличные данные можно хранить в разных форматах, самые распространенные:</p>
+<ul>
+<li>Формат <code>.csv</code> (comma seprated value) с одним из разделителей: запятая, табуляция и т. д.</li>
+<li>Таблицы <code>.xlsx</code>.</li>
+</ul>
+<p>Чтение происходит из рабочей директории, которую можно узнать командой <code>getwd()</code> и назначить командой <code>setwd()</code>, например:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"orange_circumference.csv"</span>)</span>
-<span id="cb147-2"><a href="#cb147-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"orange_circumference.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb147-3"><a href="#cb147-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb147-4"><a href="#cb147-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb147-5"><a href="#cb147-5" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"orange_circumference.xlsx"</span>)</span>
-<span id="cb147-6"><a href="#cb147-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb147-7"><a href="#cb147-7" aria-hidden="true" tabindex="-1"></a>df_2save <span class="ot">&lt;-</span> df[df<span class="sc">$</span>circumference <span class="sc">&gt;</span> <span class="dv">100</span>, ]</span>
-<span id="cb147-8"><a href="#cb147-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb147-9"><a href="#cb147-9" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(df_2save, <span class="st">"orange_circumference_g100.csv"</span>)</span>
-<span id="cb147-10"><a href="#cb147-10" aria-hidden="true" tabindex="-1"></a><span class="fu">write_tsv</span>(df_2save, <span class="st">"orange_circumference_g100.tsv"</span>)</span>
-<span id="cb147-11"><a href="#cb147-11" aria-hidden="true" tabindex="-1"></a><span class="fu">write_delim</span>(df_2save, <span class="st">"orange_circumference_g100.zsv"</span>, <span class="at">delim =</span> <span class="st">"0"</span>)</span>
-<span id="cb147-12"><a href="#cb147-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb147-13"><a href="#cb147-13" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"asdasd"</span>)</span>
-<span id="cb147-14"><a href="#cb147-14" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(df_2save, <span class="st">"asdasd/orange_circumference_g100.csv"</span>)</span>
-<span id="cb147-15"><a href="#cb147-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb147-16"><a href="#cb147-16" aria-hidden="true" tabindex="-1"></a><span class="fu">getwd</span>()</span>
-<span id="cb147-17"><a href="#cb147-17" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"~/Desktop/"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"path/to/my/folder"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>После того, как изменилась рабочая директория (в RStudio рабочая директория пишется в шапке раздела консоль), становится возможным считывать файлы.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"orange_circumference.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>В принципе рабочую директорию можно и не менять а в качестве аргумента подавать полный путь:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"path/to/my/folder/orange_circumference.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Кроме того, важно отметить, что R позволяет считывать данные и из интернета, например, тот же самый датасет находится по следующей ссылке: <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w1_orange_circumference.csv" class="uri">https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w1_orange_circumference.csv</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w1_orange_circumference.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 35 Columns: 3
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+dbl (3): Tree, age, circumference
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a>df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 35 × 3
+    Tree   age circumference
+   &lt;dbl&gt; &lt;dbl&gt;         &lt;dbl&gt;
+ 1     1   118            30
+ 2     1   484            58
+ 3     1   664            87
+ 4     1  1004           115
+ 5     1  1231           120
+ 6     1  1372           142
+ 7     1  1582           145
+ 8     2   118            33
+ 9     2   484            69
+10     2   664           111
+# ℹ 25 more rows</code></pre>
+</div>
+</div>
+<p>Обычно при чтении функцией <code>read_csv()</code> также высвечивается информация о типах столбцов. Это сообщение можно выключить при помощи аргумента <code>show_col_types</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w1_orange_circumference.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Чтение <code>.xlsx</code> файлов устроено аналогичным образом с тем лишь отличием, что эта функция не позволяет читать файлы из интернета. Если вам нужен файл на пробу, то вот <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w1_orange_circumference.xlsx">ссылка на датасет</a>, который мы обсуждали выше, в формате <code>.xlsx</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb157-2"><a href="#cb157-2" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_xlsx</span>(<span class="st">"orange_circumference.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Сохранение файлов устроено похожим образом, просто выберите одну из функций</p>
+<ul>
+<li><code>write_csv()</code> — разделитель запятая</li>
+<li><code>write_tsv()</code> — разделитель табуляция</li>
+<li><code>write_delim()</code> — произвольный разделитель, который задается в аргументе <code>delim</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(df, <span class="st">"orange_circumference_g100.csv"</span>)</span>
+<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write_tsv</span>(df, <span class="st">"orange_circumference_g100.tsv"</span>)</span>
+<span id="cb158-3"><a href="#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write_delim</span>(df, <span class="st">"orange_circumference_g100.zsv"</span>, <span class="at">delim =</span> <span class="st">"0"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="как-справятся-с-проблемами" class="level2" data-number="1.12">

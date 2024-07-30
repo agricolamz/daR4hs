@@ -381,36 +381,68 @@ library(tidyverse)
 
 ## Чтение и запись табличных данных
 
-Табличные данные можно хранить
+Табличные данные можно хранить в разных форматах, самые распространенные:
 
-```{r}
-df <- read_csv("orange_circumference.csv")
-df
-```
+- Формат `.csv` (comma seprated value) с одним из разделителей: запятая, табуляция и т. д.
+- Таблицы `.xlsx`.
 
-
-```{r}
-df <- read_csv("orange_circumference.csv", show_col_types = FALSE)
-```
-
+Чтение происходит из рабочей директории, которую можно узнать командой `getwd()` и назначить командой `setwd()`, например:
 
 ```{r}
 #| eval: false
 
+setwd("path/to/my/folder")
+```
+
+После того, как изменилась рабочая директория (в RStudio рабочая директория пишется в шапке раздела консоль), становится возможным считывать файлы.
+
+```{r}
+#| eval: false
+
+df <- read_csv("orange_circumference.csv")
+```
+
+В принципе рабочую директорию можно и не менять а в качестве аргумента подавать полный путь:
+
+```{r}
+#| eval: false
+
+df <- read_csv("path/to/my/folder/orange_circumference.csv")
+```
+
+Кроме того, важно отметить, что R позволяет считывать данные и из интернета, например, тот же самый датасет находится по следующей ссылке: <https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w1_orange_circumference.csv>
+
+```{r}
+df <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w1_orange_circumference.csv")
+df
+```
+
+Обычно при чтении функцией `read_csv()` также высвечивается информация о типах столбцов. Это сообщение можно выключить при помощи аргумента `show_col_types`: 
+
+```{r}
+df <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w1_orange_circumference.csv", show_col_types = FALSE)
+```
+
+Чтение `.xlsx` файлов устроено аналогичным образом с тем лишь отличием, что эта функция не позволяет читать файлы из интернета. Если вам нужен файл на пробу, то вот [ссылка на датасет](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w1_orange_circumference.xlsx), который мы обсуждали выше, в формате `.xlsx`.
+
+```{r}
+#| eval: false
 library(readxl)
-df2 <- read_xlsx("orange_circumference.xlsx")
+df <- read_xlsx("orange_circumference.xlsx")
+```
 
-df_2save <- df[df$circumference > 100, ]
+Сохранение файлов устроено похожим образом, просто выберите одну из функций
 
-write_csv(df_2save, "orange_circumference_g100.csv")
-write_tsv(df_2save, "orange_circumference_g100.tsv")
-write_delim(df_2save, "orange_circumference_g100.zsv", delim = "0")
+- `write_csv()` --- разделитель запятая
+- `write_tsv()` --- разделитель табуляция
+- `write_delim()` --- произвольный разделитель, который задается в аргументе `delim` 
 
-dir.create("asdasd")
-write_csv(df_2save, "asdasd/orange_circumference_g100.csv")
+```{r}
+#| eval: false
 
-getwd()
-setwd("~/Desktop/")
+write_csv(df, "orange_circumference_g100.csv")
+write_tsv(df, "orange_circumference_g100.tsv")
+write_delim(df, "orange_circumference_g100.zsv", delim = "0")
 ```
 
 ## Как справятся с проблемами
