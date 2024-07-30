@@ -61,18 +61,26 @@ zhadina
 
 ```{r}
 zhadina |> 
-  slice(c(5, 25, 3))
+  slice(c(6, 25, 3))
 
 zhadina |> 
-  slice(5:25)
+  slice(6:25)
+```
 
+Стоит обратить внимание, что результат работы функции выводиться в консоль, чтобы сохранить результат работы, следует сделать операцию приписывания одним из следующих способов (первый наиболее распространенный):
+
+```{r}
 new_zhadina <- zhadina |> 
-  slice(5:25)
+  slice(6:25)
 
 zhadina |> 
-  slice(5:25) ->
+  slice(6:25) ->
   new_zhadina
+```
 
+Кроме того, есть функции `slice_head()` и `slice_tail()`, которые выдают первое/последнее наблюдение. Аргумент `n` позволяет донастроить, сколько первых/последних наблюдений хочется вывести:
+
+```{r}
 zhadina |> 
   slice_head()
 
@@ -80,11 +88,25 @@ zhadina |>
   slice_tail()
 
 zhadina |> 
+  slice_tail(n = 6)
+```
+
+Стоит отметить, что совпадение имени аргумента и названия столбца в нашем датасете (`n`) никак не влияет на работу функции. Также полезными могут быть функции `slice_max()` и `slice_min()`, которые выдают максимальное/минимальное значение переменной. У этой функции тоже есть аргумент `n`:
+
+```{r}
+zhadina |> 
   slice_max(n)
 
 zhadina |> 
   slice_min(n)
 
+zhadina |> 
+  slice_max(n, n = 3)
+```
+
+Функция `slice_sample()` позволяет вывести выборку из некоторого количества строчек (аргумент `n`) или долю строчек (аргумент `prop`):
+
+```{r}
 zhadina |> 
   slice_sample(n = 10)
 
@@ -92,20 +114,297 @@ zhadina |>
   slice_sample(prop = 0.3)
 ```
 
+## Функция `select()`
 
+Функция `select()` позволяет выбрать из датасета некоторый набор столбцов.
 
-## Функции семейства `filter()`
+```{r}
+zhadina |> 
+  select(word_1, type, n)
+```
+
+Внутри функции `select()` можно использовать функции, которые позволяют не только перечислять через запятую необходимые столбцы, но и выделять их по имени:
+
+```{r}
+zhadina |> 
+  select(starts_with("word"))
+
+zhadina |> 
+  select(ends_with("1"))
+
+zhadina |> 
+  select(matches("ord"))
+```
+
+Кроме того, внутри функции `select()` действует оператор двоеточие, который мы видели при создании векторов `5:10`:
+
+```{r}
+zhadina |> 
+  select(word_3:n) # от колонки word_3 до колонки n
+```
+
+## Функция `filter()`
+
+Функция `filter()` позволяет отфильтровыввать строки таблицы по одному или нескольким условиям. 
+
+```{r}
+zhadina |> 
+  filter(n > 100)
+
+zhadina |> 
+  filter(n < 100)
+
+zhadina |> 
+  filter(n <= 100) # меньше или равно
+
+zhadina |> 
+  filter(n >= 100) # больше или равно
+
+zhadina |> 
+  filter(n != 10) # не равно
+
+zhadina |> 
+  filter(n == 10) # равно (дважды знак равно)
+
+zhadina |> 
+  filter(word_3 == "шоколадина")
+
+zhadina |> 
+  filter(word_3 != "шоколадина")
+
+zhadina |> 
+  filter(nchar(word_3) == 7)
+```
+
+Кроме того, условия можно перечислить через запятую (аналог логического и):
+
+```{r}
+zhadina |> 
+  filter(n > 15,
+         n < 100)
+```
+
+Логическое "или" обозначается палочкой `|`:
+
+```{r}
+zhadina |> 
+  filter(n < 15 | n > 100)
+```
 
 ## Функции `count()`, `distinct()`, `arrange()`
 
+Функция `count()` очень полезна в разведочном анализе, так как позволяет посчитать сколько какое значение переменной или группы переменных встретилось в датасете. Аргумент `sort` позволяет дополнительно отсортировать результат от большего к меньшего.
+
+```{r}
+zhadina |> 
+  count(word_3)
+
+zhadina |> 
+  count(word_3, sort = TRUE)
+
+zhadina |> 
+  count(word_1, word_2, sort = TRUE)
+```
+
+Функция `distinct()` позволяет вывести уникальное значение переменной или все уникальные комбинации значений нескольких переменных, встретившихся в датасете:
+
+```{r}
+zhadina |> 
+  distinct(word_3)
+
+zhadina |> 
+  distinct(word_1, word_2)
+```
+
+Функция `arrange()` позволяет отсортировать одну или несколько переменных от меньшего к большему (если нужно наоборот --- используйте функцию `desc()`). Числовые переменные соритруются по значения, а строковые по алфавиту (с учетом особенностей локали):
+
+```{r}
+zhadina |> 
+  count(word_3) |> 
+  arrange(n)
+
+zhadina |> 
+  count(word_3) |> 
+  arrange(desc(n))
+
+zhadina |> 
+  count(word_3) |> 
+  arrange(-n)
+
+zhadina |> 
+  count(word_3) |> 
+  arrange(word_3)
+```
+
 ## Функция `mutate()`
+
+Функция `mutate()` позволяет создавать и изменять уже имеющиеся переменные:
+
+```{r}
+zhadina |> 
+  mutate(nchar = nchar(word_3),
+         nchar2 = nchar(word_3)*2)
+
+zhadina |> 
+  mutate(n = n^3)
+```
 
 ## Функция `group_by() |> summarise()` и `group_by() |> mutate()`
 
+```{r}
+zhadina |> 
+  group_by(type) |> 
+  summarise(mean_by_type = mean(n))
+
+zhadina |> 
+  group_by(type) |> 
+  summarise(mean_by_type = mean(n),
+            median_by_type = median(n))
+
+zhadina |> 
+  group_by(type, word_3) |> 
+  summarise(mean_by_type = mean(n),
+            median_by_type = median(n))
+
+zhadina |> 
+  group_by(type, word_3) |> 
+  mutate(mean_by_type = mean(n),
+         median_by_type = median(n))
+
+zhadina |> 
+  group_by(type) |> 
+  mutate(mean_by_type = mean(n),
+         median_by_type = median(n))
+```
+
 ## Функция `across()`
+
+```{r}
+zhadina |> 
+  mutate(across(starts_with("word"), toupper))
+
+zhadina |> 
+  mutate(across(where(is.character), toupper))
+
+set.seed(42)
+zhadina |> 
+  mutate(new_numeric_value = rnorm(26)) |> 
+  group_by(type) |> 
+  summarise(across(where(is.double), mean))
+
+set.seed(42)
+zhadina |> 
+  mutate(new_numeric_value = rnorm(26)) |> 
+  group_by(type) |> 
+  summarise(n = mean(n),
+            new_numeric_value = mean(new_numeric_value))
+
+zhadina |> 
+  mutate(new_numeric_value = rnorm(26)) |> 
+  group_by(type) |> 
+  mutate(across(where(is.double), mean))
+```
+
 
 ## Функции семейства `pivot_...()`
 
+```{r}
+india_langauges_wide <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w2_india_languages.csv")
+
+india_langauges_wide |> 
+  pivot_longer(names_to = "L", values_to = "value", n_L1_sp:n_all_sp)
+
+india_langauges_wide |> 
+  pivot_longer(names_to = "L", values_to = "value", starts_with("n_")) |> 
+  filter(L != "n_all_sp") |> 
+  group_by(L) |> 
+  summarise(sum = sum(value),
+            mean = mean(value))
+
+india_langauges_wide |> 
+  pivot_longer(names_to = "L", values_to = "value", starts_with("n_")) |> 
+  filter(L != "n_all_sp") ->
+  india_langauges_long
+
+india_langauges_long |> 
+  pivot_wider(names_from = "L", values_from = "value")
+
+india_langauges_long |> 
+  slice_sample(n = 30) |> 
+  pivot_wider(names_from = "L", values_from = "value", values_fill = 0)
+```
+
+
 ## Функции семейства `bind_...()`
 
+```{r}
+zhadina_new <- tibble(word_1 = "жадина-говядина",
+                      word_2 = "пупецкий",
+                      word_3 = "барабан",
+                      type = "барабан",
+                      n = 0)
+
+zhadina |> 
+  bind_rows(zhadina_new)
+
+zhadina_additional_columns <- tibble(new_var1 = rnorm(26),
+                                     new_var2 = letters)
+
+zhadina |> 
+  bind_cols(zhadina_additional_columns)
+```
+
 ## Функции семейства `..._join()` {#sec-joins}
+
+```{r}
+zhadina |> 
+  distinct(type) |> 
+  mutate(our_new_var1 = rnorm(4),
+         our_new_var2 = letters[1:4]) ->
+  type_new_var
+
+zhadina |> 
+  left_join(type_new_var)
+
+zhadina |> 
+  distinct(type) |> 
+  mutate(our_new_var1 = rnorm(4),
+         our_new_var2 = letters[1:4]) |> 
+  slice(-1) ->
+  type_new_var2
+
+zhadina |> 
+  left_join(type_new_var2)
+
+zhadina |> 
+  distinct(type) |> 
+  mutate(our_new_var1 = rnorm(4),
+         our_new_var2 = letters[1:4]) |> 
+  slice(-1) |> 
+  bind_rows(tibble(type = "карниз", 
+                   our_new_var1 = 0, 
+                   our_new_var2 = "R"))->
+  type_new_var2
+
+zhadina |> 
+  left_join(type_new_var2) 
+
+zhadina |> 
+  full_join(type_new_var2)
+
+zhadina |> 
+  anti_join(tibble(type = "шоколадина")) 
+
+
+zhadina |> 
+  distinct(type) |> 
+  mutate(our_new_var1 = rnorm(4),
+         our_new_var2 = letters[1:4]) |> 
+  rename(new_type = type) ->
+  type_new_var3
+
+
+zhadina |> 
+  left_join(type_new_var3, by = c("type" = "new_type"))
+```
+
