@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.52">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>daR4hs - 4&nbsp; Работа со строками</title>
+<title>4&nbsp; Работа со строками – daR4hs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -112,13 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./4_working_with_strings.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Работа со строками</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -282,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Мы будем пользоваться в основном пакетами <code>stingr</code> и <code>stringi</code>, так как они в большинстве случаях удобнее. К счастью функции этих пакетов легко отличить от остальных: функции пакет <code>stringr</code> всегда начинаются с <code>str_</code>, а функции пакета <code>stringi</code> — c <code>stri_</code>.</p>
+<p>Мы будем пользоваться в основном пакетами <code>stingr</code> и <code>stringi</code>, так как они в большинстве случаях удобнее. К счастью, функции этих пакетов легко отличить от остальных: функции пакет <code>stringr</code> всегда начинаются с <code>str_</code>, а функции пакета <code>stringi</code> — c <code>stri_</code>.</p>
 <p>Существует <a href="https://github.com/rstudio/cheatsheets/raw/master/strings.pdf">cheat sheet по <code>stringr</code></a>.</p>
 </section>
 <section id="как-получить-строку" class="level2" data-number="4.2">
@@ -407,11 +407,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stri_rand_lipsum</span>(<span class="at">nparagraphs =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning in stri_rand_lipsum(nparagraphs = 2): The 'nparagraphs' argument in
-stri_rand_lipsum is a deprecated alias of 'n_paragraphs' and will be removed in
-a future release of 'stringi'.</code></pre>
-</div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Lorem ipsum dolor sit amet, donec sit nunc urna sed ultricies ac pharetra orci luctus iaculis, ac tincidunt cum. Neque eu semper at sociosqu hendrerit. Eu aliquet lacus, eu hendrerit donec aliquam eros. Risus nibh, quam in sit facilisi ipsum. Amet sem sed donec sed molestie scelerisque tincidunt. Nisl donec et facilisis interdum non sed dolor purus. In ipsum dignissim torquent velit nec aliquam pellentesque. Ac, adipiscing, neque et at torquent, vestibulum ullamcorper. Ad dictumst enim velit non nulla felis habitant. Egestas placerat consectetur, dictum nostra sed nec. Erat phasellus dolor libero aliquam viverra. Vestibulum leo et. Suscipit egestas in in montes, sapien gravida? Conubia purus varius ut nec feugiat."
 [2] "Risus eleifend magnis neque diam, suspendisse ullamcorper nulla adipiscing malesuada massa, nisi sociosqu velit id et. Aliquam facilisis et aenean. Parturient vel ac in convallis, massa diam nibh. Nulla interdum cursus et. Natoque amet, ut praesent. Tortor ultrices a consectetur, augue natoque class faucibus? Ut sed arcu elementum magna. Dignissim ac facilisi quis ut nisl eu, massa."                                                                                                                                                                                                                                                                                                                                                  </code></pre>
@@ -422,8 +417,8 @@ a future release of 'stringi'.</code></pre>
 <h2 data-number="4.3" class="anchored" data-anchor-id="соединение-и-разделение-строк"><span class="header-section-number">4.3</span> Соединение и разделение строк</h2>
 <p>Соединенить строки можно используя функцию <code>str_c()</code>, в которую, как и в функции <code>с()</code>, можно перечислять элементы через запятую:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">upper =</span> <span class="fu">rev</span>(LETTERS), <span class="at">smaller =</span> letters) <span class="sc">|&gt;</span>  </span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">merge =</span> <span class="fu">str_c</span>(upper, smaller))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">upper =</span> <span class="fu">rev</span>(LETTERS), <span class="at">smaller =</span> letters) <span class="sc">|&gt;</span>  </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">merge =</span> <span class="fu">str_c</span>(upper, smaller))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 3
    upper smaller merge
@@ -443,8 +438,8 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>Кроме того, если хочется, можно использовать особенный разделитель, указав его в аргументе <code>sep</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">upper =</span> <span class="fu">rev</span>(LETTERS), <span class="at">smaller =</span> letters) <span class="sc">|&gt;</span>  </span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">merge =</span> <span class="fu">str_c</span>(upper, smaller, <span class="at">sep =</span> <span class="st">"_"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">upper =</span> <span class="fu">rev</span>(LETTERS), <span class="at">smaller =</span> letters) <span class="sc">|&gt;</span>  </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">merge =</span> <span class="fu">str_c</span>(upper, smaller, <span class="at">sep =</span> <span class="st">"_"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 3
    upper smaller merge
@@ -464,9 +459,9 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>Иногда хочется составить длинные выражения, которые будут перемежаться значениями из переменных, это можно сделать при помощи функции <code>str_glue()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">month_name =</span> month.name,</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">month_abb =</span> month.abb) <span class="sc">|&gt;</span> </span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">long_string =</span> <span class="fu">str_glue</span>(<span class="st">"The month {month_name} is abbreviated as {month_abb}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">month_name =</span> month.name,</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">month_abb =</span> month.abb) <span class="sc">|&gt;</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">long_string =</span> <span class="fu">str_glue</span>(<span class="st">"The month {month_name} is abbreviated as {month_abb}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 3
    month_name month_abb long_string                              
@@ -487,9 +482,9 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>В фигурных скобках выступают имена переменных, которые уже есть в датасете. Если Вы хотите вставить в свое длинное выражение фигурные скобки, можно написать их два раза:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">month_name =</span> month.name,</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">month_abb =</span> month.abb) <span class="sc">|&gt;</span> </span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">long_string =</span> <span class="fu">str_glue</span>(<span class="st">"The {{month}} {month_name} is abbreviated as {month_abb}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">month_name =</span> month.name,</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">month_abb =</span> month.abb) <span class="sc">|&gt;</span> </span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">long_string =</span> <span class="fu">str_glue</span>(<span class="st">"The {{month}} {month_name} is abbreviated as {month_abb}"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 3
    month_name month_abb long_string                                
@@ -510,9 +505,9 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>Для разделение строки на подстроки можно использовать функцию <code>separate()</code>. Это функция разносит разделенные элементы строки в соответствующие столбцы. У функции три обязательных аргумента: <code>col</code> — колонка, которую следует разделить, <code>into</code> — вектор названий новых столбец, <code>sep</code> — разделитель.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">upper =</span> <span class="fu">rev</span>(LETTERS), <span class="at">smaller =</span> letters) <span class="sc">|&gt;</span>  </span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">merge =</span> <span class="fu">str_c</span>(upper, smaller, <span class="at">sep =</span> <span class="st">"_"</span>)) <span class="sc">|&gt;</span>  </span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> merge, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"column_1"</span>, <span class="st">"column_2"</span>), <span class="at">sep =</span> <span class="st">"_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">upper =</span> <span class="fu">rev</span>(LETTERS), <span class="at">smaller =</span> letters) <span class="sc">|&gt;</span>  </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">merge =</span> <span class="fu">str_c</span>(upper, smaller, <span class="at">sep =</span> <span class="st">"_"</span>)) <span class="sc">|&gt;</span>  </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(<span class="at">col =</span> merge, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"column_1"</span>, <span class="st">"column_2"</span>), <span class="at">sep =</span> <span class="st">"_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 4
    upper smaller column_1 column_2
@@ -532,7 +527,7 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>Кроме того, есть инструмент <code>str_split()</code>, которая позволяет разбивать строки на подстроки, но возвращает <em>список</em>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(month.name, <span class="st">"r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(month.name, <span class="st">"r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "Janua" "y"    
@@ -577,8 +572,8 @@ a future release of 'stringi'.</code></pre>
 <section id="подсчет-количества-символов" class="level3" data-number="4.4.1">
 <h3 data-number="4.4.1" class="anchored" data-anchor-id="подсчет-количества-символов"><span class="header-section-number">4.4.1</span> Подсчет количества символов</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_charactars =</span> <span class="fu">str_count</span>(mn))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n_charactars =</span> <span class="fu">str_count</span>(mn))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        n_charactars
@@ -602,8 +597,8 @@ a future release of 'stringi'.</code></pre>
 <h3 data-number="4.4.2" class="anchored" data-anchor-id="подгонка-количества-символов"><span class="header-section-number">4.4.2</span> Подгонка количества символов</h3>
 <p>Можно обрезать строки, используя функцию <code>str_trunc()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_trunc</span>(mn, <span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_trunc</span>(mn, <span class="dv">6</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        mn_new
@@ -624,8 +619,8 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>Можно решить с какой стороны обрезать, используя аргумент <code>side</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_trunc</span>(mn, <span class="dv">6</span>, <span class="at">side =</span> <span class="st">"left"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_trunc</span>(mn, <span class="dv">6</span>, <span class="at">side =</span> <span class="st">"left"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        mn_new
@@ -643,8 +638,8 @@ a future release of 'stringi'.</code></pre>
 11 November  ...ber
 12 December  ...ber</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_trunc</span>(mn, <span class="dv">6</span>, <span class="at">side =</span> <span class="st">"center"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_trunc</span>(mn, <span class="dv">6</span>, <span class="at">side =</span> <span class="st">"center"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        mn_new
@@ -665,8 +660,8 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>Можно заменить многоточие, используя аргумент <code>ellipsis</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_trunc</span>(mn, <span class="dv">3</span>, <span class="at">ellipsis =</span> <span class="st">""</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_trunc</span>(mn, <span class="dv">3</span>, <span class="at">ellipsis =</span> <span class="st">""</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        mn_new
@@ -687,8 +682,8 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>Можно наоборот “раздуть” строку:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_pad</span>(mn, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_pad</span>(mn, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        mn_new      
@@ -709,8 +704,8 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>Опять же есть аргумент <code>side</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_pad</span>(mn, <span class="dv">10</span>,  <span class="at">side =</span> <span class="st">"right"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_pad</span>(mn, <span class="dv">10</span>,  <span class="at">side =</span> <span class="st">"right"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        mn_new      
@@ -731,8 +726,8 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>Также можно выбрать, чем “раздувать строку”:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_pad</span>(mn, <span class="dv">10</span>,  <span class="at">pad =</span> <span class="st">"."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mn_new =</span> <span class="fu">str_pad</span>(mn, <span class="dv">10</span>,  <span class="at">pad =</span> <span class="st">"."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        mn_new    
@@ -757,21 +752,21 @@ a future release of 'stringi'.</code></pre>
 <h2 data-number="4.5" class="anchored" data-anchor-id="сортировка"><span class="header-section-number">4.5</span> Сортировка</h2>
 <p>Для сортировки существует <code>str_sort()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>unsorted_latin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"I"</span>, <span class="st">"♥"</span>, <span class="st">"N"</span>, <span class="st">"Y"</span>)</span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(unsorted_latin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>unsorted_latin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"I"</span>, <span class="st">"♥"</span>, <span class="st">"N"</span>, <span class="st">"Y"</span>)</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(unsorted_latin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "♥" "I" "N" "Y"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(unsorted_latin, <span class="at">locale =</span> <span class="st">"lt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(unsorted_latin, <span class="at">locale =</span> <span class="st">"lt"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "♥" "I" "Y" "N"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>unsorted_cyrillic <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"я"</span>, <span class="st">"i"</span>, <span class="st">"ж"</span>)</span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(unsorted_cyrillic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>unsorted_cyrillic <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"я"</span>, <span class="st">"i"</span>, <span class="st">"ж"</span>)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(unsorted_cyrillic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "i" "ж" "я"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(unsorted_cyrillic, <span class="at">locale =</span> <span class="st">"ru_UA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sort</span>(unsorted_cyrillic, <span class="at">locale =</span> <span class="st">"ru_UA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "ж" "я" "i"</code></pre>
 </div>
@@ -782,8 +777,8 @@ a future release of 'stringi'.</code></pre>
 <h2 data-number="4.6" class="anchored" data-anchor-id="поиск-подстроки"><span class="header-section-number">4.6</span> Поиск подстроки</h2>
 <p>Можно использовать функцию <code>str_detect()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">has_r =</span> <span class="fu">str_detect</span>(mn, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">has_r =</span> <span class="fu">str_detect</span>(mn, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        has_r
@@ -804,8 +799,8 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>Кроме того, существует функция, которая возвращает индексы, а не значения <code>TRUE</code>/<code>FALSE</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">str_which</span>(month.name, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="fu">str_which</span>(month.name, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 1
   mn       
@@ -822,8 +817,8 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>Также можно посчитать количество вхождений какой-то подстроки:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">has_r =</span> <span class="fu">str_count</span>(mn, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">has_r =</span> <span class="fu">str_count</span>(mn, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        has_r
@@ -848,21 +843,21 @@ a future release of 'stringi'.</code></pre>
 <section id="изменение-регистра" class="level3" data-number="4.7.1">
 <h3 data-number="4.7.1" class="anchored" data-anchor-id="изменение-регистра"><span class="header-section-number">4.7.1</span> Изменение регистра</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a>latin <span class="ot">&lt;-</span> <span class="st">"tHe QuIcK BrOwN fOx JuMpS OvEr ThE lAzY dOg"</span></span>
-<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a>cyrillic <span class="ot">&lt;-</span> <span class="st">"лЮбЯ, сЪеШь ЩиПцЫ, — вЗдОхНёТ мЭр, — кАйФ жГуЧ"</span></span>
-<span id="cb83-3"><a href="#cb83-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_upper</span>(latin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>latin <span class="ot">&lt;-</span> <span class="st">"tHe QuIcK BrOwN fOx JuMpS OvEr ThE lAzY dOg"</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>cyrillic <span class="ot">&lt;-</span> <span class="st">"лЮбЯ, сЪеШь ЩиПцЫ, — вЗдОхНёТ мЭр, — кАйФ жГуЧ"</span></span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_upper</span>(latin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_lower</span>(cyrillic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_lower</span>(cyrillic)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "любя, съешь щипцы, — вздохнёт мэр, — кайф жгуч"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(latin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(latin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The Quick Brown Fox Jumps Over The Lazy Dog"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_sentence</span>(latin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_sentence</span>(latin)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The quick brown fox jumps over the lazy dog"</code></pre>
 </div>
@@ -872,8 +867,8 @@ a future release of 'stringi'.</code></pre>
 <h3 data-number="4.7.2" class="anchored" data-anchor-id="выделение-подстроки"><span class="header-section-number">4.7.2</span> Выделение подстроки</h3>
 <p>Подстроку в строке можно выделить двумя способами: по индексам функцией <code>str_sub()</code>, и по подстроке функцией <code>str_png()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_sub</span>(mn, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_sub</span>(mn, <span class="at">start =</span> <span class="dv">1</span>, <span class="at">end =</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        mutate
@@ -893,8 +888,8 @@ a future release of 'stringi'.</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_extract</span>(mn, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_extract</span>(mn, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        mutate
@@ -915,7 +910,7 @@ a future release of 'stringi'.</code></pre>
 </div>
 <p>По умолчанию функция <code>str_extract()</code> возвращает первое вхождение подстроки, соответствующей шаблону. Также существует функция <code>str_extract_all()</code>, которая возвращает все вхождения подстрок, соответствующих шаблону, однако возвращает объект типа список.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(month.name, <span class="st">"r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(month.name, <span class="st">"r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[[1]]
 [1] "r"
@@ -959,8 +954,8 @@ character(0)
 <h3 data-number="4.7.3" class="anchored" data-anchor-id="замена-подстроки"><span class="header-section-number">4.7.3</span> Замена подстроки</h3>
 <p>Существует функция <code>str_replace()</code>, которая позволяет заменить одну подстроку в строке на другую:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_replace</span>(mn, <span class="st">"r"</span>, <span class="st">"R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_replace</span>(mn, <span class="st">"r"</span>, <span class="st">"R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        mutate   
@@ -981,8 +976,8 @@ character(0)
 </div>
 <p>Как и другие функции <code>str_replace()</code> делает лишь одну замену, чтобы заменить все вхождения подстроки следует использовать функцию <code>str_replace_all()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_replace_all</span>(mn, <span class="st">"r"</span>, <span class="st">"R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_replace_all</span>(mn, <span class="st">"r"</span>, <span class="st">"R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    mn        mutate   
@@ -1006,8 +1001,8 @@ character(0)
 <h3 data-number="4.7.4" class="anchored" data-anchor-id="удаление-подстроки"><span class="header-section-number">4.7.4</span> Удаление подстроки</h3>
 <p>Для удаления подстроки на основе шаблона, используется функция <code>str_remove()</code> и <code>str_remove_all()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_remove</span>(month.name, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_remove</span>(month.name, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    month.name mutate  
@@ -1025,8 +1020,8 @@ character(0)
 11 November   Novembe 
 12 December   Decembe </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(month.name) <span class="sc">|&gt;</span> </span>
-<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_remove_all</span>(month.name, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb102"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb102-1"><a href="#cb102-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(month.name) <span class="sc">|&gt;</span> </span>
+<span id="cb102-2"><a href="#cb102-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_remove_all</span>(month.name, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 2
    month.name mutate  
@@ -1050,19 +1045,19 @@ character(0)
 <h3 data-number="4.7.5" class="anchored" data-anchor-id="транслитерация-строк"><span class="header-section-number">4.7.5</span> Транслитерация строк</h3>
 <p>В пакете <code>stringi</code> сууществует достаточно много методов транслитераций строк, которые можно вывести командой <code>stri_trans_list()</code>. Вот пример использования некоторых из них:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stri_trans_general</span>(<span class="st">"stringi"</span>, <span class="st">"latin-cyrillic"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stri_trans_general</span>(<span class="st">"stringi"</span>, <span class="st">"latin-cyrillic"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "стринги"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stri_trans_general</span>(<span class="st">"сырники"</span>, <span class="st">"cyrillic-latin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb106"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb106-1"><a href="#cb106-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stri_trans_general</span>(<span class="st">"сырники"</span>, <span class="st">"cyrillic-latin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "syrniki"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stri_trans_general</span>(<span class="st">"stringi"</span>, <span class="st">"latin-greek"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb108"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb108-1"><a href="#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stri_trans_general</span>(<span class="st">"stringi"</span>, <span class="st">"latin-greek"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "στριγγι"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stri_trans_general</span>(<span class="st">"stringi"</span>, <span class="st">"latin-armenian"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb110"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb110-1"><a href="#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stri_trans_general</span>(<span class="st">"stringi"</span>, <span class="st">"latin-armenian"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "ստրինգի"</code></pre>
 </div>
@@ -1078,7 +1073,7 @@ character(0)
 </ul>
 <p>Дальше мы будем использовать функцию <code>str_view()</code>, которая позволяет показывать, выделенное образцом в исходной строке.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Я всегда путаю с и c"</span>, <span class="st">"c"</span>) <span class="co"># я ищу латинскую c</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Я всегда путаю с и c"</span>, <span class="st">"c"</span>) <span class="co"># я ищу латинскую c</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Я всегда путаю с и &lt;c&gt;</code></pre>
 </div>
@@ -1086,64 +1081,64 @@ character(0)
 <section id="экранирование-метасимволов" class="level3" data-number="4.8.1">
 <h3 data-number="4.8.1" class="anchored" data-anchor-id="экранирование-метасимволов"><span class="header-section-number">4.8.1</span> Экранирование метасимволов</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">"Всем известно, что 4$</span><span class="sc">\\</span><span class="st">2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен). [|}^{|]"</span></span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb114"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb114-1"><a href="#cb114-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="st">"Всем известно, что 4$</span><span class="sc">\\</span><span class="st">2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен). [|}^{|]"</span></span>
+<span id="cb114-2"><a href="#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен). [|}^{|]&lt;&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb116"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb116-1"><a href="#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4&lt;$&gt;\2 + 3&lt;$&gt; * 5 = 17&lt;$&gt;? Да? Ну хорошо (а то я не был уверен). [|}^{|]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb118"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb118-1"><a href="#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен)&lt;.&gt; [|}^{|]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">*"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">*"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ &lt;*&gt; 5 = 17$? Да? Ну хорошо (а то я не был уверен). [|}^{|]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 &lt;+&gt; 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен). [|}^{|]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ * 5 = 17$&lt;?&gt; Да&lt;?&gt; Ну хорошо (а то я не был уверен). [|}^{|]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">("</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb126"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb126-1"><a href="#cb126-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">("</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ * 5 = 17$? Да? Ну хорошо &lt;(&gt;а то я не был уверен). [|}^{|]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb128"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb128-1"><a href="#cb128-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен&lt;)&gt;. [|}^{|]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">|"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">|"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен). [&lt;|&gt;}^{&lt;|&gt;]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">^"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb132"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb132-1"><a href="#cb132-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">^"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен). [|}&lt;^&gt;{|]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb135"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb135-1"><a href="#cb135-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">["</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">["</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен). &lt;[&gt;|}^{|]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb137"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb137-1"><a href="#cb137-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен). [|}^{|&lt;]&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">{"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb138"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb138-1"><a href="#cb138-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">{"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен). [|}^&lt;{&gt;|]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb140"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb140-1"><a href="#cb140-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\</span><span class="st">}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$\2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен). [|&lt;}&gt;^{|]</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb143"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\\\</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(a, <span class="st">"</span><span class="sc">\\\\</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Всем известно, что 4$&lt;\&gt;2 + 3$ * 5 = 17$? Да? Ну хорошо (а то я не был уверен). [|}^{|]</code></pre>
 </div>
@@ -1155,11 +1150,11 @@ character(0)
 <li><code>\\d</code> – цифры. <code>\\D</code> – не цифры.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb144"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb144-1"><a href="#cb144-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">d"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ два &lt;1&gt;&lt;5&gt; &lt;4&gt;&lt;2&gt;. &lt;4&gt;&lt;2&gt; &lt;1&gt;&lt;5&gt;. &lt;3&gt;&lt;7&gt; &lt;0&gt;&lt;8&gt; &lt;5&gt;. &lt;2&gt;&lt;0&gt; &lt;2&gt;&lt;0&gt; &lt;2&gt;&lt;0&gt;!</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb147"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">D"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">D"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ &lt;д&gt;&lt;в&gt;&lt;а&gt;&lt; &gt;15&lt; &gt;42&lt;.&gt;&lt; &gt;42&lt; &gt;15&lt;.&gt;&lt; &gt;37&lt; &gt;08&lt; &gt;5&lt;.&gt;&lt; &gt;20&lt; &gt;20&lt; &gt;20&lt;!&gt;</code></pre>
 </div>
@@ -1168,11 +1163,11 @@ character(0)
 <li><code>\\s</code> – пробелы. <code>\\S</code> – не пробелы.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb149"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">s"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ два&lt; &gt;15&lt; &gt;42.&lt; &gt;42&lt; &gt;15.&lt; &gt;37&lt; &gt;08&lt; &gt;5.&lt; &gt;20&lt; &gt;20&lt; &gt;20!</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">S"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb150"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">S"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ &lt;д&gt;&lt;в&gt;&lt;а&gt; &lt;1&gt;&lt;5&gt; &lt;4&gt;&lt;2&gt;&lt;.&gt; &lt;4&gt;&lt;2&gt; &lt;1&gt;&lt;5&gt;&lt;.&gt; &lt;3&gt;&lt;7&gt; &lt;0&gt;&lt;8&gt; &lt;5&gt;&lt;.&gt; &lt;2&gt;&lt;0&gt; &lt;2&gt;&lt;0&gt; &lt;2&gt;&lt;0&gt;&lt;!&gt;</code></pre>
 </div>
@@ -1181,11 +1176,11 @@ character(0)
 <li><code>\\w</code> – не пробелы и не знаки препинания. <code>\\W</code> – пробелы и знаки препинания.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">w"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb152"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">w"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ &lt;д&gt;&lt;в&gt;&lt;а&gt; &lt;1&gt;&lt;5&gt; &lt;4&gt;&lt;2&gt;. &lt;4&gt;&lt;2&gt; &lt;1&gt;&lt;5&gt;. &lt;3&gt;&lt;7&gt; &lt;0&gt;&lt;8&gt; &lt;5&gt;. &lt;2&gt;&lt;0&gt; &lt;2&gt;&lt;0&gt; &lt;2&gt;&lt;0&gt;!</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb155"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">W"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb154"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">W"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ два&lt; &gt;15&lt; &gt;42&lt;.&gt;&lt; &gt;42&lt; &gt;15&lt;.&gt;&lt; &gt;37&lt; &gt;08&lt; &gt;5&lt;.&gt;&lt; &gt;20&lt; &gt;20&lt; &gt;20&lt;!&gt;</code></pre>
 </div>
@@ -1194,11 +1189,11 @@ character(0)
 <li>произвольная группа символов и обратная к ней</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb157"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Умей мечтать, не став рабом мечтанья"</span>, <span class="st">"[оауиыэёеяю]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Умей мечтать, не став рабом мечтанья"</span>, <span class="st">"[оауиыэёеяю]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Ум&lt;е&gt;й м&lt;е&gt;чт&lt;а&gt;ть, н&lt;е&gt; ст&lt;а&gt;в р&lt;а&gt;б&lt;о&gt;м м&lt;е&gt;чт&lt;а&gt;нь&lt;я&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb159"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"И мыслить, мысли не обожествив"</span>, <span class="st">"[^оауиыэёеяю]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"И мыслить, мысли не обожествив"</span>, <span class="st">"[^оауиыэёеяю]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ &lt;И&gt;&lt; &gt;&lt;м&gt;ы&lt;с&gt;&lt;л&gt;и&lt;т&gt;&lt;ь&gt;&lt;,&gt;&lt; &gt;&lt;м&gt;ы&lt;с&gt;&lt;л&gt;и&lt; &gt;&lt;н&gt;е&lt; &gt;о&lt;б&gt;о&lt;ж&gt;е&lt;с&gt;&lt;т&gt;&lt;в&gt;и&lt;в&gt;</code></pre>
 </div>
@@ -1207,27 +1202,27 @@ character(0)
 <li>встроенные группы символов</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb161"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb161-1"><a href="#cb161-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"[0-9]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"[0-9]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ два &lt;1&gt;&lt;5&gt; &lt;4&gt;&lt;2&gt;. &lt;4&gt;&lt;2&gt; &lt;1&gt;&lt;5&gt;. &lt;3&gt;&lt;7&gt; &lt;0&gt;&lt;8&gt; &lt;5&gt;. &lt;2&gt;&lt;0&gt; &lt;2&gt;&lt;0&gt; &lt;2&gt;&lt;0&gt;!</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb163"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb163-1"><a href="#cb163-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"[а-я]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb162"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"[а-я]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ К&lt;а&gt;&lt;р&gt;&lt;л&gt; &lt;у&gt; К&lt;л&gt;&lt;а&gt;&lt;р&gt;&lt;ы&gt; &lt;у&gt;&lt;к&gt;&lt;р&gt;&lt;а&gt;&lt;л&gt; &lt;к&gt;&lt;о&gt;&lt;р&gt;&lt;а&gt;&lt;л&gt;&lt;л&gt;&lt;ы&gt;, &lt;а&gt; К&lt;л&gt;&lt;а&gt;&lt;р&gt;&lt;а&gt; &lt;у&gt; К&lt;а&gt;&lt;р&gt;&lt;л&gt;&lt;а&gt; &lt;у&gt;&lt;к&gt;&lt;р&gt;&lt;а&gt;&lt;л&gt;&lt;а&gt; &lt;к&gt;&lt;л&gt;&lt;а&gt;&lt;р&gt;&lt;н&gt;&lt;е&gt;&lt;т&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb165"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb165-1"><a href="#cb165-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"[А-Я]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"[А-Я]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ &lt;К&gt;арл у &lt;К&gt;лары украл кораллы, а &lt;К&gt;лара у &lt;К&gt;арла украла кларнет</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"[А-я]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"[А-я]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ &lt;К&gt;&lt;а&gt;&lt;р&gt;&lt;л&gt; &lt;у&gt; &lt;К&gt;&lt;л&gt;&lt;а&gt;&lt;р&gt;&lt;ы&gt; &lt;у&gt;&lt;к&gt;&lt;р&gt;&lt;а&gt;&lt;л&gt; &lt;к&gt;&lt;о&gt;&lt;р&gt;&lt;а&gt;&lt;л&gt;&lt;л&gt;&lt;ы&gt;, &lt;а&gt; &lt;К&gt;&lt;л&gt;&lt;а&gt;&lt;р&gt;&lt;а&gt; &lt;у&gt; &lt;К&gt;&lt;а&gt;&lt;р&gt;&lt;л&gt;&lt;а&gt; &lt;у&gt;&lt;к&gt;&lt;р&gt;&lt;а&gt;&lt;л&gt;&lt;а&gt; &lt;к&gt;&lt;л&gt;&lt;а&gt;&lt;р&gt;&lt;н&gt;&lt;е&gt;&lt;т&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"The quick brown Fox jumps over the lazy Dog"</span>, <span class="st">"[a-z]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"The quick brown Fox jumps over the lazy Dog"</span>, <span class="st">"[a-z]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ T&lt;h&gt;&lt;e&gt; &lt;q&gt;&lt;u&gt;&lt;i&gt;&lt;c&gt;&lt;k&gt; &lt;b&gt;&lt;r&gt;&lt;o&gt;&lt;w&gt;&lt;n&gt; F&lt;o&gt;&lt;x&gt; &lt;j&gt;&lt;u&gt;&lt;m&gt;&lt;p&gt;&lt;s&gt; &lt;o&gt;&lt;v&gt;&lt;e&gt;&lt;r&gt; &lt;t&gt;&lt;h&gt;&lt;e&gt; &lt;l&gt;&lt;a&gt;&lt;z&gt;&lt;y&gt; D&lt;o&gt;&lt;g&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"[^0-9]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"два 15 42. 42 15. 37 08 5. 20 20 20!"</span>, <span class="st">"[^0-9]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ &lt;д&gt;&lt;в&gt;&lt;а&gt;&lt; &gt;15&lt; &gt;42&lt;.&gt;&lt; &gt;42&lt; &gt;15&lt;.&gt;&lt; &gt;37&lt; &gt;08&lt; &gt;5&lt;.&gt;&lt; &gt;20&lt; &gt;20&lt; &gt;20&lt;!&gt;</code></pre>
 </div>
@@ -1236,7 +1231,7 @@ character(0)
 <li>выбор из нескольких групп</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"лар|рал|арл"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"лар|рал|арл"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ К&lt;арл&gt; у К&lt;лар&gt;ы ук&lt;рал&gt; ко&lt;рал&gt;лы, а К&lt;лар&gt;а у К&lt;арл&gt;а ук&lt;рал&gt;а к&lt;лар&gt;нет</code></pre>
 </div>
@@ -1245,7 +1240,7 @@ character(0)
 <li>произвольный символ</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Везет Сенька Саньку с Сонькой на санках. Санки скок, Сеньку с ног, Соньку в лоб, все — в сугроб"</span>, <span class="st">"[Сс].н"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb174"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Везет Сенька Саньку с Сонькой на санках. Санки скок, Сеньку с ног, Соньку в лоб, все — в сугроб"</span>, <span class="st">"[Сс].н"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Везет &lt;Сен&gt;ька &lt;Сан&gt;ьку с &lt;Сон&gt;ькой на &lt;сан&gt;ках. &lt;Сан&gt;ки скок, &lt;Сен&gt;ьку &lt;с н&gt;ог, &lt;Сон&gt;ьку в лоб, все — в сугроб</code></pre>
 </div>
@@ -1254,11 +1249,11 @@ character(0)
 <li>знак начала и конца строки</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"от топота копыт пыль по полю летит."</span>, <span class="st">"^о"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb176"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb176-1"><a href="#cb176-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"от топота копыт пыль по полю летит."</span>, <span class="st">"^о"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ &lt;о&gt;т топота копыт пыль по полю летит.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"У ежа — ежата, у ужа — ужата"</span>, <span class="st">"жата$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb178"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb178-1"><a href="#cb178-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"У ежа — ежата, у ужа — ужата"</span>, <span class="st">"жата$"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ У ежа — ежата, у ужа — у&lt;жата&gt;</code></pre>
 </div>
@@ -1273,7 +1268,7 @@ character(0)
 <li><code>?</code> — ноль или один раз</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"еее?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb180"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb180-1"><a href="#cb180-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"еее?"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ хорош&lt;ее&gt; длиннош&lt;еее&gt; животное</code></pre>
 </div>
@@ -1282,7 +1277,7 @@ character(0)
 <li><code>*</code> — ноль и более раз</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"ее*"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb182"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb182-1"><a href="#cb182-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"ее*"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ хорош&lt;ее&gt; длиннош&lt;еее&gt; животно&lt;е&gt;</code></pre>
 </div>
@@ -1291,7 +1286,7 @@ character(0)
 <li><code>+</code> — один и более раз</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb185"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb185-1"><a href="#cb185-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"е+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"е+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ хорош&lt;ее&gt; длиннош&lt;еее&gt; животно&lt;е&gt;</code></pre>
 </div>
@@ -1300,7 +1295,7 @@ character(0)
 <li><code>{n}</code> — <code>n</code> раз</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb187"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb187-1"><a href="#cb187-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"е{2}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb186"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"е{2}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ хорош&lt;ее&gt; длиннош&lt;ее&gt;е животное</code></pre>
 </div>
@@ -1309,7 +1304,7 @@ character(0)
 <li><code>{n,}</code> — <code>n</code> раз и более</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb189"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb189-1"><a href="#cb189-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"е{1,}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb188"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"е{1,}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ хорош&lt;ее&gt; длиннош&lt;еее&gt; животно&lt;е&gt;</code></pre>
 </div>
@@ -1318,7 +1313,7 @@ character(0)
 <li><code>{n,m}</code> — от <code>n</code> до <code>m</code>. Отсутствие пробела важно: <code>{1,2}</code> — правильно, <code>{1,␣2}</code> — неправильно.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"е{2,3}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb190"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb190-1"><a href="#cb190-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"хорошее длинношеее животное"</span>, <span class="st">"е{2,3}"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ хорош&lt;ее&gt; длиннош&lt;еее&gt; животное</code></pre>
 </div>
@@ -1327,11 +1322,11 @@ character(0)
 <li>группировка символов</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Пушкиновед, Лермонтовед, Лермонтововед"</span>, <span class="st">"(ов)+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb192"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb192-1"><a href="#cb192-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Пушкиновед, Лермонтовед, Лермонтововед"</span>, <span class="st">"(ов)+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Пушкин&lt;ов&gt;ед, Лермонт&lt;ов&gt;ед, Лермонт&lt;овов&gt;ед</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"беловатый, розоватый, розововатый"</span>, <span class="st">"(ов)+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb194"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"беловатый, розоватый, розововатый"</span>, <span class="st">"(ов)+"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ бел&lt;ов&gt;атый, роз&lt;ов&gt;атый, роз&lt;овов&gt;атый</code></pre>
 </div>
@@ -1340,11 +1335,11 @@ character(0)
 <li>жадный vs.&nbsp;нежадный алоритмы</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Пушкиновед, Лермонтовед, Лермонтововед"</span>, <span class="st">"в.*ед"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb196"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Пушкиновед, Лермонтовед, Лермонтововед"</span>, <span class="st">"в.*ед"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Пушкино&lt;вед, Лермонтовед, Лермонтововед&gt;</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href="#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Пушкиновед, Лермонтовед, Лермонтововед"</span>, <span class="st">"в.*?ед"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Пушкиновед, Лермонтовед, Лермонтововед"</span>, <span class="st">"в.*?ед"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Пушкино&lt;вед&gt;, Лермонто&lt;вед&gt;, Лермонто&lt;вовед&gt;</code></pre>
 </div>
@@ -1355,42 +1350,42 @@ character(0)
 <p>Позиционная проверка – выглядит достаточно непоследовательно даже в свете остальных регулярных выражений.</p>
 <p>Давайте найдем все <em>а</em> <strong>перед</strong> <em>р</em>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href="#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"а(?=р)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb200"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb200-1"><a href="#cb200-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"а(?=р)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ К&lt;а&gt;рл у Кл&lt;а&gt;ры украл кораллы, а Кл&lt;а&gt;ра у К&lt;а&gt;рла украла кл&lt;а&gt;рнет</code></pre>
 </div>
 </div>
 <p>А теперь все <em>а</em> <strong>перед</strong> <em>р</em> или <em>л</em>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href="#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"а(?=[рл])"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb202"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb202-1"><a href="#cb202-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"а(?=[рл])"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ К&lt;а&gt;рл у Кл&lt;а&gt;ры укр&lt;а&gt;л кор&lt;а&gt;ллы, а Кл&lt;а&gt;ра у К&lt;а&gt;рла укр&lt;а&gt;ла кл&lt;а&gt;рнет</code></pre>
 </div>
 </div>
 <p>Давайте найдем все а <strong>после</strong> <em>р</em></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb205"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb205-1"><a href="#cb205-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"(?&lt;=р)а"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb204"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"(?&lt;=р)а"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Карл у Клары укр&lt;а&gt;л кор&lt;а&gt;ллы, а Клар&lt;а&gt; у Карла укр&lt;а&gt;ла кларнет</code></pre>
 </div>
 </div>
 <p>А теперь все <em>а</em> <strong>после</strong> <em>р</em> или <em>л</em>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb207"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb207-1"><a href="#cb207-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"(?&lt;=[рл])а"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb206"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"(?&lt;=[рл])а"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Карл у Кл&lt;а&gt;ры укр&lt;а&gt;л кор&lt;а&gt;ллы, а Кл&lt;а&gt;р&lt;а&gt; у Карл&lt;а&gt; укр&lt;а&gt;л&lt;а&gt; кл&lt;а&gt;рнет</code></pre>
 </div>
 </div>
 <p>Также у этих выражений есть формы с отрицанием. Давайте найдем все <em>р</em> <strong>не перед</strong> <em>а</em>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb209"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb209-1"><a href="#cb209-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"р(?!а)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb208"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"р(?!а)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Ка&lt;р&gt;л у Кла&lt;р&gt;ы украл кораллы, а Клара у Ка&lt;р&gt;ла украла кла&lt;р&gt;нет</code></pre>
 </div>
 </div>
 <p>А теперь все <em>р</em> <strong>не после</strong> <em>а</em>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb211"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb211-1"><a href="#cb211-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"(?&lt;!а)р"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb210"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb210-1"><a href="#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Карл у Клары украл кораллы, а Клара у Карла украла кларнет"</span>, <span class="st">"(?&lt;!а)р"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] │ Карл у Клары ук&lt;р&gt;ал ко&lt;р&gt;аллы, а Клара у Карла ук&lt;р&gt;ала кларнет</code></pre>
 </div>
@@ -1443,18 +1438,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1486,7 +1470,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1521,7 +1545,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1797,12 +1825,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./3_data_visualization.html" class="pagination-link  aria-label=" &lt;span="" данных&lt;="" span&gt;"="">
+      <a href="./3_data_visualization.html" class="pagination-link" aria-label="Визуализация данных">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Визуализация данных</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./5_working_with_texts.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Работа с текстами</span>">
+      <a href="./5_working_with_texts.html" class="pagination-link" aria-label="Работа с текстами">
         <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Работа с текстами</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

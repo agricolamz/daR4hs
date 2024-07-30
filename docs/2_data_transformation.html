@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.52">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>daR4hs - 2&nbsp; Трансформация данных</title>
+<title>2&nbsp; Трансформация данных – daR4hs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -78,13 +112,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./2_data_transformation.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Трансформация данных</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -185,16 +219,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#использование-конвеера-пайпа" id="toc-использование-конвеера-пайпа" class="nav-link active" data-scroll-target="#использование-конвеера-пайпа"><span class="header-section-number">2.1</span> Использование конвеера (пайпа)</a></li>
-  <li><a href="#функции-семейства-slice" id="toc-функции-семейства-slice" class="nav-link" data-scroll-target="#функции-семейства-slice"><span class="header-section-number">2.2</span> Функции семейства <code>slice()</code></a></li>
-  <li><a href="#функции-семейства-filter" id="toc-функции-семейства-filter" class="nav-link" data-scroll-target="#функции-семейства-filter"><span class="header-section-number">2.3</span> Функции семейства <code>filter()</code></a></li>
-  <li><a href="#функции-count-distinct-arrange" id="toc-функции-count-distinct-arrange" class="nav-link" data-scroll-target="#функции-count-distinct-arrange"><span class="header-section-number">2.4</span> Функции <code>count()</code>, <code>distinct()</code>, <code>arrange()</code></a></li>
-  <li><a href="#функция-mutate" id="toc-функция-mutate" class="nav-link" data-scroll-target="#функция-mutate"><span class="header-section-number">2.5</span> Функция <code>mutate()</code></a></li>
-  <li><a href="#функция-group_by-summarise-и-group_by-mutate" id="toc-функция-group_by-summarise-и-group_by-mutate" class="nav-link" data-scroll-target="#функция-group_by-summarise-и-group_by-mutate"><span class="header-section-number">2.6</span> Функция <code>group_by() |&gt; summarise()</code> и <code>group_by() |&gt; mutate()</code></a></li>
-  <li><a href="#функция-across" id="toc-функция-across" class="nav-link" data-scroll-target="#функция-across"><span class="header-section-number">2.7</span> Функция <code>across()</code></a></li>
-  <li><a href="#функции-семейства-pivot_..." id="toc-функции-семейства-pivot_..." class="nav-link" data-scroll-target="#функции-семейства-pivot_..."><span class="header-section-number">2.8</span> Функции семейства <code>pivot_...()</code></a></li>
-  <li><a href="#функции-семейства-bind_..." id="toc-функции-семейства-bind_..." class="nav-link" data-scroll-target="#функции-семейства-bind_..."><span class="header-section-number">2.9</span> Функции семейства <code>bind_...()</code></a></li>
-  <li><a href="#sec-joins" id="toc-sec-joins" class="nav-link" data-scroll-target="#sec-joins"><span class="header-section-number">2.10</span> Функции семейства <code>..._join()</code></a></li>
+  <li><a href="#tibble" id="toc-tibble" class="nav-link active" data-scroll-target="#tibble"><span class="header-section-number">2.1</span> <code>tibble</code></a></li>
+  <li><a href="#использование-конвеера-пайпа" id="toc-использование-конвеера-пайпа" class="nav-link" data-scroll-target="#использование-конвеера-пайпа"><span class="header-section-number">2.2</span> Использование конвеера (пайпа)</a></li>
+  <li><a href="#функции-семейства-slice" id="toc-функции-семейства-slice" class="nav-link" data-scroll-target="#функции-семейства-slice"><span class="header-section-number">2.3</span> Функции семейства <code>slice()</code></a></li>
+  <li><a href="#функции-семейства-filter" id="toc-функции-семейства-filter" class="nav-link" data-scroll-target="#функции-семейства-filter"><span class="header-section-number">2.4</span> Функции семейства <code>filter()</code></a></li>
+  <li><a href="#функции-count-distinct-arrange" id="toc-функции-count-distinct-arrange" class="nav-link" data-scroll-target="#функции-count-distinct-arrange"><span class="header-section-number">2.5</span> Функции <code>count()</code>, <code>distinct()</code>, <code>arrange()</code></a></li>
+  <li><a href="#функция-mutate" id="toc-функция-mutate" class="nav-link" data-scroll-target="#функция-mutate"><span class="header-section-number">2.6</span> Функция <code>mutate()</code></a></li>
+  <li><a href="#функция-group_by-summarise-и-group_by-mutate" id="toc-функция-group_by-summarise-и-group_by-mutate" class="nav-link" data-scroll-target="#функция-group_by-summarise-и-group_by-mutate"><span class="header-section-number">2.7</span> Функция <code>group_by() |&gt; summarise()</code> и <code>group_by() |&gt; mutate()</code></a></li>
+  <li><a href="#функция-across" id="toc-функция-across" class="nav-link" data-scroll-target="#функция-across"><span class="header-section-number">2.8</span> Функция <code>across()</code></a></li>
+  <li><a href="#функции-семейства-pivot_..." id="toc-функции-семейства-pivot_..." class="nav-link" data-scroll-target="#функции-семейства-pivot_..."><span class="header-section-number">2.9</span> Функции семейства <code>pivot_...()</code></a></li>
+  <li><a href="#функции-семейства-bind_..." id="toc-функции-семейства-bind_..." class="nav-link" data-scroll-target="#функции-семейства-bind_..."><span class="header-section-number">2.10</span> Функции семейства <code>bind_...()</code></a></li>
+  <li><a href="#sec-joins" id="toc-sec-joins" class="nav-link" data-scroll-target="#sec-joins"><span class="header-section-number">2.11</span> Функции семейства <code>..._join()</code></a></li>
   </ul>
 </nav>
     </div>
@@ -220,35 +255,122 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="использование-конвеера-пайпа" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="использование-конвеера-пайпа"><span class="header-section-number">2.1</span> Использование конвеера (пайпа)</h2>
+<p>В данном разделе мы познакомимся с основами пакета <code>tidyverse</code> — это набор пакетов, из которых мы уделим внимание следующим:</p>
+<ul>
+<li><code>ggplot2</code>, для визуализации</li>
+<li><code>tibble</code>, для работы с тибблами, современный вариант датафрейма</li>
+<li><code>tidyr</code>, для преобразование таблиц к формату опрятных данных</li>
+<li><code>readr</code>, для чтения файлов в R</li>
+<li><code>dplyr</code>, для преобразованиия данных</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.0
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.2     ✔ tidyr     1.3.1
+✔ purrr     1.0.1     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+</div>
+<p>При загрузке пакета обычно появляется сообщение о версиях некоторых входящих в него пакетах и о конфликтующих функциях. Не стоит обращать на него внимание.</p>
+<section id="tibble" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="tibble"><span class="header-section-number">2.1</span> <code>tibble</code></h2>
+<p>Современный вариант датафрейма называется тиббл и отличается от классического тем, как он печатается в консоли и некоторыми дополнительными возможностями. Для его создания нужно в функцию <code>tibble()</code> подать именованные векторы:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="dv">100</span><span class="sc">:</span><span class="dv">1</span>,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">logical =</span> <span class="fu">sample</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>, <span class="st">"c"</span>), <span class="at">size =</span> <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 100 × 3
+       x     y logical
+   &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
+ 1     1   100 b      
+ 2     2    99 a      
+ 3     3    98 a      
+ 4     4    97 a      
+ 5     5    96 a      
+ 6     6    95 b      
+ 7     7    94 c      
+ 8     8    93 b      
+ 9     9    92 a      
+10    10    91 a      
+# ℹ 90 more rows</code></pre>
+</div>
+</div>
+<p>Мы будем использовать <code>tibble()</code> для саздание таблиц, но чаще всего мы будем считывать данные при помощи функций <code>read_csv()</code>, <code>read_tsv()</code> и прочих, которые по умолчанию преобразуют таблицу в формат <code>tibble</code>.</p>
 </section>
-<section id="функции-семейства-slice" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="функции-семейства-slice"><span class="header-section-number">2.2</span> Функции семейства <code>slice()</code></h2>
+<section id="использование-конвеера-пайпа" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="использование-конвеера-пайпа"><span class="header-section-number">2.2</span> Использование конвеера (пайпа)</h2>
+<p>В нашем коде мы часто будем использовать знаки конвеера (или пайпа): <code>|&gt;</code> (также можно встретить популярный ранее <code>%&gt;%</code>). Конвеер призван показывать последовательность действий. Сочетание клавиш для написание конвеера: <code>Ctrl/Cmd + M</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">sqrt</span>(<span class="fu">abs</span>(<span class="fu">sin</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="cn">NA</span>)))), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7654264</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="cn">NA</span>) <span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sin</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abs</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.7654264</code></pre>
+</div>
+</div>
+<p>Выражения с конвеерами можно запускать частями и смотреть, что на каком этапе трансформации данных получилось. Это полезно при поиске ошибок.</p>
 </section>
-<section id="функции-семейства-filter" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="функции-семейства-filter"><span class="header-section-number">2.3</span> Функции семейства <code>filter()</code></h2>
+<section id="функции-семейства-slice" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="функции-семейства-slice"><span class="header-section-number">2.3</span> Функции семейства <code>slice()</code></h2>
+<p>Дальше мы посмотрим на фрагмент данных из <a href="https://nplus1.ru/material/2019/06/19/greedy">исследования издания N+1</a> дразнилки “Жадина-говядина”, где исследовались социолингвистические аспекты влияющие на тенденцию к тому или иному продолжению. Переменные <code>word_1</code>, <code>word_2</code> и <code>word_3</code> соотвествуют разным вариантам начала, переменная <code>type</code> описывает классификацию, которую варианту дали исследователи, а переменная <code>n</code> отвечает за количество этих вариантов в данных.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w2_zhadina.csv"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>zhadina</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 5
+   word_1          word_2  word_3     type           n
+   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
+ 1 жадина-говядина большая шоколадина шоколадина   941
+ 2 жадина-говядина бука    шоколадина шоколадина    44
+ 3 жадина-говядина булка   шоколадина шоколадина   250
+ 4 жадина-говядина в *опе  огурец     огурец        11
+ 5 жадина-говядина в *опе  шоколадина шоколадина  1117
+ 6 жадина-говядина гнилая  шоколадина шоколадина    12
+ 7 жадина-говядина дома    шоколадина шоколадина    29
+ 8 жадина-говядина зеленый огурец     огурец       343
+ 9 жадина-говядина злая    шоколадина шоколадина    10
+10 жадина-говядина кислая  капуста    другое        10
+# ℹ 16 more rows</code></pre>
+</div>
+</div>
 </section>
-<section id="функции-count-distinct-arrange" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="функции-count-distinct-arrange"><span class="header-section-number">2.4</span> Функции <code>count()</code>, <code>distinct()</code>, <code>arrange()</code></h2>
+<section id="функции-семейства-filter" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="функции-семейства-filter"><span class="header-section-number">2.4</span> Функции семейства <code>filter()</code></h2>
 </section>
-<section id="функция-mutate" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="функция-mutate"><span class="header-section-number">2.5</span> Функция <code>mutate()</code></h2>
+<section id="функции-count-distinct-arrange" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="функции-count-distinct-arrange"><span class="header-section-number">2.5</span> Функции <code>count()</code>, <code>distinct()</code>, <code>arrange()</code></h2>
 </section>
-<section id="функция-group_by-summarise-и-group_by-mutate" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="функция-group_by-summarise-и-group_by-mutate"><span class="header-section-number">2.6</span> Функция <code>group_by() |&gt; summarise()</code> и <code>group_by() |&gt; mutate()</code></h2>
+<section id="функция-mutate" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="функция-mutate"><span class="header-section-number">2.6</span> Функция <code>mutate()</code></h2>
 </section>
-<section id="функция-across" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="функция-across"><span class="header-section-number">2.7</span> Функция <code>across()</code></h2>
+<section id="функция-group_by-summarise-и-group_by-mutate" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="функция-group_by-summarise-и-group_by-mutate"><span class="header-section-number">2.7</span> Функция <code>group_by() |&gt; summarise()</code> и <code>group_by() |&gt; mutate()</code></h2>
 </section>
-<section id="функции-семейства-pivot_..." class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="функции-семейства-pivot_..."><span class="header-section-number">2.8</span> Функции семейства <code>pivot_...()</code></h2>
+<section id="функция-across" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="функция-across"><span class="header-section-number">2.8</span> Функция <code>across()</code></h2>
 </section>
-<section id="функции-семейства-bind_..." class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="функции-семейства-bind_..."><span class="header-section-number">2.9</span> Функции семейства <code>bind_...()</code></h2>
+<section id="функции-семейства-pivot_..." class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="функции-семейства-pivot_..."><span class="header-section-number">2.9</span> Функции семейства <code>pivot_...()</code></h2>
 </section>
-<section id="sec-joins" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="sec-joins"><span class="header-section-number">2.10</span> Функции семейства <code>..._join()</code></h2>
+<section id="функции-семейства-bind_..." class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="функции-семейства-bind_..."><span class="header-section-number">2.10</span> Функции семейства <code>bind_...()</code></h2>
+</section>
+<section id="sec-joins" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="sec-joins"><span class="header-section-number">2.11</span> Функции семейства <code>..._join()</code></h2>
 
 
 </section>
@@ -289,18 +411,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -332,7 +443,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -367,7 +518,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -643,12 +798,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./1_introduction_to_r.html" class="pagination-link  aria-label=" &lt;span="" в="" r&lt;="" span&gt;"="">
+      <a href="./1_introduction_to_r.html" class="pagination-link" aria-label="Введение в R">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Введение в R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./3_data_visualization.html" class="pagination-link" aria-label="<span class='chapter-number'>3</span>&nbsp; <span class='chapter-title'>Визуализация данных</span>">
+      <a href="./3_data_visualization.html" class="pagination-link" aria-label="Визуализация данных">
         <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Визуализация данных</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
