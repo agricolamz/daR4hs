@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.5.52">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>daR4hs - 5&nbsp; Работа с текстами</title>
+<title>5&nbsp; Работа с текстами – daR4hs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -33,7 +33,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -112,13 +112,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./5_working_with_texts.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Работа с текстами</span></a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -255,7 +255,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Не существует какого-то единого алгоритма анализа текстов, многое зависит от задач. Однако все обычные сферы анализа данных применимы к текстам: иногда нужно выделить какие-то составляющие текста (частота встречаемости каких-то единиц, сентимент анализ), иногда нужно выделить уникальные единицы свойственные какой-то группе текстов (мера tf-idf), иногда нужно кластеризовать тексты, чтобы найти похожие/разные тексты (например, класическая задача определения спамерских сообщений). Такие задачи находятся на стыке лингвистики и компьютерных наук. Существуют и более сложные/интеллектуальные задачи, которые традиционно относят к области исскуственного интеллекта, такие как перевод с одного языка на другой, саммаризация текста, вопросно-ответные системы и другие. В данном разделе мы коснемся лишь первой группы задач и пакеты, написанные на R для их решения.</p>
+<p>Не существует какого-то единого алгоритма анализа текстов, многое зависит от задач. Однако все обычные сферы анализа данных применимы к текстам: иногда нужно выделить какие-то составляющие текста (частота встречаемости каких-то единиц, сентимент анализ), иногда нужно выделить уникальные единицы свойственные какой-то группе текстов (мера tf-idf), иногда нужно кластеризовать тексты, чтобы найти похожие/разные тексты (например, класическая задача определения спамерских сообщений). Такие задачи находятся на стыке лингвистики и компьютерных наук. Существуют и более сложные/интеллектуальные задачи, которые традиционно относят к области исскуственного интеллекта, такие как перевод с одного языка на другой, саммаризация текста, вопросно-ответные системы и другие. В данном разделе мы коснемся лишь первой группы задач и пакетов, написанных на R для их решения.</p>
 <section id="sec-encoding" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="sec-encoding"><span class="header-section-number">5.1</span> Загрузка текстов в R</h2>
 <div class="cell">
@@ -310,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [15] ""                                                                                                                                                                      </code></pre>
 </div>
 </div>
-<p>В функциях пакета <code>readr</code> (т. е. не только <code>read_lines()</code>, но и в функциях <code>read_csv()</code>, <code>read_tsv()</code> и т. п.) есть аргумент <code>locale</code>, который позволяет эксплицитно указать кодировку, а при считывании происходит процесс конвертации в стандартный для многих операционных систем <code>UTF-8</code>. Для текстов на русском языке важны следующие кодировки</p>
+<p>В функциях пакета <code>readr</code> (т. е. не только в функции <code>read_lines()</code>, но и в функциях <code>read_csv()</code>, <code>read_tsv()</code> и т. п.) есть аргумент <code>locale</code>, который позволяет эксплицитно указать кодировку, а при считывании происходит процесс конвертации в стандартный для многих операционных систем <code>UTF-8</code>. Для текстов на русском языке важны следующие кодировки</p>
 <ul>
 <li><code>KOI8-R</code>, а для украинского языка — <code>KOI8-U</code>;</li>
 <li><code>CP1251</code> (также известная под названием <code>Windows-1251</code>) покрывает и другие кириллические письменности такие как украинский, белорусский, болгарский, сербский, македонский и другие.</li>
@@ -402,7 +402,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Все самое важное в пакете хранится во встроенном датасете <code>gutenberg_metadata</code> — аналоге:</p>
+<p>Все самое важное в пакете хранится во встроенном датасете <code>gutenberg_metadata</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(gutenberg_metadata)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -539,7 +539,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 2 Lady Susan  2540</code></pre>
 </div>
 </div>
-<p>Обратите на аргумент <code>meta_fields</code>, который позволяет кроме самого текста добавить метаданные из <code>gutenberg_metadata</code> в получившийся датафрейм.</p>
+<p>Обратите внимание на аргумент <code>meta_fields</code>, который позволяет кроме самого текста добавить метаданные из <code>gutenberg_metadata</code> в получившийся датафрейм.</p>
 </section>
 <section id="пакет-rperseus" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="пакет-rperseus"><span class="header-section-number">5.2.2</span> Пакет <code>rperseus</code></h3>
@@ -552,7 +552,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rperseus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Библиотечный каталог пакета <code>rperseus</code> находиться в переменной <code>perseus_catalog</code>:</p>
+<p>Библиотечный каталог пакета <code>rperseus</code> находится в переменной <code>perseus_catalog</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(perseus_catalog)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -564,7 +564,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  $ language   : chr [1:2291] "lat" "lat" "lat" "lat" ...</code></pre>
 </div>
 </div>
-<p>На каких языках содержаться тексты?</p>
+<p>На каких языках содержатся тексты?</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>perseus_catalog <span class="sc">|&gt;</span> </span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(language)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -581,7 +581,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 7 oth        103</code></pre>
 </div>
 </div>
-<p>А документации объясняется:</p>
+<p>В документации объясняется:</p>
 <ul>
 <li><code>grc</code> — греческий;</li>
 <li><code>lat</code> — латинский;</li>
@@ -624,7 +624,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 1 "LIBER QVARTVS. Per idem … urn:… Augustinus Conf… Augustine … lat            4</code></pre>
 </div>
 </div>
-<p>К сожалению, пакет не позволяет скачивать много текстов за раз, но в документации описано как это можно сделать при помощи цикла. Кому-то может показаться полезной функция <code>perseus_parallel()</code>, которая позволяет видеть параллельные фрагменты текста. Проиллюстрируем это на примере Эвменид Эсхила:</p>
+<p>К сожалению, пакет не позволяет скачивать много текстов за раз, но в документации описано, как это можно сделать при помощи цикла. Кому-то может показаться полезной функция <code>perseus_parallel()</code>, которая позволяет видеть параллельные фрагменты текста. Проиллюстрируем это на примере Эвменид Эсхила:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_perseus_text</span>(<span class="st">"urn:cts:greekLit:tlg0085.tlg007.perseus-eng2"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>) <span class="ot">-&gt;</span></span>
@@ -648,7 +648,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="библиотека-lib.ru" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="библиотека-lib.ru"><span class="header-section-number">5.2.3</span> Библиотека lib.ru</h3>
-<p>Для текстов на русском языке отдельного пакета не написали, однако на сайте библиотеки <a href="lib.ru">lib.ru</a> они уже представлены в машиночитаемом виде, нужно всего лишь выбрать вариант отображение txt, полученную ссылку считать в R, указав корректную кодировку (см. <a href="#sec-encoding" class="quarto-xref"><span>Раздел 5.1</span></a>):</p>
+<p>Для текстов на русском языке отдельного пакета не написали, однако на сайте библиотеки <a href="lib.ru">lib.ru</a> они уже представлены в машиночитаемом виде, нужно всего лишь выбрать вариант отображения <code>txt</code>, полученную ссылку считать в R, указав корректную кодировку (см. <a href="#sec-encoding" class="quarto-xref"><span>Раздел 5.1</span></a>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_lines</span>(<span class="st">"http://lib.ru/LITRA/PUSHKIN/kapitan.txt_Ascii.txt"</span>,</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"KOI8-R"</span>),</span>
@@ -699,7 +699,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 29,881 more rows</code></pre>
 </div>
 </div>
-<p>По умолчанию функция <code>unnest_tokens()</code> удаляет знаки препинания и приводит слова к нижнему регистру. Давайте для удобства удалим все вплоть до оглавления и создадим датафрейм, в которых будет понятно, где какая глава книги:</p>
+<p>По умолчанию функция <code>unnest_tokens()</code> удаляет знаки препинания и приводит слова к нижнему регистру. Давайте для удобства удалим все вплоть до оглавления и создадим датафрейм и переменную, из которой будет понятно, где какая глава книги:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>alices_adventures_in_wonderland <span class="sc">|&gt;</span> </span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(<span class="at">text =</span> _) <span class="sc">|&gt;</span> </span>
@@ -732,7 +732,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 3,330 more rows</code></pre>
 </div>
 </div>
-<p>В приведенном выше коде интерес представляет функция <code>fill()</code>, которая заполнила пропущенные значения <code>NA</code> значениями выше. В остальном мы использовали не сложные регулярные выражения из <a href="4_working_with_strings.html#sec-regex" class="quarto-xref"><span>Раздел 4.8</span></a>. Кроме того мы воспользовались встроенными функциями <code>as.roman()</code> и <code>as.numeric()</code>, чтобы преобразовать римские номера глав в арабские. Теперь мы готовы анализировать частотность слов. Создадим переменную <code>tidy_alice</code> и посчитаем слова в каждой из глав:</p>
+<p>В приведенном выше коде интерес представляет функция <code>fill()</code>, которая заполнила пропущенные значения <code>NA</code> значениями выше. В остальном мы использовали несложные регулярные выражения из <a href="4_working_with_strings.html#sec-regex" class="quarto-xref"><span>Раздел 4.8</span></a>. Кроме того, мы воспользовались встроенными функциями <code>as.roman()</code> и <code>as.numeric()</code>, чтобы преобразовать римские номера глав в арабские. Теперь мы готовы анализировать частотность слов. Создадим переменную <code>tidy_alice</code> и посчитаем слова в каждой из глав:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>alice_cleaned <span class="sc">|&gt;</span> </span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest_tokens</span>(<span class="at">output =</span> <span class="st">"word"</span>, <span class="at">input =</span> text) <span class="ot">-&gt;</span></span>
@@ -775,7 +775,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Хорошие знатоки “Алисы в Зазеркалье”, конечно многое понимают из распределения местоимений <em>you</em> и, наверное, догадываются, почему это слово становиться первым, однако в большинстве случаев служебные слова неинформативны при анализе текстов. Для этого для некоторых языков составили списки стоп-слов — служебных слов, которые никак не приближают к пониманию текста. Отдельный список уже встроен в пакет <code>tidytext</code> в переменную <code>stop_words</code> (см. также следующий раздел):</p>
+<p>Хорошие знатоки “Алисы в Зазеркалье”, конечно, многое понимают из распределения местоимений <em>you</em> и, наверное, догадываются, почему это слово становится первым, однако в большинстве случаев служебные слова неинформативны при анализе текстов. Поэтому для некоторых языков составили списки стоп-слов — служебных слов, которые никак не приближают к пониманию текста. Отдельный список уже встроен в пакет <code>tidytext</code> в переменную <code>stop_words</code> (см. также следующий раздел):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>stop_words</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -795,7 +795,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 1,139 more rows</code></pre>
 </div>
 </div>
-<p>Так что используя функцию из семейства <code>..._join()</code> (см. <a href="2_data_transformation.html#sec-joins" class="quarto-xref"><span>Раздел 2.10</span></a>), мы можем повторить наш анализ:</p>
+<p>Так что используя функцию из семейства <code>..._join()</code> (см. <a href="2_data_transformation.html#sec-joins" class="quarto-xref"><span>Раздел 2.12</span></a>), мы можем повторить наш анализ:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>tidy_alice <span class="sc">|&gt;</span> </span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(chapter_title, word, <span class="at">sort =</span> <span class="cn">TRUE</span>) <span class="sc">|&gt;</span> </span>
@@ -817,7 +817,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Получившийся результат уже значительно интереснее, однако алфавитный порядок слов в каждом фасете немного мешает. Для того, чтобы победить это в пакете <code>tidytext</code> есть нескольок функций:</p>
+<p>Получившийся результат уже значительно интереснее, однако алфавитный порядок слов в каждом фасете немного мешает. Для того, чтобы победить это, в пакете <code>tidytext</code> есть несколько функций:</p>
 <ul>
 <li><code>reorder_within()</code> — функция которая позволяет указать группировку, внутри которой нужно упорядочить единицы;</li>
 <li><code>scale_y_reordered()</code>/<code>scale_x_reordered()</code> — функция, которая маскирует работу <code>reorder_within()</code> при отображении на графике.</li>
@@ -899,7 +899,7 @@ Joining with `by = join_by(ngram_2)`</code></pre>
 </section>
 <section id="пакет-stopwords" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="пакет-stopwords"><span class="header-section-number">5.4</span> Пакет <code>stopwords</code></h2>
-<p>Выше мы упомянули, что в пакет <code>tidytext</code> встроен список английских стопслов. Стопслова для других язков можно раздобыть списки для других языков, используя пакет <code>stopwords</code>. Вместо имени языка, функция принимает ISO код языыка:</p>
+<p>Выше мы упомянули, что в пакет <code>tidytext</code> встроен список английских стоп-слов. Стоп-слова для других язков можно раздобыть списки для других языков, используя пакет <code>stopwords</code>. Вместо имени языка, функция принимает ISO код языыка:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stopwords)</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopwords</span>(<span class="st">"ru"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -989,7 +989,7 @@ Joining with `by = join_by(ngram_2)`</code></pre>
 <pre><code>[1] 151</code></pre>
 </div>
 </div>
-<p>В результате мы можем сделать анализ аналогичный анализу Алисы из прошлого раздела для русского текста:</p>
+<p>В результате мы можем сделать анализ, аналогичный анализу Алисы из прошлого раздела, для текста на русском языке:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a>captains_daughter <span class="ot">&lt;-</span> <span class="fu">read_lines</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_the_captains_daughter_koi8r.txt"</span>,</span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"KOI8-R"</span>))</span>
@@ -1264,7 +1264,7 @@ Joining with `by = join_by(ngram_2)`</code></pre>
 21             5   punct &lt;NA&gt; SpacesAfter=\\n</code></pre>
 </div>
 </div>
-<p>После того как модель скачана можно к ней обращаться просто по имени файла:</p>
+<p>После того, как модель скачана, можно к ней обращаться просто по имени файла:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">udpipe</span>(<span class="st">"Жила-была на свете крыса в морском порту Вальпараисо, на складе мяса и маиса, какао и вина."</span>,</span>
 <span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">object =</span> <span class="st">"russian-syntagrus-ud-2.5-191206.udpipe"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1432,7 +1432,7 @@ dbl (1): publication_year
 <span id="cb111-7"><a href="#cb111-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">paragraph2vec</span>(<span class="at">threads =</span> <span class="dv">15</span>) <span class="ot">-&gt;</span></span>
 <span id="cb111-8"><a href="#cb111-8" aria-hidden="true" tabindex="-1"></a>  model</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Получившиеся эмбединги можно получить</p>
+<p>Эмбединги из переменной <code>model</code> можно получить следующим образом:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.matrix</span>(model, <span class="at">which =</span> <span class="st">"docs"</span>) <span class="sc">|&gt;</span> </span>
 <span id="cb112-2"><a href="#cb112-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">dim</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1475,7 +1475,7 @@ Attaching package: 'Matrix'</code></pre>
 </div>
 </div>
 </div>
-<p>Мы видим, что у аннотаций есть что-то общее, но в общем, аннотации распадаются на три группы. Важно, что расцветка у нас уже была в датасете и алгоритм векторизации ее не видел, так что получившееся пространство отражает карту анализируемых текстов. Стоит отметить, что качесвто получишвегося пространства напрямую зависит от объема данных.</p>
+<p>Мы видим, что у аннотаций есть что-то общее, но, в общем, аннотации распадаются на три группы. Важно, что расцветка у нас уже была в датасете и алгоритм векторизации ее не видел, так что получившееся пространство отражает карту анализируемых текстов. Стоит отметить, что качество получившегося пространства напрямую зависит от объема данных.</p>
 
 
 </section>
@@ -1516,18 +1516,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1559,7 +1548,47 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1594,7 +1623,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -1870,12 +1903,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./4_working_with_strings.html" class="pagination-link  aria-label=" &lt;span="" со="" строками&lt;="" span&gt;"="">
+      <a href="./4_working_with_strings.html" class="pagination-link" aria-label="Работа со строками">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Работа со строками</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./6_working_with_time.html" class="pagination-link" aria-label="<span class='chapter-number'>6</span>&nbsp; <span class='chapter-title'>Работа со временем</span>">
+      <a href="./6_working_with_time.html" class="pagination-link" aria-label="Работа со временем">
         <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Работа со временем</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>

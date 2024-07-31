@@ -279,14 +279,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-07-26"</code></pre>
+<pre><code>[1] "2024-07-31"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-07-26 19:56:47 MSK"</code></pre>
+<pre><code>[1] "2024-07-31 20:31:05 MSK"</code></pre>
 </div>
 </div>
-<p>Как видно, из этих функций в R можно работать как с датами, так и со временем. В качестве иллюстрации мы будем использовать датасет <code>flights</code> из пакета <code>nycflights13</code>, в котором содержатся данные полетов из Нью Йорка в 2013 года.</p>
+<p>Как видно из этих функций в R можно работать как с датами, так и со временем. В качестве иллюстрации мы будем использовать датасет <code>flights</code> из пакета <code>nycflights13</code>, в котором содержатся данные полетов из Нью Йорка в 2013 году.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>flights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -420,7 +420,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="работа-с-часовыми-поясами" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="работа-с-часовыми-поясами"><span class="header-section-number">6.2</span> Работа с часовыми поясами</h2>
-<p>Земля разбита на условные географическо-административные зоны, в которых действуют свои правила работы со временем. В каких-то зонах есть переход на зимнее/летнее время, а где-то его нет. В некоторых точках Земли понятие часового пояса не имеет смысла, однако все равно есть конвенции того, какое время на этой теретории использовать. Функция <code>make_datetime()</code>, которую мы рассмотрели, использует по-умолчанию всемирное координированное время (UTC). Обозначение интересующего часового пояса можно посмотреть в интернете, однако основная информации о возможных значениях аргумента <code>tz</code> хранится в системе пользователя.</p>
+<p>Земля разбита на условные географическо-административные зоны, в которых действуют свои правила работы со временем. В каких-то зонах есть переход на зимнее/летнее время, а где-то его нет. В некоторых точках Земли понятие часового пояса не имеет смысла, однако все равно есть конвенции того, какое время на этой территории использовать. Функция <code>make_datetime()</code>, которую мы рассмотрели, использует по-умолчанию всемирное координированное время (UTC). Обозначение интересующего часового пояса можно посмотреть в интернете, однако основная информации о возможных значениях аргумента <code>tz</code> хранится в системе пользователя.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dmy_hm</span>(<span class="st">"21-01-2001 15^43"</span>, <span class="at">tz =</span> <span class="st">"Europe/Moscow"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -516,7 +516,7 @@ Levels: Вс &lt; Пн &lt; Вт &lt; Ср &lt; Чт &lt; Пт &lt; Сб</code><
 <pre><code>[1] 0</code></pre>
 </div>
 </div>
-<p>Так же есть функция <code>leap_year()</code>, которая сообщает информацию, является ли выбранный год високосным:</p>
+<p>Также есть функция <code>leap_year()</code>, которая сообщает, является ли выбранный год високосным:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">leap_year</span>(<span class="dv">2019</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -548,7 +548,7 @@ Levels: Вс &lt; Пн &lt; Вт &lt; Ср &lt; Чт &lt; Пт &lt; Сб</code><
 <pre><code>[1] "3H -10M 0S"</code></pre>
 </div>
 </div>
-<p>Видимо, почему-то в таком использовании происходит поэлементная операция с часами, минутами, и секундами, так что в результате получаются отрицательные минуты. Однако, если использовать полные даты, то этого эффекта нет:</p>
+<p>Видимо, почему-то при таком использовании происходит поэлементная операция с часами, минутами, и секундами, так что в результате получаются отрицательные минуты. Однако, если использовать полные даты, то этого эффекта нет:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd_hm</span>(<span class="st">"2020-01-21, 21:00"</span>) <span class="sc">-</span> <span class="fu">ymd_hm</span>(<span class="st">"2020-01-21, 18:10"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -570,7 +570,7 @@ Levels: Вс &lt; Пн &lt; Вт &lt; Ср &lt; Чт &lt; Пт &lt; Сб</code><
 <pre><code>Time difference of 2.833333 hours</code></pre>
 </div>
 </div>
-<p>Однако простые даты, не являются временными отрезками, так что их нельзя складывать, вычитать, умножать и т. д. Для удобства операций в <code>lubridate</code> вводится несколько сущностей:</p>
+<p>Однако простые даты не являются временными отрезками, так что их нельзя складывать, вычитать, умножать и т. д. Для удобства операций в <code>lubridate</code> вводится несколько сущностей:</p>
 <ul>
 <li><strong>periods</strong> — промежутки времени, которые игнорируют нерегулярности во времени, сразу прибавляя 1 к соответствующему разряду, вводятся функциями <code>years()</code>, <code>months()</code>, <code>weeks()</code>, <code>days()</code>, <code>hours()</code>, <code>minutes()</code>, <code>seconds()</code>, <code>period()</code></li>
 <li><strong>duration</strong> — промежутки времени, которые учитывают нерегулярности во времени, добавляя стандартную длительность единицы, вводятся функциями <code>dyears()</code>, <code>dweeks()</code>, <code>ddays()</code>, <code>dhours()</code>, <code>dminutes()</code>, <code>dseconds()</code>, <code>duration()</code></li>
@@ -685,21 +685,22 @@ Levels: Вс &lt; Пн &lt; Вт &lt; Ср &lt; Чт &lt; Пт &lt; Сб</code><
 </div>
 </div>
 </div>
-<p>Однако ко переменным со врменем не всегда относятся аккуратно. Рассмотрим график с сайта Левада-центра — российской негосударственной исследовательской организации, которая проводит социологические и маркетинговые исследования (график взят <a href="https://www.levada.ru/indikatory/otnoshenie-k-stranam/">отсюда</a>):</p>
-<p><img src="images/11-levada.png" class="img-fluid"></p>
-<p>На первый взгляд, в этом графике нет ничего странного, однако если присмотреться к динамической версии на сайте Левада-центра, можно обнаружить, что на идущие подряд измерения расположены на одинаковом расстоянии друг от друга, например, 05.2014, 07.2014, 11.2014. Вот <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w6_2019.01_levada_countries.csv">здесь</a> можно скачать данные, по которым строился этот график. Вот как он выглядит, если считать временную переменную как время</p>
+<p>Однако к переменным со временем не всегда относятся аккуратно. Рассмотрим график с сайта Левада-центра — российской негосударственной исследовательской организации, которая проводит социологические и маркетинговые исследования (график взят <a href="https://www.levada.ru/indikatory/otnoshenie-k-stranam/">отсюда</a>):</p>
+<p><img src="images/06_levada.png" class="img-fluid"></p>
+<p>На первый взгляд, в этом графике нет ничего странного, однако если присмотреться к динамической версии на сайте Левада-центра, можно обнаружить, что не идущие подряд значения расположены на одинаковом расстоянии друг от друга, например, 05.2014, 07.2014, 11.2014. Вот <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w6_2019.01_levada_countries.csv">здесь</a> можно скачать данные, по которым строился этот график. Вот как он выглядит, если считать временную переменную как время</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>levada <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w6_2019.01_levada_countries.csv"</span>)</span>
-<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>levada <span class="sc">|&gt;</span> </span>
-<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">str_c</span>(<span class="st">"1-"</span>, date),</span>
-<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">dmy</span>(date)) <span class="sc">|&gt;</span> </span>
-<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(towards <span class="sc">==</span> <span class="st">"USA"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb130-6"><a href="#cb130-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"answer"</span>, <span class="at">values_to =</span> <span class="st">"number"</span>, good<span class="sc">:</span>bad) <span class="sc">|&gt;</span> </span>
-<span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(date, number, <span class="at">color =</span> answer))<span class="sc">+</span></span>
-<span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
-<span id="cb130-9"><a href="#cb130-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>, <span class="at">caption =</span> <span class="st">"данные Левада-центра"</span>)<span class="sc">+</span></span>
-<span id="cb130-10"><a href="#cb130-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>))<span class="sc">+</span></span>
-<span id="cb130-11"><a href="#cb130-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>), <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a>levada <span class="sc">|&gt;</span> </span>
+<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">str_c</span>(<span class="st">"1-"</span>, date),</span>
+<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">dmy</span>(date)) <span class="sc">|&gt;</span> </span>
+<span id="cb130-6"><a href="#cb130-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(towards <span class="sc">==</span> <span class="st">"USA"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"answer"</span>, <span class="at">values_to =</span> <span class="st">"number"</span>, good<span class="sc">:</span>bad) <span class="sc">|&gt;</span> </span>
+<span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(date, number, <span class="at">color =</span> answer))<span class="sc">+</span></span>
+<span id="cb130-9"><a href="#cb130-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb130-10"><a href="#cb130-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> <span class="st">""</span>, <span class="at">caption =</span> <span class="st">"данные Левада-центра"</span>)<span class="sc">+</span></span>
+<span id="cb130-11"><a href="#cb130-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">100</span>))<span class="sc">+</span></span>
+<span id="cb130-12"><a href="#cb130-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.9</span>), <span class="at">legend.title =</span> <span class="fu">element_blank</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">

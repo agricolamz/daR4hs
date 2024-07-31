@@ -250,7 +250,7 @@ div.csl-indent {
   <li><a href="#датафреймы-и-их-индексация" id="toc-датафреймы-и-их-индексация" class="nav-link" data-scroll-target="#датафреймы-и-их-индексация"><span class="header-section-number">1.9</span> Датафреймы и их индексация</a></li>
   <li><a href="#работа-с-пакетами" id="toc-работа-с-пакетами" class="nav-link" data-scroll-target="#работа-с-пакетами"><span class="header-section-number">1.10</span> Работа с пакетами</a></li>
   <li><a href="#чтение-и-запись-табличных-данных" id="toc-чтение-и-запись-табличных-данных" class="nav-link" data-scroll-target="#чтение-и-запись-табличных-данных"><span class="header-section-number">1.11</span> Чтение и запись табличных данных</a></li>
-  <li><a href="#как-справятся-с-проблемами" id="toc-как-справятся-с-проблемами" class="nav-link" data-scroll-target="#как-справятся-с-проблемами"><span class="header-section-number">1.12</span> Как справятся с проблемами</a></li>
+  <li><a href="#как-справляться-с-проблемами" id="toc-как-справляться-с-проблемами" class="nav-link" data-scroll-target="#как-справляться-с-проблемами"><span class="header-section-number">1.12</span> Как справляться с проблемами</a></li>
   </ul>
 </nav>
     </div>
@@ -278,7 +278,7 @@ div.csl-indent {
 
 <section id="установка-r-и-rstudio" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="установка-r-и-rstudio"><span class="header-section-number">1.1</span> Установка R и RStudio</h2>
-<p>В данной книге используется исключительно R <span class="citation" data-cites="r_core_team">(<a href="references.html#ref-r_core_team" role="doc-biblioref">R Core Team 2023</a>)</span>, так что для занятий понадобятся:</p>
+<p>В данном курсе используется исключительно R <span class="citation" data-cites="r_core_team">(<a href="references.html#ref-r_core_team" role="doc-biblioref">R Core Team 2023</a>)</span>, так что для занятий понадобятся:</p>
 <ul>
 <li>R
 <ul>
@@ -305,7 +305,7 @@ div.csl-indent {
 <li><a href="https://jupyter.org/">Jupyter</a> ноутбуки;</li>
 <li><a href="https://colab.research.google.com">Google Colab</a> (нужно в настройках переключить ядро);</li>
 <li><a href="https://code.visualstudio.com/">VS Code</a> — другое IDE, которое также позволяет работать с R;</li>
-<li>в принципе, в IDE нет нужды, можно работать из терминала, после установки, нужно всего лишь набрать <code>R</code>.</li>
+<li>в принципе, в IDE нет нужды, можно работать из терминала, после установки нужно всего лишь набрать <code>R</code>.</li>
 </ul>
 </section>
 <section id="знакомство-с-rstudio" class="level2" data-number="1.2">
@@ -746,7 +746,7 @@ div.csl-indent {
 </section>
 <section id="датафреймы-и-их-индексация" class="level2" data-number="1.9">
 <h2 data-number="1.9" class="anchored" data-anchor-id="датафреймы-и-их-индексация"><span class="header-section-number">1.9</span> Датафреймы и их индексация</h2>
-<p>Датафрейм — это один из основных объектов в R, в котором обычно импортируют и экспортируют табличные данные. Датафрейм — это собрание векторов одинаковой длинны. Давайте создадим датафрейм:</p>
+<p>Датафрейм — это один из основных объектов в R, который обычно используется для импорта и экспорта табличных данные. Датафрейм — это собрание векторов одинаковой длинны. Давайте создадим датафрейм:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">name =</span> <span class="fu">c</span>(<span class="st">"Анна"</span>, <span class="st">"Вера"</span>, <span class="st">"Михаил"</span>),</span>
 <span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">33</span>, <span class="dv">11</span>),</span>
@@ -1006,7 +1006,7 @@ Volvo 142E          21.4   4 121.0 109 4.11 2.780 18.60  1  1    4    2</code></
 </section>
 <section id="работа-с-пакетами" class="level2" data-number="1.10">
 <h2 data-number="1.10" class="anchored" data-anchor-id="работа-с-пакетами"><span class="header-section-number">1.10</span> Работа с пакетами</h2>
-<p>Все богатство R находиться в его огромной инфраструктуре пакетов, которые может разрабатывать кто-угодно: от больших компаний, до частных исследователей. Чтобы их установить, нужно использовать команду <code>install.packages()</code>. Начнем с установки центрального для курса пакета: <code>tidyverse</code>:</p>
+<p>Все богатство R заключается в его огромной инфраструктуре пакетов, которые может разрабатывать кто угодно: от больших компаний до частных исследователей. Чтобы их установить, нужно использовать команду <code>install.packages()</code>. Начнем с установки центрального для курса пакета: <code>tidyverse</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb146"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1099,8 +1099,8 @@ dbl (3): Tree, age, circumference
 <span id="cb158-3"><a href="#cb158-3" aria-hidden="true" tabindex="-1"></a><span class="fu">write_delim</span>(df, <span class="st">"orange_circumference_g100.zsv"</span>, <span class="at">delim =</span> <span class="st">"0"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="как-справятся-с-проблемами" class="level2" data-number="1.12">
-<h2 data-number="1.12" class="anchored" data-anchor-id="как-справятся-с-проблемами"><span class="header-section-number">1.12</span> Как справятся с проблемами</h2>
+<section id="как-справляться-с-проблемами" class="level2" data-number="1.12">
+<h2 data-number="1.12" class="anchored" data-anchor-id="как-справляться-с-проблемами"><span class="header-section-number">1.12</span> Как справляться с проблемами</h2>
 <p>Код не работает очень часто, очень важно внимательно читать ошибки. Если чтение не помогло, то можно скопировать ошибку в поисковик, скорее всего кто-нибудь на Stack Overflow (место, где принято задавать вопрос) или Posit Community (место для вопросов на R и Python) уже сталкивался с вашей проблемой. Кроме того, никто не может написать пакет на R, который пройдет в основной репозиторий CRAN, не задокументировав все функции пакета. В связи с этим имеет смысл искать ответы во вкладке Help в Rstudio, а также в консоли, используя знак вопроса (или два, если ничего не находится) и имя функции, например, <code>?write_csv</code> или <code>??read_xlsx</code>. wd</p>
 
 

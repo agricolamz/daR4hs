@@ -227,7 +227,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#подсчет-количества-символов" id="toc-подсчет-количества-символов" class="nav-link" data-scroll-target="#подсчет-количества-символов"><span class="header-section-number">4.4.1</span> Подсчет количества символов</a></li>
   <li><a href="#подгонка-количества-символов" id="toc-подгонка-количества-символов" class="nav-link" data-scroll-target="#подгонка-количества-символов"><span class="header-section-number">4.4.2</span> Подгонка количества символов</a></li>
   </ul></li>
-  <li><a href="#сортировка" id="toc-сортировка" class="nav-link" data-scroll-target="#сортировка"><span class="header-section-number">4.5</span> Сортировка</a></li>
+  <li><a href="#sec-sorting" id="toc-sec-sorting" class="nav-link" data-scroll-target="#sec-sorting"><span class="header-section-number">4.5</span> Сортировка</a></li>
   <li><a href="#поиск-подстроки" id="toc-поиск-подстроки" class="nav-link" data-scroll-target="#поиск-подстроки"><span class="header-section-number">4.6</span> Поиск подстроки</a></li>
   <li><a href="#изменение-строк" id="toc-изменение-строк" class="nav-link" data-scroll-target="#изменение-строк"><span class="header-section-number">4.7</span> Изменение строк</a>
   <ul class="collapse">
@@ -282,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stringi)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Мы будем пользоваться в основном пакетами <code>stingr</code> и <code>stringi</code>, так как они в большинстве случаях удобнее. К счастью, функции этих пакетов легко отличить от остальных: функции пакет <code>stringr</code> всегда начинаются с <code>str_</code>, а функции пакета <code>stringi</code> — c <code>stri_</code>.</p>
+<p>Мы будем пользоваться в основном пакетами <code>stingr</code> и <code>stringi</code>, так как они в большинстве случаях удобнее. К счастью, функции этих пакетов легко отличить от остальных: функции пакета <code>stringr</code> всегда начинаются с <code>str_</code>, а функции пакета <code>stringi</code> — c <code>stri_</code>.</p>
 <p>Существует <a href="https://github.com/rstudio/cheatsheets/raw/master/strings.pdf">cheat sheet по <code>stringr</code></a>.</p>
 </section>
 <section id="как-получить-строку" class="level2" data-number="4.2">
@@ -503,7 +503,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 12 December   Dec       The {month} December is abbreviated as Dec </code></pre>
 </div>
 </div>
-<p>Для разделение строки на подстроки можно использовать функцию <code>separate()</code>. Это функция разносит разделенные элементы строки в соответствующие столбцы. У функции три обязательных аргумента: <code>col</code> — колонка, которую следует разделить, <code>into</code> — вектор названий новых столбец, <code>sep</code> — разделитель.</p>
+<p>Для разделения строки на подстроки можно использовать функцию <code>separate()</code>. Это функция разносит разделенные элементы строки в соответствующие столбцы. У функции три обязательных аргумента: <code>col</code> — колонка, которую следует разделить, <code>into</code> — вектор названий новых столбцов, <code>sep</code> — разделитель.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">upper =</span> <span class="fu">rev</span>(LETTERS), <span class="at">smaller =</span> letters) <span class="sc">|&gt;</span>  </span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">merge =</span> <span class="fu">str_c</span>(upper, smaller, <span class="at">sep =</span> <span class="st">"_"</span>)) <span class="sc">|&gt;</span>  </span>
@@ -525,7 +525,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 # ℹ 16 more rows</code></pre>
 </div>
 </div>
-<p>Кроме того, есть инструмент <code>str_split()</code>, которая позволяет разбивать строки на подстроки, но возвращает <em>список</em>.</p>
+<p>Кроме того, есть инструмент <code>str_split()</code>, который позволяет разбивать строки на подстроки, но возвращает <em>список</em>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_split</span>(month.name, <span class="st">"r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -748,8 +748,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="сортировка" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="сортировка"><span class="header-section-number">4.5</span> Сортировка</h2>
+<section id="sec-sorting" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="sec-sorting"><span class="header-section-number">4.5</span> Сортировка</h2>
 <p>Для сортировки существует <code>str_sort()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>unsorted_latin <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"I"</span>, <span class="st">"♥"</span>, <span class="st">"N"</span>, <span class="st">"Y"</span>)</span>
@@ -771,7 +771,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] "ж" "я" "i"</code></pre>
 </div>
 </div>
-<p>Список локалей на копмьютере можно посмотреть командой <code>stringi::stri_locale_list()</code>. Список всех локалей вообще приведен <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">на этой странице</a>. Еще полезные команды: <code>stringi::stri_locale_info</code> и <code>stringi::stri_locale_set</code>.</p>
+<p>Список локалей на компьютере можно посмотреть командой <code>stringi::stri_locale_list()</code>. Список всех локалей вообще приведен <a href="https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes">на этой странице</a>. Еще полезные команды: <code>stringi::stri_locale_info</code> и <code>stringi::stri_locale_set</code>.</p>
 </section>
 <section id="поиск-подстроки" class="level2" data-number="4.6">
 <h2 data-number="4.6" class="anchored" data-anchor-id="поиск-подстроки"><span class="header-section-number">4.6</span> Поиск подстроки</h2>
@@ -908,7 +908,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 12 December  r     </code></pre>
 </div>
 </div>
-<p>По умолчанию функция <code>str_extract()</code> возвращает первое вхождение подстроки, соответствующей шаблону. Также существует функция <code>str_extract_all()</code>, которая возвращает все вхождения подстрок, соответствующих шаблону, однако возвращает объект типа список.</p>
+<p>По умолчанию функция <code>str_extract()</code> возвращает первое вхождение подстроки, соответствующей шаблону. Также существует функция <code>str_extract_all()</code>, которая возвращает все вхождения подстрок, соответствующих шаблону в виде объекта типа список.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract_all</span>(month.name, <span class="st">"r"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -974,7 +974,7 @@ character(0)
 12 December  DecembeR </code></pre>
 </div>
 </div>
-<p>Как и другие функции <code>str_replace()</code> делает лишь одну замену, чтобы заменить все вхождения подстроки следует использовать функцию <code>str_replace_all()</code>:</p>
+<p>Как и другие функции, <code>str_replace()</code> делает лишь одну замену, чтобы заменить все вхождения подстроки следует использовать функцию <code>str_replace_all()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">mn =</span> month.name) <span class="sc">|&gt;</span> </span>
 <span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_replace_all</span>(mn, <span class="st">"r"</span>, <span class="st">"R"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -999,7 +999,7 @@ character(0)
 </section>
 <section id="удаление-подстроки" class="level3" data-number="4.7.4">
 <h3 data-number="4.7.4" class="anchored" data-anchor-id="удаление-подстроки"><span class="header-section-number">4.7.4</span> Удаление подстроки</h3>
-<p>Для удаления подстроки на основе шаблона, используется функция <code>str_remove()</code> и <code>str_remove_all()</code></p>
+<p>Для удаления подстроки на основе шаблона используется функция <code>str_remove()</code> и <code>str_remove_all()</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb100"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb100-1"><a href="#cb100-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(month.name) <span class="sc">|&gt;</span> </span>
 <span id="cb100-2"><a href="#cb100-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mutate =</span> <span class="fu">str_remove</span>(month.name, <span class="st">"r"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1043,7 +1043,7 @@ character(0)
 </section>
 <section id="транслитерация-строк" class="level3" data-number="4.7.5">
 <h3 data-number="4.7.5" class="anchored" data-anchor-id="транслитерация-строк"><span class="header-section-number">4.7.5</span> Транслитерация строк</h3>
-<p>В пакете <code>stringi</code> сууществует достаточно много методов транслитераций строк, которые можно вывести командой <code>stri_trans_list()</code>. Вот пример использования некоторых из них:</p>
+<p>В пакете <code>stringi</code> существует достаточно много методов транслитераций строк, которые можно вывести командой <code>stri_trans_list()</code>. Вот пример использования некоторых из них:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb104"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb104-1"><a href="#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stri_trans_general</span>(<span class="st">"stringi"</span>, <span class="st">"latin-cyrillic"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1071,7 +1071,7 @@ character(0)
 <li>строка, с которой работает функция</li>
 <li>образец (pattern)</li>
 </ul>
-<p>Дальше мы будем использовать функцию <code>str_view()</code>, которая позволяет показывать, выделенное образцом в исходной строке.</p>
+<p>Дальше мы будем использовать функцию <code>str_view()</code>, которая позволяет показывать выделенное образцом в исходной строке.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb112"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb112-1"><a href="#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view</span>(<span class="st">"Я всегда путаю с и c"</span>, <span class="st">"c"</span>) <span class="co"># я ищу латинскую c</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
