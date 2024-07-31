@@ -291,16 +291,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 100 × 3
        x     y logical
    &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
- 1     1   100 a      
- 2     2    99 c      
- 3     3    98 b      
- 4     4    97 a      
+ 1     1   100 c      
+ 2     2    99 b      
+ 3     3    98 a      
+ 4     4    97 c      
  5     5    96 c      
- 6     6    95 a      
+ 6     6    95 c      
  7     7    94 c      
- 8     8    93 a      
- 9     9    92 c      
-10    10    91 b      
+ 8     8    93 b      
+ 9     9    92 a      
+10    10    91 a      
 # ℹ 90 more rows</code></pre>
 </div>
 </div>
@@ -468,30 +468,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 10 × 5
    word_1          word_2   word_3     type           n
    &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
- 1 жадина-говядина большая  шоколадина шоколадина   941
- 2 жадина-говядина кусок    шоколадины шоколадина   113
- 3 жадина-говядина булка    шоколадина шоколадина   250
- 4 жадина-говядина кошка    шоколадина шоколадина    18
- 5 жадина-говядина бука     шоколадина шоколадина    44
- 6 жадина-говядина простая  шоколадина шоколадина    59
- 7 жадина-говядина злая     шоколадина шоколадина    10
- 8 жадина-говядина соленый  барабан    барабан       11
- 9 жадина-говядина дома     шоколадина шоколадина    29
-10 жадина-говядина турецкий таракан    другое        13</code></pre>
+ 1 жадина-говядина турецкий таракан    другое        13
+ 2 жадина-говядина турецкий барабан    барабан     3003
+ 3 жадина-говядина простая  шоколадина шоколадина    59
+ 4 жадина-говядина на пузе  барабан    барабан       14
+ 5 жадина-говядина сухая    шоколадина шоколадина    16
+ 6 жадина-говядина в *опе   шоколадина шоколадина  1117
+ 7 жадина-говядина зеленый  огурец     огурец       343
+ 8 жадина-говядина тупая    шоколадина шоколадина    50
+ 9 жадина-говядина соленый  помидор    другое        17
+10 жадина-говядина бука     шоколадина шоколадина    44</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 5
-  word_1          word_2   word_3     type           n
-  &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
-1 жадина-говядина гнилая   шоколадина шоколадина    12
-2 жадина-говядина сухая    шоколадина шоколадина    16
-3 жадина-говядина соленый  помидор    другое        17
-4 жадина-говядина кусок    шоколадины шоколадина   113
-5 жадина-говядина булка    шоколадина шоколадина   250
-6 жадина-говядина никто ее не ест     другое        10
-7 жадина-говядина немецкий барабан    барабан       12</code></pre>
+  word_1          word_2   word_3     type        n
+  &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;   &lt;dbl&gt;
+1 жадина-говядина кислая   капуста    другое     10
+2 жадина-говядина зеленый  огурец     огурец    343
+3 жадина-говядина соленый  барабан    барабан    11
+4 жадина-говядина соленый  огурец     огурец  26910
+5 жадина-говядина турецкий барабан    барабан  3003
+6 жадина-говядина кошка    поросятина другое     42
+7 жадина-говядина турецкий таракан    другое     13</code></pre>
 </div>
 </div>
 </section>
@@ -1211,6 +1211,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="функции-семейства-pivot_..." class="level2" data-number="2.10">
 <h2 data-number="2.10" class="anchored" data-anchor-id="функции-семейства-pivot_..."><span class="header-section-number">2.10</span> Функции семейства <code>pivot_...()</code></h2>
+<p>Основная концепция пакет <code>tidyverse</code> строится вокруг понятия опрятный формат (tidy data). Опрятные данные означает приведение табличных данных к такому формату, в котором:</p>
+<ul>
+<li>Каждая переменная имеет собственный столбец</li>
+<li>Каждый наблюдение имеет собственную строку</li>
+<li>Каждое значение имеет свою собственную ячейку</li>
+</ul>
+<p>Такое представление данных делает любые трансформации и визуализацию делом нескольких строк.</p>
+<p>Однако данный подход не дает четких инструкций по поводу того, что делать с наблюдениями похожего типа, которые сделаны по поводу одной единицы. Рассмотрим на примере <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w2_india_languages.csv">данных</a> количества носителей разных языков Индии:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w2_india_languages.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -1223,8 +1231,29 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
-<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, n_L1_sp<span class="sc">:</span>n_all_sp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 12 × 5
+   language    n_L1_sp  n_L2_sp  n_L3_sp  n_all_sp
+   &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Hindi     422048642 98207180 31160696 551416518
+ 2 English      226449 86125221 38993066 125344736
+ 3 Bengali    83369769  6637222  1108088  91115079
+ 4 Telugu     74002856  9723626  1266019  84992501
+ 5 Marathi    71936894  9546414  2701498  84184806
+ 6 Tamil      60793814  4992253   956335  66742402
+ 7 Urdu       51536111  6535489  1007912  59079512
+ 8 Kannada    37924011 11455287  1396428  50775726
+ 9 Gujarati   46091617  3476355   703989  50271961
+10 Odia       33017446  3272151   319525  36609122
+11 Malayalam  33066392   499188   195885  33761465
+12 Sanskrit      14135  1234931  3742223   4991289</code></pre>
+</div>
+</div>
+<p>Сейчас данные в так называемом <strong>широком</strong> формате. Хинди в датасете встречается единожды, но значения сколько носителей выучили его как первый/второй/третий/все вместе записаны в виде отдельных столбцов.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, n_L1_sp<span class="sc">:</span>n_all_sp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 48 × 3
    language L            value
@@ -1241,12 +1270,15 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 10 Bengali  n_L2_sp    6637222
 # ℹ 38 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, <span class="fu">starts_with</span>(<span class="st">"n_"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb111-3"><a href="#cb111-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(L <span class="sc">!=</span> <span class="st">"n_all_sp"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb111-4"><a href="#cb111-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(L) <span class="sc">|&gt;</span> </span>
-<span id="cb111-5"><a href="#cb111-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sum =</span> <span class="fu">sum</span>(value),</span>
-<span id="cb111-6"><a href="#cb111-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Теперь данные представлены в длинном формате, который удобен для визуализации и каких-то трансформаций. Хинди встречается в датасете четырежды, однако информация про то какая группа носителей имеется в виду записана в переменную <code>L</code>. Более того, информация в столбце <code>n_all_sp</code> изначальна была лишней: эта инфомрация уже содержится как сумма всех остальных столбцов. Мы можем отфильтровать значения <code>n_all_sp</code> и получить их снова:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, <span class="fu">starts_with</span>(<span class="st">"n_"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(L <span class="sc">!=</span> <span class="st">"n_all_sp"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(L) <span class="sc">|&gt;</span> </span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sum =</span> <span class="fu">sum</span>(value),</span>
+<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   L             sum      mean
@@ -1255,49 +1287,28 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 2 n_L2_sp 241705317 20142110.
 3 n_L3_sp  83551664  6962639.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
-<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, <span class="fu">starts_with</span>(<span class="st">"n_"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(L <span class="sc">!=</span> <span class="st">"n_all_sp"</span>) <span class="ot">-&gt;</span></span>
-<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>  india_langauges_long</span>
-<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a>india_langauges_long <span class="sc">|&gt;</span> </span>
-<span id="cb113-7"><a href="#cb113-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"L"</span>, <span class="at">values_from =</span> <span class="st">"value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 4
-   language    n_L1_sp  n_L2_sp  n_L3_sp
-   &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
- 1 Hindi     422048642 98207180 31160696
- 2 English      226449 86125221 38993066
- 3 Bengali    83369769  6637222  1108088
- 4 Telugu     74002856  9723626  1266019
- 5 Marathi    71936894  9546414  2701498
- 6 Tamil      60793814  4992253   956335
- 7 Urdu       51536111  6535489  1007912
- 8 Kannada    37924011 11455287  1396428
- 9 Gujarati   46091617  3476355   703989
-10 Odia       33017446  3272151   319525
-11 Malayalam  33066392   499188   195885
-12 Sanskrit      14135  1234931  3742223</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>india_langauges_long <span class="sc">|&gt;</span> </span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">30</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"L"</span>, <span class="at">values_from =</span> <span class="st">"value"</span>, <span class="at">values_fill =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Функция <code>pivot_wider()</code> позволяет вновь перевести данные в широкий формат, который удобен для представления данных людям:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, <span class="fu">starts_with</span>(<span class="st">"n_"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"L"</span>, <span class="at">values_from =</span> <span class="st">"value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 12 × 4
-   language   n_L2_sp  n_L3_sp   n_L1_sp
-   &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
- 1 English   86125221 38993066         0
- 2 Urdu       6535489  1007912  51536111
- 3 Tamil      4992253   956335  60793814
- 4 Gujarati         0   703989  46091617
- 5 Marathi    9546414        0  71936894
- 6 Sanskrit   1234931  3742223     14135
- 7 Kannada          0  1396428  37924011
- 8 Odia             0   319525  33017446
- 9 Telugu     9723626  1266019  74002856
-10 Bengali    6637222  1108088  83369769
-11 Malayalam   499188   195885  33066392
-12 Hindi            0 31160696 422048642</code></pre>
+<pre><code># A tibble: 12 × 5
+   language    n_L1_sp  n_L2_sp  n_L3_sp  n_all_sp
+   &lt;chr&gt;         &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+ 1 Hindi     422048642 98207180 31160696 551416518
+ 2 English      226449 86125221 38993066 125344736
+ 3 Bengali    83369769  6637222  1108088  91115079
+ 4 Telugu     74002856  9723626  1266019  84992501
+ 5 Marathi    71936894  9546414  2701498  84184806
+ 6 Tamil      60793814  4992253   956335  66742402
+ 7 Urdu       51536111  6535489  1007912  59079512
+ 8 Kannada    37924011 11455287  1396428  50775726
+ 9 Gujarati   46091617  3476355   703989  50271961
+10 Odia       33017446  3272151   319525  36609122
+11 Malayalam  33066392   499188   195885  33761465
+12 Sanskrit      14135  1234931  3742223   4991289</code></pre>
 </div>
 </div>
 </section>
@@ -1341,16 +1352,16 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 <pre><code># A tibble: 26 × 7
    word_1          word_2  word_3     type           n new_var1 new_var2
    &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;   
- 1 жадина-говядина большая шоколадина шоколадина   941   0.464  a       
- 2 жадина-говядина бука    шоколадина шоколадина    44  -0.886  b       
- 3 жадина-говядина булка   шоколадина шоколадина   250  -1.10   c       
- 4 жадина-говядина в *опе  огурец     огурец        11   1.51   d       
- 5 жадина-говядина в *опе  шоколадина шоколадина  1117   0.258  e       
- 6 жадина-говядина гнилая  шоколадина шоколадина    12   0.0884 f       
- 7 жадина-говядина дома    шоколадина шоколадина    29  -0.121  g       
- 8 жадина-говядина зеленый огурец     огурец       343  -1.19   h       
- 9 жадина-говядина злая    шоколадина шоколадина    10   0.612  i       
-10 жадина-говядина кислая  капуста    другое        10  -0.217  j       
+ 1 жадина-говядина большая шоколадина шоколадина   941   1.58   a       
+ 2 жадина-говядина бука    шоколадина шоколадина    44   0.643  b       
+ 3 жадина-говядина булка   шоколадина шоколадина   250   0.0898 c       
+ 4 жадина-говядина в *опе  огурец     огурец        11   0.277  d       
+ 5 жадина-говядина в *опе  шоколадина шоколадина  1117   0.679  e       
+ 6 жадина-говядина гнилая  шоколадина шоколадина    12   0.0898 f       
+ 7 жадина-говядина дома    шоколадина шоколадина    29  -2.99   g       
+ 8 жадина-говядина зеленый огурец     огурец       343   0.285  h       
+ 9 жадина-говядина злая    шоколадина шоколадина    10  -0.367  i       
+10 жадина-говядина кислая  капуста    другое        10   0.185  j       
 # ℹ 16 more rows</code></pre>
 </div>
 </div>
@@ -1373,16 +1384,16 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 <pre><code># A tibble: 26 × 7
    word_1          word_2  word_3     type           n our_new_var1 our_new_var2
    &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       
- 1 жадина-говядина большая шоколадина шоколадина   941        1.85  a           
- 2 жадина-говядина бука    шоколадина шоколадина    44        1.85  a           
- 3 жадина-говядина булка   шоколадина шоколадина   250        1.85  a           
- 4 жадина-говядина в *опе  огурец     огурец        11       -0.667 b           
- 5 жадина-говядина в *опе  шоколадина шоколадина  1117        1.85  a           
- 6 жадина-говядина гнилая  шоколадина шоколадина    12        1.85  a           
- 7 жадина-говядина дома    шоколадина шоколадина    29        1.85  a           
- 8 жадина-говядина зеленый огурец     огурец       343       -0.667 b           
- 9 жадина-говядина злая    шоколадина шоколадина    10        1.85  a           
-10 жадина-говядина кислая  капуста    другое        10        0.106 c           
+ 1 жадина-говядина большая шоколадина шоколадина   941       -0.886 a           
+ 2 жадина-говядина бука    шоколадина шоколадина    44       -0.886 a           
+ 3 жадина-говядина булка   шоколадина шоколадина   250       -0.886 a           
+ 4 жадина-говядина в *опе  огурец     огурец        11       -1.10  b           
+ 5 жадина-говядина в *опе  шоколадина шоколадина  1117       -0.886 a           
+ 6 жадина-говядина гнилая  шоколадина шоколадина    12       -0.886 a           
+ 7 жадина-говядина дома    шоколадина шоколадина    29       -0.886 a           
+ 8 жадина-говядина зеленый огурец     огурец       343       -1.10  b           
+ 9 жадина-говядина злая    шоколадина шоколадина    10       -0.886 a           
+10 жадина-говядина кислая  капуста    другое        10        1.51  c           
 # ℹ 16 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
@@ -1404,13 +1415,13 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
  1 жадина-говядина большая шоколадина шоколадина   941       NA     &lt;NA&gt;        
  2 жадина-говядина бука    шоколадина шоколадина    44       NA     &lt;NA&gt;        
  3 жадина-говядина булка   шоколадина шоколадина   250       NA     &lt;NA&gt;        
- 4 жадина-говядина в *опе  огурец     огурец        11        0.188 b           
+ 4 жадина-говядина в *опе  огурец     огурец        11       -0.121 b           
  5 жадина-говядина в *опе  шоколадина шоколадина  1117       NA     &lt;NA&gt;        
  6 жадина-говядина гнилая  шоколадина шоколадина    12       NA     &lt;NA&gt;        
  7 жадина-говядина дома    шоколадина шоколадина    29       NA     &lt;NA&gt;        
- 8 жадина-говядина зеленый огурец     огурец       343        0.188 b           
+ 8 жадина-говядина зеленый огурец     огурец       343       -0.121 b           
  9 жадина-говядина злая    шоколадина шоколадина    10       NA     &lt;NA&gt;        
-10 жадина-говядина кислая  капуста    другое        10        0.119 c           
+10 жадина-говядина кислая  капуста    другое        10       -1.19  c           
 # ℹ 16 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
@@ -1435,13 +1446,13 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
  1 жадина-говядина большая шоколадина шоколадина   941       NA     &lt;NA&gt;        
  2 жадина-говядина бука    шоколадина шоколадина    44       NA     &lt;NA&gt;        
  3 жадина-говядина булка   шоколадина шоколадина   250       NA     &lt;NA&gt;        
- 4 жадина-говядина в *опе  огурец     огурец        11       -0.485 b           
+ 4 жадина-говядина в *опе  огурец     огурец        11       -0.183 b           
  5 жадина-говядина в *опе  шоколадина шоколадина  1117       NA     &lt;NA&gt;        
  6 жадина-говядина гнилая  шоколадина шоколадина    12       NA     &lt;NA&gt;        
  7 жадина-говядина дома    шоколадина шоколадина    29       NA     &lt;NA&gt;        
- 8 жадина-говядина зеленый огурец     огурец       343       -0.485 b           
+ 8 жадина-говядина зеленый огурец     огурец       343       -0.183 b           
  9 жадина-говядина злая    шоколадина шоколадина    10       NA     &lt;NA&gt;        
-10 жадина-говядина кислая  капуста    другое        10       -0.504 c           
+10 жадина-говядина кислая  капуста    другое        10        0.933 c           
 # ℹ 16 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
@@ -1456,13 +1467,13 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
  1 жадина-говядина большая шоколадина шоколадина   941       NA     &lt;NA&gt;        
  2 жадина-говядина бука    шоколадина шоколадина    44       NA     &lt;NA&gt;        
  3 жадина-говядина булка   шоколадина шоколадина   250       NA     &lt;NA&gt;        
- 4 жадина-говядина в *опе  огурец     огурец        11       -0.485 b           
+ 4 жадина-говядина в *опе  огурец     огурец        11       -0.183 b           
  5 жадина-говядина в *опе  шоколадина шоколадина  1117       NA     &lt;NA&gt;        
  6 жадина-говядина гнилая  шоколадина шоколадина    12       NA     &lt;NA&gt;        
  7 жадина-говядина дома    шоколадина шоколадина    29       NA     &lt;NA&gt;        
- 8 жадина-говядина зеленый огурец     огурец       343       -0.485 b           
+ 8 жадина-говядина зеленый огурец     огурец       343       -0.183 b           
  9 жадина-говядина злая    шоколадина шоколадина    10       NA     &lt;NA&gt;        
-10 жадина-говядина кислая  капуста    другое        10       -0.504 c           
+10 жадина-говядина кислая  капуста    другое        10        0.933 c           
 # ℹ 17 more rows</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
@@ -1501,16 +1512,16 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 <pre><code># A tibble: 26 × 7
    word_1          word_2  word_3     type           n our_new_var1 our_new_var2
    &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       
- 1 жадина-говядина большая шоколадина шоколадина   941       -0.382 a           
- 2 жадина-говядина бука    шоколадина шоколадина    44       -0.382 a           
- 3 жадина-говядина булка   шоколадина шоколадина   250       -0.382 a           
- 4 жадина-говядина в *опе  огурец     огурец        11       -0.513 b           
- 5 жадина-говядина в *опе  шоколадина шоколадина  1117       -0.382 a           
- 6 жадина-говядина гнилая  шоколадина шоколадина    12       -0.382 a           
- 7 жадина-говядина дома    шоколадина шоколадина    29       -0.382 a           
- 8 жадина-говядина зеленый огурец     огурец       343       -0.513 b           
- 9 жадина-говядина злая    шоколадина шоколадина    10       -0.382 a           
-10 жадина-говядина кислая  капуста    другое        10        2.70  c           
+ 1 жадина-говядина большая шоколадина шоколадина   941        1.39  a           
+ 2 жадина-говядина бука    шоколадина шоколадина    44        1.39  a           
+ 3 жадина-говядина булка   шоколадина шоколадина   250        1.39  a           
+ 4 жадина-говядина в *опе  огурец     огурец        11       -0.476 b           
+ 5 жадина-говядина в *опе  шоколадина шоколадина  1117        1.39  a           
+ 6 жадина-говядина гнилая  шоколадина шоколадина    12        1.39  a           
+ 7 жадина-говядина дома    шоколадина шоколадина    29        1.39  a           
+ 8 жадина-говядина зеленый огурец     огурец       343       -0.476 b           
+ 9 жадина-говядина злая    шоколадина шоколадина    10        1.39  a           
+10 жадина-говядина кислая  капуста    другое        10        0.650 c           
 # ℹ 16 more rows</code></pre>
 </div>
 </div>
