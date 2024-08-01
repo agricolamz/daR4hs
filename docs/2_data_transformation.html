@@ -219,15 +219,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#tibble" id="toc-tibble" class="nav-link active" data-scroll-target="#tibble"><span class="header-section-number">2.1</span> <code>tibble</code></a></li>
   <li><a href="#использование-конвеера-пайпа" id="toc-использование-конвеера-пайпа" class="nav-link" data-scroll-target="#использование-конвеера-пайпа"><span class="header-section-number">2.2</span> Использование конвеера (пайпа)</a></li>
   <li><a href="#функции-семейства-slice" id="toc-функции-семейства-slice" class="nav-link" data-scroll-target="#функции-семейства-slice"><span class="header-section-number">2.3</span> Функции семейства <code>slice()</code></a></li>
-  <li><a href="#функция-select" id="toc-функция-select" class="nav-link" data-scroll-target="#функция-select"><span class="header-section-number">2.4</span> Функция <code>select()</code></a></li>
-  <li><a href="#функция-filter" id="toc-функция-filter" class="nav-link" data-scroll-target="#функция-filter"><span class="header-section-number">2.5</span> Функция <code>filter()</code></a></li>
-  <li><a href="#функции-count-distinct-arrange" id="toc-функции-count-distinct-arrange" class="nav-link" data-scroll-target="#функции-count-distinct-arrange"><span class="header-section-number">2.6</span> Функции <code>count()</code>, <code>distinct()</code>, <code>arrange()</code></a></li>
+  <li><a href="#функция-filter" id="toc-функция-filter" class="nav-link" data-scroll-target="#функция-filter"><span class="header-section-number">2.4</span> Функция <code>filter()</code></a></li>
+  <li><a href="#функции-count-distinct-arrange" id="toc-функции-count-distinct-arrange" class="nav-link" data-scroll-target="#функции-count-distinct-arrange"><span class="header-section-number">2.5</span> Функции <code>count()</code>, <code>distinct()</code>, <code>arrange()</code></a></li>
+  <li><a href="#функция-select" id="toc-функция-select" class="nav-link" data-scroll-target="#функция-select"><span class="header-section-number">2.6</span> Функция <code>select()</code></a></li>
   <li><a href="#функция-mutate" id="toc-функция-mutate" class="nav-link" data-scroll-target="#функция-mutate"><span class="header-section-number">2.7</span> Функция <code>mutate()</code></a></li>
-  <li><a href="#функция-group_by-summarise-и-group_by-mutate" id="toc-функция-group_by-summarise-и-group_by-mutate" class="nav-link" data-scroll-target="#функция-group_by-summarise-и-group_by-mutate"><span class="header-section-number">2.8</span> Функция <code>group_by() |&gt; summarise()</code> и <code>group_by() |&gt; mutate()</code></a></li>
-  <li><a href="#функция-across" id="toc-функция-across" class="nav-link" data-scroll-target="#функция-across"><span class="header-section-number">2.9</span> Функция <code>across()</code></a></li>
-  <li><a href="#функции-семейства-pivot_..." id="toc-функции-семейства-pivot_..." class="nav-link" data-scroll-target="#функции-семейства-pivot_..."><span class="header-section-number">2.10</span> Функции семейства <code>pivot_...()</code></a></li>
-  <li><a href="#функции-семейства-bind_..." id="toc-функции-семейства-bind_..." class="nav-link" data-scroll-target="#функции-семейства-bind_..."><span class="header-section-number">2.11</span> Функции семейства <code>bind_...()</code></a></li>
-  <li><a href="#sec-joins" id="toc-sec-joins" class="nav-link" data-scroll-target="#sec-joins"><span class="header-section-number">2.12</span> Функции семейства <code>..._join()</code></a></li>
+  <li><a href="#функция-relocate" id="toc-функция-relocate" class="nav-link" data-scroll-target="#функция-relocate"><span class="header-section-number">2.8</span> Функция <code>relocate()</code></a></li>
+  <li><a href="#функция-group_by-summarise-и-group_by-mutate" id="toc-функция-group_by-summarise-и-group_by-mutate" class="nav-link" data-scroll-target="#функция-group_by-summarise-и-group_by-mutate"><span class="header-section-number">2.9</span> Функция <code>group_by() |&gt; summarise()</code> и <code>group_by() |&gt; mutate()</code></a></li>
+  <li><a href="#функция-across" id="toc-функция-across" class="nav-link" data-scroll-target="#функция-across"><span class="header-section-number">2.10</span> Функция <code>across()</code></a></li>
+  <li><a href="#функции-семейства-pivot_..." id="toc-функции-семейства-pivot_..." class="nav-link" data-scroll-target="#функции-семейства-pivot_..."><span class="header-section-number">2.11</span> Функции семейства <code>pivot_...()</code></a></li>
+  <li><a href="#функции-семейства-bind_..." id="toc-функции-семейства-bind_..." class="nav-link" data-scroll-target="#функции-семейства-bind_..."><span class="header-section-number">2.12</span> Функции семейства <code>bind_...()</code></a></li>
+  <li><a href="#sec-joins" id="toc-sec-joins" class="nav-link" data-scroll-target="#sec-joins"><span class="header-section-number">2.13</span> Функции семейства <code>..._join()</code></a></li>
   </ul>
 </nav>
     </div>
@@ -288,15 +289,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 100 × 3
        x     y logical
    &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
- 1     1   100 b      
- 2     2    99 a      
- 3     3    98 c      
- 4     4    97 c      
- 5     5    96 c      
- 6     6    95 b      
- 7     7    94 a      
- 8     8    93 c      
- 9     9    92 a      
+ 1     1   100 a      
+ 2     2    99 b      
+ 3     3    98 a      
+ 4     4    97 a      
+ 5     5    96 a      
+ 6     6    95 c      
+ 7     7    94 b      
+ 8     8    93 a      
+ 9     9    92 c      
 10    10    91 a      
 # ℹ 90 more rows</code></pre>
 </div>
@@ -305,7 +306,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="использование-конвеера-пайпа" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="использование-конвеера-пайпа"><span class="header-section-number">2.2</span> Использование конвеера (пайпа)</h2>
-<p>В нашем коде мы часто будем использовать знаки конвеера (или пайпа): <code>|&gt;</code> (также можно встретить популярный ранее <code>%&gt;%</code>). Конвеер призван показывать последовательность действий. Сочетание клавиш для написание конвеера: <code>Ctrl/Cmd + M</code>.</p>
+<p>В нашем коде мы часто будем использовать знаки конвеера (или пайпа): <code>|&gt;</code> (также можно встретить популярный ранее <code>%&gt;%</code>). Чтобы вставлять новый конвеер придется сделать изменение в настройках RStudio (Tools &gt; Global Options &gt; вкладвка Code):</p>
+<p><img src="images/02_rstudio_pipe.png" class="img-fluid"></p>
+<p>Конвеер призван показывать последовательность действий. Сочетание клавиш для написание конвеера: <code>Ctrl/Cmd + Shift + M</code> (хотя RStudio позволяет горячие клавиши переназначить).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">sqrt</span>(<span class="fu">abs</span>(<span class="fu">sin</span>(<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>, <span class="cn">NA</span>)))), <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -465,16 +468,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 10 × 5
    word_1          word_2   word_3     type           n
    &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
- 1 жадина-говядина в *опе   шоколадина шоколадина  1117
- 2 жадина-говядина пустая   шоколадина шоколадина  3774
- 3 жадина-говядина дома     шоколадина шоколадина    29
- 4 жадина-говядина соленый  барабан    барабан       11
- 5 жадина-говядина на пузе  барабан    барабан       14
- 6 жадина-говядина гнилая   шоколадина шоколадина    12
- 7 жадина-говядина сухая    шоколадина шоколадина    16
- 8 жадина-говядина кислая   капуста    другое        10
- 9 жадина-говядина большая  шоколадина шоколадина   941
-10 жадина-говядина немецкий барабан    барабан       12</code></pre>
+ 1 жадина-говядина никто ее не ест     другое        10
+ 2 жадина-говядина соленый  помидор    другое        17
+ 3 жадина-говядина булка    шоколадина шоколадина   250
+ 4 жадина-говядина в *опе   шоколадина шоколадина  1117
+ 5 жадина-говядина большая  шоколадина шоколадина   941
+ 6 жадина-говядина пустая   шоколадина шоколадина  3774
+ 7 жадина-говядина немецкий барабан    барабан       12
+ 8 жадина-говядина кусок    шоколадины шоколадина   113
+ 9 жадина-говядина простая  шоколадина шоколадина    59
+10 жадина-говядина злая     шоколадина шоколадина    10</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -482,124 +485,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 7 × 5
   word_1          word_2   word_3     type           n
   &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
-1 жадина-говядина простая  шоколадина шоколадина    59
-2 жадина-говядина большая  шоколадина шоколадина   941
-3 жадина-говядина тупая    шоколадина шоколадина    50
-4 жадина-говядина турецкий таракан    другое        13
-5 жадина-говядина соленый  огурец     огурец     26910
-6 жадина-говядина никто ее не ест     другое        10
-7 жадина-говядина кислая   капуста    другое        10</code></pre>
+1 жадина-говядина соленый  помидор    другое        17
+2 жадина-говядина никто ее не ест     другое        10
+3 жадина-говядина кусок    шоколадины шоколадина   113
+4 жадина-говядина кислая   капуста    другое        10
+5 жадина-говядина турецкий барабан    барабан     3003
+6 жадина-говядина пустая   шоколадина шоколадина  3774
+7 жадина-говядина простая  шоколадина шоколадина    59</code></pre>
 </div>
 </div>
 </section>
-<section id="функция-select" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="функция-select"><span class="header-section-number">2.4</span> Функция <code>select()</code></h2>
-<p>Функция <code>select()</code> позволяет выбрать из датасета некоторый набор столбцов.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(word_1, type, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 3
-   word_1          type           n
-   &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;
- 1 жадина-говядина шоколадина   941
- 2 жадина-говядина шоколадина    44
- 3 жадина-говядина шоколадина   250
- 4 жадина-говядина огурец        11
- 5 жадина-говядина шоколадина  1117
- 6 жадина-говядина шоколадина    12
- 7 жадина-говядина шоколадина    29
- 8 жадина-говядина огурец       343
- 9 жадина-говядина шоколадина    10
-10 жадина-говядина другое        10
-# ℹ 16 more rows</code></pre>
-</div>
-</div>
-<p>Внутри функции <code>select()</code> можно использовать функции, которые позволяют не только перечислять через запятую необходимые столбцы, но и выделять их по имени:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"word"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 3
-   word_1          word_2  word_3    
-   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;     
- 1 жадина-говядина большая шоколадина
- 2 жадина-говядина бука    шоколадина
- 3 жадина-говядина булка   шоколадина
- 4 жадина-говядина в *опе  огурец    
- 5 жадина-говядина в *опе  шоколадина
- 6 жадина-говядина гнилая  шоколадина
- 7 жадина-говядина дома    шоколадина
- 8 жадина-говядина зеленый огурец    
- 9 жадина-говядина злая    шоколадина
-10 жадина-говядина кислая  капуста   
-# ℹ 16 more rows</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">"1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 1
-   word_1         
-   &lt;chr&gt;          
- 1 жадина-говядина
- 2 жадина-говядина
- 3 жадина-говядина
- 4 жадина-говядина
- 5 жадина-говядина
- 6 жадина-говядина
- 7 жадина-говядина
- 8 жадина-говядина
- 9 жадина-говядина
-10 жадина-говядина
-# ℹ 16 more rows</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">"ord"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 3
-   word_1          word_2  word_3    
-   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;     
- 1 жадина-говядина большая шоколадина
- 2 жадина-говядина бука    шоколадина
- 3 жадина-говядина булка   шоколадина
- 4 жадина-говядина в *опе  огурец    
- 5 жадина-говядина в *опе  шоколадина
- 6 жадина-говядина гнилая  шоколадина
- 7 жадина-говядина дома    шоколадина
- 8 жадина-говядина зеленый огурец    
- 9 жадина-говядина злая    шоколадина
-10 жадина-говядина кислая  капуста   
-# ℹ 16 more rows</code></pre>
-</div>
-</div>
-<p>Кроме того, внутри функции <code>select()</code> действует оператор двоеточие, который мы видели при создании векторов <code>5:10</code>:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(word_3<span class="sc">:</span>n) <span class="co"># от колонки word_3 до колонки n</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 3
-   word_3     type           n
-   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
- 1 шоколадина шоколадина   941
- 2 шоколадина шоколадина    44
- 3 шоколадина шоколадина   250
- 4 огурец     огурец        11
- 5 шоколадина шоколадина  1117
- 6 шоколадина шоколадина    12
- 7 шоколадина шоколадина    29
- 8 огурец     огурец       343
- 9 шоколадина шоколадина    10
-10 капуста    другое        10
-# ℹ 16 more rows</code></pre>
-</div>
-</div>
-</section>
-<section id="функция-filter" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="функция-filter"><span class="header-section-number">2.5</span> Функция <code>filter()</code></h2>
+<section id="функция-filter" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="функция-filter"><span class="header-section-number">2.4</span> Функция <code>filter()</code></h2>
 <p>Функция <code>filter()</code> позволяет отфильтровывать строки таблицы по одному или нескольким условиям.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 5
   word_1          word_2   word_3     type           n
@@ -614,8 +515,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 8 жадина-говядина соленый  огурец     огурец     26910
 9 жадина-говядина турецкий барабан    барабан     3003</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 17 × 5
    word_1          word_2   word_3     type           n
@@ -638,8 +539,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 16 жадина-говядина тупая    шоколадина шоколадина    50
 17 жадина-говядина турецкий таракан    другое        13</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;=</span> <span class="dv">100</span>) <span class="co"># меньше или равно</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;=</span> <span class="dv">100</span>) <span class="co"># меньше или равно</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 17 × 5
    word_1          word_2   word_3     type           n
@@ -662,8 +563,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 16 жадина-говядина тупая    шоколадина шоколадина    50
 17 жадина-говядина турецкий таракан    другое        13</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">100</span>) <span class="co"># больше или равно</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;=</span> <span class="dv">100</span>) <span class="co"># больше или равно</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 5
   word_1          word_2   word_3     type           n
@@ -678,8 +579,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 8 жадина-говядина соленый  огурец     огурец     26910
 9 жадина-говядина турецкий барабан    барабан     3003</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">!=</span> <span class="dv">10</span>) <span class="co"># не равно</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">!=</span> <span class="dv">10</span>) <span class="co"># не равно</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 23 × 5
    word_1          word_2  word_3     type           n
@@ -696,8 +597,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 10 жадина-говядина кошка   шоколадина шоколадина    18
 # ℹ 13 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">==</span> <span class="dv">10</span>) <span class="co"># равно (дважды знак равно)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">==</span> <span class="dv">10</span>) <span class="co"># равно (дважды знак равно)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 5
   word_1          word_2   word_3     type           n
@@ -706,8 +607,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 2 жадина-говядина кислая   капуста    другое        10
 3 жадина-говядина никто ее не ест     другое        10</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(word_3 <span class="sc">==</span> <span class="st">"шоколадина"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(word_3 <span class="sc">==</span> <span class="st">"шоколадина"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 13 × 5
    word_1          word_2  word_3     type           n
@@ -726,8 +627,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 12 жадина-говядина сухая   шоколадина шоколадина    16
 13 жадина-говядина тупая   шоколадина шоколадина    50</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(word_3 <span class="sc">!=</span> <span class="st">"шоколадина"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(word_3 <span class="sc">!=</span> <span class="st">"шоколадина"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 13 × 5
    word_1          word_2   word_3     type           n
@@ -746,8 +647,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 12 жадина-говядина турецкий барабан    барабан     3003
 13 жадина-говядина турецкий таракан    другое        13</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">nchar</span>(word_3) <span class="sc">==</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">nchar</span>(word_3) <span class="sc">==</span> <span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 5
   word_1          word_2   word_3  type        n
@@ -763,9 +664,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Кроме того, условия можно перечислить через запятую (аналог логического “и”):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">15</span>,</span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>         n <span class="sc">&lt;</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&gt;</span> <span class="dv">15</span>,</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>         n <span class="sc">&lt;</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 5
   word_1          word_2  word_3     type           n
@@ -782,8 +683,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Логическое “или” обозначается палочкой <code>|</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;</span> <span class="dv">15</span> <span class="sc">|</span> n <span class="sc">&gt;</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n <span class="sc">&lt;</span> <span class="dv">15</span> <span class="sc">|</span> n <span class="sc">&gt;</span> <span class="dv">100</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 18 × 5
    word_1          word_2   word_3     type           n
@@ -809,12 +710,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="функции-count-distinct-arrange" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="функции-count-distinct-arrange"><span class="header-section-number">2.6</span> Функции <code>count()</code>, <code>distinct()</code>, <code>arrange()</code></h2>
+<section id="функции-count-distinct-arrange" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="функции-count-distinct-arrange"><span class="header-section-number">2.5</span> Функции <code>count()</code>, <code>distinct()</code>, <code>arrange()</code></h2>
 <p>Функция <code>count()</code> очень полезна в разведочном анализе, так как позволяет посчитать сколько какое значение переменной или группы переменных встретилось в датасете. Аргумент <code>sort</code> позволяет дополнительно отсортировать результат от большего к меньшего.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
   word_3         n
@@ -829,8 +730,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 8 шоколадина    13
 9 шоколадины     1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
   word_3         n
@@ -845,8 +746,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 8 таракан        1
 9 шоколадины     1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_1, word_2, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_1, word_2, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 21 × 3
    word_1          word_2       n
@@ -866,8 +767,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Функция <code>distinct()</code> позволяет вывести уникальное значение переменной или все уникальные комбинации значений нескольких переменных, встретившихся в датасете:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(word_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(word_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 1
   word_3    
@@ -882,8 +783,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 8 помидор   
 9 таракан   </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(word_1, word_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(word_1, word_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 21 × 2
    word_1          word_2 
@@ -903,9 +804,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Функция <code>arrange()</code> позволяет отсортировать одну или несколько переменных от меньшего к большему (если нужно наоборот — используйте функцию <code>desc()</code>). Числовые переменные сортируются по значениям, а строковые по алфавиту (с учетом особенностей локали, см. раздел <a href="4_working_with_strings.html#sec-sorting" class="quarto-xref"><span>Раздел 4.5</span></a>):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3) <span class="sc">|&gt;</span> </span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3) <span class="sc">|&gt;</span> </span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
   word_3         n
@@ -920,9 +821,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 8 барабан        4
 9 шоколадина    13</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3) <span class="sc">|&gt;</span> </span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3) <span class="sc">|&gt;</span> </span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
   word_3         n
@@ -937,9 +838,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 8 таракан        1
 9 шоколадины     1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3) <span class="sc">|&gt;</span> </span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3) <span class="sc">|&gt;</span> </span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
   word_3         n
@@ -954,9 +855,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 8 таракан        1
 9 шоколадины     1</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3) <span class="sc">|&gt;</span> </span>
-<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(word_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(word_3) <span class="sc">|&gt;</span> </span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(word_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 9 × 2
   word_3         n
@@ -970,6 +871,108 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 7 таракан        1
 8 шоколадина    13
 9 шоколадины     1</code></pre>
+</div>
+</div>
+</section>
+<section id="функция-select" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="функция-select"><span class="header-section-number">2.6</span> Функция <code>select()</code></h2>
+<p>Функция <code>select()</code> позволяет выбрать из датасета некоторый набор столбцов.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(word_1, type, n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 3
+   word_1          type           n
+   &lt;chr&gt;           &lt;chr&gt;      &lt;dbl&gt;
+ 1 жадина-говядина шоколадина   941
+ 2 жадина-говядина шоколадина    44
+ 3 жадина-говядина шоколадина   250
+ 4 жадина-говядина огурец        11
+ 5 жадина-говядина шоколадина  1117
+ 6 жадина-говядина шоколадина    12
+ 7 жадина-говядина шоколадина    29
+ 8 жадина-говядина огурец       343
+ 9 жадина-говядина шоколадина    10
+10 жадина-говядина другое        10
+# ℹ 16 more rows</code></pre>
+</div>
+</div>
+<p>Внутри функции <code>select()</code> можно использовать функции, которые позволяют не только перечислять через запятую необходимые столбцы, но и выделять их по имени:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">starts_with</span>(<span class="st">"word"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 3
+   word_1          word_2  word_3    
+   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;     
+ 1 жадина-говядина большая шоколадина
+ 2 жадина-говядина бука    шоколадина
+ 3 жадина-говядина булка   шоколадина
+ 4 жадина-говядина в *опе  огурец    
+ 5 жадина-говядина в *опе  шоколадина
+ 6 жадина-говядина гнилая  шоколадина
+ 7 жадина-говядина дома    шоколадина
+ 8 жадина-говядина зеленый огурец    
+ 9 жадина-говядина злая    шоколадина
+10 жадина-говядина кислая  капуста   
+# ℹ 16 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">ends_with</span>(<span class="st">"1"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 1
+   word_1         
+   &lt;chr&gt;          
+ 1 жадина-говядина
+ 2 жадина-говядина
+ 3 жадина-говядина
+ 4 жадина-говядина
+ 5 жадина-говядина
+ 6 жадина-говядина
+ 7 жадина-говядина
+ 8 жадина-говядина
+ 9 жадина-говядина
+10 жадина-говядина
+# ℹ 16 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="fu">matches</span>(<span class="st">"ord"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 3
+   word_1          word_2  word_3    
+   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;     
+ 1 жадина-говядина большая шоколадина
+ 2 жадина-говядина бука    шоколадина
+ 3 жадина-говядина булка   шоколадина
+ 4 жадина-говядина в *опе  огурец    
+ 5 жадина-говядина в *опе  шоколадина
+ 6 жадина-говядина гнилая  шоколадина
+ 7 жадина-говядина дома    шоколадина
+ 8 жадина-говядина зеленый огурец    
+ 9 жадина-говядина злая    шоколадина
+10 жадина-говядина кислая  капуста   
+# ℹ 16 more rows</code></pre>
+</div>
+</div>
+<p>Кроме того, внутри функции <code>select()</code> действует оператор двоеточие, который мы видели при создании векторов <code>5:10</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(word_3<span class="sc">:</span>n) <span class="co"># от колонки word_3 до колонки n</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 3
+   word_3     type           n
+   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
+ 1 шоколадина шоколадина   941
+ 2 шоколадина шоколадина    44
+ 3 шоколадина шоколадина   250
+ 4 огурец     огурец        11
+ 5 шоколадина шоколадина  1117
+ 6 шоколадина шоколадина    12
+ 7 шоколадина шоколадина    29
+ 8 огурец     огурец       343
+ 9 шоколадина шоколадина    10
+10 капуста    другое        10
+# ℹ 16 more rows</code></pre>
 </div>
 </div>
 </section>
@@ -1016,12 +1019,98 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="функция-group_by-summarise-и-group_by-mutate" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="функция-group_by-summarise-и-group_by-mutate"><span class="header-section-number">2.8</span> Функция <code>group_by() |&gt; summarise()</code> и <code>group_by() |&gt; mutate()</code></h2>
+<section id="функция-relocate" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="функция-relocate"><span class="header-section-number">2.8</span> Функция <code>relocate()</code></h2>
+<p>Функция <code>relocate()</code> позволяет перемещать переменные в таблице (по умолчанию в начало):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 5
+   type       word_1          word_2  word_3         n
+   &lt;chr&gt;      &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt;
+ 1 шоколадина жадина-говядина большая шоколадина   941
+ 2 шоколадина жадина-говядина бука    шоколадина    44
+ 3 шоколадина жадина-говядина булка   шоколадина   250
+ 4 огурец     жадина-говядина в *опе  огурец        11
+ 5 шоколадина жадина-говядина в *опе  шоколадина  1117
+ 6 шоколадина жадина-говядина гнилая  шоколадина    12
+ 7 шоколадина жадина-говядина дома    шоколадина    29
+ 8 огурец     жадина-говядина зеленый огурец       343
+ 9 шоколадина жадина-говядина злая    шоколадина    10
+10 другое     жадина-говядина кислая  капуста       10
+# ℹ 16 more rows</code></pre>
+</div>
+</div>
+<p>Если хочется перемещать в какое-то другое место, то можно использовать аргументы <code>.after</code> и <code>.before</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(n, <span class="at">.after =</span>  word_3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 5
+   word_1          word_2  word_3         n type      
+   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;     
+ 1 жадина-говядина большая шоколадина   941 шоколадина
+ 2 жадина-говядина бука    шоколадина    44 шоколадина
+ 3 жадина-говядина булка   шоколадина   250 шоколадина
+ 4 жадина-говядина в *опе  огурец        11 огурец    
+ 5 жадина-говядина в *опе  шоколадина  1117 шоколадина
+ 6 жадина-говядина гнилая  шоколадина    12 шоколадина
+ 7 жадина-говядина дома    шоколадина    29 шоколадина
+ 8 жадина-говядина зеленый огурец       343 огурец    
+ 9 жадина-говядина злая    шоколадина    10 шоколадина
+10 жадина-говядина кислая  капуста       10 другое    
+# ℹ 16 more rows</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(n, <span class="at">.before =</span>  type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 5
+   word_1          word_2  word_3         n type      
+   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;     
+ 1 жадина-говядина большая шоколадина   941 шоколадина
+ 2 жадина-говядина бука    шоколадина    44 шоколадина
+ 3 жадина-говядина булка   шоколадина   250 шоколадина
+ 4 жадина-говядина в *опе  огурец        11 огурец    
+ 5 жадина-говядина в *опе  шоколадина  1117 шоколадина
+ 6 жадина-говядина гнилая  шоколадина    12 шоколадина
+ 7 жадина-говядина дома    шоколадина    29 шоколадина
+ 8 жадина-говядина зеленый огурец       343 огурец    
+ 9 жадина-говядина злая    шоколадина    10 шоколадина
+10 жадина-говядина кислая  капуста       10 другое    
+# ℹ 16 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="функция-group_by-summarise-и-group_by-mutate" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="функция-group_by-summarise-и-group_by-mutate"><span class="header-section-number">2.9</span> Функция <code>group_by() |&gt; summarise()</code> и <code>group_by() |&gt; mutate()</code></h2>
+<p>Все предыдущие операции работали со строками и столбцами таблицами. В этом разделе мы познакомимся с операцией группировки, которая позволяет разделять таблицу на группы и агрегировать информацию по этим группам. Функция <code>group_by()</code> разделяет на группы, но саму структуру и содержание таблицы не меняет, однако при печати выводится сообщение об имени группирующей переменной и сколько всего групп:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 5
+# Groups:   type [4]
+   word_1          word_2  word_3     type           n
+   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
+ 1 жадина-говядина большая шоколадина шоколадина   941
+ 2 жадина-говядина бука    шоколадина шоколадина    44
+ 3 жадина-говядина булка   шоколадина шоколадина   250
+ 4 жадина-говядина в *опе  огурец     огурец        11
+ 5 жадина-говядина в *опе  шоколадина шоколадина  1117
+ 6 жадина-говядина гнилая  шоколадина шоколадина    12
+ 7 жадина-говядина дома    шоколадина шоколадина    29
+ 8 жадина-говядина зеленый огурец     огурец       343
+ 9 жадина-говядина злая    шоколадина шоколадина    10
+10 жадина-говядина кислая  капуста    другое        10
+# ℹ 16 more rows</code></pre>
+</div>
+</div>
+<p>После того как мы сгруппировали можно использовать функцию <code>summarise()</code> (или ее американский вариант <code>summarize()</code>), она возвращает по одному значению на каждую группу. Например, посчитаем среднее количество встречаемости для каждого типа:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
+<span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 2
   type       mean_by_type
@@ -1031,10 +1120,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3 огурец           9088  
 4 шоколадина        481. </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n),</span>
-<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_by_type =</span> <span class="fu">median</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Функций саммаризации может быть несколько:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
+<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n),</span>
+<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_by_type =</span> <span class="fu">median</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 3
   type       mean_by_type median_by_type
@@ -1044,10 +1136,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3 огурец           9088            343  
 4 шоколадина        481.            54.5</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type, word_3) <span class="sc">|&gt;</span> </span>
-<span id="cb90-3"><a href="#cb90-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n),</span>
-<span id="cb90-4"><a href="#cb90-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_by_type =</span> <span class="fu">median</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Кроме того, важно отметить, что группировка может происходить не по одной переменной, а по нескольким.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type, word_3) <span class="sc">|&gt;</span> </span>
+<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n),</span>
+<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_by_type =</span> <span class="fu">median</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'type'. You can override using the
 `.groups` argument.</code></pre>
@@ -1067,31 +1162,34 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 8 шоколадина шоколадина         509.             50
 9 шоколадина шоколадины         113             113</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type, word_3) <span class="sc">|&gt;</span> </span>
-<span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n),</span>
-<span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">median_by_type =</span> <span class="fu">median</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 7
-# Groups:   type, word_3 [9]
-   word_1          word_2  word_3     type         n mean_by_type median_by_type
-   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;    &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;
- 1 жадина-говядина большая шоколадина шоколад…   941         509.             50
- 2 жадина-говядина бука    шоколадина шоколад…    44         509.             50
- 3 жадина-говядина булка   шоколадина шоколад…   250         509.             50
- 4 жадина-говядина в *опе  огурец     огурец      11        9088             343
- 5 жадина-говядина в *опе  шоколадина шоколад…  1117         509.             50
- 6 жадина-говядина гнилая  шоколадина шоколад…    12         509.             50
- 7 жадина-говядина дома    шоколадина шоколад…    29         509.             50
- 8 жадина-говядина зеленый огурец     огурец     343        9088             343
- 9 жадина-говядина злая    шоколадина шоколад…    10         509.             50
-10 жадина-говядина кислая  капуста    другое      10          10              10
-# ℹ 16 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb95-2"><a href="#cb95-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
-<span id="cb95-3"><a href="#cb95-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n),</span>
-<span id="cb95-4"><a href="#cb95-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">median_by_type =</span> <span class="fu">median</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Важно также отметить, что в функции <code>summarise()</code> с недавних пор аргумент <code>.by</code>, который является заменой функции <code>group_by()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n),</span>
+<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">median_by_type =</span> <span class="fu">median</span>(n),</span>
+<span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> <span class="fu">c</span>(type, word_3))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 9 × 4
+  type       word_3     mean_by_type median_by_type
+  &lt;chr&gt;      &lt;chr&gt;             &lt;dbl&gt;          &lt;dbl&gt;
+1 шоколадина шоколадина         509.             50
+2 огурец     огурец            9088             343
+3 другое     капуста             10              10
+4 другое     поросятина          42              42
+5 другое     не ест              10              10
+6 шоколадина шоколадины         113             113
+7 барабан    барабан            760              13
+8 другое     помидор             17              17
+9 другое     таракан             13              13</code></pre>
+</div>
+</div>
+<p>Кроме того, функцию <code>group_by()</code> или аргумент <code>.by</code> можно использовать в связке с функцией <code>mutate()</code>. В таком случае саммаризирующий результат будет выведен не единожды для каждой группы, а присоединен к исходной таблице в виде новой переменной.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
+<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n),</span>
+<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">median_by_type =</span> <span class="fu">median</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 7
 # Groups:   type [4]
@@ -1109,14 +1207,57 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 10 жадина-говядина кислая  капуста    другое      10         18.4           13  
 # ℹ 16 more rows</code></pre>
 </div>
+<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n),</span>
+<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">median_by_type =</span> <span class="fu">median</span>(n),</span>
+<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">.by =</span> type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 7
+   word_1          word_2  word_3     type         n mean_by_type median_by_type
+   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;    &lt;dbl&gt;        &lt;dbl&gt;          &lt;dbl&gt;
+ 1 жадина-говядина большая шоколадина шоколад…   941        481.            54.5
+ 2 жадина-говядина бука    шоколадина шоколад…    44        481.            54.5
+ 3 жадина-говядина булка   шоколадина шоколад…   250        481.            54.5
+ 4 жадина-говядина в *опе  огурец     огурец      11       9088            343  
+ 5 жадина-говядина в *опе  шоколадина шоколад…  1117        481.            54.5
+ 6 жадина-говядина гнилая  шоколадина шоколад…    12        481.            54.5
+ 7 жадина-говядина дома    шоколадина шоколад…    29        481.            54.5
+ 8 жадина-говядина зеленый огурец     огурец     343       9088            343  
+ 9 жадина-говядина злая    шоколадина шоколад…    10        481.            54.5
+10 жадина-говядина кислая  капуста    другое      10         18.4           13  
+# ℹ 16 more rows</code></pre>
+</div>
+</div>
+<p>Не так часто, но все же бывает, что в большом длинном конвеере, который совмещает в себе много действий, группировка может мешать, так что ее можно снять функцией <code>ungroup()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb107-2"><a href="#cb107-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
+<span id="cb107-3"><a href="#cb107-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">mean_by_type =</span> <span class="fu">mean</span>(n)) <span class="sc">|&gt;</span> </span>
+<span id="cb107-4"><a href="#cb107-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 6
+   word_1          word_2  word_3     type           n mean_by_type
+   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;        &lt;dbl&gt;
+ 1 жадина-говядина большая шоколадина шоколадина   941        481. 
+ 2 жадина-говядина бука    шоколадина шоколадина    44        481. 
+ 3 жадина-говядина булка   шоколадина шоколадина   250        481. 
+ 4 жадина-говядина в *опе  огурец     огурец        11       9088  
+ 5 жадина-говядина в *опе  шоколадина шоколадина  1117        481. 
+ 6 жадина-говядина гнилая  шоколадина шоколадина    12        481. 
+ 7 жадина-говядина дома    шоколадина шоколадина    29        481. 
+ 8 жадина-говядина зеленый огурец     огурец       343       9088  
+ 9 жадина-говядина злая    шоколадина шоколадина    10        481. 
+10 жадина-говядина кислая  капуста    другое        10         18.4
+# ℹ 16 more rows</code></pre>
+</div>
 </div>
 </section>
-<section id="функция-across" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="функция-across"><span class="header-section-number">2.9</span> Функция <code>across()</code></h2>
+<section id="функция-across" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="функция-across"><span class="header-section-number">2.10</span> Функция <code>across()</code></h2>
 <p>Функция <code>across()</code> позволяет применять одно и то же изменение к группе колонок, которые выбираются набором функций сходных с операциями для функции <code>select()</code>. Важно отметить, что трансформация обычно описывается функцией, и имя функции обычно пишут без круглых скобок.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb97"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb97-1"><a href="#cb97-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb97-2"><a href="#cb97-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"word"</span>), toupper))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"word"</span>), toupper))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 5
    word_1          word_2  word_3     type           n
@@ -1133,8 +1274,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 10 ЖАДИНА-ГОВЯДИНА КИСЛАЯ  КАПУСТА    другое        10
 # ℹ 16 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), toupper))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), toupper))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 5
    word_1          word_2  word_3     type           n
@@ -1154,11 +1295,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Функция может так же работать в связке с функцией <code>group_by() |&gt; summarize()</code> и <code>group_by() |&gt; mutate()</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb101-2"><a href="#cb101-2" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb101-3"><a href="#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_numeric_value =</span> <span class="fu">rnorm</span>(<span class="dv">26</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb101-4"><a href="#cb101-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
-<span id="cb101-5"><a href="#cb101-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.double), mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_numeric_value =</span> <span class="fu">rnorm</span>(<span class="dv">26</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
+<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.double), mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 3
   type            n new_numeric_value
@@ -1168,12 +1309,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3 огурец     9088              0.0772
 4 шоколадина  481.             0.190 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb103-2"><a href="#cb103-2" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb103-3"><a href="#cb103-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_numeric_value =</span> <span class="fu">rnorm</span>(<span class="dv">26</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb103-4"><a href="#cb103-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
-<span id="cb103-5"><a href="#cb103-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">mean</span>(n),</span>
-<span id="cb103-6"><a href="#cb103-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">new_numeric_value =</span> <span class="fu">mean</span>(new_numeric_value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_numeric_value =</span> <span class="fu">rnorm</span>(<span class="dv">26</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
+<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">mean</span>(n),</span>
+<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">new_numeric_value =</span> <span class="fu">mean</span>(new_numeric_value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 3
   type            n new_numeric_value
@@ -1183,10 +1324,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 3 огурец     9088              0.0772
 4 шоколадина  481.             0.190 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb105-2"><a href="#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_numeric_value =</span> <span class="fu">rnorm</span>(<span class="dv">26</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb105-3"><a href="#cb105-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
-<span id="cb105-4"><a href="#cb105-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.double), mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">new_numeric_value =</span> <span class="fu">rnorm</span>(<span class="dv">26</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
+<span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.double), mean))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 6
 # Groups:   type [4]
@@ -1206,8 +1347,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="функции-семейства-pivot_..." class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="функции-семейства-pivot_..."><span class="header-section-number">2.10</span> Функции семейства <code>pivot_...()</code></h2>
+<section id="функции-семейства-pivot_..." class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="функции-семейства-pivot_..."><span class="header-section-number">2.11</span> Функции семейства <code>pivot_...()</code></h2>
 <p>Основная концепция пакет <code>tidyverse</code> строится вокруг понятия опрятный формат (tidy data). Опрятные данные означает приведение табличных данных к такому формату, в котором:</p>
 <ul>
 <li>каждая переменная имеет собственный столбец;</li>
@@ -1217,7 +1358,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Такое представление данных делает любые трансформации и визуализацию делом нескольких строк.</p>
 <p>Однако данный подход не дает четких инструкций по поводу того, что делать с наблюдениями похожего типа, которые сделаны по поводу одной единицы. Рассмотрим на примере <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w2_india_languages.csv">данных</a> количества носителей разных языков Индии:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w2_india_languages.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w2_india_languages.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Rows: 12 Columns: 5
 ── Column specification ────────────────────────────────────────────────────────
@@ -1228,7 +1369,7 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 ℹ Use `spec()` to retrieve the full column specification for this data.
 ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 5
    language    n_L1_sp  n_L2_sp  n_L3_sp  n_all_sp
@@ -1249,8 +1390,8 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 <p>Сейчас данные в так называемом <strong>широком</strong> формате. Хинди в датасете встречается единожды, но значения сколько носителей выучили его как первый/второй/третий/все вместе записаны в виде отдельных столбцов.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
-<span id="cb111-2"><a href="#cb111-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, n_L1_sp<span class="sc">:</span>n_all_sp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
+<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, n_L1_sp<span class="sc">:</span>n_all_sp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 48 × 3
    language L            value
@@ -1270,12 +1411,12 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 <p>Теперь данные представлены в длинном формате, который удобен для визуализации и каких-то трансформаций. Хинди встречается в датасете четырежды, однако информация про то какая группа носителей имеется в виду записана в переменную <code>L</code>. Более того, информация в столбце <code>n_all_sp</code> изначальна была лишней: эта инфомрация уже содержится как сумма всех остальных столбцов. Мы можем отфильтровать значения <code>n_all_sp</code> и получить их снова:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
-<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, <span class="fu">starts_with</span>(<span class="st">"n_"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(L <span class="sc">!=</span> <span class="st">"n_all_sp"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(L) <span class="sc">|&gt;</span> </span>
-<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sum =</span> <span class="fu">sum</span>(value),</span>
-<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
+<span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, <span class="fu">starts_with</span>(<span class="st">"n_"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb125-3"><a href="#cb125-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(L <span class="sc">!=</span> <span class="st">"n_all_sp"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb125-4"><a href="#cb125-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(L) <span class="sc">|&gt;</span> </span>
+<span id="cb125-5"><a href="#cb125-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">sum =</span> <span class="fu">sum</span>(value),</span>
+<span id="cb125-6"><a href="#cb125-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean =</span> <span class="fu">mean</span>(value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 3
   L             sum      mean
@@ -1287,9 +1428,9 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 <p>Функция <code>pivot_wider()</code> позволяет вновь перевести данные в широкий формат, который удобен для представления данных людям:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, <span class="fu">starts_with</span>(<span class="st">"n_"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"L"</span>, <span class="at">values_from =</span> <span class="st">"value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
+<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, <span class="fu">starts_with</span>(<span class="st">"n_"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> <span class="st">"L"</span>, <span class="at">values_from =</span> <span class="st">"value"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 12 × 5
    language    n_L1_sp  n_L2_sp  n_L3_sp  n_all_sp
@@ -1309,18 +1450,18 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 </div>
 </section>
-<section id="функции-семейства-bind_..." class="level2" data-number="2.11">
-<h2 data-number="2.11" class="anchored" data-anchor-id="функции-семейства-bind_..."><span class="header-section-number">2.11</span> Функции семейства <code>bind_...()</code></h2>
+<section id="функции-семейства-bind_..." class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="функции-семейства-bind_..."><span class="header-section-number">2.12</span> Функции семейства <code>bind_...()</code></h2>
 <p>Функции <code>bind_rows()</code> и <code>bind_cols()</code> позволяют соединять несколько таблиц. Функция <code>bind_rows()</code> присоединяет таблицу снизу, при этом она должна иметь столько же переменных и тип переменных должен совпадать с основной таблицей.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a>zhadina_new <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">word_1 =</span> <span class="st">"жадина-говядина"</span>,</span>
-<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">word_2 =</span> <span class="st">"пупецкий"</span>,</span>
-<span id="cb117-3"><a href="#cb117-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">word_3 =</span> <span class="st">"барабан"</span>,</span>
-<span id="cb117-4"><a href="#cb117-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">type =</span> <span class="st">"барабан"</span>,</span>
-<span id="cb117-5"><a href="#cb117-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">n =</span> <span class="dv">0</span>)</span>
-<span id="cb117-6"><a href="#cb117-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-7"><a href="#cb117-7" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb117-8"><a href="#cb117-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(zhadina_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb129"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb129-1"><a href="#cb129-1" aria-hidden="true" tabindex="-1"></a>zhadina_new <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">word_1 =</span> <span class="st">"жадина-говядина"</span>,</span>
+<span id="cb129-2"><a href="#cb129-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">word_2 =</span> <span class="st">"пупецкий"</span>,</span>
+<span id="cb129-3"><a href="#cb129-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">word_3 =</span> <span class="st">"барабан"</span>,</span>
+<span id="cb129-4"><a href="#cb129-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">type =</span> <span class="st">"барабан"</span>,</span>
+<span id="cb129-5"><a href="#cb129-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">n =</span> <span class="dv">0</span>)</span>
+<span id="cb129-6"><a href="#cb129-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb129-7"><a href="#cb129-7" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb129-8"><a href="#cb129-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(zhadina_new)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 27 × 5
    word_1          word_2  word_3     type           n
@@ -1340,11 +1481,11 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 <p>Функция <code>bind_cols()</code> присоединяет таблицу справа, при этом она должна иметь столько же строчек, сколько есть в с основной таблице:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a>zhadina_additional_columns <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">new_var1 =</span> <span class="fu">rnorm</span>(<span class="dv">26</span>),</span>
-<span id="cb119-2"><a href="#cb119-2" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">new_var2 =</span> letters)</span>
-<span id="cb119-3"><a href="#cb119-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb119-4"><a href="#cb119-4" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb119-5"><a href="#cb119-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(zhadina_additional_columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb131"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb131-1"><a href="#cb131-1" aria-hidden="true" tabindex="-1"></a>zhadina_additional_columns <span class="ot">&lt;-</span> <span class="fu">tibble</span>(<span class="at">new_var1 =</span> <span class="fu">rnorm</span>(<span class="dv">26</span>),</span>
+<span id="cb131-2"><a href="#cb131-2" aria-hidden="true" tabindex="-1"></a>                                     <span class="at">new_var2 =</span> letters)</span>
+<span id="cb131-3"><a href="#cb131-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb131-4"><a href="#cb131-4" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb131-5"><a href="#cb131-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_cols</span>(zhadina_additional_columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 7
    word_1          word_2  word_3     type           n new_var1 new_var2
@@ -1363,12 +1504,14 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 </div>
 </section>
-<section id="sec-joins" class="level2" data-number="2.12">
-<h2 data-number="2.12" class="anchored" data-anchor-id="sec-joins"><span class="header-section-number">2.12</span> Функции семейства <code>..._join()</code></h2>
+<section id="sec-joins" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="sec-joins"><span class="header-section-number">2.13</span> Функции семейства <code>..._join()</code></h2>
 <p>Иногда возникает ситуация, когда нужно соединить две таблицы, на основании одного или нескольких общих столбцов. Так бывает, если нужно что-то включить или исключить из анализа. Примером включения может послужить случай, когда для построения карты хочется присоединить расшифровку аббревиатур или для анализа нужны еще какие-то данные, например, размер популяции. Примером исключения может послужить случаи, когда при анализе текстов возникает задача исключения из анализа служебных слов. Эту задачу решают функции семейства <code>..._join()</code>.</p>
 <p>Синтаксис функций выглядит так (<code>A</code> и <code>B</code> — датафреймы):</p>
-<pre><code>A |&gt; 
-  ..._join(B)</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> </span>
+<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">..._join</span>(B)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <p>Вместо многоточия может стоять одна из следующих функций:</p>
 <ul>
 <li><code>inner_join()</code> — возвращает только те наблюдения в А, которым есть соответствие в B</li>
@@ -1383,23 +1526,23 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="2_data_transformation_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="2_data_transformation_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>В качесиве примера создадим новую таблицу на основе датасета продожений Жадины-говядины:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type) <span class="sc">|&gt;</span>  </span>
-<span id="cb122-3"><a href="#cb122-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">our_new_var1 =</span> n) <span class="sc">|&gt;</span> </span>
-<span id="cb122-4"><a href="#cb122-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">our_new_var2 =</span> <span class="fu">c</span>(<span class="st">"совсем редкое"</span>, </span>
-<span id="cb122-5"><a href="#cb122-5" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"редкое"</span>, </span>
-<span id="cb122-6"><a href="#cb122-6" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"второй по популярности"</span>,</span>
-<span id="cb122-7"><a href="#cb122-7" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"самый частый тип"</span>)) <span class="ot">-&gt;</span></span>
-<span id="cb122-8"><a href="#cb122-8" aria-hidden="true" tabindex="-1"></a>  type_new_var</span>
-<span id="cb122-9"><a href="#cb122-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-10"><a href="#cb122-10" aria-hidden="true" tabindex="-1"></a>type_new_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type) <span class="sc">|&gt;</span>  </span>
+<span id="cb134-3"><a href="#cb134-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">our_new_var1 =</span> n) <span class="sc">|&gt;</span> </span>
+<span id="cb134-4"><a href="#cb134-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">our_new_var2 =</span> <span class="fu">c</span>(<span class="st">"совсем редкое"</span>, </span>
+<span id="cb134-5"><a href="#cb134-5" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"редкое"</span>, </span>
+<span id="cb134-6"><a href="#cb134-6" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"второй по популярности"</span>,</span>
+<span id="cb134-7"><a href="#cb134-7" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"самый частый тип"</span>)) <span class="ot">-&gt;</span></span>
+<span id="cb134-8"><a href="#cb134-8" aria-hidden="true" tabindex="-1"></a>  type_new_var</span>
+<span id="cb134-9"><a href="#cb134-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb134-10"><a href="#cb134-10" aria-hidden="true" tabindex="-1"></a>type_new_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4 × 3
   type       our_new_var1 our_new_var2          
@@ -1411,8 +1554,8 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(type)`</code></pre>
 </div>
@@ -1435,12 +1578,12 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 <p>Мы видим, что таблицы соединились, а также появилось сообщение о том, что соединение произошло по переменной <code>type</code>. Если мы исключим одно наблюдение из нашей таблицы <code>type_new_var</code> и соединим, то на месте пропусков появятся <code>NA</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>type_new_var <span class="sc">|&gt;</span> </span>
-<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="ot">-&gt;</span></span>
-<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a>  type_new_var2</span>
-<span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb127-6"><a href="#cb127-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a>type_new_var <span class="sc">|&gt;</span> </span>
+<span id="cb139-2"><a href="#cb139-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="ot">-&gt;</span></span>
+<span id="cb139-3"><a href="#cb139-3" aria-hidden="true" tabindex="-1"></a>  type_new_var2</span>
+<span id="cb139-4"><a href="#cb139-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb139-5"><a href="#cb139-5" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb139-6"><a href="#cb139-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(type)`</code></pre>
 </div>
@@ -1463,14 +1606,14 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 <p>Если же мы присоединим к таблице <code>type_new_var</code> строчку, которой нет в нашем исходном датасете продолжений Жадины-говядины, мы получи разный результат при присоединении разными функциями. При присоединении функцией <code>left_join()</code> новой строчки не будет (26 строчек), а если мы будем присоединять при помощи <code>full_join()</code>, то она будет (27 строчек).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">type =</span> <span class="st">"карниз"</span>, </span>
-<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">our_new_var1 =</span> <span class="dv">0</span>, </span>
-<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">our_new_var2 =</span> <span class="st">"такого не бывает"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(type_new_var)<span class="ot">-&gt;</span></span>
-<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a>  type_new_var3</span>
-<span id="cb130-6"><a href="#cb130-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var3) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb142"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">type =</span> <span class="st">"карниз"</span>, </span>
+<span id="cb142-2"><a href="#cb142-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">our_new_var1 =</span> <span class="dv">0</span>, </span>
+<span id="cb142-3"><a href="#cb142-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">our_new_var2 =</span> <span class="st">"такого не бывает"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb142-4"><a href="#cb142-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(type_new_var)<span class="ot">-&gt;</span></span>
+<span id="cb142-5"><a href="#cb142-5" aria-hidden="true" tabindex="-1"></a>  type_new_var3</span>
+<span id="cb142-6"><a href="#cb142-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb142-7"><a href="#cb142-7" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb142-8"><a href="#cb142-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var3) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(type)`</code></pre>
 </div>
@@ -1490,8 +1633,8 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 10 жадина-говядина кислая  капуста    другое        10            5 редкое      
 # ℹ 16 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(type_new_var3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb145"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb145-2"><a href="#cb145-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(type_new_var3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(type)`</code></pre>
 </div>
@@ -1514,8 +1657,8 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 <p>Если мы хотим исключить наблюдения с типом шакаладина, то мы можем использовать функцию <code>anti_join</code> (я бы в такой задачи использовал простой фильтр, но мы на курсе еще встретим случаи, когда быстрее написать <code>anti_joint()</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(<span class="fu">tibble</span>(<span class="at">type =</span> <span class="st">"шоколадина"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb148"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb148-2"><a href="#cb148-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(<span class="fu">tibble</span>(<span class="at">type =</span> <span class="st">"шоколадина"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(type)`</code></pre>
 </div>
@@ -1539,10 +1682,10 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 <p>Последнее, что важно обсудить в данном разделе — что если переменные в разных таблицах по разному называются? В таком случае можно не переименовывать переменные, а эксплицитно указать изменения в аргументе <code>by</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a>type_new_var3 <span class="sc">|&gt;</span> </span>
-<span id="cb139-2"><a href="#cb139-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">new_type =</span> type) <span class="ot">-&gt;</span></span>
-<span id="cb139-3"><a href="#cb139-3" aria-hidden="true" tabindex="-1"></a>  type_new_var4</span>
-<span id="cb139-4"><a href="#cb139-4" aria-hidden="true" tabindex="-1"></a>type_new_var4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb151"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true" tabindex="-1"></a>type_new_var3 <span class="sc">|&gt;</span> </span>
+<span id="cb151-2"><a href="#cb151-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">new_type =</span> type) <span class="ot">-&gt;</span></span>
+<span id="cb151-3"><a href="#cb151-3" aria-hidden="true" tabindex="-1"></a>  type_new_var4</span>
+<span id="cb151-4"><a href="#cb151-4" aria-hidden="true" tabindex="-1"></a>type_new_var4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 3
   new_type   our_new_var1 our_new_var2          
@@ -1556,8 +1699,8 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 <p>Как видно, в переменной <code>type_new_var4</code> больше нет переменной <code>type</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var4, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"type"</span> <span class="ot">=</span> <span class="st">"new_type"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb153"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb153-2"><a href="#cb153-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var4, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"type"</span> <span class="ot">=</span> <span class="st">"new_type"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 7
    word_1          word_2  word_3     type           n our_new_var1 our_new_var2
