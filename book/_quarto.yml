@@ -3,9 +3,8 @@ project:
   output-dir: ../docs
 
 book:
-  title: "daR4hs"
+  title: "Введение в анализ данных на R для гуманитарных и социальных наук"
   author: "Г. А. Мороз"
-  repo-url: https://agricolamz.github.io/daR4hs/
   chapters:
     - index.qmd
     - 1_introduction_to_r.qmd

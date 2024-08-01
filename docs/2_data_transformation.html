@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2&nbsp; Трансформация данных – daR4hs</title>
+<title>2&nbsp; Трансформация данных – Введение в анализ данных на R для гуманитарных и социальных наук</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -130,10 +130,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">daR4hs</a> 
-        <div class="sidebar-tools-main">
-    <a href="https://agricolamz.github.io/daR4hs/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-git"></i></a>
-</div>
+      <a href="./">Введение в анализ данных на R для гуманитарных и социальных наук</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -291,14 +288,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 100 × 3
        x     y logical
    &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
- 1     1   100 c      
- 2     2    99 b      
- 3     3    98 a      
+ 1     1   100 b      
+ 2     2    99 a      
+ 3     3    98 c      
  4     4    97 c      
  5     5    96 c      
- 6     6    95 c      
- 7     7    94 c      
- 8     8    93 b      
+ 6     6    95 b      
+ 7     7    94 a      
+ 8     8    93 c      
  9     9    92 a      
 10    10    91 a      
 # ℹ 90 more rows</code></pre>
@@ -468,30 +465,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 10 × 5
    word_1          word_2   word_3     type           n
    &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
- 1 жадина-говядина турецкий таракан    другое        13
- 2 жадина-говядина турецкий барабан    барабан     3003
- 3 жадина-говядина простая  шоколадина шоколадина    59
- 4 жадина-говядина на пузе  барабан    барабан       14
- 5 жадина-говядина сухая    шоколадина шоколадина    16
- 6 жадина-говядина в *опе   шоколадина шоколадина  1117
- 7 жадина-говядина зеленый  огурец     огурец       343
- 8 жадина-говядина тупая    шоколадина шоколадина    50
- 9 жадина-говядина соленый  помидор    другое        17
-10 жадина-говядина бука     шоколадина шоколадина    44</code></pre>
+ 1 жадина-говядина в *опе   шоколадина шоколадина  1117
+ 2 жадина-говядина пустая   шоколадина шоколадина  3774
+ 3 жадина-говядина дома     шоколадина шоколадина    29
+ 4 жадина-говядина соленый  барабан    барабан       11
+ 5 жадина-говядина на пузе  барабан    барабан       14
+ 6 жадина-говядина гнилая   шоколадина шоколадина    12
+ 7 жадина-говядина сухая    шоколадина шоколадина    16
+ 8 жадина-говядина кислая   капуста    другое        10
+ 9 жадина-говядина большая  шоколадина шоколадина   941
+10 жадина-говядина немецкий барабан    барабан       12</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 5
-  word_1          word_2   word_3     type        n
-  &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;   &lt;dbl&gt;
-1 жадина-говядина кислая   капуста    другое     10
-2 жадина-говядина зеленый  огурец     огурец    343
-3 жадина-говядина соленый  барабан    барабан    11
-4 жадина-говядина соленый  огурец     огурец  26910
-5 жадина-говядина турецкий барабан    барабан  3003
-6 жадина-говядина кошка    поросятина другое     42
-7 жадина-говядина турецкий таракан    другое     13</code></pre>
+  word_1          word_2   word_3     type           n
+  &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
+1 жадина-говядина простая  шоколадина шоколадина    59
+2 жадина-говядина большая  шоколадина шоколадина   941
+3 жадина-говядина тупая    шоколадина шоколадина    50
+4 жадина-говядина турецкий таракан    другое        13
+5 жадина-говядина соленый  огурец     огурец     26910
+6 жадина-говядина никто ее не ест     другое        10
+7 жадина-говядина кислая   капуста    другое        10</code></pre>
 </div>
 </div>
 </section>
@@ -1213,9 +1210,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="2.10" class="anchored" data-anchor-id="функции-семейства-pivot_..."><span class="header-section-number">2.10</span> Функции семейства <code>pivot_...()</code></h2>
 <p>Основная концепция пакет <code>tidyverse</code> строится вокруг понятия опрятный формат (tidy data). Опрятные данные означает приведение табличных данных к такому формату, в котором:</p>
 <ul>
-<li>Каждая переменная имеет собственный столбец</li>
-<li>Каждый наблюдение имеет собственную строку</li>
-<li>Каждое значение имеет свою собственную ячейку</li>
+<li>каждая переменная имеет собственный столбец;</li>
+<li>каждый наблюдение имеет собственную строку;</li>
+<li>каждое значение имеет свою собственную ячейку.</li>
 </ul>
 <p>Такое представление данных делает любые трансформации и визуализацию делом нескольких строк.</p>
 <p>Однако данный подход не дает четких инструкций по поводу того, что делать с наблюдениями похожего типа, которые сделаны по поводу одной единицы. Рассмотрим на примере <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w2_india_languages.csv">данных</a> количества носителей разных языков Индии:</p>
@@ -1368,43 +1365,112 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </section>
 <section id="sec-joins" class="level2" data-number="2.12">
 <h2 data-number="2.12" class="anchored" data-anchor-id="sec-joins"><span class="header-section-number">2.12</span> Функции семейства <code>..._join()</code></h2>
+<p>Иногда возникает ситуация, когда нужно соединить две таблицы, на основании одного или нескольких общих столбцов. Так бывает, если нужно что-то включить или исключить из анализа. Примером включения может послужить случай, когда для построения карты хочется присоединить расшифровку аббревиатур или для анализа нужны еще какие-то данные, например, размер популяции. Примером исключения может послужить случаи, когда при анализе текстов возникает задача исключения из анализа служебных слов. Эту задачу решают функции семейства <code>..._join()</code>.</p>
+<p>Синтаксис функций выглядит так (<code>A</code> и <code>B</code> — датафреймы):</p>
+<pre><code>A |&gt; 
+  ..._join(B)</code></pre>
+<p>Вместо многоточия может стоять одна из следующих функций:</p>
+<ul>
+<li><code>inner_join()</code> — возвращает только те наблюдения в А, которым есть соответствие в B</li>
+<li><code>full_join()</code> — возвращает все наблюдения из А и из B</li>
+<li><code>left_join()</code> — возвращает все наблюдения из А, а если им нет соответствия в B появляется <code>NA</code>. Наблюдения из B, которым нет соответствия в А, исключаются.</li>
+<li><code>right_join()</code> — возвращает все наблюдения из B, а если им нет соответствия в A появляется <code>NA</code>. Наблюдения из A, которым нет соответствия в B, исключаются.</li>
+<li><code>anti_join()</code> — возвращает все наблюдения из А, которым нет соответствия в B.</li>
+<li><code>semi_join()</code> — возвращает все наблюдения из А, которым есть соответствия в B, но при этом игнорирует дополнительные столбцы из B.</li>
+</ul>
+<p>Все эти объединений можно проиллюстрировать при помощи диаграмм Венна:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb121"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb121-1"><a href="#cb121-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb121-2"><a href="#cb121-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(type) <span class="sc">|&gt;</span> </span>
-<span id="cb121-3"><a href="#cb121-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">our_new_var1 =</span> <span class="fu">rnorm</span>(<span class="dv">4</span>),</span>
-<span id="cb121-4"><a href="#cb121-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">our_new_var2 =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]) <span class="ot">-&gt;</span></span>
-<span id="cb121-5"><a href="#cb121-5" aria-hidden="true" tabindex="-1"></a>  type_new_var</span>
-<span id="cb121-6"><a href="#cb121-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb121-7"><a href="#cb121-7" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb121-8"><a href="#cb121-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Joining with `by = join_by(type)`</code></pre>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="2_data_transformation_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
+</div>
+</div>
+<p>В качесиве примера создадим новую таблицу на основе датасета продожений Жадины-говядины:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb122-2"><a href="#cb122-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type) <span class="sc">|&gt;</span>  </span>
+<span id="cb122-3"><a href="#cb122-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">our_new_var1 =</span> n) <span class="sc">|&gt;</span> </span>
+<span id="cb122-4"><a href="#cb122-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">our_new_var2 =</span> <span class="fu">c</span>(<span class="st">"совсем редкое"</span>, </span>
+<span id="cb122-5"><a href="#cb122-5" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"редкое"</span>, </span>
+<span id="cb122-6"><a href="#cb122-6" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"второй по популярности"</span>,</span>
+<span id="cb122-7"><a href="#cb122-7" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"самый частый тип"</span>)) <span class="ot">-&gt;</span></span>
+<span id="cb122-8"><a href="#cb122-8" aria-hidden="true" tabindex="-1"></a>  type_new_var</span>
+<span id="cb122-9"><a href="#cb122-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb122-10"><a href="#cb122-10" aria-hidden="true" tabindex="-1"></a>type_new_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 7
-   word_1          word_2  word_3     type           n our_new_var1 our_new_var2
-   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       
- 1 жадина-говядина большая шоколадина шоколадина   941       -0.886 a           
- 2 жадина-говядина бука    шоколадина шоколадина    44       -0.886 a           
- 3 жадина-говядина булка   шоколадина шоколадина   250       -0.886 a           
- 4 жадина-говядина в *опе  огурец     огурец        11       -1.10  b           
- 5 жадина-говядина в *опе  шоколадина шоколадина  1117       -0.886 a           
- 6 жадина-говядина гнилая  шоколадина шоколадина    12       -0.886 a           
- 7 жадина-говядина дома    шоколадина шоколадина    29       -0.886 a           
- 8 жадина-говядина зеленый огурец     огурец       343       -1.10  b           
- 9 жадина-говядина злая    шоколадина шоколадина    10       -0.886 a           
-10 жадина-говядина кислая  капуста    другое        10        1.51  c           
-# ℹ 16 more rows</code></pre>
+<pre><code># A tibble: 4 × 3
+  type       our_new_var1 our_new_var2          
+  &lt;chr&gt;             &lt;int&gt; &lt;chr&gt;                 
+1 барабан               4 совсем редкое         
+2 другое                5 редкое                
+3 огурец                3 второй по популярности
+4 шоколадина           14 самый частый тип      </code></pre>
 </div>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb124"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb124-1"><a href="#cb124-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(type) <span class="sc">|&gt;</span> </span>
-<span id="cb124-3"><a href="#cb124-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">our_new_var1 =</span> <span class="fu">rnorm</span>(<span class="dv">4</span>),</span>
-<span id="cb124-4"><a href="#cb124-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">our_new_var2 =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]) <span class="sc">|&gt;</span> </span>
-<span id="cb124-5"><a href="#cb124-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="ot">-&gt;</span></span>
-<span id="cb124-6"><a href="#cb124-6" aria-hidden="true" tabindex="-1"></a>  type_new_var2</span>
-<span id="cb124-7"><a href="#cb124-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb124-8"><a href="#cb124-8" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb124-9"><a href="#cb124-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb124-2"><a href="#cb124-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(type)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 7
+   word_1          word_2  word_3     type           n our_new_var1 our_new_var2
+   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;        &lt;int&gt; &lt;chr&gt;       
+ 1 жадина-говядина большая шоколадина шоколадина   941           14 самый часты…
+ 2 жадина-говядина бука    шоколадина шоколадина    44           14 самый часты…
+ 3 жадина-говядина булка   шоколадина шоколадина   250           14 самый часты…
+ 4 жадина-говядина в *опе  огурец     огурец        11            3 второй по п…
+ 5 жадина-говядина в *опе  шоколадина шоколадина  1117           14 самый часты…
+ 6 жадина-говядина гнилая  шоколадина шоколадина    12           14 самый часты…
+ 7 жадина-говядина дома    шоколадина шоколадина    29           14 самый часты…
+ 8 жадина-говядина зеленый огурец     огурец       343            3 второй по п…
+ 9 жадина-говядина злая    шоколадина шоколадина    10           14 самый часты…
+10 жадина-говядина кислая  капуста    другое        10            5 редкое      
+# ℹ 16 more rows</code></pre>
+</div>
+</div>
+<p>Мы видим, что таблицы соединились, а также появилось сообщение о том, что соединение произошло по переменной <code>type</code>. Если мы исключим одно наблюдение из нашей таблицы <code>type_new_var</code> и соединим, то на месте пропусков появятся <code>NA</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>type_new_var <span class="sc">|&gt;</span> </span>
+<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="ot">-&gt;</span></span>
+<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a>  type_new_var2</span>
+<span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb127-6"><a href="#cb127-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(type)`</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 26 × 7
+   word_1          word_2  word_3     type           n our_new_var1 our_new_var2
+   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;        &lt;int&gt; &lt;chr&gt;       
+ 1 жадина-говядина большая шоколадина шоколадина   941           14 самый часты…
+ 2 жадина-говядина бука    шоколадина шоколадина    44           14 самый часты…
+ 3 жадина-говядина булка   шоколадина шоколадина   250           14 самый часты…
+ 4 жадина-говядина в *опе  огурец     огурец        11            3 второй по п…
+ 5 жадина-говядина в *опе  шоколадина шоколадина  1117           14 самый часты…
+ 6 жадина-говядина гнилая  шоколадина шоколадина    12           14 самый часты…
+ 7 жадина-говядина дома    шоколадина шоколадина    29           14 самый часты…
+ 8 жадина-говядина зеленый огурец     огурец       343            3 второй по п…
+ 9 жадина-говядина злая    шоколадина шоколадина    10           14 самый часты…
+10 жадина-говядина кислая  капуста    другое        10            5 редкое      
+# ℹ 16 more rows</code></pre>
+</div>
+</div>
+<p>Если же мы присоединим к таблице <code>type_new_var</code> строчку, которой нет в нашем исходном датасете продолжений Жадины-говядины, мы получи разный результат при присоединении разными функциями. При присоединении функцией <code>left_join()</code> новой строчки не будет (26 строчек), а если мы будем присоединять при помощи <code>full_join()</code>, то она будет (27 строчек).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">type =</span> <span class="st">"карниз"</span>, </span>
+<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">our_new_var1 =</span> <span class="dv">0</span>, </span>
+<span id="cb130-3"><a href="#cb130-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">our_new_var2 =</span> <span class="st">"такого не бывает"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb130-4"><a href="#cb130-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(type_new_var)<span class="ot">-&gt;</span></span>
+<span id="cb130-5"><a href="#cb130-5" aria-hidden="true" tabindex="-1"></a>  type_new_var3</span>
+<span id="cb130-6"><a href="#cb130-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb130-7"><a href="#cb130-7" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb130-8"><a href="#cb130-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var3) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(type)`</code></pre>
 </div>
@@ -1412,51 +1478,20 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 <pre><code># A tibble: 26 × 7
    word_1          word_2  word_3     type           n our_new_var1 our_new_var2
    &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       
- 1 жадина-говядина большая шоколадина шоколадина   941       NA     &lt;NA&gt;        
- 2 жадина-говядина бука    шоколадина шоколадина    44       NA     &lt;NA&gt;        
- 3 жадина-говядина булка   шоколадина шоколадина   250       NA     &lt;NA&gt;        
- 4 жадина-говядина в *опе  огурец     огурец        11       -0.121 b           
- 5 жадина-говядина в *опе  шоколадина шоколадина  1117       NA     &lt;NA&gt;        
- 6 жадина-говядина гнилая  шоколадина шоколадина    12       NA     &lt;NA&gt;        
- 7 жадина-говядина дома    шоколадина шоколадина    29       NA     &lt;NA&gt;        
- 8 жадина-говядина зеленый огурец     огурец       343       -0.121 b           
- 9 жадина-говядина злая    шоколадина шоколадина    10       NA     &lt;NA&gt;        
-10 жадина-говядина кислая  капуста    другое        10       -1.19  c           
+ 1 жадина-говядина большая шоколадина шоколадина   941           14 самый часты…
+ 2 жадина-говядина бука    шоколадина шоколадина    44           14 самый часты…
+ 3 жадина-говядина булка   шоколадина шоколадина   250           14 самый часты…
+ 4 жадина-говядина в *опе  огурец     огурец        11            3 второй по п…
+ 5 жадина-говядина в *опе  шоколадина шоколадина  1117           14 самый часты…
+ 6 жадина-говядина гнилая  шоколадина шоколадина    12           14 самый часты…
+ 7 жадина-говядина дома    шоколадина шоколадина    29           14 самый часты…
+ 8 жадина-говядина зеленый огурец     огурец       343            3 второй по п…
+ 9 жадина-говядина злая    шоколадина шоколадина    10           14 самый часты…
+10 жадина-говядина кислая  капуста    другое        10            5 редкое      
 # ℹ 16 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb127"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb127-1"><a href="#cb127-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb127-2"><a href="#cb127-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(type) <span class="sc">|&gt;</span> </span>
-<span id="cb127-3"><a href="#cb127-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">our_new_var1 =</span> <span class="fu">rnorm</span>(<span class="dv">4</span>),</span>
-<span id="cb127-4"><a href="#cb127-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">our_new_var2 =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]) <span class="sc">|&gt;</span> </span>
-<span id="cb127-5"><a href="#cb127-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="sc">-</span><span class="dv">1</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb127-6"><a href="#cb127-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bind_rows</span>(<span class="fu">tibble</span>(<span class="at">type =</span> <span class="st">"карниз"</span>, </span>
-<span id="cb127-7"><a href="#cb127-7" aria-hidden="true" tabindex="-1"></a>                   <span class="at">our_new_var1 =</span> <span class="dv">0</span>, </span>
-<span id="cb127-8"><a href="#cb127-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">our_new_var2 =</span> <span class="st">"R"</span>))<span class="ot">-&gt;</span></span>
-<span id="cb127-9"><a href="#cb127-9" aria-hidden="true" tabindex="-1"></a>  type_new_var2</span>
-<span id="cb127-10"><a href="#cb127-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb127-11"><a href="#cb127-11" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb127-12"><a href="#cb127-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var2) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Joining with `by = join_by(type)`</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 26 × 7
-   word_1          word_2  word_3     type           n our_new_var1 our_new_var2
-   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       
- 1 жадина-говядина большая шоколадина шоколадина   941       NA     &lt;NA&gt;        
- 2 жадина-говядина бука    шоколадина шоколадина    44       NA     &lt;NA&gt;        
- 3 жадина-говядина булка   шоколадина шоколадина   250       NA     &lt;NA&gt;        
- 4 жадина-говядина в *опе  огурец     огурец        11       -0.183 b           
- 5 жадина-говядина в *опе  шоколадина шоколадина  1117       NA     &lt;NA&gt;        
- 6 жадина-говядина гнилая  шоколадина шоколадина    12       NA     &lt;NA&gt;        
- 7 жадина-говядина дома    шоколадина шоколадина    29       NA     &lt;NA&gt;        
- 8 жадина-говядина зеленый огурец     огурец       343       -0.183 b           
- 9 жадина-говядина злая    шоколадина шоколадина    10       NA     &lt;NA&gt;        
-10 жадина-говядина кислая  капуста    другое        10        0.933 c           
-# ℹ 16 more rows</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb130"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb130-1"><a href="#cb130-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb130-2"><a href="#cb130-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(type_new_var2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">full_join</span>(type_new_var3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(type)`</code></pre>
 </div>
@@ -1464,20 +1499,23 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 <pre><code># A tibble: 27 × 7
    word_1          word_2  word_3     type           n our_new_var1 our_new_var2
    &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       
- 1 жадина-говядина большая шоколадина шоколадина   941       NA     &lt;NA&gt;        
- 2 жадина-говядина бука    шоколадина шоколадина    44       NA     &lt;NA&gt;        
- 3 жадина-говядина булка   шоколадина шоколадина   250       NA     &lt;NA&gt;        
- 4 жадина-говядина в *опе  огурец     огурец        11       -0.183 b           
- 5 жадина-говядина в *опе  шоколадина шоколадина  1117       NA     &lt;NA&gt;        
- 6 жадина-говядина гнилая  шоколадина шоколадина    12       NA     &lt;NA&gt;        
- 7 жадина-говядина дома    шоколадина шоколадина    29       NA     &lt;NA&gt;        
- 8 жадина-говядина зеленый огурец     огурец       343       -0.183 b           
- 9 жадина-говядина злая    шоколадина шоколадина    10       NA     &lt;NA&gt;        
-10 жадина-говядина кислая  капуста    другое        10        0.933 c           
+ 1 жадина-говядина большая шоколадина шоколадина   941           14 самый часты…
+ 2 жадина-говядина бука    шоколадина шоколадина    44           14 самый часты…
+ 3 жадина-говядина булка   шоколадина шоколадина   250           14 самый часты…
+ 4 жадина-говядина в *опе  огурец     огурец        11            3 второй по п…
+ 5 жадина-говядина в *опе  шоколадина шоколадина  1117           14 самый часты…
+ 6 жадина-говядина гнилая  шоколадина шоколадина    12           14 самый часты…
+ 7 жадина-говядина дома    шоколадина шоколадина    29           14 самый часты…
+ 8 жадина-говядина зеленый огурец     огурец       343            3 второй по п…
+ 9 жадина-говядина злая    шоколадина шоколадина    10           14 самый часты…
+10 жадина-говядина кислая  капуста    другое        10            5 редкое      
 # ℹ 17 more rows</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb133-2"><a href="#cb133-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(<span class="fu">tibble</span>(<span class="at">type =</span> <span class="st">"шоколадина"</span>)) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Если мы хотим исключить наблюдения с типом шакаладина, то мы можем использовать функцию <code>anti_join</code> (я бы в такой задачи использовал простой фильтр, но мы на курсе еще встретим случаи, когда быстрее написать <code>anti_joint()</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(<span class="fu">tibble</span>(<span class="at">type =</span> <span class="st">"шоколадина"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(type)`</code></pre>
 </div>
@@ -1498,30 +1536,42 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 11 жадина-говядина турецкий барабан    барабан  3003
 12 жадина-говядина турецкий таракан    другое     13</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb136"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb136-1"><a href="#cb136-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb136-2"><a href="#cb136-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>(type) <span class="sc">|&gt;</span> </span>
-<span id="cb136-3"><a href="#cb136-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">our_new_var1 =</span> <span class="fu">rnorm</span>(<span class="dv">4</span>),</span>
-<span id="cb136-4"><a href="#cb136-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">our_new_var2 =</span> letters[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]) <span class="sc">|&gt;</span> </span>
-<span id="cb136-5"><a href="#cb136-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">new_type =</span> type) <span class="ot">-&gt;</span></span>
-<span id="cb136-6"><a href="#cb136-6" aria-hidden="true" tabindex="-1"></a>  type_new_var3</span>
-<span id="cb136-7"><a href="#cb136-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-8"><a href="#cb136-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb136-9"><a href="#cb136-9" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
-<span id="cb136-10"><a href="#cb136-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var3, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"type"</span> <span class="ot">=</span> <span class="st">"new_type"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Последнее, что важно обсудить в данном разделе — что если переменные в разных таблицах по разному называются? В таком случае можно не переименовывать переменные, а эксплицитно указать изменения в аргументе <code>by</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb139"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb139-1"><a href="#cb139-1" aria-hidden="true" tabindex="-1"></a>type_new_var3 <span class="sc">|&gt;</span> </span>
+<span id="cb139-2"><a href="#cb139-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">new_type =</span> type) <span class="ot">-&gt;</span></span>
+<span id="cb139-3"><a href="#cb139-3" aria-hidden="true" tabindex="-1"></a>  type_new_var4</span>
+<span id="cb139-4"><a href="#cb139-4" aria-hidden="true" tabindex="-1"></a>type_new_var4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  new_type   our_new_var1 our_new_var2          
+  &lt;chr&gt;             &lt;dbl&gt; &lt;chr&gt;                 
+1 карниз                0 такого не бывает      
+2 барабан               4 совсем редкое         
+3 другое                5 редкое                
+4 огурец                3 второй по популярности
+5 шоколадина           14 самый частый тип      </code></pre>
+</div>
+</div>
+<p>Как видно, в переменной <code>type_new_var4</code> больше нет переменной <code>type</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb141"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb141-1"><a href="#cb141-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
+<span id="cb141-2"><a href="#cb141-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(type_new_var4, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"type"</span> <span class="ot">=</span> <span class="st">"new_type"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 26 × 7
    word_1          word_2  word_3     type           n our_new_var1 our_new_var2
    &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;       
- 1 жадина-говядина большая шоколадина шоколадина   941        1.39  a           
- 2 жадина-говядина бука    шоколадина шоколадина    44        1.39  a           
- 3 жадина-говядина булка   шоколадина шоколадина   250        1.39  a           
- 4 жадина-говядина в *опе  огурец     огурец        11       -0.476 b           
- 5 жадина-говядина в *опе  шоколадина шоколадина  1117        1.39  a           
- 6 жадина-говядина гнилая  шоколадина шоколадина    12        1.39  a           
- 7 жадина-говядина дома    шоколадина шоколадина    29        1.39  a           
- 8 жадина-говядина зеленый огурец     огурец       343       -0.476 b           
- 9 жадина-говядина злая    шоколадина шоколадина    10        1.39  a           
-10 жадина-говядина кислая  капуста    другое        10        0.650 c           
+ 1 жадина-говядина большая шоколадина шоколадина   941           14 самый часты…
+ 2 жадина-говядина бука    шоколадина шоколадина    44           14 самый часты…
+ 3 жадина-говядина булка   шоколадина шоколадина   250           14 самый часты…
+ 4 жадина-говядина в *опе  огурец     огурец        11            3 второй по п…
+ 5 жадина-говядина в *опе  шоколадина шоколадина  1117           14 самый часты…
+ 6 жадина-говядина гнилая  шоколадина шоколадина    12           14 самый часты…
+ 7 жадина-говядина дома    шоколадина шоколадина    29           14 самый часты…
+ 8 жадина-говядина зеленый огурец     огурец       343            3 второй по п…
+ 9 жадина-говядина злая    шоколадина шоколадина    10           14 самый часты…
+10 жадина-говядина кислая  капуста    другое        10            5 редкое      
 # ℹ 16 more rows</code></pre>
 </div>
 </div>
