@@ -252,7 +252,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>Не существует какого-то единого алгоритма анализа текстов, многое зависит от задач. Однако все обычные сферы анализа данных применимы к текстам: иногда нужно выделить какие-то составляющие текста (частота встречаемости каких-то единиц, сентимент анализ), иногда нужно выделить уникальные единицы свойственные какой-то группе текстов (мера tf-idf), иногда нужно кластеризовать тексты, чтобы найти похожие/разные тексты (например, класическая задача определения спамерских сообщений). Такие задачи находятся на стыке лингвистики и компьютерных наук. Существуют и более сложные/интеллектуальные задачи, которые традиционно относят к области исскуственного интеллекта, такие как перевод с одного языка на другой, саммаризация текста, вопросно-ответные системы и другие. В данном разделе мы коснемся лишь первой группы задач и пакетов, написанных на R для их решения.</p>
+<p>Не существует какого-то единого алгоритма анализа текстов, многое зависит от задач. Однако все обычные сферы анализа данных применимы к текстам: иногда нужно выделить какие-то составляющие текста (частота встречаемости каких-то единиц, сентимент анализ), иногда нужно выделить уникальные единицы свойственные какой-то группе текстов (мера tf-idf), иногда нужно кластеризовать тексты, чтобы найти похожие/разные тексты (например, классическая задача определения спамерских сообщений). Такие задачи находятся на стыке лингвистики и компьютерных наук. Существуют и более сложные/интеллектуальные задачи, которые традиционно относят к области искусственного интеллекта, такие как перевод с одного языка на другой, саммаризация текста, вопросно-ответные системы и другие. В данном разделе мы коснемся лишь первой группы задач и пакетов, написанных на R, для их решения.</p>
 <section id="sec-encoding" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="sec-encoding"><span class="header-section-number">5.1</span> Загрузка текстов в R</h2>
 <div class="cell">
@@ -285,7 +285,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 [20] ""                                                                        </code></pre>
 </div>
 </div>
-<p>В большинстве случаев, тексты получится считать, однако иногда при работе со старыми архивами могут возникнуть проблемы с кодировками, например, все тексты в старейшей интернет-библиотеке на русском языке — библиотеке Максима Машкова (<a href="lib.ru">lib.ru</a>) — записаны в <code>KOI8-R</code>:</p>
+<p>В большинстве случаев тексты получится считать, однако иногда при работе со старыми архивами могут возникнуть проблемы с кодировками. Например, все тексты в старейшей интернет-библиотеке на русском языке — библиотеке Максима Машкова (<a href="lib.ru">lib.ru</a>) — записаны в <code>KOI8-R</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_lines</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_the_captains_daughter_koi8r.txt"</span>,</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">n_max =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -896,7 +896,7 @@ Joining with `by = join_by(ngram_2)`</code></pre>
 </section>
 <section id="пакет-stopwords" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="пакет-stopwords"><span class="header-section-number">5.4</span> Пакет <code>stopwords</code></h2>
-<p>Выше мы упомянули, что в пакет <code>tidytext</code> встроен список английских стоп-слов. Стоп-слова для других язков можно раздобыть списки для других языков, используя пакет <code>stopwords</code>. Вместо имени языка, функция принимает ISO код языыка:</p>
+<p>Выше мы упомянули, что в пакет <code>tidytext</code> встроен список английских стоп-слов. Стоп-слова для других языков можно раздобыть в пакете <code>stopwords</code>. Вместо имени языка, функция принимает ISO код языка:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stopwords)</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">stopwords</span>(<span class="st">"ru"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1382,7 +1382,7 @@ Joining with `by = join_by(ngram_2)`</code></pre>
 </section>
 <section id="векторизация-текстов" class="level2" data-number="5.6">
 <h2 data-number="5.6" class="anchored" data-anchor-id="векторизация-текстов"><span class="header-section-number">5.6</span> Векторизация текстов</h2>
-<p>Векторизация слов и текстов — это операция, которая позволяет превратить наборы текстов в набор числовых значений, которые потом можно использовать для кластеризации текстов. Мы будем использовать для этой цели дефолтные значения достаточно старых моделей, которые мы используем в практике из-за их скорости. Датасет, который мы будем векторизовывать содержит 300 аннотаций из научных журналов по трем тематикам: лингвистике, медицине и экономике (каждой дисциплины по 100 аннотаций).</p>
+<p>Векторизация слов и текстов — это операция, которая позволяет превратить наборы текстов в набор числовых значений, который потом можно использовать для кластеризации текстов. Мы будем использовать для этой цели дефолтные значения достаточно старых моделей, которые мы используем в практике из-за их скорости. Датасет, который мы будем векторизовывать содержит 300 аннотаций из научных журналов по трем тематикам: лингвистике, медицине и экономике (каждой дисциплины по 100 аннотаций).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a>abstracts_dataset <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w5_abstracts.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">

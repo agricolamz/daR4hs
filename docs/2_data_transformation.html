@@ -307,16 +307,16 @@ div.csl-indent {
 <pre><code># A tibble: 100 × 3
        x     y logical
    &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
- 1     1   100 b      
+ 1     1   100 a      
  2     2    99 b      
- 3     3    98 b      
- 4     4    97 a      
- 5     5    96 b      
+ 3     3    98 c      
+ 4     4    97 b      
+ 5     5    96 c      
  6     6    95 b      
- 7     7    94 c      
- 8     8    93 a      
- 9     9    92 b      
-10    10    91 c      
+ 7     7    94 a      
+ 8     8    93 b      
+ 9     9    92 c      
+10    10    91 a      
 # ℹ 90 more rows</code></pre>
 </div>
 </div>
@@ -345,7 +345,7 @@ div.csl-indent {
 </section>
 <section id="функции-семейства-slice" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="функции-семейства-slice"><span class="header-section-number">2.3</span> Функции семейства <code>slice()</code></h2>
-<p>Дальше мы посмотрим на фрагмент данных из <a href="https://nplus1.ru/material/2019/06/19/greedy">“Исследования дразнилки”Жадина-говядина” издания N+1</a>, где исследовались социолингвистические аспекты влияющие на тенденцию к тому или иному продолжению. Переменные <code>word_1</code>, <code>word_2</code> и <code>word_3</code> соотвествуют разным вариантам начала, переменная <code>type</code> описывает классификацию, которую варианту дали исследователи, а переменная <code>n</code> отвечает за количество этих вариантов в данных.</p>
+<p>Дальше мы посмотрим на фрагмент данных из <a href="https://nplus1.ru/material/2019/06/19/greedy">“Исследования дразнилки”Жадина-говядина” издания N+1</a>, где исследовались социолингвистические аспекты, влияющие на тенденцию к тому или иному продолжению. Переменные <code>word_1</code>, <code>word_2</code> и <code>word_3</code> соотвествуют разным вариантам начала, переменная <code>type</code> описывает классификацию, которую варианту дали исследователи, а переменная <code>n</code> отвечает за количество этих вариантов в данных.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w2_zhadina.csv"</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>zhadina</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -406,7 +406,7 @@ div.csl-indent {
 20 жадина-говядина турецкий барабан    барабан     3003</code></pre>
 </div>
 </div>
-<p>Стоит обратить внимание, что результат работы функции выводится в консоль, чтобы сохранить результат работы, следует сделать операцию приписывания одним из следующих способов (первый наиболее распространенный):</p>
+<p>Стоит обратить внимание, что результат работы функции выводится в консоль. Чтобы сохранить результат работы, следует сделать операцию приписывания одним из следующих способов (первый наиболее распространенный):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>new_zhadina <span class="ot">&lt;-</span> zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">6</span><span class="sc">:</span><span class="dv">25</span>)</span>
@@ -484,18 +484,18 @@ div.csl-indent {
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">n =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 5
-   word_1          word_2   word_3     type           n
-   &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
- 1 жадина-говядина тупая    шоколадина шоколадина    50
- 2 жадина-говядина в *опе   огурец     огурец        11
- 3 жадина-говядина соленый  барабан    барабан       11
- 4 жадина-говядина кислая   капуста    другое        10
- 5 жадина-говядина бука     шоколадина шоколадина    44
- 6 жадина-говядина немецкий барабан    барабан       12
- 7 жадина-говядина в *опе   шоколадина шоколадина  1117
- 8 жадина-говядина кошка    поросятина другое        42
- 9 жадина-говядина злая     шоколадина шоколадина    10
-10 жадина-говядина соленый  помидор    другое        17</code></pre>
+   word_1          word_2  word_3     type           n
+   &lt;chr&gt;           &lt;chr&gt;   &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
+ 1 жадина-говядина дома    шоколадина шоколадина    29
+ 2 жадина-говядина кошка   шоколадина шоколадина    18
+ 3 жадина-говядина соленый барабан    барабан       11
+ 4 жадина-говядина кусок   шоколадины шоколадина   113
+ 5 жадина-говядина в *опе  огурец     огурец        11
+ 6 жадина-говядина булка   шоколадина шоколадина   250
+ 7 жадина-говядина пустая  шоколадина шоколадина  3774
+ 8 жадина-говядина тупая   шоколадина шоколадина    50
+ 9 жадина-говядина в *опе  шоколадина шоколадина  1117
+10 жадина-говядина сухая   шоколадина шоколадина    16</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -503,13 +503,13 @@ div.csl-indent {
 <pre><code># A tibble: 7 × 5
   word_1          word_2   word_3     type           n
   &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
-1 жадина-говядина пустая   шоколадина шоколадина  3774
-2 жадина-говядина бука     шоколадина шоколадина    44
-3 жадина-говядина кошка    поросятина другое        42
-4 жадина-говядина зеленый  огурец     огурец       343
-5 жадина-говядина соленый  огурец     огурец     26910
-6 жадина-говядина турецкий барабан    барабан     3003
-7 жадина-говядина тупая    шоколадина шоколадина    50</code></pre>
+1 жадина-говядина немецкий барабан    барабан       12
+2 жадина-говядина кошка    поросятина другое        42
+3 жадина-говядина булка    шоколадина шоколадина   250
+4 жадина-говядина простая  шоколадина шоколадина    59
+5 жадина-говядина турецкий барабан    барабан     3003
+6 жадина-говядина на пузе  барабан    барабан       14
+7 жадина-говядина *опа     шоколадина шоколадина   299</code></pre>
 </div>
 </div>
 </section>
@@ -1102,7 +1102,7 @@ div.csl-indent {
 </section>
 <section id="функция-group_by-summarise-и-group_by-mutate" class="level2" data-number="2.9">
 <h2 data-number="2.9" class="anchored" data-anchor-id="функция-group_by-summarise-и-group_by-mutate"><span class="header-section-number">2.9</span> Функция <code>group_by() |&gt; summarise()</code> и <code>group_by() |&gt; mutate()</code></h2>
-<p>Все предыдущие операции работали со строками и столбцами таблицами. В этом разделе мы познакомимся с операцией группировки, которая позволяет разделять таблицу на группы и агрегировать информацию по этим группам. Функция <code>group_by()</code> разделяет на группы, но саму структуру и содержание таблицы не меняет, однако при печати выводится сообщение об имени группирующей переменной и сколько всего групп:</p>
+<p>Все предыдущие операции работали со строками и столбцами таблиц. В этом разделе мы познакомимся с операцией группировки, которая позволяет разделять таблицу на группы и агрегировать информацию по этим группам. Функция <code>group_by()</code> разделяет на группы, но саму структуру и содержание таблицы не меняет, однако при печати выводится сообщение об имени группирующей переменной и числа групп:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1124,7 +1124,7 @@ div.csl-indent {
 # ℹ 16 more rows</code></pre>
 </div>
 </div>
-<p>После того как мы сгруппировали можно использовать функцию <code>summarise()</code> (или ее американский вариант <code>summarize()</code>), она возвращает по одному значению на каждую группу. Например, посчитаем среднее количество встречаемости для каждого типа:</p>
+<p>После группировки можно использовать функцию <code>summarise()</code> (или ее американский вариант <code>summarize()</code>), которая возвращает по одному значению на каждую группу. Например, посчитаем среднее количество встречаемости для каждого типа:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(type) <span class="sc">|&gt;</span> </span>
@@ -1272,7 +1272,7 @@ div.csl-indent {
 </section>
 <section id="функция-across" class="level2" data-number="2.10">
 <h2 data-number="2.10" class="anchored" data-anchor-id="функция-across"><span class="header-section-number">2.10</span> Функция <code>across()</code></h2>
-<p>Функция <code>across()</code> позволяет применять одно и то же изменение к группе колонок, которые выбираются набором функций сходных с операциями для функции <code>select()</code>. Важно отметить, что трансформация обычно описывается функцией, и имя функции обычно пишут без круглых скобок.</p>
+<p>Функция <code>across()</code> позволяет применять одно и то же изменение к группе колонок, которые выбираются набором функций, сходных с операциями для функции <code>select()</code>. Важно отметить, что трансформация обычно описывается функцией, и имя функции обычно пишут без круглых скобок.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb109-2"><a href="#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"word"</span>), toupper))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1367,10 +1367,10 @@ div.csl-indent {
 </section>
 <section id="функции-семейства-pivot_..." class="level2" data-number="2.11">
 <h2 data-number="2.11" class="anchored" data-anchor-id="функции-семейства-pivot_..."><span class="header-section-number">2.11</span> Функции семейства <code>pivot_...()</code></h2>
-<p>Основная концепция пакет <code>tidyverse</code> строится вокруг понятия опрятный формат (tidy data). Опрятные данные означает приведение табличных данных к такому формату, в котором:</p>
+<p>Основная концепция пакет <code>tidyverse</code> строится вокруг понятия “опрятный формат” (tidy data). Это понятие означает приведение табличных данных к такому формату, в котором:</p>
 <ul>
 <li>каждая переменная имеет собственный столбец;</li>
-<li>каждый наблюдение имеет собственную строку;</li>
+<li>каждое наблюдение имеет собственную строку;</li>
 <li>каждое значение имеет свою собственную ячейку.</li>
 </ul>
 <p>Такое представление данных делает любые трансформации и визуализацию делом нескольких строк.</p>
@@ -1427,7 +1427,7 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 # ℹ 38 more rows</code></pre>
 </div>
 </div>
-<p>Теперь данные представлены в длинном формате, который удобен для визуализации и каких-то трансформаций. Хинди встречается в датасете четырежды, однако информация про то какая группа носителей имеется в виду записана в переменную <code>L</code>. Более того, информация в столбце <code>n_all_sp</code> изначальна была лишней: эта инфомрация уже содержится как сумма всех остальных столбцов. Мы можем отфильтровать значения <code>n_all_sp</code> и получить их снова:</p>
+<p>Теперь данные представлены в длинном формате, который удобен для визуализации и каких-то трансформаций. Хинди встречается в датасете четырежды, однако информация про то, какая группа носителей имеется в виду записана в переменную <code>L</code>. Более того, столбец <code>n_all_sp</code> изначальна была лишним, так как эта информация уже содержится как сумма всех остальных столбцов. Мы можем отфильтровать значения <code>n_all_sp</code> и получить их снова:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb125"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb125-1"><a href="#cb125-1" aria-hidden="true" tabindex="-1"></a>india_langauges_wide <span class="sc">|&gt;</span> </span>
 <span id="cb125-2"><a href="#cb125-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="at">names_to =</span> <span class="st">"L"</span>, <span class="at">values_to =</span> <span class="st">"value"</span>, <span class="fu">starts_with</span>(<span class="st">"n_"</span>)) <span class="sc">|&gt;</span> </span>
@@ -1524,7 +1524,7 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </section>
 <section id="sec-joins" class="level2" data-number="2.13">
 <h2 data-number="2.13" class="anchored" data-anchor-id="sec-joins"><span class="header-section-number">2.13</span> Функции семейства <code>..._join()</code></h2>
-<p>Иногда возникает ситуация, когда нужно соединить две таблицы, на основании одного или нескольких общих столбцов. Так бывает, если нужно что-то включить или исключить из анализа. Примером включения может послужить случай, когда для построения карты хочется присоединить расшифровку аббревиатур или для анализа нужны еще какие-то данные, например, размер популяции. Примером исключения может послужить случаи, когда при анализе текстов возникает задача исключения из анализа служебных слов. Эту задачу решают функции семейства <code>..._join()</code>.</p>
+<p>Иногда возникает ситуация, когда нужно соединить две таблицы на основании одного или нескольких общих столбцов. Так бывает, если нужно что-то включить или исключить из анализа. Примером включения может послужить случай, когда для построения карты хочется присоединить расшифровку аббревиатур, или для анализа нужны еще какие-то данные, например, размер популяции. Примером исключения могут послужить случаи, когда при анализе текстов возникает необходимость удалить из анализа служебных слов. Эти задачи решают функции семейства <code>..._join()</code>.</p>
 <p>Синтаксис функций выглядит так (<code>A</code> и <code>B</code> — датафреймы):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb133"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb133-1"><a href="#cb133-1" aria-hidden="true" tabindex="-1"></a>A <span class="sc">|&gt;</span> </span>
@@ -1534,12 +1534,12 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 <ul>
 <li><code>inner_join()</code> — возвращает только те наблюдения в А, которым есть соответствие в B</li>
 <li><code>full_join()</code> — возвращает все наблюдения из А и из B</li>
-<li><code>left_join()</code> — возвращает все наблюдения из А, а если им нет соответствия в B появляется <code>NA</code>. Наблюдения из B, которым нет соответствия в А, исключаются.</li>
-<li><code>right_join()</code> — возвращает все наблюдения из B, а если им нет соответствия в A появляется <code>NA</code>. Наблюдения из A, которым нет соответствия в B, исключаются.</li>
+<li><code>left_join()</code> — возвращает все наблюдения из А, а если им нет соответствия в B, то появляется <code>NA</code>. Наблюдения из B, которым нет соответствия в А, исключаются.</li>
+<li><code>right_join()</code> — возвращает все наблюдения из B, а если им нет соответствия в A, то появляется <code>NA</code>. Наблюдения из A, которым нет соответствия в B, исключаются.</li>
 <li><code>anti_join()</code> — возвращает все наблюдения из А, которым нет соответствия в B.</li>
 <li><code>semi_join()</code> — возвращает все наблюдения из А, которым есть соответствия в B, но при этом игнорирует дополнительные столбцы из B.</li>
 </ul>
-<p>Все эти объединений можно проиллюстрировать при помощи диаграмм Венна:</p>
+<p>Все эти объединения можно проиллюстрировать при помощи диаграмм Венна:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -1549,7 +1549,7 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 </div>
 </div>
-<p>В качесиве примера создадим новую таблицу на основе датасета продожений Жадины-говядины:</p>
+<p>В качестве примера создадим новую таблицу на основе датасета продолжений Жадины-говядины:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb134"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb134-1"><a href="#cb134-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb134-2"><a href="#cb134-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(type) <span class="sc">|&gt;</span>  </span>
@@ -1673,7 +1673,7 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 # ℹ 17 more rows</code></pre>
 </div>
 </div>
-<p>Если мы хотим исключить наблюдения с типом шакаладина, то мы можем использовать функцию <code>anti_join</code> (я бы в такой задачи использовал простой фильтр, но мы на курсе еще встретим случаи, когда быстрее написать <code>anti_joint()</code>).</p>
+<p>Если мы хотим исключить наблюдения с типом шоколадина, то мы можем использовать функцию <code>anti_join</code> (я бы в такой задаче использовал простой фильтр, но мы на курсе еще встретим случаи, когда быстрее написать <code>anti_joint()</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb148"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb148-2"><a href="#cb148-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(<span class="fu">tibble</span>(<span class="at">type =</span> <span class="st">"шоколадина"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

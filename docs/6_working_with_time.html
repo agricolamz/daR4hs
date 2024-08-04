@@ -270,20 +270,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>период времени, за который Земля совершает оборот вокруг своей оси;</li>
 <li>период времени, равный 86 400 секундами.</li>
 </ul>
-<p>Так как секунду в какой-то момент определили без привязки к вращению Земли, ученым приходится переодически подкручивать время, добавляя високосные секунды.</p>
-<p>Все это мелочи учтены в пакете lubridate, созданном для работы со временем в R (<a href="cheatsheet">https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf</a>, туториал доступен <a href="https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html">здесь</a> и по команде <code>vignette("lubridate")</code>). Первые команды, которые нужно изучить это <code>today()</code> и <code>now()</code>:</p>
+<p>Так как секунду в какой-то момент определили без привязки к вращению Земли, ученым приходится периодически подкручивать время, добавляя високосные секунды.</p>
+<p>Все это мелочи учтены в пакете lubridate, созданном для работы со временем в R (<a href="cheatsheet">https://rawgit.com/rstudio/cheatsheets/master/lubridate.pdf</a>, туториал доступен <a href="https://cran.r-project.org/web/packages/lubridate/vignettes/lubridate.html">здесь</a> и по команде <code>vignette("lubridate")</code>). Первые функции, которые нужно изучить, это <code>today()</code> и <code>now()</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">today</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-08-04"</code></pre>
+<pre><code>[1] "2024-08-05"</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">now</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "2024-08-04 13:35:47 MSK"</code></pre>
+<pre><code>[1] "2024-08-05 00:57:42 MSK"</code></pre>
 </div>
 </div>
-<p>Как видно из этих функций в R можно работать как с датами, так и со временем. В качестве иллюстрации мы будем использовать датасет <code>flights</code> из пакета <code>nycflights13</code>, в котором содержатся данные полетов из Нью Йорка в 2013 году.</p>
+<p>Как видно из этих функций, в R можно работать как с датами, так и со временем. В качестве иллюстрации мы будем использовать датасет <code>flights</code> из пакета <code>nycflights13</code>, в котором содержатся данные полетов из Нью Йорка в 2013 году.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nycflights13)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>flights</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -309,7 +309,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="создание-даты" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="создание-даты"><span class="header-section-number">6.1</span> Создание даты</h2>
-<p>Самый простой способ получить дату — это преобразовать строку в формат даты, для этого надо просто упорядочить <code>y</code> (year), <code>m</code> (month) и <code>d</code> (day) в команде:</p>
+<p>Самый простой способ получить дату — это преобразовать строку в формат даты. Для этого надо просто упорядочить <code>y</code> (year), <code>m</code> (month) и <code>d</code> (day) в команде:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ymd</span>(<span class="st">"2020-01-21"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

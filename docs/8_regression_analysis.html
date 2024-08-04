@@ -338,7 +338,7 @@ window.Quarto = {
 </div>
 </div>
 </div>
-<p>T-распределение имеет один параметр, который принято называть степенями свободы (degree of freedom, df). Чем больше сетпеней свободы, тем больше t-распределение похоже на нормальное распределение. Обычно этот параметр напрямую связывают с количеством наблюдений.</p>
+<p>T-распределение имеет один параметр, который принято называть степенями свободы (degree of freedom, df). Чем больше степеней свободы, тем больше t-распределение похоже на нормальное распределение. Обычно этот параметр напрямую связывают с количеством наблюдений.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="fu">rep</span>(<span class="fu">seq</span>(<span class="sc">-</span><span class="dv">7</span>, <span class="dv">7</span>, <span class="at">by =</span> <span class="fl">0.01</span>), <span class="dv">4</span>),</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">df =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">15</span>, <span class="dv">30</span>, <span class="dv">75</span>), <span class="dv">1401</span>),</span>
@@ -484,7 +484,7 @@ mean of x mean of y
 <h2 data-number="8.3" class="anchored" data-anchor-id="регрессионный-анализ"><span class="header-section-number">8.3</span> Регрессионный анализ</h2>
 <section id="основы" class="level3" data-number="8.3.1">
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="основы"><span class="header-section-number">8.3.1</span> Основы</h3>
-<p>Суть регрессионного анализа в моделировании связи между двумя и более переменными при помощи прямой на плоскости. Формула прямой зависит от двух параметров: свободного члена (intercept) и углового коэффициента (slope).</p>
+<p>Суть регрессионного анализа заключается в моделировании связи между двумя и более переменными при помощи прямой на плоскости. Формула прямой зависит от двух параметров: свободного члена (intercept) и углового коэффициента (slope).</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -512,7 +512,7 @@ mean of x mean of y
 </div>
 </div>
 </div>
-<p>Задача регрессии — оценить параметры <span class="math inline">\(\hat\beta_0\)</span> и <span class="math inline">\(\hat\beta_1\)</span>, если нам известны все значения <span class="math inline">\(x_i\)</span> и <span class="math inline">\(y_i\)</span> и мы пытаемся минимизировать значния <span class="math inline">\(\epsilon_i\)</span>. В данном конкретном случае, задачу можно решить аналитически и получить следующие формулы:</p>
+<p>Задача регрессии — оценить параметры <span class="math inline">\(\hat\beta_0\)</span> и <span class="math inline">\(\hat\beta_1\)</span>, если нам известны все значения <span class="math inline">\(x_i\)</span> и <span class="math inline">\(y_i\)</span> и мы пытаемся минимизировать значения <span class="math inline">\(\epsilon_i\)</span>. В данном конкретном случае, задачу можно решить аналитически и получить следующие формулы:</p>
 <p><span class="math display">\[\hat\beta_1 = \frac{(\sum_{i=1}^n x_i\times y_i)-n\times\bar x \times \bar y}{\sum_{i = 1}^n(x_i-\bar x)^2}\]</span></p>
 <p><span class="math display">\[\hat\beta_0 = \bar y - \hat\beta_1\times\bar x\]</span></p>
 </section>
@@ -625,7 +625,7 @@ F-statistic: 144.4 on 1 and 64 DF,  p-value: &lt; 2.2e-16</code></pre>
 </section>
 <section id="категориальные-переменные" class="level3" data-number="8.3.3">
 <h3 data-number="8.3.3" class="anchored" data-anchor-id="категориальные-переменные"><span class="header-section-number">8.3.3</span> Категориальные переменные</h3>
-<p>Что если мы хотим включить в наш анализ категориальные переменные? Давайте рассмотрим простой пример с <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv">рассказами Чехова</a> и <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv">Зощенко</a>, которые мы рассматривали в прошлом разделе. Мы будем анализировать логарифм доли слов деньги:</p>
+<p>Что если мы хотим включить в наш анализ категориальные переменные? Давайте рассмотрим простой пример с <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv">рассказами Чехова</a> и <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv">Зощенко</a>, которые мы рассматривали в прошлом разделе. Мы будем анализировать логарифм доли слова <em>деньги</em>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>chekhov <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_chekhov.csv"</span>)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>zoshenko <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w8_tidy_zoshenko.csv"</span>)</span>
@@ -648,7 +648,7 @@ F-statistic: 144.4 on 1 and 64 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </div>
-<p>Красной точкой обозначены средние значения, так что мы видим, что между двумя писателями есть разница, но является ли она статистически значимой? В прошлом разделе, мы рассмотрели, что в таком случае можно сделать t-test:</p>
+<p>Красной точкой обозначены средние значения, так что мы видим, что между двумя писателями есть разница, но является ли она статистически значимой? В прошлом разделе мы рассмотрели, что в таком случае можно сделать t-test:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(log_ratio<span class="sc">~</span>author, </span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">data =</span> checkov_zoshenko, </span>
@@ -693,7 +693,7 @@ mean in group Зощенко   mean in group Чехов
 2 Зощенко             0</code></pre>
 </div>
 </div>
-<p>Если переменная <code>dummy_chekhov</code> принимает значение 1, значит речь о рассказе Чехова, а если принимает значение 0, то о рассказе Зощенко. Если вставить нашу переменную в регрессионную формулу получится следующее:</p>
+<p>Если переменная <code>dummy_chekhov</code> принимает значение 1, значит речь о рассказе Чехова, а если принимает значение 0, то о рассказе Зощенко. Если вставить нашу переменную в регрессионную формулу, получится следующее:</p>
 <p><span class="math display">\[y_i = \hat\beta_0 + \hat\beta_1 \times \text{dummy\_chekhov} + \epsilon_i\]</span></p>
 <p>Так как <code>dummy_chekhov</code> принимает либо значение 1, либо значение 0, то получается, что модель предсказывает лишь два значения:</p>
 <p><span class="math display">\[y_i = \left\{\begin{array}{ll}\hat\beta_0 + \hat\beta_1 \times 1 + \epsilon_i = \hat\beta_0 + \hat\beta_1 + \epsilon_i\text{, если рассказ Чехова}\\
@@ -725,7 +725,7 @@ Multiple R-squared:  0.2477,    Adjusted R-squared:  0.2416
 F-statistic: 40.83 on 1 and 124 DF,  p-value: 3.045e-09</code></pre>
 </div>
 </div>
-<p>Во-первых стоит обратить внимание на то, что R сам преобразовал нашу категориальную переменную в dummy-переменную <code>authorЧехов</code>. Во-вторых, можно заметить, что значения t-статистики и p-value совпадают с результатами полученными нами в t-тесте выше. Статистическти значимый коэффициент при аргументе <code>authorЧехов</code> следует интерпретировать как разницу средних между логарифмом долей в рассказах Чехова и Зощенко.</p>
+<p>Во-первых, стоит обратить внимание на то, что R сам преобразовал нашу категориальную переменную в dummy-переменную <code>authorЧехов</code>. Во-вторых, можно заметить, что значения t-статистики и p-value совпадают с результатами, полученными нами в t-тесте выше. Статистически значимый коэффициент при аргументе <code>authorЧехов</code> следует интерпретировать как разницу средних между логарифмом долей в рассказах Чехова и Зощенко.</p>
 </section>
 <section id="множественная-регрессия" class="level3" data-number="8.3.4">
 <h3 data-number="8.3.4" class="anchored" data-anchor-id="множественная-регрессия"><span class="header-section-number">8.3.4</span> Множественная регрессия</h3>
@@ -738,7 +738,7 @@ F-statistic: 40.83 on 1 and 124 DF,  p-value: 3.045e-09</code></pre>
 <li><span class="math inline">\(\hat\beta_k\)</span> — коэфциент при переменной <span class="math inline">\(X_{k}\)</span>;</li>
 <li><span class="math inline">\(\epsilon_i\)</span> — <span class="math inline">\(i\)</span>-ый остаток, разница между оценкой модели (<span class="math inline">\(\hat\beta_0 + \hat\beta_1 \times x_i\)</span>) и реальным значением <span class="math inline">\(y_i\)</span>; весь вектор остатков иногда называют случайным шумом.</li>
 </ul>
-<p>В такой регресии предикторы могут быть как числовыми, так и категориальными (со всеми вытекающими последствиями, которые мы обсудили в предудщем разделе). Такую регрессию чаще всего сложно визуализировать, так как в одну регрессионную линию вкладываются сразу несколько переменных.</p>
+<p>В такой регрессии предикторы могут быть как числовыми, так и категориальными (со всеми вытекающими последствиями, которые мы обсудили в предыдущем разделе). Такую регрессию чаще всего сложно визуализировать, так как в одну регрессионную линию вкладываются сразу несколько переменных.</p>
 <p>Попробуем предсказать длину лепестка на основе длины чашелистик и вида ириса:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
@@ -857,7 +857,7 @@ F-statistic:  1890 on 3 and 146 DF,  p-value: &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <ul>
-<li>чаще всего используют так называемые информационные критерии, самый популярный – AIC (Akaike information criterion). Сами по себе значение этого критерия не имеет значения – только в сравнении моделей, построенных на похожих данных. Чем меньше значение, тем модель лучше.</li>
+<li>чаще всего используют так называемые информационные критерии, самый популярный – AIC (Akaike information criterion). Само по себе значение этого критерия не имеет значения – только в сравнении моделей, построенных на похожих данных. Чем меньше значение, тем модель лучше.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(fit3, fit4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -871,11 +871,11 @@ fit4  3 387.13500</code></pre>
 <section id="послесловие" class="level3" data-number="8.3.6">
 <h3 data-number="8.3.6" class="anchored" data-anchor-id="послесловие"><span class="header-section-number">8.3.6</span> Послесловие</h3>
 <ul>
-<li>сущетсвуют ограничения на применение линейной регресии
+<li>существуют ограничения на применение линейной регрессии
 <ul>
 <li>связь между предсказываемой переменной и предикторами должна быть линейной</li>
 <li>остатки должны быть нормально распределены (оценивайте визуально)</li>
-<li>дисперсия остатков вокруг регрессионной линии должно быть постоянно (гомоскидастично)</li>
+<li>дисперсия остатков вокруг регрессионной линии должна быть постоянно (гомоскидастичность)</li>
 <li>предикторы не должны коррелировать друг с другом</li>
 <li>все наблюдения в регрессии должны быть независимы друг от друга</li>
 </ul></li>
@@ -899,12 +899,12 @@ fit4  3 387.13500</code></pre>
 </div>
 </div>
 <ul>
-<li>сущетсвуют трюки, позволяющие автоматически отбирать модели (см. функцию <code>step()</code>)</li>
-<li>существует достаточно большое семейство регрессий, который зависят от типа независимой (предсказываемой) переменной или ее распределения
+<li>существуют трюки, позволяющие автоматически отбирать модели (см. функцию <code>step()</code>)</li>
+<li>существует достаточно большое семейство регрессий, которые зависят от типа независимой (предсказываемой) переменной или ее распределения
 <ul>
 <li>логистическая (если предсказываемая переменная имеет два возможных исхода)</li>
 <li>мультиномиальная (если предсказываемая переменная имеет больше двух возможных дискретных исхода)</li>
-<li>нелиненые регресии (если связь между переменными нелинейна)</li>
+<li>нелинейные регрессии (если связь между переменными нелинейна)</li>
 <li>регрессия со смешанными эффектами (если внутри данных есть группировки, т. е. наблюдения не независимы)</li>
 <li>и другие.</li>
 </ul></li>
