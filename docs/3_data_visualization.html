@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -187,15 +241,14 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#квартет-анскомба" id="toc-квартет-анскомба" class="nav-link" data-scroll-target="#квартет-анскомба"><span class="header-section-number">3.1.1</span> Квартет Анскомба</a></li>
   <li><a href="#датазаурус" id="toc-датазаурус" class="nav-link" data-scroll-target="#датазаурус"><span class="header-section-number">3.1.2</span> Датазаурус</a></li>
   </ul></li>
-  <li><a href="#основы-ggplot2" id="toc-основы-ggplot2" class="nav-link" data-scroll-target="#основы-ggplot2"><span class="header-section-number">3.2</span> Основы <code>ggplot2</code></a></li>
+  <li><a href="#первый-график-рассеяния" id="toc-первый-график-рассеяния" class="nav-link" data-scroll-target="#первый-график-рассеяния"><span class="header-section-number">3.2</span> Первый график рассеяния</a></li>
   <li><a href="#слои-в-ggplot2" id="toc-слои-в-ggplot2" class="nav-link" data-scroll-target="#слои-в-ggplot2"><span class="header-section-number">3.3</span> Слои в <code>ggplot2</code></a></li>
-  <li><a href="#график-рассеяния" id="toc-график-рассеяния" class="nav-link" data-scroll-target="#график-рассеяния"><span class="header-section-number">3.4</span> График рассеяния</a></li>
-  <li><a href="#финализация-графика-функции-labs-annotate-theme" id="toc-финализация-графика-функции-labs-annotate-theme" class="nav-link" data-scroll-target="#финализация-графика-функции-labs-annotate-theme"><span class="header-section-number">3.5</span> Финализация графика: функции <code>labs()</code>, <code>annotate()</code>, <code>theme()</code></a></li>
-  <li><a href="#столбчатые-диаграммы" id="toc-столбчатые-диаграммы" class="nav-link" data-scroll-target="#столбчатые-диаграммы"><span class="header-section-number">3.6</span> Столбчатые диаграммы</a></li>
-  <li><a href="#факторы-пакет-forcats" id="toc-факторы-пакет-forcats" class="nav-link" data-scroll-target="#факторы-пакет-forcats"><span class="header-section-number">3.7</span> Факторы, пакет <code>forcats</code></a></li>
-  <li><a href="#визуализируем-распределение-функции-geom_dotplot-geom_histogram-geom_density-пакет-ggridges" id="toc-визуализируем-распределение-функции-geom_dotplot-geom_histogram-geom_density-пакет-ggridges" class="nav-link" data-scroll-target="#визуализируем-распределение-функции-geom_dotplot-geom_histogram-geom_density-пакет-ggridges"><span class="header-section-number">3.8</span> Визуализируем распределение: функции <code>geom_dotplot()</code>, <code>geom_histogram()</code>, <code>geom_density()</code>, пакет <code>ggridges</code></a></li>
-  <li><a href="#распределение-по-категориям-функции-geom_jitter-geom_boxplot-geom_violin-пакет-ggbeeswarm" id="toc-распределение-по-категориям-функции-geom_jitter-geom_boxplot-geom_violin-пакет-ggbeeswarm" class="nav-link" data-scroll-target="#распределение-по-категориям-функции-geom_jitter-geom_boxplot-geom_violin-пакет-ggbeeswarm"><span class="header-section-number">3.9</span> Распределение по категориям: функции <code>geom_jitter()</code>, <code>geom_boxplot()</code>, <code>geom_violin()</code> пакет <code>ggbeeswarm</code></a></li>
-  <li><a href="#фасетезация-семейство-функций-facet_..." id="toc-фасетезация-семейство-функций-facet_..." class="nav-link" data-scroll-target="#фасетезация-семейство-функций-facet_..."><span class="header-section-number">3.10</span> Фасетезация: семейство функций <code>facet_...()</code></a></li>
+  <li><a href="#финализация-графика-функции-labs-annotate-theme" id="toc-финализация-графика-функции-labs-annotate-theme" class="nav-link" data-scroll-target="#финализация-графика-функции-labs-annotate-theme"><span class="header-section-number">3.4</span> Финализация графика: функции <code>labs()</code>, <code>annotate()</code>, <code>theme()</code></a></li>
+  <li><a href="#столбчатые-диаграммы" id="toc-столбчатые-диаграммы" class="nav-link" data-scroll-target="#столбчатые-диаграммы"><span class="header-section-number">3.5</span> Столбчатые диаграммы</a></li>
+  <li><a href="#факторы-пакет-forcats" id="toc-факторы-пакет-forcats" class="nav-link" data-scroll-target="#факторы-пакет-forcats"><span class="header-section-number">3.6</span> Факторы, пакет <code>forcats</code></a></li>
+  <li><a href="#визуализируем-распределение-функции-geom_dotplot-geom_histogram-geom_density-пакет-ggridges" id="toc-визуализируем-распределение-функции-geom_dotplot-geom_histogram-geom_density-пакет-ggridges" class="nav-link" data-scroll-target="#визуализируем-распределение-функции-geom_dotplot-geom_histogram-geom_density-пакет-ggridges"><span class="header-section-number">3.7</span> Визуализируем распределение: функции <code>geom_dotplot()</code>, <code>geom_histogram()</code>, <code>geom_density()</code>, пакет <code>ggridges</code></a></li>
+  <li><a href="#распределение-по-категориям-функции-geom_jitter-geom_boxplot-geom_violin-пакет-ggbeeswarm" id="toc-распределение-по-категориям-функции-geom_jitter-geom_boxplot-geom_violin-пакет-ggbeeswarm" class="nav-link" data-scroll-target="#распределение-по-категориям-функции-geom_jitter-geom_boxplot-geom_violin-пакет-ggbeeswarm"><span class="header-section-number">3.8</span> Распределение по категориям: функции <code>geom_jitter()</code>, <code>geom_boxplot()</code>, <code>geom_violin()</code> пакет <code>ggbeeswarm</code></a></li>
+  <li><a href="#фасетезация-семейство-функций-facet_..." id="toc-фасетезация-семейство-функций-facet_..." class="nav-link" data-scroll-target="#фасетезация-семейство-функций-facet_..."><span class="header-section-number">3.9</span> Фасетезация: семейство функций <code>facet_...()</code></a></li>
   </ul>
 </nav>
     </div>
@@ -221,43 +274,180 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 <section id="зачем-визуализировать-данные" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="зачем-визуализировать-данные"><span class="header-section-number">3.1</span> Зачем визуализировать данные?</h2>
+<p>Визуализация помогает окинуть собранные данные взглядом, найти ошибки ввода данных и может быть сформулировать первые инсайты. Данный раздел посвящен введения в пакет <code>ggplot2</code>, однако по этому пакету есть масса более подробных материалов: главы 9–11 книги <span class="citation" data-cites="wickham23">(<a href="references.html#ref-wickham23" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span> и целая книга <span class="citation" data-cites="wickham16">(<a href="references.html#ref-wickham16" role="doc-biblioref">Wickham 2016</a>)</span>, обе доступные онлайн. В сжатом виде информация про <code>ggplot2</code> <a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization.pdf">содержиться здесь</a>.Кроме того для этого пакета написали много <a href="https://exts.ggplot2.tidyverse.org/gallery/">расширений</a>, у каждого своя старница с инструкцией.</p>
 <section id="квартет-анскомба" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="квартет-анскомба"><span class="header-section-number">3.1.1</span> Квартет Анскомба</h3>
+<p>В работе <span class="citation" data-cites="anscombe73">(<a href="references.html#ref-anscombe73" role="doc-biblioref">Anscombe 1973</a>)</span> представлен следующий <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w3_anscombe.csv">датасет</a>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>anscombe <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w3_anscombe.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Если смотреть исключительно на описательные статиски датасета, то покажется, что перед нами 4 одинаковых датасета:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>anscombe <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dataset) <span class="sc">|&gt;</span> </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_x =</span> <span class="fu">mean</span>(x),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_y =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_x =</span> <span class="fu">sd</span>(x),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_y =</span> <span class="fu">sd</span>(y),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">cor_coeff =</span> <span class="fu">cor</span>(x, y)) <span class="sc">|&gt;</span> </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 6
+  dataset mean_x mean_y  sd_x  sd_y cor_coeff
+    &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;
+1       1      9    7.5  3.32  2.03      0.82
+2       2      9    7.5  3.32  2.03      0.82
+3       3      9    7.5  3.32  2.03      0.82
+4       4      9    7.5  3.32  2.03      0.82</code></pre>
+</div>
+</div>
+<p>Однако, если мы визуализируем данные, то окажется, что перед нами совсем разные данные:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_data_visualization_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 <section id="датазаурус" class="level3" data-number="3.1.2">
 <h3 data-number="3.1.2" class="anchored" data-anchor-id="датазаурус"><span class="header-section-number">3.1.2</span> Датазаурус</h3>
+<p>В работе <span class="citation" data-cites="matejka17">(<a href="references.html#ref-matejka17" role="doc-biblioref">Matejka and Fitzmaurice 2017</a>)</span> предложили 13 датасетов, обладающих похожим свойством:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>datasaurus <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w3_datasaurus.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_data_visualization_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>datasaurus <span class="sc">|&gt;</span>  </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dataset) <span class="sc">|&gt;</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_X =</span> <span class="fu">mean</span>(x),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">mean_Y =</span> <span class="fu">mean</span>(y),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_X =</span> <span class="fu">sd</span>(x),</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd_Y =</span> <span class="fu">sd</span>(y),</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">cor =</span> <span class="fu">cor</span>(x, y),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">n_obs =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span>  </span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>dataset) <span class="sc">|&gt;</span> </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">round</span>(<span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 13 × 6
+   mean_X mean_Y  sd_X  sd_Y   cor n_obs
+    &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+ 1   54.3   47.8  16.8  26.9  -0.1   142
+ 2   54.3   47.8  16.8  26.9  -0.1   142
+ 3   54.3   47.8  16.8  26.9  -0.1   142
+ 4   54.3   47.8  16.8  26.9  -0.1   142
+ 5   54.3   47.8  16.8  26.9  -0.1   142
+ 6   54.3   47.8  16.8  26.9  -0.1   142
+ 7   54.3   47.8  16.8  26.9  -0.1   142
+ 8   54.3   47.8  16.8  26.9  -0.1   142
+ 9   54.3   47.8  16.8  26.9  -0.1   142
+10   54.3   47.8  16.8  26.9  -0.1   142
+11   54.3   47.8  16.8  26.9  -0.1   142
+12   54.3   47.8  16.8  26.9  -0.1   142
+13   54.3   47.8  16.8  26.9  -0.1   142</code></pre>
+</div>
+</div>
 </section>
 </section>
-<section id="основы-ggplot2" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="основы-ggplot2"><span class="header-section-number">3.2</span> Основы <code>ggplot2</code></h2>
+<section id="первый-график-рассеяния" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="первый-график-рассеяния"><span class="header-section-number">3.2</span> Первый график рассеяния</h2>
+<p>Для построения первого графика рассеяния достаточно ввести следующую команду:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datasaurus <span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_data_visualization_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>В разных пособиях можно увидеть другую запись, когда данные подаются в качестве первого аргумента:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datasaurus, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Однако я буду использовать первый вариант, который мне кажется удобнее тем, что автозаполнение в таком случае предлагает название переменных. Стоит обратить внимание, что разные части при построении графиков соединяются знаком <code>+</code>, а не конвеером. Это связано с тем, что пакет разрабатывался и стал популярным, до того, как стала популярна вся инфраструктура <code>tidyverse</code> и конвееров. Поменяем цвет точек, для этого в функции <code>geom_point()</code> добавим аргумент <code>color</code> (или <code>colour</code>):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>datasaurus <span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color =</span> <span class="st">"darkgreen"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_data_visualization_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Важно понимать, что первая строчка с функцией <code>aes()</code> содержит инструкции как нужно использовать при отображении переменные из датасета, а аргументы в отдельных <code>geom_</code> говорят, как какое-то свойство изменить для всех точек.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>datasaurus <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(x, y, <span class="at">color =</span> dataset)) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="3_data_visualization_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Вторая строчка с функцией <code>geom_point()</code> сообщает, как мы хотим отобразить те данные, которые были перечислены в функции <code>aes()</code>. Функций семейства <code>geom_...()</code> очень много, далее мы посмотрим самые популярные функции и их аргументы.</p>
 </section>
 <section id="слои-в-ggplot2" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="слои-в-ggplot2"><span class="header-section-number">3.3</span> Слои в <code>ggplot2</code></h2>
 </section>
-<section id="график-рассеяния" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="график-рассеяния"><span class="header-section-number">3.4</span> График рассеяния</h2>
+<section id="финализация-графика-функции-labs-annotate-theme" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="финализация-графика-функции-labs-annotate-theme"><span class="header-section-number">3.4</span> Финализация графика: функции <code>labs()</code>, <code>annotate()</code>, <code>theme()</code></h2>
 </section>
-<section id="финализация-графика-функции-labs-annotate-theme" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="финализация-графика-функции-labs-annotate-theme"><span class="header-section-number">3.5</span> Финализация графика: функции <code>labs()</code>, <code>annotate()</code>, <code>theme()</code></h2>
+<section id="столбчатые-диаграммы" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="столбчатые-диаграммы"><span class="header-section-number">3.5</span> Столбчатые диаграммы</h2>
 </section>
-<section id="столбчатые-диаграммы" class="level2" data-number="3.6">
-<h2 data-number="3.6" class="anchored" data-anchor-id="столбчатые-диаграммы"><span class="header-section-number">3.6</span> Столбчатые диаграммы</h2>
+<section id="факторы-пакет-forcats" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="факторы-пакет-forcats"><span class="header-section-number">3.6</span> Факторы, пакет <code>forcats</code></h2>
 </section>
-<section id="факторы-пакет-forcats" class="level2" data-number="3.7">
-<h2 data-number="3.7" class="anchored" data-anchor-id="факторы-пакет-forcats"><span class="header-section-number">3.7</span> Факторы, пакет <code>forcats</code></h2>
+<section id="визуализируем-распределение-функции-geom_dotplot-geom_histogram-geom_density-пакет-ggridges" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="визуализируем-распределение-функции-geom_dotplot-geom_histogram-geom_density-пакет-ggridges"><span class="header-section-number">3.7</span> Визуализируем распределение: функции <code>geom_dotplot()</code>, <code>geom_histogram()</code>, <code>geom_density()</code>, пакет <code>ggridges</code></h2>
 </section>
-<section id="визуализируем-распределение-функции-geom_dotplot-geom_histogram-geom_density-пакет-ggridges" class="level2" data-number="3.8">
-<h2 data-number="3.8" class="anchored" data-anchor-id="визуализируем-распределение-функции-geom_dotplot-geom_histogram-geom_density-пакет-ggridges"><span class="header-section-number">3.8</span> Визуализируем распределение: функции <code>geom_dotplot()</code>, <code>geom_histogram()</code>, <code>geom_density()</code>, пакет <code>ggridges</code></h2>
+<section id="распределение-по-категориям-функции-geom_jitter-geom_boxplot-geom_violin-пакет-ggbeeswarm" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="распределение-по-категориям-функции-geom_jitter-geom_boxplot-geom_violin-пакет-ggbeeswarm"><span class="header-section-number">3.8</span> Распределение по категориям: функции <code>geom_jitter()</code>, <code>geom_boxplot()</code>, <code>geom_violin()</code> пакет <code>ggbeeswarm</code></h2>
 </section>
-<section id="распределение-по-категориям-функции-geom_jitter-geom_boxplot-geom_violin-пакет-ggbeeswarm" class="level2" data-number="3.9">
-<h2 data-number="3.9" class="anchored" data-anchor-id="распределение-по-категориям-функции-geom_jitter-geom_boxplot-geom_violin-пакет-ggbeeswarm"><span class="header-section-number">3.9</span> Распределение по категориям: функции <code>geom_jitter()</code>, <code>geom_boxplot()</code>, <code>geom_violin()</code> пакет <code>ggbeeswarm</code></h2>
-</section>
-<section id="фасетезация-семейство-функций-facet_..." class="level2" data-number="3.10">
-<h2 data-number="3.10" class="anchored" data-anchor-id="фасетезация-семейство-функций-facet_..."><span class="header-section-number">3.10</span> Фасетезация: семейство функций <code>facet_...()</code></h2>
+<section id="фасетезация-семейство-функций-facet_..." class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="фасетезация-семейство-функций-facet_..."><span class="header-section-number">3.9</span> Фасетезация: семейство функций <code>facet_...()</code></h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-anscombe73" class="csl-entry" role="listitem">
+Anscombe, F. J. 1973. <span>“Graphs in Statistical Analysis.”</span> <em>The American Statistician</em> 27 (1): 17–21.
+</div>
+<div id="ref-matejka17" class="csl-entry" role="listitem">
+Matejka, J., and G. Fitzmaurice. 2017. <span>“Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics Through Simulated Annealing.”</span> In <em>Proceedings of the 2017 CHI Conference on Human Factors in Computing Systems</em>, 1290–94.
+</div>
+<div id="ref-wickham16" class="csl-entry" role="listitem">
+Wickham, H. 2016. <em>Ggplot2: Elegrant Graphics for Data Analysis</em>. Springer.
+</div>
+<div id="ref-wickham23" class="csl-entry" role="listitem">
+Wickham, H., M. Çetinkaya-Rundel, and G. Grolemund. 2023. <em>R for Data Science</em>. " O’Reilly Media, Inc.".
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

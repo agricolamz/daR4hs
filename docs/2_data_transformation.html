@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -256,11 +276,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <p>В данном разделе мы познакомимся с основами пакета <code>tidyverse</code> — это набор пакетов, из которых мы уделим внимание следующим:</p>
 <ul>
-<li><code>ggplot2</code>, для визуализации</li>
 <li><code>tibble</code>, для работы с тибблами, современный вариант датафрейма</li>
+<li><code>dplyr</code>, для преобразования данных</li>
 <li><code>tidyr</code>, для преобразование таблиц к формату опрятных данных</li>
-<li><code>readr</code>, для чтения файлов в R</li>
-<li><code>dplyr</code>, для преобразованиия данных</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -277,7 +295,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
 </div>
 </div>
-<p>При загрузке пакета обычно появляется сообщение о версиях некоторых входящих в него пакетах и о конфликтующих функциях. Не стоит обращать на него внимание.</p>
+<p>При загрузке пакета обычно появляется сообщение о версиях некоторых входящих в него пакетах и о конфликтующих функциях. Не стоит обращать на него внимание. Данные материалы не претендуют на полный охват, для дальнейшего ознакомления рекомендую третью и пятую главы из <span class="citation" data-cites="wickham23">(<a href="references.html#ref-wickham23" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span>.</p>
 <section id="tibble" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="tibble"><span class="header-section-number">2.1</span> <code>tibble</code></h2>
 <p>Современный вариант датафрейма называется тиббл и отличается от классического тем, как он печатается в консоли и некоторыми дополнительными возможностями. Для его создания нужно в функцию <code>tibble()</code> подать именованные векторы:</p>
@@ -289,16 +307,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 100 × 3
        x     y logical
    &lt;int&gt; &lt;int&gt; &lt;chr&gt;  
- 1     1   100 a      
+ 1     1   100 b      
  2     2    99 b      
- 3     3    98 a      
+ 3     3    98 b      
  4     4    97 a      
- 5     5    96 a      
- 6     6    95 c      
- 7     7    94 b      
+ 5     5    96 b      
+ 6     6    95 b      
+ 7     7    94 c      
  8     8    93 a      
- 9     9    92 c      
-10    10    91 a      
+ 9     9    92 b      
+10    10    91 c      
 # ℹ 90 more rows</code></pre>
 </div>
 </div>
@@ -468,16 +486,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 10 × 5
    word_1          word_2   word_3     type           n
    &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
- 1 жадина-говядина никто ее не ест     другое        10
- 2 жадина-говядина соленый  помидор    другое        17
- 3 жадина-говядина булка    шоколадина шоколадина   250
- 4 жадина-говядина в *опе   шоколадина шоколадина  1117
- 5 жадина-говядина большая  шоколадина шоколадина   941
- 6 жадина-говядина пустая   шоколадина шоколадина  3774
- 7 жадина-говядина немецкий барабан    барабан       12
- 8 жадина-говядина кусок    шоколадины шоколадина   113
- 9 жадина-говядина простая  шоколадина шоколадина    59
-10 жадина-говядина злая     шоколадина шоколадина    10</code></pre>
+ 1 жадина-говядина тупая    шоколадина шоколадина    50
+ 2 жадина-говядина в *опе   огурец     огурец        11
+ 3 жадина-говядина соленый  барабан    барабан       11
+ 4 жадина-говядина кислая   капуста    другое        10
+ 5 жадина-говядина бука     шоколадина шоколадина    44
+ 6 жадина-говядина немецкий барабан    барабан       12
+ 7 жадина-говядина в *опе   шоколадина шоколадина  1117
+ 8 жадина-говядина кошка    поросятина другое        42
+ 9 жадина-говядина злая     шоколадина шоколадина    10
+10 жадина-говядина соленый  помидор    другое        17</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>zhadina <span class="sc">|&gt;</span> </span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_sample</span>(<span class="at">prop =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -485,13 +503,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code># A tibble: 7 × 5
   word_1          word_2   word_3     type           n
   &lt;chr&gt;           &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;
-1 жадина-говядина соленый  помидор    другое        17
-2 жадина-говядина никто ее не ест     другое        10
-3 жадина-говядина кусок    шоколадины шоколадина   113
-4 жадина-говядина кислая   капуста    другое        10
-5 жадина-говядина турецкий барабан    барабан     3003
-6 жадина-говядина пустая   шоколадина шоколадина  3774
-7 жадина-говядина простая  шоколадина шоколадина    59</code></pre>
+1 жадина-говядина пустая   шоколадина шоколадина  3774
+2 жадина-говядина бука     шоколадина шоколадина    44
+3 жадина-говядина кошка    поросятина другое        42
+4 жадина-говядина зеленый  огурец     огурец       343
+5 жадина-говядина соленый  огурец     огурец     26910
+6 жадина-говядина турецкий барабан    барабан     3003
+7 жадина-говядина тупая    шоколадина шоколадина    50</code></pre>
 </div>
 </div>
 </section>
@@ -1720,6 +1738,11 @@ dbl (4): n_L1_sp, n_L2_sp, n_L3_sp, n_all_sp
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-wickham23" class="csl-entry" role="listitem">
+Wickham, H., M. Çetinkaya-Rundel, and G. Grolemund. 2023. <em>R for Data Science</em>. " O’Reilly Media, Inc.".
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

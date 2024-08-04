@@ -1,16 +1,130 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Визуализация данных
+
+```{r}
+#| message: false
+
+library(tidyverse)
+```
 
 ## Зачем визуализировать данные?
 
+Визуализация помогает окинуть собранные данные взглядом, найти ошибки ввода данных и может быть сформулировать первые инсайты. Данный раздел посвящен введения в пакет `ggplot2`, однако по этому пакету есть масса более подробных материалов: главы 9--11 книги [@wickham23] и целая книга [@wickham16], обе доступные онлайн. В сжатом виде информация про `ggplot2` [содержиться здесь](https://github.com/rstudio/cheatsheets/raw/main/data-visualization.pdf).Кроме того для этого пакета написали много [расширений](https://exts.ggplot2.tidyverse.org/gallery/), у каждого своя старница с инструкцией.
+
 ### Квартет Анскомба
+
+В работе [@anscombe73] представлен следующий [датасет](https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w3_anscombe.csv):
+
+```{r}
+#| message: false
+
+anscombe <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w3_anscombe.csv", show_col_types = FALSE)
+```
+
+Если смотреть исключительно на описательные статиски датасета, то покажется, что перед нами 4 одинаковых датасета:
+
+```{r}
+anscombe |> 
+  group_by(dataset) |> 
+  summarise(mean_x = mean(x),
+            mean_y = mean(y),
+            sd_x = sd(x),
+            sd_y = sd(y),
+            cor_coeff = cor(x, y)) |> 
+  round(2)
+```
+
+Однако, если мы визуализируем данные, то окажется, что перед нами совсем разные данные:
+
+```{r}
+#| echo: false
+#| message: false
+
+anscombe |> 
+  ggplot(aes(x, y))+
+  geom_smooth(color = "black", se = FALSE, method = "lm", linetype = 6, linewidth = 0.4)+
+  geom_point()+
+  facet_wrap(~dataset, scales = "free")+
+  theme_minimal()
+```
 
 ### Датазаурус
 
-## Основы `ggplot2`
+В работе [@matejka17] предложили 13 датасетов, обладающих похожим свойством:
+
+```{r}
+#| message: false
+
+datasaurus <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w3_datasaurus.csv")
+```
+
+```{r}
+#| echo: false
+#| message: false
+
+datasaurus |> 
+  ggplot(aes(x, y))+
+  geom_point()+
+  facet_wrap(~dataset)+
+  theme_minimal()
+```
+
+```{r}
+datasaurus |>  
+  group_by(dataset) |> 
+  summarise(mean_X = mean(x),
+            mean_Y = mean(y),
+            sd_X = sd(x),
+            sd_Y = sd(y),
+            cor = cor(x, y),
+            n_obs = n()) |>  
+  select(-dataset) |> 
+  round(1)
+```
+
+## Первый график рассеяния
+
+Для построения первого графика рассеяния достаточно ввести следующую команду:
+
+```{r}
+datasaurus |>
+  ggplot(aes(x, y)) +
+  geom_point()
+```
+
+В разных пособиях можно увидеть другую запись, когда данные подаются в качестве первого аргумента:
+
+```{r}
+#| eval: false
+
+ggplot(datasaurus, aes(x, y)) +
+  geom_point()
+```
+
+Однако я буду использовать первый вариант, который мне кажется удобнее тем, что автозаполнение в таком случае предлагает название переменных. Стоит обратить внимание, что разные части при построении графиков соединяются знаком `+`, а не конвеером. Это связано с тем, что пакет разрабатывался и стал популярным, до того, как стала популярна вся инфраструктура `tidyverse` и конвееров. Поменяем цвет точек, для этого в функции `geom_point()` добавим аргумент `color` (или `colour`):
+
+```{r}
+datasaurus |>
+  ggplot(aes(x, y)) +
+  geom_point(color = "darkgreen")
+```
+
+Важно понимать, что первая строчка с функцией `aes()` содержит инструкции как нужно использовать при отображении переменные из датасета, а аргументы в отдельных `geom_` говорят, как какое-то свойство изменить для всех точек.
+
+```{r}
+datasaurus |>
+  ggplot(aes(x, y, color = dataset)) +
+  geom_point()
+```
+
+Вторая строчка с функцией `geom_point()` сообщает, как мы хотим отобразить те данные, которые были перечислены в функции `aes()`. Функций семейства `geom_...()` очень много, далее мы посмотрим самые популярные функции и их аргументы.
 
 ## Слои в `ggplot2`
 
-## График рассеяния
 
 ## Финализация графика: функции `labs()`, `annotate()`, `theme()`
 
