@@ -235,7 +235,7 @@ alices_adventures_in_wonderland |>
   tibble(text = _) |> 
   slice(54:3405) |> 
   mutate(chapter = str_extract(text, "CHAPTER .{1,4}\\."),
-         chapter_title = ifelse(str_detect(text, "CHAPTER .{1,4}\\."), lead(text), NA)) |> 
+         chapter_title = if_else(str_detect(text, "CHAPTER .{1,4}\\."), lead(text), NA)) |> 
   fill(chapter, chapter_title)  |> 
   filter(text != chapter) |> 
   mutate(chapter = str_remove(chapter, "CHAPTER "),

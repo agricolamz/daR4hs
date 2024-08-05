@@ -13,7 +13,7 @@ library(tidyverse)
 
 ## Зачем визуализировать данные?
 
-Визуализация помогает окинуть собранные данные взглядом, найти ошибки ввода данных и может быть сформулировать первые инсайты. Данный раздел посвящен введения в пакет `ggplot2`, однако по этому пакету есть масса более подробных материалов: главы 9--11 книги [@wickham23] и целая книга [@wickham16], обе доступные онлайн. В сжатом виде информация про `ggplot2` [содержиться здесь](https://github.com/rstudio/cheatsheets/raw/main/data-visualization.pdf).Кроме того для этого пакета написали много [расширений](https://exts.ggplot2.tidyverse.org/gallery/), у каждого своя старница с инструкцией.
+Визуализация помогает окинуть собранные данные взглядом, найти ошибки ввода данных и может быть сформулировать первые инсайты. Данный раздел посвящен введения в пакет `ggplot2`, однако по этому пакету есть масса более подробных материалов: главы 9--11 [книги](https://r4ds.hadley.nz/) [@wickham23] и [целая книга](https://ggplot2-book.org/) [@wickham16], обе доступные онлайн. В сжатом виде информация про `ggplot2` [содержиться здесь](https://github.com/rstudio/cheatsheets/raw/main/data-visualization.pdf).Кроме того для этого пакета написали много [расширений](https://exts.ggplot2.tidyverse.org/gallery/), у каждого своя страница с инструкцией.
 
 ### Квартет Анскомба
 
@@ -109,7 +109,7 @@ ggplot(datasaurus, aes(x, y)) +
 
 ```{r}
 datasaurus |>
-  ggplot(aes(x, y)) +
+  ggplot(aes(x = x, y = y)) +
   geom_point(color = "darkgreen")
 ```
 
@@ -117,7 +117,7 @@ datasaurus |>
 
 ```{r}
 datasaurus |>
-  ggplot(aes(x, y, color = dataset)) +
+  ggplot(aes(x = x, y = y, color = dataset)) +
   geom_point()
 ```
 
@@ -125,10 +125,179 @@ datasaurus |>
 
 ## Слои в `ggplot2`
 
+Элементы графика в `ggplot2` устроены по слоям, так что каждый элемент `geom_...()` подается поверх предыдущего. Рассмотрим на примере встроенного в `ggplot2` датасета `diamonds`, содержащего информацию про цену и другие свойства почти 54 тысяч бриллиантов:
 
+```{r}
+#| message: false
 
+diamonds |> 
+  ggplot(aes(carat, price)) + # названия аргументов можно пропускать
+  geom_point() +
+  geom_smooth()
+```
+
+В нашем коде мы используем две функции из семейства `geom_...()`: `geom_point()` рисует точки, а `geom_smooth()` рисует линию, которая описывает тренд в данных. Первыми на график наносятся точки, а потом сверху линия. Мы можем поменять местами элементы и тогда результат будет нарисован по-другому:
+
+```{r}
+#| message: false
+
+diamonds |> 
+  ggplot(aes(carat, price)) +
+  geom_smooth() +
+  geom_point()
+```
+
+## Некоторые аргументы функций `geom_...()` и `aes()`
+
+Перечислим некоторые полезные аргументы функции `geom_...()` и `aes()`:
+
+- `color` --- цвет обводки (строка с цветом)
+- `fill` --- цвет закрашивания (строка с цветом)
+- `size` --- размер (число)
+- `shape` --- иконки (число)
+- `alpha` --- прозрачность (число между 0 и 1)
+- `linewidth` --- ширина линии (число)
+- `linetype` --- тип линии (обычный, пунктир и т. п. задаются целыми числами)
+- `label` --- текст для функций `geom_...()`, которые отображают аннотации
+
+```{r}
+#| message: false
+
+diamonds |> 
+  ggplot(aes(carat, price, color = color)) +
+  geom_point(alpha = 0.2, size = 0.5) +
+  geom_smooth(linewidth = 2, se = FALSE, linetype = 2)
+```
+
+Важно отметить, что все слои (т. е. функции `geom_...()`) оперируют единицами, определенными в функции `aes()`, поэтому `geom_smooth()` рисует не одну линию, как было раньше, а 7, так как переменная из таблицы `color` упомянута в первой функции `aes()`. Чтобы исправить это поведение, в каждой функции `geom_...()` можно вставить свою функцию `aes()`. Вот как выглядит код, если мы хотим нарисовать лишь одну линию тренда: цвет задается внутри `geom_point()` и поэтому не "проникает" в `geom_smooth()`.
+
+```{r}
+#| message: false
+
+diamonds |> 
+  ggplot(aes(carat, price)) +
+  geom_point(aes(color = color), alpha = 0.2, size = 0.5) +
+  geom_smooth(linewidth = 2, se = FALSE, linetype = 2)
+```
+
+Основной принцип `ggplot2` предполагал, что данные визуализируются на основе таблицы, однако у каждой функции `geom_...()` также есть аргумент `data`, который можно использовать, если хочется нанести на график что-то на основе другой таблицы.
+
+```{r}
+#| message: false
+
+# создаем еще одну таблицу
+new_table <- tibble(carat = 1:3,
+                    price= 1:3*5000)
+
+diamonds |> 
+  ggplot(aes(carat, price)) +
+  geom_point(aes(color = color), alpha = 0.2, size = 0.5) +
+  geom_smooth(linewidth = 2, se = FALSE, linetype = 2) +
+  geom_point(data = new_table, color = "red", shape = 17, size = 4)
+```
+
+На графике красными треугольниками представлены данные из другой таблицы `new_table`.
+
+## Аргумент `label`
+
+Может показаться важным отображать разные текстовые элементы на графике. Например, цвет бриллиантов кодируется буквой:
+
+```{r}
+diamonds |> 
+  slice_sample(n = 100) |> 
+  ggplot(aes(carat, price, label = color)) +
+  geom_text()
+
+diamonds |> 
+  slice_sample(n = 100) |> 
+  ggplot(aes(carat, price, label = color)) +
+  geom_label()
+```
+
+Для того, чтобы наложения отображались можно использовать пакет `geom_text_repel()` или `geom_label_repel()` из пакета `ggrepel`:
+
+```{r}
+library(ggrepel)
+
+diamonds |> 
+  slice_sample(n = 100) |> 
+  ggplot(aes(carat, price, label = color)) +
+  geom_point() + 
+  geom_text_repel()
+```
+
+Если все равно остается много наложений, можно увеличить параметр `max.overlaps`:
+
+```{r}
+diamonds |> 
+  slice_sample(n = 100) |> 
+  ggplot(aes(carat, price, label = color)) +
+  geom_point() + 
+  geom_text_repel(max.overlaps = 50)
+```
+
+Этот график далек от идеала, но хорошо показывает разные средства для отображения строковых категорий на графике.
 
 ## Финализация графика: функции `labs()`, `annotate()`, `theme()`
+
+Графики, которые мы пока построили были достаточно сыроваты, в связи с этим, следует обсудить еще несколько функций, которые позволяют доофрмить график. Рассмотрим для примера данные из частотного словаря русского языка [@lyashevskaya11]:
+
+```{r}
+#| message: false
+
+freq_dict <- read_tsv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w3_freq_dict_2011.csv")
+
+freq_dict |> 
+  arrange(desc(freq_ipm)) |> 
+  mutate(rank = 1:n()) |> 
+  ggplot(aes(rank, freq_ipm))+
+  geom_point()
+```
+
+Мы видим, что мы ничего не можем увидеть, потому что частотность слов, отложенная по оси y имеет слишком большой разброс. В таких случаях имеет смысл отлогарифмировать переменную, детали которой хочется показать.
+
+```{r}
+freq_dict |> 
+  arrange(desc(freq_ipm)) |> 
+  mutate(rank = 1:n()) |> 
+  ggplot(aes(rank, freq_ipm)) +
+  geom_point() +
+  scale_y_log10()
+```
+
+Важно отметить, что данные никак не поменялись. Изменился шаг шкалы y: 1-10-100-1000 и т. д. Аналогично для трансформации осей есть функции `scale_x_log10()`, `scale_y_sqrt()` и `scale_x_sqrt()`. Отфильтруем первые 150 слов и добавим слова, частотность которых показана:
+
+```{r}
+freq_dict |> 
+  arrange(desc(freq_ipm)) |> 
+  mutate(rank = 1:n()) |>
+  slice(1:100) |> 
+  ggplot(aes(rank, freq_ipm, label = lemma)) +
+  geom_point() +
+  geom_text_repel(max.overlaps = 150)+
+  scale_y_log10()
+```
+
+Попробуем закончить оформление графика при помощи функции `labs()`. В этой функции можно изменить названия осей, добавить заголовок, подзаголовок и подпись:
+
+```{r}
+freq_dict |> 
+  arrange(desc(freq_ipm)) |> 
+  mutate(rank = 1:n()) |>
+  slice(1:100) |> 
+  ggplot(aes(rank, freq_ipm, label = lemma)) +
+  geom_point() +
+  geom_text_repel(max.overlaps = 150)+
+  scale_y_log10()+
+  labs(x = "ранк",
+       y = "частотность (количесвто на млн. слов)\nлог шкала",
+       title = "Наш невероятный график",
+       subtitle = "наша очень важная подпись",
+       caption = "данные из [Ляшевская, Шаров 2011]")
+```
+
+
+
 
 ## Столбчатые диаграммы
 
