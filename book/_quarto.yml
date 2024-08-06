@@ -24,3 +24,4 @@ language: custom.yml
 format:
   html:
     theme: cosmo
+    df-print: paged
