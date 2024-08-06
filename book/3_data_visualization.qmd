@@ -612,4 +612,133 @@ iris |>
 
 ## Распределение по категориям: функции `geom_jitter()`, `geom_boxplot()`, `geom_violin()` пакет `ggbeeswarm`
 
+Распределение можно визуализировать и при помощи знакомого нам `geom_point()`:
+
+```{r}
+iris |> 
+  ggplot(aes(Species, Petal.Length))+
+  geom_point()
+```
+
+К сожалению, в таком варианте точки накладываются друг на друга, в связи с этим можно использовать `geom_jitter()`, который произвольно разносит точки вокруг некоторой оси:
+
+```{r}
+iris |> 
+  ggplot(aes(Species, Petal.Length))+
+  geom_jitter()
+```
+
+Если разрброс слишком большой, его можно уменьшить при помощи аргумента `width`:
+
+```{r}
+iris |> 
+  ggplot(aes(Species, Petal.Length))+
+  geom_jitter(width = 0.3)
+```
+
+Кроме того, существует функция `geom_beeswarm()` из пакета `ggbeeswarm` (не забудьте установить его командой `install.packages("ggbeeswarm")`). Эта функция делает что-то вроде двумерного geom_dotplot вокруг оси:
+
+```{r}
+library("ggbeeswarm")
+iris |> 
+  ggplot(aes(Species, Petal.Length))+
+  geom_beeswarm()
+```
+
+Сглаженный вариант `geom_beeswarm()` --- двумерная функция плотности --- называют графиком-скрипкой. Этот тип графика можно создать при помощи функции `geom_violin()`.
+
+```{r}
+iris |> 
+  ggplot(aes(Species, Petal.Length))+
+  geom_violin()
+```
+
+Фунция автоматически обрезает концы, это можно отключить при помощи аргумента `trim`:
+
+```{r}
+iris |> 
+  ggplot(aes(Species, Petal.Length))+
+  geom_violin(trim = FALSE)
+```
+
+Последний график из этой категории, который мы разберем, называется ящик с усами (boxplot), который часто используют для визуализации распределения:
+
+```{r}
+iris |> 
+  ggplot(aes(Species, Petal.Length))+
+  geom_boxplot()
+```
+
+Верхние и нижние края коробки отвечают 25-процентной и 75-процентной квантилям. Расстояние между 25-процентной и 75-процентной квантилями измеряется для каждой коробке и 1.5 межквартильных расстояния откладывается вверх и вниз от коробки и потом уменьшается до минимального (в случае нижнего уса) и максимального (в случае верхнего уса) значений. Наблюдения, которые не попали в интервал 1.5 межквартильных расстояния объявляется на таком графике выбросом и отмечается отдельной точкой.  
+
 ## Фасетезация: семейство функций `facet_...()`
+
+Достаточно мощным инструментом анализа данных является фасетизация, которая позволяет разбивать графики на основе какой-то переменной.
+
+```{r diamonds1}
+#| cache: true
+
+diamonds |> 
+  ggplot(aes(carat, price, color = clarity))+
+  geom_point(size = 0.3)+
+  facet_wrap(~color, scales = "free")
+```
+
+При этом иногда так бывает, что наличие какой-то одного значение в одном из фасетов, заставляет иметь одну и ту же шкалу для всех остальных. Это можно изменить при помощи аргумента `scales`:
+
+```{r diamonds2}
+#| cache: true
+
+diamonds |> 
+  ggplot(aes(carat, price, color = clarity))+
+  geom_point(size = 0.3)+
+  facet_wrap(~color, scales = "free_x")
+```
+
+Иногда имеет смысл показать данные на фоне всего датасета. Для этого можно использовать трюк: использовать еще один слой с точками, куда вставить датасет без группирующей переменной (в нашем случае это `color`).
+
+```{r diamonds3}
+#| cache: true
+
+diamonds |> 
+  ggplot(aes(carat, price, color = clarity))+
+  geom_point(data = diamonds |> select(-color),
+             size = 0.3, color = "grey90")+
+  geom_point(size = 0.3)+
+  facet_wrap(~color, scales = "free_x")+
+  theme_minimal()
+```
+
+Кроме того, можно добавлять дополнительные аргументы фасетизации:
+
+```{r diamonds4}
+#| cache: true
+#| fig-height: 10
+
+diamonds |> 
+  ggplot(aes(carat, price))+
+  geom_point(size = 0.3)+
+  facet_wrap(~cut+color)
+```
+
+А еще можно создавать сетки переменных, используя функцию `facet_grid()`, они по сравнению с `facet_wrap()` занимают меньше места:
+
+```{r diamonds5}
+#| cache: true
+
+diamonds |> 
+  ggplot(aes(carat, price))+
+  geom_point(size = 0.3)+
+  facet_grid(cut~color, scales = "free")
+```
+
+Кроме того `facet_grid()` позволяет делать обощающие поля, где представлены все данные по какой-то строчке или столбцу:
+
+```{r diamonds6}
+#| cache: true
+
+diamonds |> 
+  ggplot(aes(carat, price))+
+  geom_point(size = 0.3)+
+  facet_grid(cut~color, scales = "free", margins = TRUE)
+```
