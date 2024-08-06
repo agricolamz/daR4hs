@@ -317,6 +317,31 @@ freq_dict |>
            label = "самое частотное слово")
 ```
 
+Кроме того `ggplot2` содержит в себе множество тем, которые можно использовать, просто добавив последней строчкой какую-то из функций семейства `theme_...()`. Я считаю, что важно знать про несколько тем:
+
+- `theme_minimal()`
+- `theme_voide()`
+
+```{r}
+freq_dict |> 
+  arrange(desc(freq_ipm)) |> 
+  mutate(rank = 1:n()) |>
+  slice(1:100) |> 
+  ggplot(aes(rank, freq_ipm, label = lemma)) +
+  geom_point() +
+  geom_text_repel(max.overlaps = 150)+
+  scale_y_log10()+
+  labs(x = "ранг",
+       y = "частотность (количесвто на млн. слов)\nлог шкала",
+       title = "Наш невероятный график",
+       subtitle = "наша очень важная подпись",
+       caption = "данные из [Ляшевская, Шаров 2011]")+
+  annotate(geom = "point", x = 1, y = 35802, color = "tomato")+
+  annotate(geom = "text", x = 35, y = 35802, color = "tomato",
+           label = "самое частотное слово")+
+  theme_minimal()
+```
+
 ## Сохранение результата
 
 Сохранить получившийся график можно двумя способами. Можно сохранить график просто нажав во вкладке Plots на клавишу Export > Save as image. Можно нажать на клавишу Zoom и в открывшемся окне ткнуть правой кнопкой мыши и выбрать из вариантов Copy image/Save image as. Кроме того, можно сохранить график при помощи кода. Это часто удобно, при автоматизации генерации картинок, например, для научной статьи. Графики `ggplot2` можно сохранять функцией `ggsave()`, где нужно специфицировать аргументы `filename`, `width`/`height` или `dpi`, `bg` (фон, от слова *background*).
@@ -327,21 +352,263 @@ freq_dict |>
 ggsave("my_plot.png", bg = "white", width = 12, height = 9)
 ```
 
-## Столбчатые диаграммы
+## Столбчатые диаграммы и факторы
 
 Если в предыдущем разделе мы визуализировали связь двух числовых переменных, то в этом разделе мы попробуем визуализировать связь числовой и категориальной переменной. Для этого мы воспользуемся датасетом из статьи издания The Pudding ["The Gyllenhaal Experiment"](https://pudding.cool/2019/02/gyllenhaal/):
 
 ```{r}
+#| message: false
+
 misspellings <- read_csv("https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w3_misspelling_dataset.csv")
-misspellings
+
+misspellings |> 
+  distinct(correct)
+
+misspellings |> 
+  filter(correct != spelling) |> 
+  count(correct) |> 
+  ggplot(aes(n, correct))+
+  geom_col()+
+  labs(y = NULL, 
+       y = "number of misspellings", 
+       caption = "based on The Pudding data")
+```
+
+Как видно из кода, я использовал функцию `geom_col()` для отображения результата в виде столбчатой диаграммы. К сожалению, мы видим, что категории отсортировались по алфавиту и никакая сортировка таблицы до передачи в функцию `ggplot()` ситуации не исправит. Для того, чтобы иметь более осмысленную сортировку нужно изменить переменную `correct` и преобразовать ее в особый тип данных в R --- в фактор. Фактор хранит данные в виде индексов, а каждому индексу приписывает правильное поведение при печати. Рассмотрим на примере:
+
+```{r}
+factor(c("собаки", "кошки", "мышки", "кошки", "мышки"))
+```
+
+Мы видим при печати не только значения вектора (обратите внимание на отсутствие ковычек --- значит R не воспринимает эту переменную как строковую), но и дополнительную подпись `Levels`, которая сообщает порядок значений переменных (по умолчанию он алфавитный). Мы можем изменить порядок категорий, тогда на графике будет сохраняться тот порядок, который был задан пользователем:
+
+```{r}
+tibble(my_var = factor(c("собаки", "кошки", "мышки", "кошки", "мышки"),
+                       levels = c("собаки", "кошки", "мышки"))) |> 
+  count(my_var) |> 
+  ggplot(aes(my_var, n))+
+  geom_col()
+```
+
+Важно, что в `tidyverse` пакет `forcats`, который позволяет создавать факторы на основе значений в переменных. Например, если мы хотим, чтобы столбчатая диаграмма имела сортировку по значению `n`, то мы можем поменять при помощи функции `fct_reorder()`. В качестве первого аргумента функции подается переменную, которую надо преобразовать, а в качестве второго --- переменую при помощи которой нужно сортрировать.
+
+```{r}
+misspellings |> 
+  filter(correct != spelling) |> 
+  count(correct) |> 
+  mutate(correct = fct_reorder(correct, n)) |> 
+  ggplot(aes(n, correct))+
+  geom_col()+
+  labs(y = NULL, 
+       y = "number of misspellings", 
+       caption = "based on The Pudding data")
+```
+
+Отметим другие полезные функции из пакета `for_cats`:
+
+- `fct_inorder()` --- упорядочить согласно порядку, в котором значения появляются в датасете;
+- `fct_infreq()` --- упорядочить согласно частотности, с которой значения появляются в датасете;
+- `fct_anon()` --- заменяет уровни фактора произвольными целыми числами. Это полезно для анонимизации данных. 
+
+Чтобы сделать наш график опечаток еще красивее можно добавить `geom_text()`, чтобы видеть значения колонок.
+
+```{r}
+misspellings |> 
+  filter(correct != spelling) |> 
+  count(correct) |> 
+  mutate(correct = fct_reorder(correct, n)) |> 
+  ggplot(aes(n, correct, label = n))+
+  geom_col()+
+  geom_text(nudge_x = 230)+
+  xlim(0, 3200)+
+  labs(y = NULL, 
+       y = "number of misspellings", 
+       caption = "based on The Pudding data")
+```
+
+Стоит так же обратить внимание, что столбики имеют ободок и внутренность, и если мы хотим закрасить столбики, нужно использовать аргумент `fill`, а не `color`:
+
+```{r}
+misspellings |> 
+  filter(correct != spelling) |> 
+  count(correct) |> 
+  mutate(correct = fct_reorder(correct, n)) |> 
+  ggplot(aes(n, correct, label = n))+
+  geom_col(color = "darkgreen")+
+  geom_text(nudge_x = 230)+
+  xlim(0, 3200)+
+  labs(y = NULL, 
+       y = "number of misspellings", 
+       caption = "based on The Pudding data")
+
+misspellings |> 
+  filter(correct != spelling) |> 
+  count(correct) |> 
+  mutate(correct = fct_reorder(correct, n)) |> 
+  ggplot(aes(n, correct, label = n))+
+  geom_col(fill = "darkgreen")+
+  geom_text(nudge_x = 230)+
+  xlim(0, 3200)+
+  labs(y = NULL, 
+       y = "number of misspellings", 
+       caption = "based on The Pudding data")
+```
+
+Также в разных источниках можно встретить `geom_bar()`, который преобразует в столбчатую диаграмму неаггрегированный вектор значений:
+
+```{r}
+misspellings |> 
+  filter(correct != spelling) |> 
+  ggplot(aes(correct))+
+  geom_bar()+
+  coord_flip()
+```
+
+Все это происходит на основании длинного неагрегированного вектора с повторениями:
+
+```{r}
+misspellings |> 
+  filter(correct != spelling) |> 
+  select(correct) |> 
+  slice_sample(n = 200)
+```
+
+Тут-то нам и пригодится функция `fct_infreq()`:
+
+```{r}
+misspellings |> 
+  filter(correct != spelling) |> 
+  mutate(correct = fct_infreq(correct)) |> 
+  ggplot(aes(correct))+
+  geom_bar()+
+  coord_flip()
 ```
 
 
-
-
-## Факторы, пакет `forcats`
-
 ## Визуализируем распределение: функции `geom_dotplot()`, `geom_histogram()`, `geom_density()`, пакет `ggridges`
+
+Иногда для случаев, когда мы исследуем числовую переменную подходит простой график, который отображает распределение наших наблюдений на одной соответствующей числовой шкале. Мы рассмотрим это на примере известного датасета `iris` Рональда Фишера [@fisher36]:
+
+```{r}
+#| message: false
+
+iris |> 
+  ggplot(aes(Sepal.Length, fill = Species)) +
+  geom_dotplot() +
+  theme(legend.position = "bottom")
+```
+
+По оси x отложена наша переменная, каждая точка --- одно наблюдение, а отложенное по оси y стоит игнорировать -- оно появляется из-за ограничений пакета `ggplot2`.
+
+```{r}
+#| message: false
+
+iris |> 
+  ggplot(aes(Sepal.Length, fill = Species)) +
+  geom_dotplot() +
+  theme(legend.position = "bottom") +
+  scale_y_continuous(NULL, breaks = NULL) # чтобы убрать ось y
+```
+
+Если наблюдений слишком много, дотплот не имеем смысла применять:
+
+```{r}
+#| message: false
+
+diamonds |> 
+  ggplot(aes(price)) +
+  geom_dotplot(method = "histodot")+
+  scale_y_continuous(NULL, breaks = NULL) # чтобы убрать ось y
+```
+
+Вместо него обычно строят гистограмму.
+
+```{r}
+#| message: false
+
+diamonds |> 
+  ggplot(aes(price)) +
+  geom_histogram()
+```
+
+Обсудим на предыдущем примере
+
+```{r}
+#| message: false
+
+iris |> 
+  ggplot(aes(Sepal.Length)) +
+  geom_histogram()
+```
+
+По оси x отложена наша переменная, а высота столбца говорит, сколько наблюдений имеют такое же наблюдение. Однако многое зависит от того, что мы считаем одинаковым значением. Алгоритм здесь основан на разбиении распределения на `n` интервалов одинакового размера и отображением, сколько наблюдений попало в интервал. Количество интервалов можно задать самостоятельно, используя аргумент `bins`:
+
+```{r}
+iris |> 
+  ggplot(aes(Sepal.Length)) +
+  geom_histogram(bins = 50)
+
+iris |> 
+  ggplot(aes(Sepal.Length)) +
+  geom_histogram(bins = 5)
+```
+
+Существует три алгоритма определения оптимального количества интервалов, встроенных в R, которые можно использовать и снимать с себя ответственность:
+
+- [@sturges26] `nclass.Sturges(mtcars$mpg)`
+- [@scott79] `nclass.scott(mtcars$mpg)`
+- [@freedman81] `nclass.FD(mtcars$mpg)`
+
+```{r}
+iris |> 
+  ggplot(aes(Sepal.Length)) +
+  geom_histogram(bins = nclass.FD(iris$Sepal.Length))
+```
+
+В этом типе графика точно так же можно раскрашивать на основании другой переменной:
+
+```{r}
+#| message: false
+
+iris |> 
+  ggplot(aes(Petal.Length, fill = Species)) +
+  geom_histogram()
+```
+
+Кроме того, существует способ использовать не такой рубленный график, а его сглаженную вариант, который строиться при помои функции оценки ядерной плотности. Важное свойство, которое стоит понимать про функцию плотности --- что кривая, получаемая ядерной оценкой плотности, не зависит от величины коробки гистоделения (хотя есть аргумент `adjust`, который отвечает за степень "близости" функции плотности к гистограмме).
+
+```{r}
+iris |> 
+  ggplot(aes(Petal.Length)) +
+  geom_density()
+```
+
+Таким образом мы можем сравнивать распределения:
+
+```{r}
+iris |> 
+  ggplot(aes(Petal.Length, fill = Species)) +
+  geom_density()
+```
+
+Часто имеет смысл настроить прозрачность:
+
+```{r}
+iris |> 
+  ggplot(aes(Petal.Length, fill = Species)) +
+  geom_density(alpha = 0.6)
+```
+
+Кроме того, иногда удобно разделять группы на разные уровни при помощи функции `geom_density_ridges()` из пакета `ggridges` (можно установить командой `install.packages("ggridges")`):
+
+```{r}
+#| message: false
+
+library(ggridges)
+iris |> 
+  ggplot(aes(Petal.Length, Species, fill = Species)) +
+  geom_density_ridges(alpha = 0.6)
+```
 
 ## Распределение по категориям: функции `geom_jitter()`, `geom_boxplot()`, `geom_violin()` пакет `ggbeeswarm`
 
