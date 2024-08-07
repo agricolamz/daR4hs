@@ -714,7 +714,7 @@
     "href": "9_introduction_to_quarto.html#режимы-source-visual",
     "title": "9  Введение в quarto",
     "section": "9.2 Режимы Source / Visual",
-    "text": "9.2 Режимы Source / Visual\nВ публикационных системах достаточно давно есть противостояние между разными системами. Одни обычно описывают акронимом WYSIWYG (what you see is what you get). В них пользователь набирает и редактирует документ в том виде, в каком он потом, согласно ожиданиям пользователя, будет напечатан или отображен. В качестве примеров такой системы можно привести распространенные редакторы MS Word, LibreOffice или облачные Google Documents. Альтернативой являются компилируемые системы, в которых документ создается при помощи некоторых стандартизованных кодовых вставок, которые кодируют желаемое форматирование для компилятора. Примером такой системы является \\(\\LaTeX\\), Markdown и другие. Изначально система Rmarkdown предполагало создание документов второго рода, однако при разработке quarto в RStudio была добавлена WYSIWYG панель, которые переключаются кнопками Source и Visual в левом верхнем углу. Мы в наших материалах будем использовать вкладку Source. Важно отметить, что несмотря на WYSIWYG вкладку документы все равно нужно компилировать, нажатием кнопки Render.\n\n\n\n\n\n\n\n\n\n\n\n\n\nРисунок 9.1: Разные виды панелей",
+    "text": "9.2 Режимы Source / Visual\nВ публикационных системах достаточно давно есть противостояние между разными системами. Одни обычно описывают акронимом WYSIWYG (what you see is what you get). В них пользователь набирает и редактирует документ в том виде, в каком он потом, согласно ожиданиям пользователя, будет напечатан или отображен. В качестве примеров такой системы можно привести распространенные редакторы MS Word, LibreOffice или облачные Google Documents. Альтернативой являются компилируемые системы, в которых документ создается при помощи некоторых стандартизованных кодовых вставок, которые кодируют желаемое форматирование для компилятора. Примером такой системы является \\(\\LaTeX\\), Markdown и другие. Изначально система Rmarkdown предполагало создание документов второго рода, однако при разработке quarto в RStudio была добавлена WYSIWYG панель, которые переключаются кнопками Source и Visual в левом верхнем углу. Мы в наших материалах будем использовать вкладку Source. Важно отметить, что несмотря на WYSIWYG вкладку документы все равно нужно компилировать, нажатием кнопки Render с синей стрелочкой.\n\n\n\n\n\n\n\n\n\n\n\n\n\nРисунок 9.1: Разные виды панелей",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
     ]
@@ -727,6 +727,26 @@
     "text": "Anscombe, F. J. 1973. “Graphs in Statistical Analysis.”\nThe American Statistician 27 (1): 17–21.\n\n\nFisher, R. A. 1936. “The Use of Multiple Measurements in Taxonomic\nProblems.” Annals of Eugenics 7 (2): 179–88.\n\n\nFreedman, D., and P. Diaconis. 1981. “On the Histogram as a\nDensity Estimator: L_2 Theory.” Zeitschrift für\nWahrscheinlichkeitstheorie Und Verwandte Gebiete 57 (4): 453–76.\n\n\nLovelace, Robin, Jakub Nowosad, and Jannes Muenchow. 2019.\nGeocomputation with r. CRC Press.\n\n\nMatejka, J., and G. Fitzmaurice. 2017. “Same Stats, Different\nGraphs: Generating Datasets with Varied Appearance and Identical\nStatistics Through Simulated Annealing.” In Proceedings of\nthe 2017 CHI Conference on Human Factors in Computing Systems,\n1290–94.\n\n\nR Core Team. 2023. R: A Language and Environment for Statistical\nComputing. Vienna, Austria: R Foundation for Statistical Computing.\nhttps://www.R-project.org/.\n\n\nScott, D. W. 1979. “On Optimal and Data-Based Histograms.”\nBiometrika 66 (3): 605–10.\n\n\nStepanova, S. 2011. “Russian Spontaneous Speech Rate-Based on the\nSpeech Corpus of Russian Everyday\nInteraction.” In Proceedings of 17th\nInternational Congress of Phonetic Sciences, edited by Wai Sum Lee,\n1902–5.\n\n\nSturges, H. A. 1926. “The Choice of a Class Interval.”\nJournal of the American Statistical Association 21 (153):\n65–66.\n\n\nWickham, H. 2016. Ggplot2: Elegrant Graphics for Data Analysis.\nSpringer.\n\n\nWickham, H., M. Çetinkaya-Rundel, and G. Grolemund. 2023. R for Data\nScience. \" O’Reilly Media, Inc.\".\n\n\nЛяшевская, О. Н., and С. А. Шаров. 2011. Новый Частотный Словарь\nРусской Лексики. Словари, Созданные На Основе Национального Корпуса\nРусского Языка.",
     "crumbs": [
       "Список литературы"
+    ]
+  },
+  {
+    "objectID": "9_introduction_to_quarto.html#структура-.qmd-документа",
+    "href": "9_introduction_to_quarto.html#структура-.qmd-документа",
+    "title": "9  Введение в quarto",
+    "section": "9.3 Структура .qmd документа",
+    "text": "9.3 Структура .qmd документа",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
+    ]
+  },
+  {
+    "objectID": "9_introduction_to_quarto.html#скоро-будет-дополнено",
+    "href": "9_introduction_to_quarto.html#скоро-будет-дополнено",
+    "title": "9  Введение в quarto",
+    "section": "9.4 Скоро будет дополнено!",
+    "text": "9.4 Скоро будет дополнено!",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
     ]
   }
 ]
