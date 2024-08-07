@@ -286,10 +286,32 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>После этого можно пойти в меню Rstudio File &gt; New File &gt; Quarto Document или ткнуть на крайне левую иконку New File и выбрать из выпадающего списка Quarto Document. После этого откроется окошко, где можно набрать заголовок и автора документа. Эти поля можно не заполнять, а исправить потом в самом документе.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/09_01_creation.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:30.0%"></p>
+</figure>
+</div>
 </section>
 <section id="режимы-source-visual" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="режимы-source-visual"><span class="header-section-number">9.2</span> Режимы Source / Visual</h2>
-<p>В публикационных системах достаточно давно есть противостояние между разными системами. Одни обычно описывают акронимом <a href="https://en.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a> (what you see is what you get). В них пользователь набирает и редактирует документ в том виде, в каком он потом, согласно ожиданиям пользователя, будет напечатан или отображен. В качестве примеров такой системы можно привести распространенные редакторы MS Word, LibreOffice или облачные Google Documents. Альтернативой являются компилируемые системы, в которых документ создается при помощи некоторых стандартизованных кодовых вставок, которые кодируют желаемое форматирование для компилятора. Примером такой системы является <span class="math inline">\(\LaTeX\)</span>, Markdown и другие.</p>
+<p>В публикационных системах достаточно давно есть противостояние между разными системами. Одни обычно описывают акронимом <a href="https://en.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a> (what you see is what you get). В них пользователь набирает и редактирует документ в том виде, в каком он потом, согласно ожиданиям пользователя, будет напечатан или отображен. В качестве примеров такой системы можно привести распространенные редакторы MS Word, LibreOffice или облачные Google Documents. Альтернативой являются компилируемые системы, в которых документ создается при помощи некоторых стандартизованных кодовых вставок, которые кодируют желаемое форматирование для компилятора. Примером такой системы является <span class="math inline">\(\LaTeX\)</span>, Markdown и другие. Изначально система <code>Rmarkdown</code> предполагало создание документов второго рода, однако при разработке <code>quarto</code> в RStudio была добавлена WYSIWYG панель, которые переключаются кнопками Source и Visual в левом верхнем углу. Мы в наших материалах будем использовать вкладку Source. Важно отметить, что несмотря на WYSIWYG вкладку документы все равно нужно компилировать, нажатием кнопки Render.</p>
+<div id="fig-modes" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-modes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="images/09_02_visual_mode.png" class="img-fluid figure-img"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="images/09_03_source_mode.png" class="img-fluid figure-img"></p>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-modes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.1: Разные виды панелей
+</figcaption>
+</figure>
+</div>
 
 
 </section>
