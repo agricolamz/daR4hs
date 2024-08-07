@@ -743,8 +743,78 @@
     "objectID": "9_introduction_to_quarto.html#скоро-будет-дополнено",
     "href": "9_introduction_to_quarto.html#скоро-будет-дополнено",
     "title": "9  Введение в quarto",
-    "section": "9.4 Скоро будет дополнено!",
-    "text": "9.4 Скоро будет дополнено!",
+    "section": "9.5 Скоро будет дополнено!",
+    "text": "9.5 Скоро будет дополнено!",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
+    ]
+  },
+  {
+    "objectID": "9_introduction_to_quarto.html#структура-quarto-документов",
+    "href": "9_introduction_to_quarto.html#структура-quarto-документов",
+    "title": "9  Введение в quarto",
+    "section": "9.3 Структура quarto-документов",
+    "text": "9.3 Структура quarto-документов\nСтандартное расширение quarto-документов — .qmd. Все quarto-документы могут содержать один из трех элементов:\n\nрасширенную markdown-разметку при помощи которой пишутся текстовые блоки\nфрагменты кода (в том числе и на языках отличных от R)\nyaml-шапка, в которой хранится основные метаданные и настройки документа. Начало и конец yaml-шапки отделены тремя минусами ---.\n\nДалее мы рассмотрим все эти элементы.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
+    ]
+  },
+  {
+    "objectID": "9_introduction_to_quarto.html#расширенная-markdown-разметка",
+    "href": "9_introduction_to_quarto.html#расширенная-markdown-разметка",
+    "title": "9  Введение в quarto",
+    "section": "9.4 Расширенная markdown-разметка",
+    "text": "9.4 Расширенная markdown-разметка\nВот примеры форматирования текста.\n\n\n\n\n\n\n\nmarkdown-разметка\nРезультат\n\n\n\n\n*курсив*, **полужирный**, ***полужирный курсив***\nкурсив, полужирный, полужирный курсив\n\n\nверхний индекс^2^ / нижний индекс~2~\nверхний индекс2 / нижний индекс2\n\n\n~~вычеркивание~~\nвычеркивание\n\n\n`фрагмент кода`\nфрагмент кода\n\n\n[подчеркивание]{.underline}\nподчеркивание\n\n\n[малые прописные]{.smallcaps}\nмалые прописные\n\n\n\nВот так следует форматировать заголовки.\n\n\n\n\n\n\n\nmarkdown-разметка\nРезультат\n\n\n\n\n# Заголовок 1 уровня\nЗаголовок 1 уровня\n\n\n## Заголовок 2 уровня\nЗаголовок 2 уровня\n\n\n### Заголовок 3 уровня\nЗаголовок 3 уровня\n\n\n#### Заголовок 1 уровня\nЗаголовок 4 уровня\n\n\n##### Заголовок 5 уровня\nЗаголовок 5 уровня\n\n\n###### Заголовок 6 уровня\nЗаголовок 6 уровня\n\n\n\n\nВ quarto для вставки формул используется код . Фрагменты формулы, которые на отдельной строке нужно вводить в двойных знаках доллара:\n$$Z(\\lambda) = \\int_{\\mathcal{C_x}} dz g(z) e^{-\\frac{f(x)}{\\lambda}}$$\n\\[Z(\\lambda) = \\int_{\\mathcal{C_x}} dz g(z) e^{-\\frac{f(x)}{\\lambda}}\\]\nКод внутри текста следует вводить в одинарных знаках доллара:\nВот строка, в ней есть формула $\\int_{\\mathcal{C_x}} dz g(z) e^{-\\frac{f(x)}{\\lambda}}$\nВот строка, в ней есть формула \\(\\int_{\\mathcal{C_x}} dz g(z) e^{-\\frac{f(x)}{\\lambda}}\\)",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
+    ]
+  },
+  {
+    "objectID": "9_introduction_to_quarto.html#вставка-изображений-и-графиков",
+    "href": "9_introduction_to_quarto.html#вставка-изображений-и-графиков",
+    "title": "9  Введение в quarto",
+    "section": "9.5 Вставка изображений и графиков",
+    "text": "9.5 Вставка изображений и графиков",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
+    ]
+  },
+  {
+    "objectID": "9_introduction_to_quarto.html#вставка-таблиц",
+    "href": "9_introduction_to_quarto.html#вставка-таблиц",
+    "title": "9  Введение в quarto",
+    "section": "9.6 Вставка таблиц",
+    "text": "9.6 Вставка таблиц",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
+    ]
+  },
+  {
+    "objectID": "9_introduction_to_quarto.html#ссылки-на-литературу",
+    "href": "9_introduction_to_quarto.html#ссылки-на-литературу",
+    "title": "9  Введение в quarto",
+    "section": "9.7 Ссылки на литературу",
+    "text": "9.7 Ссылки на литературу",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
+    ]
+  },
+  {
+    "objectID": "9_introduction_to_quarto.html#фрагменты-кода",
+    "href": "9_introduction_to_quarto.html#фрагменты-кода",
+    "title": "9  Введение в quarto",
+    "section": "9.8 Фрагменты кода",
+    "text": "9.8 Фрагменты кода",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
+    ]
+  },
+  {
+    "objectID": "9_introduction_to_quarto.html#yaml-шапка",
+    "href": "9_introduction_to_quarto.html#yaml-шапка",
+    "title": "9  Введение в quarto",
+    "section": "9.9 yaml-шапка",
+    "text": "9.9 yaml-шапка",
     "crumbs": [
       "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
     ]

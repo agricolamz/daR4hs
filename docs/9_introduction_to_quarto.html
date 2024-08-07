@@ -249,8 +249,13 @@ window.Quarto = {
   <ul>
   <li><a href="#установка-quarto" id="toc-установка-quarto" class="nav-link active" data-scroll-target="#установка-quarto"><span class="header-section-number">9.1</span> Установка <code>quarto</code></a></li>
   <li><a href="#режимы-source-visual" id="toc-режимы-source-visual" class="nav-link" data-scroll-target="#режимы-source-visual"><span class="header-section-number">9.2</span> Режимы Source / Visual</a></li>
-  <li><a href="#структура-.qmd-документа" id="toc-структура-.qmd-документа" class="nav-link" data-scroll-target="#структура-.qmd-документа"><span class="header-section-number">9.3</span> Структура <code>.qmd</code> документа</a></li>
-  <li><a href="#скоро-будет-дополнено" id="toc-скоро-будет-дополнено" class="nav-link" data-scroll-target="#скоро-будет-дополнено"><span class="header-section-number">9.4</span> Скоро будет дополнено!</a></li>
+  <li><a href="#структура-quarto-документов" id="toc-структура-quarto-документов" class="nav-link" data-scroll-target="#структура-quarto-документов"><span class="header-section-number">9.3</span> Структура <code>quarto</code>-документов</a></li>
+  <li><a href="#расширенная-markdown-разметка" id="toc-расширенная-markdown-разметка" class="nav-link" data-scroll-target="#расширенная-markdown-разметка"><span class="header-section-number">9.4</span> Расширенная markdown-разметка</a></li>
+  <li><a href="#вставка-изображений-и-графиков" id="toc-вставка-изображений-и-графиков" class="nav-link" data-scroll-target="#вставка-изображений-и-графиков"><span class="header-section-number">9.5</span> Вставка изображений и графиков</a></li>
+  <li><a href="#вставка-таблиц" id="toc-вставка-таблиц" class="nav-link" data-scroll-target="#вставка-таблиц"><span class="header-section-number">9.6</span> Вставка таблиц</a></li>
+  <li><a href="#ссылки-на-литературу" id="toc-ссылки-на-литературу" class="nav-link" data-scroll-target="#ссылки-на-литературу"><span class="header-section-number">9.7</span> Ссылки на литературу</a></li>
+  <li><a href="#фрагменты-кода" id="toc-фрагменты-кода" class="nav-link" data-scroll-target="#фрагменты-кода"><span class="header-section-number">9.8</span> Фрагменты кода</a></li>
+  <li><a href="#yaml-шапка" id="toc-yaml-шапка" class="nav-link" data-scroll-target="#yaml-шапка"><span class="header-section-number">9.9</span> <code>yaml</code>-шапка</a></li>
   </ul>
 </nav>
     </div>
@@ -281,6 +286,7 @@ window.Quarto = {
 <li><a href="https://www.youtube.com/watch?v=_f3latmOhew">Get started with Quarto</a></li>
 <li><a href="https://www.youtube.com/watch?v=EbAAmrB0luA">Quarto for Academics</a></li>
 </ul>
+<p><code>quarto</code>-документы по своей сути сильно напоминают jupyter-ноутбуки. Jupyter-ноутбуки тоже представляют собой фрагменты кода перемешанные с markdown разметкой, в которых каждый фрагмент кода можно при желании запустить. Отличие заключается в том, что <code>quarto</code>-документы хотя и предоставляют запустить каждый фрагмент в текущей сессии, однако чаще всего их компилируют от начала до конца в новой сессии (т. е. переменные, которые пользователь создал в текущей сессии никак не влияют на результат). В R тоже есть ноутбуки (File &gt; New File &gt; R Notebook).</p>
 <section id="установка-quarto" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="установка-quarto"><span class="header-section-number">9.1</span> Установка <code>quarto</code></h2>
 <p>Для установки <code>quarto</code> нужно скачать установшик <a href="https://quarto.org/docs/get-started/">с этой страницы</a>, а в RStudio следует установить пакет <code>quarto</code>:</p>
@@ -315,11 +321,124 @@ window.Quarto = {
 </figure>
 </div>
 </section>
-<section id="структура-.qmd-документа" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="структура-.qmd-документа"><span class="header-section-number">9.3</span> Структура <code>.qmd</code> документа</h2>
+<section id="структура-quarto-документов" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="структура-quarto-документов"><span class="header-section-number">9.3</span> Структура <code>quarto</code>-документов</h2>
+<p>Стандартное расширение <code>quarto</code>-документов — <code>.qmd</code>. Все <code>quarto</code>-документы могут содержать один из трех элементов:</p>
+<ul>
+<li>расширенную markdown-разметку при помощи которой пишутся текстовые блоки</li>
+<li>фрагменты кода (в том числе и на языках отличных от R)</li>
+<li><code>yaml</code>-шапка, в которой хранится основные метаданные и настройки документа. Начало и конец <code>yaml</code>-шапки отделены тремя минусами <code>---</code>.</li>
+</ul>
+<p>Далее мы рассмотрим все эти элементы.</p>
 </section>
-<section id="скоро-будет-дополнено" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="скоро-будет-дополнено"><span class="header-section-number">9.4</span> Скоро будет дополнено!</h2>
+<section id="расширенная-markdown-разметка" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="расширенная-markdown-разметка"><span class="header-section-number">9.4</span> Расширенная markdown-разметка</h2>
+<p>Вот примеры форматирования текста.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 49%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>markdown-разметка</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>*курсив*, **полужирный**, ***полужирный курсив***</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><em>курсив</em>, <strong>полужирный</strong>, <strong><em>полужирный курсив</em></strong></td>
+</tr>
+<tr class="even">
+<td><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>верхний индекс^2^ / нижний индекс~2~</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td>верхний индекс<sup>2</sup> / нижний индекс<sub>2</sub></td>
+</tr>
+<tr class="odd">
+<td><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>~~вычеркивание~~</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><del>вычеркивание</del></td>
+</tr>
+<tr class="even">
+<td><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="in">`фрагмент кода`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><code>фрагмент кода</code></td>
+</tr>
+<tr class="odd">
+<td><div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">подчеркивание</span><span class="co">]</span>{.underline}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><u>подчеркивание</u></td>
+</tr>
+<tr class="even">
+<td><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">малые прописные</span><span class="co">]</span>{.smallcaps}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><span class="smallcaps">малые прописные</span></td>
+</tr>
+</tbody>
+</table>
+<p>Вот так следует форматировать заголовки.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>markdown-разметка</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Заголовок 1 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h1 id="заголовок-1-уровня" class="heading-output unnumbered">Заголовок 1 уровня</h1></td>
+</tr>
+<tr class="even">
+<td><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Заголовок 2 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h2 id="заголовок-2-уровня" class="heading-output unnumbered anchored">Заголовок 2 уровня</h2></td>
+</tr>
+<tr class="odd">
+<td><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Заголовок 3 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h3 id="заголовок-3-уровня" class="heading-output unnumbered anchored">Заголовок 3 уровня</h3></td>
+</tr>
+<tr class="even">
+<td><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Заголовок 1 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h4 id="заголовок-4-уровня" class="heading-output unnumbered anchored">Заголовок 4 уровня</h4></td>
+</tr>
+<tr class="odd">
+<td><div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Заголовок 5 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h5 id="заголовок-5-уровня" class="heading-output unnumbered anchored">Заголовок 5 уровня</h5></td>
+</tr>
+<tr class="even">
+<td><div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">###### Заголовок 6 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h6 id="заголовок-6-уровня" class="heading-output unnumbered anchored">Заголовок 6 уровня</h6></td>
+</tr>
+</tbody>
+</table>
+<style type="text/css">
+.heading-output {
+  border-bottom: none;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+</style>
+<p>В <code>quarto</code> для вставки формул используется код . Фрагменты формулы, которые на отдельной строке нужно вводить в двойных знаках доллара:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>$$Z(\lambda) = \int_{\mathcal{C_x}} dz g(z) e^{-\frac{f(x)}{\lambda}}$$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><span class="math display">\[Z(\lambda) = \int_{\mathcal{C_x}} dz g(z) e^{-\frac{f(x)}{\lambda}}\]</span></p>
+<p>Код внутри текста следует вводить в одинарных знаках доллара:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Вот строка, в ней есть формула $\int_{\mathcal{C_x}} dz g(z) e^{-\frac{f(x)}{\lambda}}$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Вот строка, в ней есть формула <span class="math inline">\(\int_{\mathcal{C_x}} dz g(z) e^{-\frac{f(x)}{\lambda}}\)</span></p>
+</section>
+<section id="вставка-изображений-и-графиков" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="вставка-изображений-и-графиков"><span class="header-section-number">9.5</span> Вставка изображений и графиков</h2>
+</section>
+<section id="вставка-таблиц" class="level2" data-number="9.6">
+<h2 data-number="9.6" class="anchored" data-anchor-id="вставка-таблиц"><span class="header-section-number">9.6</span> Вставка таблиц</h2>
+</section>
+<section id="ссылки-на-литературу" class="level2" data-number="9.7">
+<h2 data-number="9.7" class="anchored" data-anchor-id="ссылки-на-литературу"><span class="header-section-number">9.7</span> Ссылки на литературу</h2>
+</section>
+<section id="фрагменты-кода" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="фрагменты-кода"><span class="header-section-number">9.8</span> Фрагменты кода</h2>
+</section>
+<section id="yaml-шапка" class="level2" data-number="9.9">
+<h2 data-number="9.9" class="anchored" data-anchor-id="yaml-шапка"><span class="header-section-number">9.9</span> <code>yaml</code>-шапка</h2>
 
 
 </section>
