@@ -254,7 +254,7 @@ window.Quarto = {
   <li><a href="#вставка-изображений-и-графиков" id="toc-вставка-изображений-и-графиков" class="nav-link" data-scroll-target="#вставка-изображений-и-графиков"><span class="header-section-number">9.5</span> Вставка изображений и графиков</a></li>
   <li><a href="#вставка-таблиц" id="toc-вставка-таблиц" class="nav-link" data-scroll-target="#вставка-таблиц"><span class="header-section-number">9.6</span> Вставка таблиц</a></li>
   <li><a href="#ссылки-на-литературу" id="toc-ссылки-на-литературу" class="nav-link" data-scroll-target="#ссылки-на-литературу"><span class="header-section-number">9.7</span> Ссылки на литературу</a></li>
-  <li><a href="#фрагменты-кода" id="toc-фрагменты-кода" class="nav-link" data-scroll-target="#фрагменты-кода"><span class="header-section-number">9.8</span> Фрагменты кода</a></li>
+  <li><a href="#sec-code_fragments" id="toc-sec-code_fragments" class="nav-link" data-scroll-target="#sec-code_fragments"><span class="header-section-number">9.8</span> Фрагменты кода</a></li>
   <li><a href="#yaml-шапка" id="toc-yaml-шапка" class="nav-link" data-scroll-target="#yaml-шапка"><span class="header-section-number">9.9</span> <code>yaml</code>-шапка</a></li>
   </ul>
 </nav>
@@ -427,6 +427,94 @@ window.Quarto = {
 </section>
 <section id="вставка-изображений-и-графиков" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="вставка-изображений-и-графиков"><span class="header-section-number">9.5</span> Вставка изображений и графиков</h2>
+<p>Стандартный синтаксис для вставки внешних изображений выглядит так <code>![заголовок](путь/к/изображению.png)</code>.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/photo_1.jpg)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="images/09_04_photo_1.jpg" class="img-fluid"> Размер вставялемого изображения можно изменить:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="al">![цветы в снегу](images/photo_1.jpg)</span>{width="80%"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/09_04_photo_1.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>цветы в снегу</figcaption>
+</figure>
+</div>
+<p>Можно прижать к правому краю:</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="al">![цветы в снегу](images/photo_1.jpg)</span>{width="80%" fig-align="right"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="quarto-figure quarto-figure-right">
+<figure class="figure">
+<p><img src="images/09_04_photo_1.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>цветы в снегу</figcaption>
+</figure>
+</div>
+<p>Изображения можно комбинировать вместе. Для этого следует создать окружение при помощи <code>:::</code>. В фигурных скобках содержится ключ для ссылки на изображение, к которой потом можно обращаться и аргумент <code>layout-ncol="2"</code>. В фигурных скобках после конкретных изображений вставлены ключи для ссылки на отдельные подрисунки.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>::: {#fig-pictures layout-ncol="2"}</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="al">![цветы в снегу](images/photo_1.jpg)</span>{#fig-flowers}</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="al">![листья](images/photo_2.jpg)</span>{#fig-leafs}</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>Фотографии</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="fig-pictures" class="quarto-layout-panel">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pictures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-pictures" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-flowers" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-flowers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/09_04_photo_1.jpg" class="img-fluid figure-img" data-ref-parent="fig-pictures">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-flowers-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) цветы в снегу
+</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-pictures" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-leafs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-leafs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/09_05_photo_2.jpg" class="img-fluid figure-img" data-ref-parent="fig-pictures">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-leafs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) листья
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pictures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.2: Фотографии
+</figcaption>
+</figure>
+</div>
+<p>Теперь мы можем сослаться на изображение <a href="#fig-pictures" class="quarto-xref">Рисунок&nbsp;<span>9.2</span></a> и отдельные подрисунки <a href="#fig-leafs" class="quarto-xref">Рисунок&nbsp;<span>9.2 (b)</span></a> и <a href="#fig-flowers" class="quarto-xref">Рисунок&nbsp;<span>9.2 (a)</span></a>. Это сделано при помощи следующего фрагмента расширенной markdown-разметки:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>Теперь мы можем сослаться на изображение @fig-pictures и отдельные подрисунки @fig-leafs и @fig-flowers.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Для вставки изображения, которое генерируется при помощи кода можно использовать фрагмент кода (см. раздел <a href="#sec-code_fragments" class="quarto-xref"><span>Раздел 9.8</span></a> ниже). Аргументы фрагмента кода добавляют при помощи <code>#|</code>, так что добавим аргемнты <code>fig-cap</code>, который отвечате за подпись к графику и аргумент <code>label</code>, который содержит ключ для ссылки:</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Наш код на R"</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: "fig-code_r"</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="in">mtcars |&gt; </span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="in">  ggplot(aes(mpg,drat))+</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-code_r" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-code_r-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="9_introduction_to_quarto_files/figure-html/fig-code_r-1.png" class="img-fluid figure-img" width="672">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-code_r-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Рисунок&nbsp;9.3: Наш код на R
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>Попробуем сослатсья на <a href="#fig-code_r" class="quarto-xref">Рисунок&nbsp;<span>9.3</span></a> (код ссылки такой же, как и выше: <code>@fig-code_r</code>):</p>
 </section>
 <section id="вставка-таблиц" class="level2" data-number="9.6">
 <h2 data-number="9.6" class="anchored" data-anchor-id="вставка-таблиц"><span class="header-section-number">9.6</span> Вставка таблиц</h2>
@@ -434,8 +522,8 @@ window.Quarto = {
 <section id="ссылки-на-литературу" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="ссылки-на-литературу"><span class="header-section-number">9.7</span> Ссылки на литературу</h2>
 </section>
-<section id="фрагменты-кода" class="level2" data-number="9.8">
-<h2 data-number="9.8" class="anchored" data-anchor-id="фрагменты-кода"><span class="header-section-number">9.8</span> Фрагменты кода</h2>
+<section id="sec-code_fragments" class="level2" data-number="9.8">
+<h2 data-number="9.8" class="anchored" data-anchor-id="sec-code_fragments"><span class="header-section-number">9.8</span> Фрагменты кода</h2>
 </section>
 <section id="yaml-шапка" class="level2" data-number="9.9">
 <h2 data-number="9.9" class="anchored" data-anchor-id="yaml-шапка"><span class="header-section-number">9.9</span> <code>yaml</code>-шапка</h2>
