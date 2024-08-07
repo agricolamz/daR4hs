@@ -397,7 +397,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="5.2" class="anchored" data-anchor-id="библиотеки-текстов"><span class="header-section-number">5.2</span> Библиотеки текстов</h2>
 <section id="пакет-gutenbergr" class="level3" data-number="5.2.1">
 <h3 data-number="5.2.1" class="anchored" data-anchor-id="пакет-gutenbergr"><span class="header-section-number">5.2.1</span> Пакет <code>gutenbergr</code></h3>
-<p>Пакет <code>gutenbergr</code> является API для очень старого <a href="http://www.gutenberg.org/">проекта Gutenberg</a>.</p>
+<p>Пакет <code>gutenbergr</code> является API для очень старого <a href="https://www.gutenberg.org/">проекта Gutenberg</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gutenbergr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -515,7 +515,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="пакет-rperseus" class="level3" data-number="5.2.2">
 <h3 data-number="5.2.2" class="anchored" data-anchor-id="пакет-rperseus"><span class="header-section-number">5.2.2</span> Пакет <code>rperseus</code></h3>
-<p>Пакет <code>rperseus</code> предоставляет API для текстов <a href="http://www.perseus.tufts.edu/">Perseus Digital Library</a>, где хранятся тексты на греческом и латинском языках.</p>
+<p>Пакет <code>rperseus</code> предоставляет API для текстов <a href="https://www.perseus.tufts.edu/hopper/">Perseus Digital Library</a>, где хранятся тексты на греческом и латинском языках.</p>
 <p>На момент создания этих материалов пакет не был опубликован в CRAN, так что для его установки нужно выполнить следующую команду (если в вашей системе не стоит пакета <code>remotes</code>, то его можно установить при помощи стандартных <code>install.packages("remotes")</code>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"ropensci/rperseus"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -615,7 +615,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="библиотека-lib.ru" class="level3" data-number="5.2.3">
 <h3 data-number="5.2.3" class="anchored" data-anchor-id="библиотека-lib.ru"><span class="header-section-number">5.2.3</span> Библиотека lib.ru</h3>
-<p>Для текстов на русском языке отдельного пакета не написали, однако на сайте библиотеки <a href="lib.ru">lib.ru</a> они уже представлены в машиночитаемом виде, нужно всего лишь выбрать вариант отображения <code>txt</code>, полученную ссылку считать в R, указав корректную кодировку (см. <a href="#sec-encoding" class="quarto-xref"><span>Раздел 5.1</span></a>):</p>
+<p>Для текстов на русском языке отдельного пакета не написали, однако на сайте библиотеки <a href="https://lib.ru/">lib.ru</a> они уже представлены в машиночитаемом виде, нужно всего лишь выбрать вариант отображения <code>txt</code>, полученную ссылку считать в R, указав корректную кодировку (см. <a href="#sec-encoding" class="quarto-xref"><span>Раздел 5.1</span></a>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_lines</span>(<span class="st">"http://lib.ru/LITRA/PUSHKIN/kapitan.txt_Ascii.txt"</span>,</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"KOI8-R"</span>),</span>
