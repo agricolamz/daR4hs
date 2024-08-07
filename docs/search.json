@@ -708,5 +708,25 @@
     "crumbs": [
       "Список литературы"
     ]
+  },
+  {
+    "objectID": "9_introduction_to_quarto.html",
+    "href": "9_introduction_to_quarto.html",
+    "title": "9  Введение в quarto",
+    "section": "",
+    "text": "9.1 Установка quarto\nДля установки quarto нужно скачать установшик с этой страницы, а в RStudio следует установить пакет quarto:\ninstall.packages(\"quarto\")\nПосле этого можно пойти в меню Rstudio File &gt; New File &gt; Quarto Document или ткнуть на крайне левую иконку New File и выбрать из выпадающего списка Quarto Document. После этого откроется окошко, где можно набрать заголовок и автора документа. Эти поля можно не заполнять, а исправить потом в самом документе.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
+    ]
+  },
+  {
+    "objectID": "9_introduction_to_quarto.html#режимы-source-visual",
+    "href": "9_introduction_to_quarto.html#режимы-source-visual",
+    "title": "9  Введение в quarto",
+    "section": "9.2 Режимы Source / Visual",
+    "text": "9.2 Режимы Source / Visual\nВ публикационных системах достаточно давно есть противостояние между разными системами. Одни обычно описывают акронимом WYSIWYG (what you see is what you get). В них пользователь набирает и редактирует документ в том виде, в каком он потом, согласно ожиданиям пользователя, будет напечатан или отображен. В качестве примеров такой системы можно привести распространенные редакторы MS Word, LibreOffice или облачные Google Documents. Альтернативой являются компилируемые системы, в которых документ создается при помощи некоторых стандартизованных кодовых вставок, которые кодируют желаемое форматирование для компилятора. Примером такой системы является \\(\\LaTeX\\), Markdown и другие.",
+    "crumbs": [
+      "<span class='chapter-number'>9</span>  <span class='chapter-title'>Введение в `quarto`</span>"
+    ]
   }
 ]

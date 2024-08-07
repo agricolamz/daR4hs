@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -68,7 +102,38 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -177,8 +242,15 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#установка-quarto" id="toc-установка-quarto" class="nav-link active" data-scroll-target="#установка-quarto"><span class="header-section-number">9.1</span> Установка <code>quarto</code></a></li>
+  <li><a href="#режимы-source-visual" id="toc-режимы-source-visual" class="nav-link" data-scroll-target="#режимы-source-visual"><span class="header-section-number">9.2</span> Режимы Source / Visual</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -202,8 +274,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p><code>quarto</code> — это публикационная система с открытым исходным кодом, которая имеет очень хорошую интеграцию с R и RStudio и является продолжением важнейшей для R-комьюнити пакета <code>rmarkdown</code>. <code>quarto</code> позволяет делать документы, презентации, веб-страницы и большие сайты, а в связке с пакетом <code>shiny</code> еще и интерактивные приложения. Все это делается в едином формате, который позволяет интегрировать код на R, Python, Julia, Observable и некоторые другие. Такая интеграция позволяет делать интерактивные документы и веб-сайты, в которых всё — графики, таблицы и списки литературы — обновляются одним нажатием кнопки на основе обновленных данных. Также создатели <code>quarto</code> снабдили его <a href="https://quarto.org/">подробнейшим сайтом</a> с материалами, объясняющими самые разные аспекты создания документов в <code>quarto</code>. Кроме того рекомендую следующие видео Мине Четинкая-Рандел:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=_f3latmOhew">Get started with Quarto</a></li>
+<li><a href="https://www.youtube.com/watch?v=EbAAmrB0luA">Quarto for Academics</a></li>
+</ul>
+<section id="установка-quarto" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="установка-quarto"><span class="header-section-number">9.1</span> Установка <code>quarto</code></h2>
+<p>Для установки <code>quarto</code> нужно скачать установшик <a href="https://quarto.org/docs/get-started/">с этой страницы</a>, а в RStudio следует установить пакет <code>quarto</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"quarto"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>После этого можно пойти в меню Rstudio File &gt; New File &gt; Quarto Document или ткнуть на крайне левую иконку New File и выбрать из выпадающего списка Quarto Document. После этого откроется окошко, где можно набрать заголовок и автора документа. Эти поля можно не заполнять, а исправить потом в самом документе.</p>
+</section>
+<section id="режимы-source-visual" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="режимы-source-visual"><span class="header-section-number">9.2</span> Режимы Source / Visual</h2>
+<p>В публикационных системах достаточно давно есть противостояние между разными системами. Одни обычно описывают акронимом <a href="https://en.wikipedia.org/wiki/WYSIWYG">WYSIWYG</a> (what you see is what you get). В них пользователь набирает и редактирует документ в том виде, в каком он потом, согласно ожиданиям пользователя, будет напечатан или отображен. В качестве примеров такой системы можно привести распространенные редакторы MS Word, LibreOffice или облачные Google Documents. Альтернативой являются компилируемые системы, в которых документ создается при помощи некоторых стандартизованных кодовых вставок, которые кодируют желаемое форматирование для компилятора. Примером такой системы является <span class="math inline">\(\LaTeX\)</span>, Markdown и другие.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
