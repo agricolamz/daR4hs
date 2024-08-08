@@ -355,10 +355,6 @@ window.Quarto = {
 <h2 data-number="9.4" class="anchored" data-anchor-id="расширенная-markdown-разметка"><span class="header-section-number">9.4</span> Расширенная markdown-разметка</h2>
 <p>Вот примеры форматирования текста.</p>
 <table class="caption-top table">
-<colgroup>
-<col style="width: 47%">
-<col style="width: 52%">
-</colgroup>
 <thead>
 <tr class="header">
 <th>markdown-разметка</th>
@@ -367,49 +363,98 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td colspan="2"><code>markdown                                      | *курсив*, **полужирный**, ***полужирный курсив***       | *курсив*, **полужирный**, ***полужирный курсив*** |</code> |</td>
+<td><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu"># Заголовок 1 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h1 id="заголовок-1-уровня" class="heading-output unnumbered">Заголовок 1 уровня</h1></td>
 </tr>
 <tr class="even">
-<td colspan="2"><code>markdown                                      | верхний индекс^2^ / нижний индекс~2~                    | верхний индекс^2^ / нижний индекс~2~              |</code> |</td>
+<td><div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Заголовок 2 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h2 id="заголовок-2-уровня" class="heading-output unnumbered anchored">Заголовок 2 уровня</h2></td>
 </tr>
 <tr class="odd">
-<td colspan="2"><code>markdown                                      | ~~вычеркивание~~                                        | ~~вычеркивание~~                                  |</code> |</td>
+<td><div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">### Заголовок 3 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h3 id="заголовок-3-уровня" class="heading-output unnumbered anchored">Заголовок 3 уровня</h3></td>
 </tr>
 <tr class="even">
-<td colspan="2"><code>markdown                                      | `фрагмент кода`                                         | `фрагмент кода`                                   |</code> |</td>
+<td><div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Заголовок 1 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h4 id="заголовок-4-уровня" class="heading-output unnumbered anchored">Заголовок 4 уровня</h4></td>
 </tr>
 <tr class="odd">
-<td colspan="2"><code>markdown                                      | ссылка &lt;https://lib.ru/&gt;                                | ссылка &lt;https://lib.ru/&gt;                          |</code> |</td>
+<td><div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">##### Заголовок 5 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h5 id="заголовок-5-уровня" class="heading-output unnumbered anchored">Заголовок 5 уровня</h5></td>
 </tr>
 <tr class="even">
-<td colspan="2"><code>markdown                                      | [другая ссылка](https://lib.ru/)                        | [другая ссылка](https://lib.ru/)                  |</code> |</td>
+<td><div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">###### Заголовок 6 уровня</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><h6 id="заголовок-6-уровня" class="heading-output unnumbered anchored">Заголовок 6 уровня</h6></td>
 </tr>
 <tr class="odd">
-<td colspan="2"><code>markdown                                      | [подчеркивание]{.underline}                             | [подчеркивание]{.underline}                       |</code> |</td>
+<td><div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>*курсив*, **полужирный**, ***полужирный курсив***</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><em>курсив</em>, <strong>полужирный</strong>, <strong><em>полужирный курсив</em></strong></td>
 </tr>
 <tr class="even">
-<td colspan="2"><code>markdown                                      | [малые прописные]{.smallcaps}                           | [малые прописные]{.smallcaps}                     |</code> |</td>
+<td><div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>верхний индекс^2^ / нижний индекс~2~</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td>верхний индекс<sup>2</sup> / нижний индекс<sub>2</sub></td>
 </tr>
 <tr class="odd">
-<td colspan="2"><code>markdown                                      | -   список                                              | - список                                          | -   элементов - элементов                                       |     -   вложенный список         - вложенный список                        |     -   из двух элементов         - из двух элементов                       | -   еще элемент - еще элемент                                     |</code> |</td>
+<td><div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>~~вычеркивание~~</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><del>вычеркивание</del></td>
 </tr>
 <tr class="even">
-<td colspan="2"><code>markdown                                      | # Заголовок 1 уровня {.heading-output .unnumbered}      | # Заголовок 1 уровня                              |</code> |</td>
+<td><div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="in">`фрагмент кода`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><code>фрагмент кода</code></td>
 </tr>
 <tr class="odd">
-<td colspan="2"><code>markdown                                      | ## Заголовок 2 уровня {.heading-output .unnumbered}     | ## Заголовок 2 уровня                             |</code> |</td>
+<td><div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ссылка <span class="ot">&lt;https://lib.ru/&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td>ссылка <a href="https://lib.ru/" class="uri">https://lib.ru/</a></td>
 </tr>
 <tr class="even">
-<td colspan="2"><code>markdown                                      | ### Заголовок 3 уровня {.heading-output .unnumbered}    | ### Заголовок 3 уровня                            |</code> |</td>
+<td><div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">другая ссылка</span><span class="co">](https://lib.ru/)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><a href="https://lib.ru/">другая ссылка</a></td>
 </tr>
 <tr class="odd">
-<td colspan="2"><code>markdown                                      | #### Заголовок 4 уровня {.heading-output .unnumbered}   | #### Заголовок 1 уровня                           |</code> |</td>
+<td><div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">подчеркивание</span><span class="co">]</span>{.underline}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><u>подчеркивание</u></td>
 </tr>
 <tr class="even">
-<td colspan="2"><code>markdown                                      | ##### Заголовок 5 уровня {.heading-output .unnumbered}  | ##### Заголовок 5 уровня                          |</code> |</td>
+<td><div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">[</span><span class="ot">малые прописные</span><span class="co">]</span>{.smallcaps}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><span class="smallcaps">малые прописные</span></td>
 </tr>
 <tr class="odd">
-<td colspan="2"><code>markdown                                      | ###### Заголовок 6 уровня {.heading-output .unnumbered} | ###### Заголовок 6 уровня                         |</code> |</td>
+<td><div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>список</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>элементов</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>вложенный список</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="ss">        - </span>из двух элементов</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>еще элемент</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><ul>
+<li>список</li>
+<li>элементов
+<ul>
+<li>вложенный список</li>
+<li>из двух элементов</li>
+</ul></li>
+<li>еще элемент</li>
+</ul></td>
+</tr>
+<tr class="even">
+<td><div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>[] список</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="va">[x]</span> задач</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><ul>
+<li>[] список</li>
+<li><label><input type="checkbox" checked="">задач</label></li>
+</ul></td>
+</tr>
+<tr class="odd">
+<td><div class="sourceCode" id="cb18"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; Отдельный блок для длинных цитат</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><blockquote class="blockquote">
+<p>Отдельный блок для длинных цитат</p>
+</blockquote></td>
+</tr>
+<tr class="even">
+<td><div class="sourceCode" id="cb19"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>Сноска<span class="ot">[^1]</span> и еще одна с названием<span class="ot">[^mynote]</span>.</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="ot">[^1]: </span>Это текст первой ссылки.</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="ot">[^mynote]: </span>Ссылки не обязательно нумеровать!</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td>Сноска<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> и еще одна с названием<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</td>
 </tr>
 </tbody>
 </table>
@@ -421,18 +466,18 @@ window.Quarto = {
 }
 </style>
 <p>В <code>quarto</code> для вставки формул используется код . Фрагменты формулы, которые на отдельной строке нужно вводить в двойных знаках доллара:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>$$Z(\lambda) = \int_{\mathcal{C_x}} dz g(z) e^{-\frac{f(x)}{\lambda}}$$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>$$Z(\lambda) = \int_{\mathcal{C_x}} dz g(z) e^{-\frac{f(x)}{\lambda}}$$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><span class="math display">\[Z(\lambda) = \int_{\mathcal{C_x}} dz g(z) e^{-\frac{f(x)}{\lambda}}\]</span></p>
 <p>Формулы внутри текста следует вводить в одинарных знаках доллара:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>Вот строка, в ней есть формула $\int_{\mathcal{C_x}} dz g(z) e^{-\frac{f(x)}{\lambda}}$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Вот строка, в ней есть формула $\int_{\mathcal{C_x}} dz g(z) e^{-\frac{f(x)}{\lambda}}$</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Вот строка, в ней есть формула <span class="math inline">\(\int_{\mathcal{C_x}} dz g(z) e^{-\frac{f(x)}{\lambda}}\)</span></p>
 </section>
 <section id="вставка-изображений-и-графиков" class="level2" data-number="9.5">
 <h2 data-number="9.5" class="anchored" data-anchor-id="вставка-изображений-и-графиков"><span class="header-section-number">9.5</span> Вставка изображений и графиков</h2>
 <p>Стандартный синтаксис для вставки внешних изображений выглядит так <code>![заголовок](путь/к/изображению.png)</code>.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/photo_1.jpg)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="al">![](images/photo_1.jpg)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><img src="images/09_04_photo_1.jpg" class="img-fluid"> Размер вставялемого изображения можно изменить:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="al">![цветы в снегу](images/photo_1.jpg)</span>{width="80%"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="al">![цветы в снегу](images/photo_1.jpg)</span>{width="80%"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/09_04_photo_1.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
@@ -440,7 +485,7 @@ window.Quarto = {
 </figure>
 </div>
 <p>Можно прижать к правому краю:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="al">![цветы в снегу](images/photo_1.jpg)</span>{width="80%" fig-align="right"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="al">![цветы в снегу](images/photo_1.jpg)</span>{width="80%" fig-align="right"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="quarto-figure quarto-figure-right">
 <figure class="figure">
 <p><img src="images/09_04_photo_1.jpg" class="img-fluid figure-img" style="width:80.0%"></p>
@@ -448,13 +493,13 @@ window.Quarto = {
 </figure>
 </div>
 <p>Изображения можно комбинировать вместе. Для этого следует создать окружение при помощи <code>:::</code>. В фигурных скобках содержится ключ для ссылки на изображение, к которой потом можно обращаться и аргумент <code>layout-ncol="2"</code>. В фигурных скобках после конкретных изображений вставлены ключи для ссылки на отдельные подрисунки.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>::: {#fig-pictures layout-ncol="2"}</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="al">![цветы в снегу](images/photo_1.jpg)</span>{#fig-flowers}</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="al">![листья](images/photo_2.jpg)</span>{#fig-leafs}</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>Фотографии</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>::: {#fig-pictures layout-ncol="2"}</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="al">![цветы в снегу](images/photo_1.jpg)</span>{#fig-flowers}</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="al">![листья](images/photo_2.jpg)</span>{#fig-leafs}</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>Фотографии</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="fig-pictures" class="quarto-layout-panel">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pictures-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -491,17 +536,17 @@ window.Quarto = {
 </figure>
 </div>
 <p>Теперь мы можем сослаться на изображение <a href="#fig-pictures" class="quarto-xref">Рисунок&nbsp;<span>9.2</span></a> и отдельные подрисунки <a href="#fig-leafs" class="quarto-xref">Рисунок&nbsp;<span>9.2 (b)</span></a> и <a href="#fig-flowers" class="quarto-xref">Рисунок&nbsp;<span>9.2 (a)</span></a>. Как видно, ссылки оформляются при помощи знака собаки. Ключ рисунков должен начинатсья с <code>@fig-</code> (аналогичные правила действуют и для других объектов: <code>@sec-</code> для <code>@tbl-</code> для таблиц). Первое предложени данного абзаца сделано при помощи следующего фрагмента расширенной markdown-разметки:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>Теперь мы можем сослаться на изображение @fig-pictures и отдельные подрисунки @fig-leafs и @fig-flowers.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Теперь мы можем сослаться на изображение @fig-pictures и отдельные подрисунки @fig-leafs и @fig-flowers.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Для вставки изображения, которое генерируется при помощи кода, можно использовать фрагмент кода (см. раздел <a href="#sec-code_fragments" class="quarto-xref"><span>Раздел 9.8</span></a> ниже). Аргументы фрагмента кода добавляют при помощи <code>#|</code>, так что добавим аргументы <code>fig-cap</code>, который отвечает за подпись к графику, и аргумент <code>label</code>, который содержит ключ для ссылки:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Наш код на R"</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: "fig-code_r"</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="in">mtcars |&gt; </span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="in">  ggplot(aes(mpg,drat))+</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| fig-cap: "Наш код на R"</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: "fig-code_r"</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="in">mtcars |&gt; </span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="in">  ggplot(aes(mpg,drat))+</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="in">  geom_point()</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div id="fig-code_r" class="quarto-float quarto-figure quarto-figure-center anchored">
@@ -527,13 +572,13 @@ window.Quarto = {
 <div class="quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<div class="sourceCode" id="cb10"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>| по умолчанию | слева | справа | по центру |</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>|--------------|:------|-------:|:---------:|</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>| йц           | ук    | ке     | нг        |</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>| фыв          | апр   | олд    | джэ       |</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>| я            | ч     | с      | м         |</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>: Таблицы в markdown</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>| по умолчанию | слева | справа | по центру |</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>|--------------|:------|-------:|:---------:|</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>| йц           | ук    | ке     | нг        |</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>| фыв          | апр   | олд    | джэ       |</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>| я            | ч     | с      | м         |</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>: Таблицы в markdown</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <table class="caption-top table">
@@ -576,13 +621,13 @@ window.Quarto = {
 <li>кроме того для вставки таблиц можно использовать <a href="https://quarto.org/docs/visual-editor/content.html#editing-tables">Visual Editor <code>quarto</code></a>, который работает похожим образом.</li>
 </ul>
 <p>Кроме того, после подписи (или на месте подписи) в фигурных скобках можно задать размеры столбцов:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>| слева | справа | по центру |</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>|-------|--------|-----------|</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>| ук    | ке     | нг        |</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>| апр   | олд    | джэ       |</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>| ч     | с      | м         |</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>: Таблица с разной шириной столбцов {tbl-colwidths="<span class="co">[</span><span class="ot">3,1,5</span><span class="co">]</span>"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>| слева | справа | по центру |</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>|-------|--------|-----------|</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>| ук    | ке     | нг        |</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>| апр   | олд    | джэ       |</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>| ч     | с      | м         |</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>: Таблица с разной шириной столбцов {tbl-colwidths="<span class="co">[</span><span class="ot">3,1,5</span><span class="co">]</span>"}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <table class="caption-top table">
 <caption>Таблица с разной шириной столбцов</caption>
 <colgroup>
@@ -616,13 +661,13 @@ window.Quarto = {
 </tbody>
 </table>
 <p>Ссылаться на таблицы можно аналогично как и на картинки при помощи хэштэга, а потом <a href="#tbl-our_table" class="quarto-xref">Таблица&nbsp;<span>9.1</span></a> (код ссылки: <code>@tbl-our_table</code>):</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>| слева | справа | по центру |</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>|-------|--------|-----------|</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>| яч    | см     | ит        |</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>| ъхз   | щшг    | нку       |</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>| л     | у      | ы         |</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>: Таблица с ссылкой {#tbl-our_table}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>| слева | справа | по центру |</span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>|-------|--------|-----------|</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>| яч    | см     | ит        |</span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>| ъхз   | щшг    | нку       |</span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>| л     | у      | ы         |</span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>: Таблица с ссылкой {#tbl-our_table}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-our_table" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-our_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -659,14 +704,14 @@ window.Quarto = {
 </figure>
 </div>
 <p>Таблицы, которые генерируются при помощи кода, имеют сходные аргументы, что и графики (<code>tbl-cap</code> и <code>label</code>):</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| tbl-cap: "Наша вторая таблица"</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: "tbl-our_second_table"</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="in">tibble(id = 1:26, let = letters[26:1])</span></span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| tbl-cap: "Наша вторая таблица"</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: "tbl-our_second_table"</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="in">tibble(id = 1:26, let = letters[26:1])</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">26</span>, <span class="at">let =</span> letters[<span class="dv">26</span><span class="sc">:</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">26</span>, <span class="at">let =</span> letters[<span class="dv">26</span><span class="sc">:</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div id="tbl-our_second_table" class="cell quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-our_second_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -695,23 +740,23 @@ window.Quarto = {
 <section id="ссылки-на-литературу" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="ссылки-на-литературу"><span class="header-section-number">9.7</span> Ссылки на литературу</h2>
 <p>В <code>quarto</code> используется стандартная для /Pandoc система, в рамках котрой библиография оформляется в виде стандартизированного файла в одном из следующих форматов BibLaTeX (<code>.bib</code>) или BibTeX (<code>.bibtex</code>). Для того, чтобы все заработало создадим файл <code>reference.bib</code> со следующим содержанием:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>@article{nichols2007,</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  title={What, if anything, is typology?},</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  author={Nichols, Johanna},</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  year={2007},</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  volume={11},</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  issue={1},</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  pages={231--238},</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  journal={Linguistic Typology},</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  publisher={Walter de Gruyter}</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>@book{романова2016,</span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  title={Биология},</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  author={Романова, Елена Михайловна and Шленкина, Татьяна Матвеевна and Шадыева, Людмила Алексеевна and Любомирова, Васелина Николаевна and Игнаткин, Денис Сергеевич and Шленкин, Константин Владимирович},</span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  year={2016},</span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  publisher={Федеральное государственное бюджетное образовательное учреждение высшего образования}</span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb33"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>@article{nichols2007,</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  title={What, if anything, is typology?},</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  author={Nichols, Johanna},</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  year={2007},</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  volume={11},</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>  issue={1},</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>  pages={231--238},</span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  journal={Linguistic Typology},</span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  publisher={Walter de Gruyter}</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>@book{романова2016,</span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  title={Биология},</span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>  author={Романова, Елена Михайловна and Шленкина, Татьяна Матвеевна and Шадыева, Людмила Алексеевна and Любомирова, Васелина Николаевна and Игнаткин, Денис Сергеевич and Шленкин, Константин Владимирович},</span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>  year={2016},</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>  publisher={Федеральное государственное бюджетное образовательное учреждение высшего образования}</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>После этого следует добавить в <code>yaml</code>-шапку следующую строчку <code>bibliography: references.bib</code> и после этого можно ссылаться на источники одним из следующих способов.</p>
 <table class="caption-top table">
 <colgroup>
@@ -726,11 +771,11 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td><div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>В работе <span class="co">[</span><span class="ot">@nichols2007, pp 10-15, также @романова2016</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><div class="sourceCode" id="cb34"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>В работе <span class="co">[</span><span class="ot">@nichols2007, pp 10-15, также @романова2016</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
 <td>В работе <span class="citation" data-cites="nichols2007 романова2016">(<a href="references.html#ref-nichols2007" role="doc-biblioref">Nichols 2007</a>, pp 10-15; также <a href="references.html#ref-романова2016" role="doc-biblioref">Романова et al. 2016</a>)</span></td>
 </tr>
 <tr class="even">
-<td><div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Джоханна Николс утвержадет ... <span class="co">[</span><span class="ot">-@nichols2007</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td><div class="sourceCode" id="cb35"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>Джоханна Николс утвержадет ... <span class="co">[</span><span class="ot">-@nichols2007</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
 <td>Джоханна Николс утвержадет … <span class="citation" data-cites="nichols2007">(<a href="references.html#ref-nichols2007" role="doc-biblioref">2007</a>)</span></td>
 </tr>
 </tbody>
@@ -739,8 +784,8 @@ window.Quarto = {
 <p>Откуда же взять наполнение файла <code>references.bib</code>? Есть несколько путей. Во-первых в Google Scholar есть кнопка, позволяющая процитировать работу. При ее нажатии можно выбрать BibTex формат. Кроме того, Visual Editor <code>quarto</code> позволяет залезать в разные библиогрфические базы данных (Crossref, DataCite, PubMed), если в меню нажать Insert &gt; Citation.</p>
 <p>Также важно отметить, что сущестует пакет <code>bib2df</code>, который позволяет перегонять библиографический файл в таблицу и обратно, так что создание библиографии может стать обычной задачей заполнения таблички.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bib2df)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bib2df</span>(<span class="st">"references.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bib2df)</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bib2df</span>(<span class="st">"references.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="cell-output-display">
@@ -754,6 +799,7 @@ window.Quarto = {
 </section>
 <section id="sec-code_fragments" class="level2" data-number="9.8">
 <h2 data-number="9.8" class="anchored" data-anchor-id="sec-code_fragments"><span class="header-section-number">9.8</span> Фрагменты кода</h2>
+<p>В <code>quarto</code>-документ можно поместить фрагменты кода, которые во время компиляции будут исполнены. Обычно такие фрагменты начинаются с трех знаков машиночитаемого обратного апострофа (так на русский переводится английское Backtick — название для символа, который в английской раскладке находится над буквой ё) и названия языка в фигурных скобках: <code>```{r}</code>.</p>
 </section>
 <section id="yaml-шапка" class="level2" data-number="9.9">
 <h2 data-number="9.9" class="anchored" data-anchor-id="yaml-шапка"><span class="header-section-number">9.9</span> <code>yaml</code>-шапка</h2>
@@ -767,6 +813,13 @@ Nichols, Johanna. 2007. <span>“What, If Anything, Is Typology?”</span> <em>L
 Романова, Елена Михайловна, Татьяна Матвеевна Шленкина, Людмила Алексеевна Шадыева, Васелина Николаевна Любомирова, Денис Сергеевич Игнаткин, and Константин Владимирович Шленкин. 2016. <em>Биология</em>. Федеральное государственное бюджетное образовательное учреждение высшего образования.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Это текст первой ссылки.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Ссылки не обязательно нумеровать!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
