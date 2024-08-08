@@ -799,7 +799,7 @@ window.Quarto = {
 </section>
 <section id="sec-code_fragments" class="level2" data-number="9.8">
 <h2 data-number="9.8" class="anchored" data-anchor-id="sec-code_fragments"><span class="header-section-number">9.8</span> Фрагменты кода</h2>
-<p>В <code>quarto</code>-документ можно поместить фрагменты кода, которые во время компиляции будут исполнены. Обычно такие фрагменты начинаются с трех знаков машиночитаемого обратного апострофа (так на русский переводится английское Backtick — название для символа, который в английской раскладке находится над буквой ё) и названия языка в фигурных скобках: <code>```{r}</code>.</p>
+<p>В <code>quarto</code>-документ можно поместить фрагменты кода, которые во время компиляции будут исполнены. Обычно такие фрагменты начинаются с трех знаков машиночитаемого обратного апострофа (так на русский переводится английское Backtick — название для символа, который в английской раскладке находится над буквой ё) и названия языка в фигурных скобках: <code>```{r}</code>. В меню справа есть зеленая кнопка c с плюсиком, которая позволяет вставлять фрагменты кода. Такого же результата можно добиться при помощи сочитания горячих клавиш: <code>Ctrl+Alt+I</code>.</p>
 <ul>
 <li>Посчитаем на R длину в символах названий английских месяцев.</li>
 </ul>
@@ -829,7 +829,7 @@ window.Quarto = {
 </div>
 </div>
 <ul>
-<li>Узнаем при помощи bash путь к текущей директории.</li>
+<li>Соединим строки при помощи bash.</li>
 </ul>
 <div class="sourceCode" id="cb43"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{bash}</span></span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="in">name=Pushkin</span></span>
@@ -844,6 +844,42 @@ window.Quarto = {
 <pre><code>Pushkin was born in 1799</code></pre>
 </div>
 </div>
+<p>Фрагменты кода могут иметь свои аргументы, которые добавляются при помощи <code>#|</code>. Мы видели некоторые аргументы в разделах про вставку изображений и таблиц. Вот еще некоторые важные аргументы:</p>
+<ul>
+<li><code>echo</code> — отвечает за то, показывать ли код</li>
+</ul>
+<div class="sourceCode" id="cb46"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| echo: false</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="in">2+2</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4</code></pre>
+</div>
+</div>
+<ul>
+<li><code>eval</code> — отвечает за то, исполнять ли код</li>
+</ul>
+<div class="sourceCode" id="cb48"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| eval: false</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="in">3+3</span></span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span><span class="sc">+</span><span class="dv">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li><code>include</code> — в случае значения <code>true</code> позволяет скрытно исполнить код, не показывая ни кода, ни результата его исполнения;</li>
+</ul>
+<div class="sourceCode" id="cb50"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| include: false</span></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="in">my_var &lt;- 42</span></span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ничего не видно, но переменную <code>my_var</code> можно использовать в следующих фрагментах кода.</p>
+<ul>
+<li><code>cache</code> — позволяет закэшировать исполнение данного фрагмента кода. Это важно для фрагментов, исполнение которых занимает много времени, например, создание больших моделей, построение графика с большим количеством элементов и т. п.</li>
+</ul>
+<p>Вставленные фрагменты кода содержат две кнопки, справа, позволяющие запустить текущий фрагмент (зеленый треугольник) и все фрагменты кода до текущего фрагмента (серый треугольник):</p>
+<p><img src="images/09_06_code.png" class="img-fluid"></p>
 </section>
 <section id="yaml-шапка" class="level2" data-number="9.9">
 <h2 data-number="9.9" class="anchored" data-anchor-id="yaml-шапка"><span class="header-section-number">9.9</span> <code>yaml</code>-шапка</h2>
