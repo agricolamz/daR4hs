@@ -54,7 +54,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -674,6 +694,63 @@ window.Quarto = {
 </section>
 <section id="ссылки-на-литературу" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="ссылки-на-литературу"><span class="header-section-number">9.7</span> Ссылки на литературу</h2>
+<p>В <code>quarto</code> используется стандартная для /Pandoc система, в рамках котрой библиография оформляется в виде стандартизированного файла в одном из следующих форматов BibLaTeX (<code>.bib</code>) или BibTeX (<code>.bibtex</code>). Для того, чтобы все заработало создадим файл <code>reference.bib</code> со следующим содержанием:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>@article{nichols2007,</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  title={What, if anything, is typology?},</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  author={Nichols, Johanna},</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  year={2007},</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  volume={11},</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  issue={1},</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  pages={231--238},</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  journal={Linguistic Typology},</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  publisher={Walter de Gruyter}</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>@book{романова2016,</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  title={Биология},</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>  author={Романова, Елена Михайловна and Шленкина, Татьяна Матвеевна and Шадыева, Людмила Алексеевна and Любомирова, Васелина Николаевна and Игнаткин, Денис Сергеевич and Шленкин, Константин Владимирович},</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>  year={2016},</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>  publisher={Федеральное государственное бюджетное образовательное учреждение высшего образования}</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>После этого следует добавить в <code>yaml</code>-шапку следующую строчку <code>bibliography: references.bib</code> и после этого можно ссылаться на источники одним из следующих способов.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 49%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>markdown-разметка</th>
+<th>Результат</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><div class="sourceCode" id="cb16"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>В работе <span class="co">[</span><span class="ot">@nichols2007, pp 10-15, также @романова2016</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td>В работе <span class="citation" data-cites="nichols2007 романова2016">(<a href="references.html#ref-nichols2007" role="doc-biblioref">Nichols 2007</a>, pp 10-15; также <a href="references.html#ref-романова2016" role="doc-biblioref">Романова et al. 2016</a>)</span></td>
+</tr>
+<tr class="even">
+<td><div class="sourceCode" id="cb17"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Джоханна Николс утвержадет ... <span class="co">[</span><span class="ot">-@nichols2007</span><span class="co">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div></td>
+<td>Джоханна Николс утвержадет … <span class="citation" data-cites="nichols2007">(<a href="references.html#ref-nichols2007" role="doc-biblioref">2007</a>)</span></td>
+</tr>
+</tbody>
+</table>
+<p>В результате получатся интерактивные ссылки, а в конце еще и автоматически сгенерируется список литературы. В технических работах принято ссылаться на работы при помощи номера (например, <em>в работе [1, 3]…</em>). Кроме того, автоматически стиль форматирования литературы может отличаться от требований, например, ГОСТа. Обе эти задачи решает особый стилевой файл с разрешением <code>.csl</code>, который следует поместить в папку с проектом, добавив при этом в <code>yaml</code>-iапку следующую строчку: <code>csl: ваш-файл.csl</code>. Один из вариантов <code>.csl</code> файла для оформления литературы по ГОСТу можно найти здесь.</p>
+<p>Откуда же взять наполнение файла <code>references.bib</code>? Есть несколько путей. Во-первых в Google Scholar есть кнопка, позволяющая процитировать работу. При ее нажатии можно выбрать BibTex формат. Кроме того, Visual Editor <code>quarto</code> позволяет залезать в разные библиогрфические базы данных (Crossref, DataCite, PubMed), если в меню нажать Insert &gt; Citation.</p>
+<p>Также важно отметить, что сущестует пакет <code>bib2df</code>, который позволяет перегонять библиографический файл в таблицу и обратно, так что создание библиографии может стать обычной задачей заполнения таблички.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(bib2df)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bib2df</span>(<span class="st">"references.bib"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["CATEGORY"],"name":[1],"type":["chr"],"align":["left"]},{"label":["BIBTEXKEY"],"name":[2],"type":["chr"],"align":["left"]},{"label":["ADDRESS"],"name":[3],"type":["chr"],"align":["left"]},{"label":["ANNOTE"],"name":[4],"type":["chr"],"align":["left"]},{"label":["AUTHOR"],"name":[5],"type":["list"],"align":["right"]},{"label":["BOOKTITLE"],"name":[6],"type":["chr"],"align":["left"]},{"label":["CHAPTER"],"name":[7],"type":["chr"],"align":["left"]},{"label":["CROSSREF"],"name":[8],"type":["chr"],"align":["left"]},{"label":["EDITION"],"name":[9],"type":["chr"],"align":["left"]},{"label":["EDITOR"],"name":[10],"type":["list"],"align":["right"]},{"label":["HOWPUBLISHED"],"name":[11],"type":["chr"],"align":["left"]},{"label":["INSTITUTION"],"name":[12],"type":["chr"],"align":["left"]},{"label":["JOURNAL"],"name":[13],"type":["chr"],"align":["left"]},{"label":["KEY"],"name":[14],"type":["chr"],"align":["left"]},{"label":["MONTH"],"name":[15],"type":["chr"],"align":["left"]},{"label":["NOTE"],"name":[16],"type":["chr"],"align":["left"]},{"label":["NUMBER"],"name":[17],"type":["chr"],"align":["left"]},{"label":["ORGANIZATION"],"name":[18],"type":["chr"],"align":["left"]},{"label":["PAGES"],"name":[19],"type":["chr"],"align":["left"]},{"label":["PUBLISHER"],"name":[20],"type":["chr"],"align":["left"]},{"label":["SCHOOL"],"name":[21],"type":["chr"],"align":["left"]},{"label":["SERIES"],"name":[22],"type":["chr"],"align":["left"]},{"label":["TITLE"],"name":[23],"type":["chr"],"align":["left"]},{"label":["TYPE"],"name":[24],"type":["chr"],"align":["left"]},{"label":["VOLUME"],"name":[25],"type":["chr"],"align":["left"]},{"label":["YEAR"],"name":[26],"type":["dbl"],"align":["right"]},{"label":["URL"],"name":[27],"type":["chr"],"align":["left"]},{"label":["ISSUE"],"name":[28],"type":["chr"],"align":["left"]}],"data":[{"1":"ARTICLE","2":"nichols2007","3":"NA","4":"NA","5":"<chr [1]>","6":"NA","7":"NA","8":"NA","9":"NA","10":"<chr [1]>","11":"NA","12":"NA","13":"Linguistic Typology","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"231--238","20":"Walter de Gruyter","21":"NA","22":"NA","23":"What, if anything, is typology?","24":"NA","25":"11","26":"2007","27":"NA","28":"1"},{"1":"BOOK","2":"романова2016","3":"NA","4":"NA","5":"<chr [6]>","6":"NA","7":"NA","8":"NA","9":"NA","10":"<chr [1]>","11":"NA","12":"NA","13":"NA","14":"NA","15":"NA","16":"NA","17":"NA","18":"NA","19":"NA","20":"Федеральное государственное бюджетное образовательное учреждение высшего образования","21":"NA","22":"NA","23":"Биология","24":"NA","25":"NA","26":"2016","27":"NA","28":"NA"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
 </section>
 <section id="sec-code_fragments" class="level2" data-number="9.8">
 <h2 data-number="9.8" class="anchored" data-anchor-id="sec-code_fragments"><span class="header-section-number">9.8</span> Фрагменты кода</h2>
@@ -682,6 +759,14 @@ window.Quarto = {
 <h2 data-number="9.9" class="anchored" data-anchor-id="yaml-шапка"><span class="header-section-number">9.9</span> <code>yaml</code>-шапка</h2>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-nichols2007" class="csl-entry" role="listitem">
+Nichols, Johanna. 2007. <span>“What, If Anything, Is Typology?”</span> <em>Linguistic Typology</em> 11: 231–38.
+</div>
+<div id="ref-романова2016" class="csl-entry" role="listitem">
+Романова, Елена Михайловна, Татьяна Матвеевна Шленкина, Людмила Алексеевна Шадыева, Васелина Николаевна Любомирова, Денис Сергеевич Игнаткин, and Константин Владимирович Шленкин. 2016. <em>Биология</em>. Федеральное государственное бюджетное образовательное учреждение высшего образования.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
