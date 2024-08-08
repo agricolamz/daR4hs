@@ -638,6 +638,39 @@ window.Quarto = {
 </div>
 </figure>
 </div>
+<p>Таблицы, которые генерируются при помощи кода, имеют сходные аргументы, что и графики (<code>tbl-cap</code> и <code>label</code>):</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="in">#| tbl-cap: "Наша вторая таблица"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="in">#| label: "tbl-our_second_table"</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="in">tibble(id = 1:26, let = letters[26:1])</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">26</span>, <span class="at">let =</span> letters[<span class="dv">26</span><span class="sc">:</span><span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="tbl-our_second_table" class="cell quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-our_second_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Таблица&nbsp;9.2: Наша вторая таблица
+</figcaption>
+<div aria-describedby="tbl-our_second_table-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["id"],"name":[1],"type":["int"],"align":["right"]},{"label":["let"],"name":[2],"type":["chr"],"align":["left"]}],"data":[{"1":"1","2":"z"},{"1":"2","2":"y"},{"1":"3","2":"x"},{"1":"4","2":"w"},{"1":"5","2":"v"},{"1":"6","2":"u"},{"1":"7","2":"t"},{"1":"8","2":"s"},{"1":"9","2":"r"},{"1":"10","2":"q"},{"1":"11","2":"p"},{"1":"12","2":"o"},{"1":"13","2":"n"},{"1":"14","2":"m"},{"1":"15","2":"l"},{"1":"16","2":"k"},{"1":"17","2":"j"},{"1":"18","2":"i"},{"1":"19","2":"h"},{"1":"20","2":"g"},{"1":"21","2":"f"},{"1":"22","2":"e"},{"1":"23","2":"d"},{"1":"24","2":"c"},{"1":"25","2":"b"},{"1":"26","2":"a"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+<p>На эту таблицу можно сослаться стандартным образом: <a href="#tbl-our_second_table" class="quarto-xref">Таблица&nbsp;<span>9.2</span></a> (код ссылки: <code>@tbl-our_second_table</code>).</p>
+<p>Функционально markdown-таблицы и таблицы, которые порождены кодом, достаточно ограничены. Если есть нужда в создании таблиц с несколькими вложениями, сложным форматированием и, например, сносками, то можно обратиться к одному из следующих пакетов:</p>
+<ul>
+<li><a href="https://haozhu233.github.io/kableExtra/"><code>kableExtra</code></a></li>
+<li><a href="https://gt.rstudio.com/"><code>gt</code></a></li>
+<li><a href="https://rstudio.github.io/DT/"><code>DT</code></a></li>
+</ul>
 </section>
 <section id="ссылки-на-литературу" class="level2" data-number="9.7">
 <h2 data-number="9.7" class="anchored" data-anchor-id="ссылки-на-литературу"><span class="header-section-number">9.7</span> Ссылки на литературу</h2>

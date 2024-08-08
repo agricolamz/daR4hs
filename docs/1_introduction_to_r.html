@@ -449,7 +449,7 @@ div.csl-indent {
 <div class="cell">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>my_var <span class="ot">&lt;-</span> <span class="dv">55</span> <span class="sc">+</span> <span class="dv">412</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Обратите внимание, что результат суммы не выводится. Он сохраняется в переменной и не будет показан, пока мы не вызовем переменную. Кроме того будут работать и другие способы присвоения, хотя эти способы и не рекомендованы в R:</p>
+<p>Обратите внимание, что результат суммы не выводится. Он сохраняется в переменной и не будет показан, пока мы не вызовем переменную. Кроме того, будут работать и другие способы присвоения, хотя эти способы и не рекомендованы в R:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>my_var <span class="ot">=</span> <span class="dv">55</span><span class="sc">+</span><span class="dv">12</span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="dv">5512</span><span class="sc">+</span><span class="dv">412</span> <span class="ot">-&gt;</span> my_var</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -526,7 +526,7 @@ div.csl-indent {
 <pre><code> [1] 2197 1728 1331 1000  729  512  343  216  125   64   27</code></pre>
 </div>
 </div>
-<p>Если же нужно создать вектор, которой последовательностью не является, следует использовать функцию <code>c()</code> (от слова <em>combine</em>):</p>
+<p>Если же нужно создать вектор, который последовательностью не является, следует использовать функцию <code>c()</code> (от слова <em>combine</em>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>fibonacci_sequence <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">8</span>, <span class="dv">13</span>, <span class="dv">21</span>, <span class="dv">34</span>, <span class="dv">55</span>, <span class="dv">89</span>, <span class="dv">144</span>)</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>cyrillic_syllables <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"сяк"</span>, <span class="st">"учк"</span>, <span class="st">"щип"</span>, <span class="st">"арг"</span>, <span class="st">"фыщ"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -614,7 +614,7 @@ div.csl-indent {
  [97] FALSE  TRUE FALSE FALSE</code></pre>
 </div>
 </div>
-<p>После применения такой операции, полученный логический вектор (<code>TRUE</code> и <code>FALSE</code>) используется для индексации исходного вектора. В результате возвращаются только те элементы, которым соответствует значение <code>TRUE</code>.</p>
+<p>После применения такой операции полученный логический вектор (<code>TRUE</code> и <code>FALSE</code>) используется для индексации исходного вектора. В результате возвращаются только те элементы, которым соответствует значение <code>TRUE</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>v[v <span class="sc">%%</span> <span class="dv">3</span> <span class="sc">==</span> <span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -622,7 +622,7 @@ div.csl-indent {
 [26] 24 21 18 15 12  9  6  3</code></pre>
 </div>
 </div>
-<p>Возможно, внимательный пользователь уже заметил, что индексация в R идет с единицы. При вызове нулевого индекса будет результат нулевой длинны, а если в индексах есть еще другие элементы, нулевой индекс – будет проигнорирован.</p>
+<p>Возможно, внимательный пользователь уже заметил, что индексация в R идет с единицы. При вызове нулевого индекса будет результат нулевой длинны, а если в индексах есть еще другие элементы, то нулевой индекс – будет проигнорирован.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>letters[<span class="dv">0</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
