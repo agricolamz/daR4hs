@@ -883,6 +883,52 @@ window.Quarto = {
 </section>
 <section id="yaml-шапка" class="level2" data-number="9.9">
 <h2 data-number="9.9" class="anchored" data-anchor-id="yaml-шапка"><span class="header-section-number">9.9</span> <code>yaml</code>-шапка</h2>
+<p>Основные параметры документа хранятся в <code>yaml</code>-шапке. <a href="https://en.wikipedia.org/wiki/YAML"><code>YAML</code></a> — это язык разметки, который используют для конфигарационных файлов. Важно про него понимать, что это списочный формат хранения данных, который чувствителен к отступам<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> (все остальное в R — нет). Перечислим некоторые полезные параметры:</p>
+<ul>
+<li><code>format</code> — поле, которое позволяет задать формат получившегося файла. Наиболее распространенные значения <code>html</code>, <code>pdf</code>, <code>docx</code>.</li>
+<li><code>title</code> — заголовок документа</li>
+<li><code>subtitle</code> — подзаголовок документа</li>
+<li><code>author</code> — автор, может быть вложенным списком, как, в примере ниже</li>
+</ul>
+<div class="sourceCode" id="cb51"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span></span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>name: "А. О. Иванова"</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>    email: "aoivanova@hse.ru"</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>    affiliation: "НИУ ВШЭ"</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>name: "О. А. Живанова"</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>    affiliation: "НИУ ВШЭ"</span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="ss">  - </span>name: "Б. О. Зинова"</span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>    affiliation: "МГУ"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>date</code> — дата. Можно использовать просто <code>today</code>.</li>
+<li><code>date-format</code> — формат даты, я предпочитаю писать в этом аргумнете <code>D.MM.YYYY</code></li>
+<li><code>lang</code> — параметр языка, если написать <code>ru</code>, то автоматически произойдет перевод некоторых стандартных полей документа</li>
+<li><code>number-sections</code> — включает автоматическую нумерацию разделов</li>
+<li><code>bibliography</code> — файл с бибилографией</li>
+<li><code>csl</code> — путь к файлу <code>.csl</code> для отображения библиографии</li>
+<li><code>toc</code> — создание автоматического содержания</li>
+<li><code>abstract</code> — поля позволяет добавить аннотацию. Ниже приведено оформление многострочной аннотации</li>
+</ul>
+<div class="sourceCode" id="cb52"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="an">abstract:</span><span class="co"> &gt;</span></span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  Язык программирования R дает исследователю полный набор инструментов для </span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>  анализа текста. На занятии мы познакомимся с некоторыми из них, такими как </span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  анализ частотности, векторизация и кластеризация. Кроме того, обсудим, какие </span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  научные задачи могут решаться при помощи этих методов в историко-философских </span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>  и историко-культурных исследованиях. Опыт программирования не требуется.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>execute</code> — поле, позволяющее задать параметры всех фрагментов кода в документе, например:</li>
+</ul>
+<div class="sourceCode" id="cb53"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="an">execute:</span></span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  warning: false</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>  fig-width: 9</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>df-print</code> — параметр важный для html документов, позволяющий выбрать один из возможных способов отображения датафреймов
+<ul>
+<li><code>default</code> — стандартный, как в консоли;</li>
+<li><code>tibble</code> — стандартный, как в консоли, но в формате tibble;</li>
+<li><code>kable</code> — минималистичный вариант, подходит для всех видов документов;</li>
+<li><code>paged</code> — интерактивная таблица, подходит для html страниц.</li>
+</ul></li>
+</ul>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
@@ -899,6 +945,7 @@ Nichols, Johanna. 2007. <span>“What, If Anything, Is Typology?”</span> <em>L
 <ol>
 <li id="fn1"><p>Это текст первой сноски.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p>Сноски не обязательно нумеровать!<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>Отступы отбиваются пробелами. Знаки табуляции недопустимы.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
