@@ -283,14 +283,14 @@ div.csl-indent {
 </div>
 <section id="зачем-визуализировать-данные" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="зачем-визуализировать-данные"><span class="header-section-number">3.1</span> Зачем визуализировать данные?</h2>
-<p>Визуализация помогает окинуть собранные данные взглядом, найти ошибки ввода данных и может быть сформулировать первые инсайты. Данная глава посвящена введению в пакет <code>ggplot2</code>, однако по этому пакету есть масса более подробных материалов: главы 9–11 <a href="https://r4ds.hadley.nz/">книги</a> <span class="citation" data-cites="wickham23">(<a href="references.html#ref-wickham23" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span> и <a href="https://ggplot2-book.org/">целая книга</a> <span class="citation" data-cites="wickham16">(<a href="references.html#ref-wickham16" role="doc-biblioref">Wickham 2016</a>)</span>, обе доступные онлайн. В сжатом виде информация про <code>ggplot2</code> <a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization.pdf">содержиться здесь</a>.Кроме того для этого пакета написали много <a href="https://exts.ggplot2.tidyverse.org/gallery/">расширений</a>, у каждого своя страница с инструкцией.</p>
+<p>Визуализация помогает окинуть собранные данные взглядом, найти ошибки ввода данных и может быть сформулировать первые инсайты. Данная глава посвящена введению в пакет <code>ggplot2</code>, однако по этому пакету есть масса более подробных материалов: главы 9–11 <a href="https://r4ds.hadley.nz/">книги</a> <span class="citation" data-cites="wickham23">(<a href="references.html#ref-wickham23" role="doc-biblioref">Wickham, Çetinkaya-Rundel, and Grolemund 2023</a>)</span> и <a href="https://ggplot2-book.org/">целая книга</a> <span class="citation" data-cites="wickham16">(<a href="references.html#ref-wickham16" role="doc-biblioref">Wickham 2016</a>)</span>, обе доступные онлайн. В сжатом виде информация про <code>ggplot2</code> <a href="https://github.com/rstudio/cheatsheets/raw/main/data-visualization.pdf">содержится здесь</a>. Кроме того, для этого пакета написали много <a href="https://exts.ggplot2.tidyverse.org/gallery/">расширений</a>, у каждого своя страница с инструкцией.</p>
 <section id="квартет-анскомба" class="level3" data-number="3.1.1">
 <h3 data-number="3.1.1" class="anchored" data-anchor-id="квартет-анскомба"><span class="header-section-number">3.1.1</span> Квартет Анскомба</h3>
 <p>В работе <span class="citation" data-cites="anscombe73">(<a href="references.html#ref-anscombe73" role="doc-biblioref">Anscombe 1973</a>)</span> представлен следующий <a href="https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w3_anscombe.csv">датасет</a>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>anscombe <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w3_anscombe.csv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Если смотреть исключительно на описательные статиски датасета, то покажется, что перед нами 4 одинаковых датасета:</p>
+<p>Если смотреть исключительно на описательные статистики датасета, то покажется, что перед нами 4 одинаковых датасета:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>anscombe <span class="sc">|&gt;</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dataset) <span class="sc">|&gt;</span> </span>
@@ -308,7 +308,7 @@ div.csl-indent {
 </div>
 </div>
 </div>
-<p>Однако, если мы визуализируем данные, то окажется, что перед нами совсем разные данные:</p>
+<p>Однако если мы визуализируем данные, то окажется, что перед нами совсем разные данные:</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -375,7 +375,7 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datasaurus, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Однако я буду использовать первый вариант, который мне кажется удобнее тем, что автозаполнение в таком случае предлагает название переменных. Стоит обратить внимание, что разные части при построении графиков соединяются знаком <code>+</code>, а не конвеером. Это связано с тем, что пакет разрабатывался и стал популярным до того, как стала популярна вся инфраструктура <code>tidyverse</code> и конвееров. Поменяем цвет точек, для этого в функции <code>geom_point()</code> добавим аргумент <code>color</code> (или <code>colour</code>):</p>
+<p>Однако я буду использовать первый вариант, который мне кажется удобнее тем, что автозаполнение в таком случае предлагает название переменных. Стоит обратить внимание, что разные части при построении графиков соединяются знаком <code>+</code>, а не конвейером. Это связано с тем, что пакет разрабатывался и стал популярным до того, как стала популярна вся инфраструктура <code>tidyverse</code> и конвейеров. Поменяем цвет точек, для этого в функции <code>geom_point()</code> добавим аргумент <code>color</code> (или <code>colour</code>):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>datasaurus <span class="sc">|&gt;</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
@@ -532,7 +532,7 @@ div.csl-indent {
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text_repel</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: ggrepel: 49 unlabeled data points (too many overlaps). Consider
+<pre><code>Warning: ggrepel: 63 unlabeled data points (too many overlaps). Consider
 increasing max.overlaps</code></pre>
 </div>
 <div class="cell-output-display">
@@ -562,7 +562,7 @@ increasing max.overlaps</code></pre>
 </section>
 <section id="финализация-графика-функции-labs-annotate" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="финализация-графика-функции-labs-annotate"><span class="header-section-number">3.6</span> Финализация графика: функции <code>labs()</code>, <code>annotate()</code></h2>
-<p>Графики, которые мы пока построили были достаточно сыроваты, в связи с этим следует обсудить еще несколько функций, которые позволяют дооформить график. Рассмотрим для примера данные из частотного словаря русского языка <span class="citation" data-cites="lyashevskaya11">(<a href="references.html#ref-lyashevskaya11" role="doc-biblioref">Ляшевская and Шаров 2011</a>)</span>:</p>
+<p>Графики, которые мы пока построили, были достаточно сыроваты, в связи с этим следует обсудить еще несколько функций, которые позволяют дооформить график. Рассмотрим для примера данные из частотного словаря русского языка <span class="citation" data-cites="lyashevskaya11">(<a href="references.html#ref-lyashevskaya11" role="doc-biblioref">Ляшевская and Шаров 2011</a>)</span>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>freq_dict <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"https://raw.githubusercontent.com/agricolamz/daR4hs/main/data/w3_freq_dict_2011.csv"</span>)</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -579,7 +579,7 @@ increasing max.overlaps</code></pre>
 </div>
 </div>
 </div>
-<p>Мы видим, что мы ничего не можем увидеть, потому что частотность слов, отложенная по оси y имеет слишком большой разброс. В таких случаях имеет смысл отлогарифмировать переменную, детали которой хочется показать.</p>
+<p>Мы видим, что мы ничего не можем увидеть, потому что частотность слов, отложенная по оси y, имеет слишком большой разброс. В таких случаях имеет смысл отлогарифмировать переменную, детали которой хочется показать.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>freq_dict <span class="sc">|&gt;</span> </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(freq_ipm)) <span class="sc">|&gt;</span> </span>
@@ -755,7 +755,7 @@ Levels: кошки мышки собаки</code></pre>
 </div>
 </div>
 </div>
-<p>Важно, что в <code>tidyverse</code> входит пакет <code>forcats</code>, который позволяет создавать факторы на основе значений в переменных. Например, если мы хотим, чтобы столбчатая диаграмма имела сортировку по значению <code>n</code>, то мы можем поменять при помощи функции <code>fct_reorder()</code>. В качестве первого аргумента функции подается переменная, которую надо преобразовать, а в качестве второго — переменная при помощи которой нужно сортировать.</p>
+<p>Важно, что в <code>tidyverse</code> входит пакет <code>forcats</code>, который позволяет создавать факторы на основе значений в переменных. Например, если мы хотим, чтобы столбчатая диаграмма имела сортировку по значению <code>n</code>, то мы можем поменять при помощи функции <code>fct_reorder()</code>. В качестве первого аргумента функции подается переменная, которую надо преобразовать, а в качестве второго — переменная, при помощи которой нужно сортировать.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>misspellings <span class="sc">|&gt;</span> </span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(correct <span class="sc">!=</span> spelling) <span class="sc">|&gt;</span> </span>
@@ -780,7 +780,7 @@ Levels: кошки мышки собаки</code></pre>
 <li><code>fct_infreq()</code> — упорядочить согласно частотности, с которой значения появляются в датасете;</li>
 <li><code>fct_anon()</code> — заменяет уровни фактора произвольными целыми числами. Это полезно для анонимизации данных.</li>
 </ul>
-<p>Чтобы сделать наш график опечаток еще красивее можно добавить <code>geom_text()</code>, чтобы видеть значения колонок.</p>
+<p>Чтобы сделать наш график опечаток еще красивее, можно добавить <code>geom_text()</code>, чтобы видеть значения колонок.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>misspellings <span class="sc">|&gt;</span> </span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(correct <span class="sc">!=</span> spelling) <span class="sc">|&gt;</span> </span>
@@ -864,7 +864,7 @@ Levels: кошки мышки собаки</code></pre>
 <div class="cell-output-display">
 <div data-pagedtable="false">
   <script data-pagedtable-source="" type="application/json">
-{"columns":[{"label":["correct"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"kaepernick"},{"1":"deschanel"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"shyamalan"},{"1":"deschanel"},{"1":"shyamalan"},{"1":"morissette"},{"1":"mcconaughey"},{"1":"minaj"},{"1":"galifianakis"},{"1":"palahniuk"},{"1":"shyamalan"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"shyamalan"},{"1":"deschanel"},{"1":"shyamalan"},{"1":"macaulay"},{"1":"mcconaughey"},{"1":"macaulay"},{"1":"mcconaughey"},{"1":"mcgwire"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"deschanel"},{"1":"picabo"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"labeouf"},{"1":"palahniuk"},{"1":"deschanel"},{"1":"macaulay"},{"1":"morissette"},{"1":"minaj"},{"1":"mclachlan"},{"1":"labeouf"},{"1":"shyamalan"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"kaepernick"},{"1":"kaepernick"},{"1":"galifianakis"},{"1":"deschanel"},{"1":"macaulay"},{"1":"deschanel"},{"1":"deschanel"},{"1":"shyamalan"},{"1":"mcconaughey"},{"1":"kaepernick"},{"1":"shyamalan"},{"1":"galifianakis"},{"1":"deschanel"},{"1":"macaulay"},{"1":"palahniuk"},{"1":"palahniuk"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"palahniuk"},{"1":"picabo"},{"1":"palahniuk"},{"1":"palahniuk"},{"1":"mcconaughey"},{"1":"morissette"},{"1":"mcconaughey"},{"1":"shyamalan"},{"1":"picabo"},{"1":"morissette"},{"1":"mclachlan"},{"1":"macaulay"},{"1":"kaepernick"},{"1":"shyamalan"},{"1":"mcconaughey"},{"1":"palahniuk"},{"1":"galifianakis"},{"1":"johansson"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"macaulay"},{"1":"picabo"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"picabo"},{"1":"shyamalan"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"palahniuk"},{"1":"johansson"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"deschanel"},{"1":"macaulay"},{"1":"mclachlan"},{"1":"galifianakis"},{"1":"macaulay"},{"1":"deschanel"},{"1":"palahniuk"},{"1":"galifianakis"},{"1":"macaulay"},{"1":"kaepernick"},{"1":"deschanel"},{"1":"macaulay"},{"1":"galifianakis"},{"1":"palahniuk"},{"1":"picabo"},{"1":"mcconaughey"},{"1":"macaulay"},{"1":"palahniuk"},{"1":"palahniuk"},{"1":"macaulay"},{"1":"galifianakis"},{"1":"picabo"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"macaulay"},{"1":"morissette"},{"1":"mcconaughey"},{"1":"palahniuk"},{"1":"kaepernick"},{"1":"palahniuk"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"kaepernick"},{"1":"picabo"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"minaj"},{"1":"galifianakis"},{"1":"johansson"},{"1":"galifianakis"},{"1":"labeouf"},{"1":"mclachlan"},{"1":"shyamalan"},{"1":"shyamalan"},{"1":"kaepernick"},{"1":"labeouf"},{"1":"kaepernick"},{"1":"kaepernick"},{"1":"macaulay"},{"1":"mcconaughey"},{"1":"morissette"},{"1":"mcgwire"},{"1":"macaulay"},{"1":"kaepernick"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"johansson"},{"1":"galifianakis"},{"1":"shyamalan"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"deschanel"},{"1":"palahniuk"},{"1":"palahniuk"},{"1":"mcgwire"},{"1":"galifianakis"},{"1":"minaj"},{"1":"galifianakis"},{"1":"mclachlan"},{"1":"mclachlan"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"shyamalan"},{"1":"kaepernick"},{"1":"macaulay"},{"1":"morissette"},{"1":"shyamalan"},{"1":"macaulay"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"macaulay"},{"1":"macaulay"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"morissette"},{"1":"palahniuk"},{"1":"galifianakis"},{"1":"johansson"},{"1":"mcconaughey"},{"1":"palahniuk"},{"1":"palahniuk"},{"1":"mcconaughey"},{"1":"johansson"},{"1":"poehler"},{"1":"galifianakis"},{"1":"deschanel"},{"1":"johansson"},{"1":"palahniuk"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["correct"],"name":[1],"type":["chr"],"align":["left"]}],"data":[{"1":"mcconaughey"},{"1":"deschanel"},{"1":"macaulay"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"palahniuk"},{"1":"galifianakis"},{"1":"palahniuk"},{"1":"mcconaughey"},{"1":"minaj"},{"1":"macaulay"},{"1":"shyamalan"},{"1":"kaepernick"},{"1":"galifianakis"},{"1":"palahniuk"},{"1":"kaepernick"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"labeouf"},{"1":"deschanel"},{"1":"deschanel"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"palahniuk"},{"1":"deschanel"},{"1":"galifianakis"},{"1":"palahniuk"},{"1":"shyamalan"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"shyamalan"},{"1":"deschanel"},{"1":"morissette"},{"1":"macaulay"},{"1":"mclachlan"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"shyamalan"},{"1":"mcconaughey"},{"1":"mclachlan"},{"1":"mcgwire"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"palahniuk"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"kaepernick"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"macaulay"},{"1":"shyamalan"},{"1":"mcconaughey"},{"1":"labeouf"},{"1":"shyamalan"},{"1":"shyamalan"},{"1":"deschanel"},{"1":"galifianakis"},{"1":"macaulay"},{"1":"mcgwire"},{"1":"macaulay"},{"1":"picabo"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"labeouf"},{"1":"mcconaughey"},{"1":"mclachlan"},{"1":"palahniuk"},{"1":"galifianakis"},{"1":"deschanel"},{"1":"shyamalan"},{"1":"labeouf"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"shyamalan"},{"1":"shyamalan"},{"1":"mcconaughey"},{"1":"mclachlan"},{"1":"macaulay"},{"1":"kaepernick"},{"1":"labeouf"},{"1":"mcconaughey"},{"1":"palahniuk"},{"1":"palahniuk"},{"1":"kaepernick"},{"1":"deschanel"},{"1":"deschanel"},{"1":"galifianakis"},{"1":"palahniuk"},{"1":"shyamalan"},{"1":"palahniuk"},{"1":"morissette"},{"1":"deschanel"},{"1":"deschanel"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"mcgwire"},{"1":"mcconaughey"},{"1":"poehler"},{"1":"deschanel"},{"1":"shyamalan"},{"1":"galifianakis"},{"1":"macaulay"},{"1":"morissette"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"labeouf"},{"1":"palahniuk"},{"1":"palahniuk"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"johansson"},{"1":"mcconaughey"},{"1":"picabo"},{"1":"shyamalan"},{"1":"kaepernick"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"mclachlan"},{"1":"mcconaughey"},{"1":"macaulay"},{"1":"johansson"},{"1":"macaulay"},{"1":"macaulay"},{"1":"galifianakis"},{"1":"morissette"},{"1":"minaj"},{"1":"mcconaughey"},{"1":"picabo"},{"1":"mcconaughey"},{"1":"johansson"},{"1":"palahniuk"},{"1":"mcconaughey"},{"1":"deschanel"},{"1":"galifianakis"},{"1":"palahniuk"},{"1":"kaepernick"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"mclachlan"},{"1":"morissette"},{"1":"galifianakis"},{"1":"mclachlan"},{"1":"galifianakis"},{"1":"deschanel"},{"1":"mcconaughey"},{"1":"poehler"},{"1":"mcconaughey"},{"1":"shyamalan"},{"1":"johansson"},{"1":"mclachlan"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"shyamalan"},{"1":"macaulay"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"shyamalan"},{"1":"mcconaughey"},{"1":"mcconaughey"},{"1":"mcgwire"},{"1":"deschanel"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"macaulay"},{"1":"mcconaughey"},{"1":"mclachlan"},{"1":"mcconaughey"},{"1":"galifianakis"},{"1":"morissette"},{"1":"galifianakis"},{"1":"mclachlan"},{"1":"macaulay"},{"1":"galifianakis"},{"1":"galifianakis"},{"1":"poehler"},{"1":"galifianakis"},{"1":"mcconaughey"},{"1":"shyamalan"},{"1":"mcconaughey"},{"1":"shyamalan"},{"1":"macaulay"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
 </div>
@@ -957,7 +957,7 @@ Levels: кошки мышки собаки</code></pre>
 </div>
 </div>
 </div>
-<p>По оси x отложена наша переменная, а высота столбца говорит, сколько наблюдений имеют такое же значение. Однако многое зависит от того, что мы считаем одинаковым значением. Алгоритм здесь основан на разбиении распределения на <code>n</code> интервалов одинакового размера и отображении по оси y количества наблюдений в интервале. Количество интервалов можно задать самостоятельно, используя аргумент <code>bins</code>:</p>
+<p>По оси x отложена наша переменная, а высота столбца говорит сколько наблюдений имеют такое же значение. Однако многое зависит от того, что мы считаем одинаковым значением. Алгоритм здесь основан на разбиении распределения на <code>n</code> интервалов одинакового размера и отображении по оси y количества наблюдений в интервале. Количество интервалов можно задать самостоятельно, используя аргумент <code>bins</code>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Sepal.Length)) <span class="sc">+</span></span>
@@ -998,7 +998,7 @@ Levels: кошки мышки собаки</code></pre>
 </div>
 </div>
 </div>
-<p>В этом типе графика точно так же можно раскрашивать столбцы на основании переменной из датафрейма:</p>
+<p>В этом типе графика точно также можно раскрашивать столбцы на основании переменной из датафрейма:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>iris <span class="sc">|&gt;</span> </span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Petal.Length, <span class="at">fill =</span> Species)) <span class="sc">+</span></span>
@@ -1159,7 +1159,7 @@ Levels: кошки мышки собаки</code></pre>
 </div>
 </div>
 </div>
-<p>Верхние и нижние края коробки отвечают 25-процентной и 75-процентной квантилям. Расстояние между 25-процентной и 75-процентной квантилями измеряется для каждой коробке и 1.5 межквартильных расстояния откладывается вверх и вниз от коробки и потом уменьшается до минимального (в случае нижнего уса) и максимального (в случае верхнего уса) значений. Наблюдения, которые не попали в интервал 1.5 межквартильных расстояния объявляется на таком графике выбросом и отмечается отдельной точкой.</p>
+<p>Верхние и нижние края коробки отвечают 25-процентной и 75-процентной квантилям. Расстояние между 25-процентной и 75-процентной квантилями измеряется для каждой коробке и 1.5 межквартильных расстояния откладывается вверх и вниз от коробки и потом уменьшается до минимального (в случае нижнего уса) и максимального (в случае верхнего уса) значений. Наблюдения, которые не попали в интервал 1.5 межквартильных расстояния объявляются на таком графике выбросами<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> и отмечаются отдельной точкой.</p>
 </section>
 <section id="фасетезация-семейство-функций-facet_..." class="level2" data-number="3.11">
 <h2 data-number="3.11" class="anchored" data-anchor-id="фасетезация-семейство-функций-facet_..."><span class="header-section-number">3.11</span> Фасетезация: семейство функций <code>facet_...()</code></h2>
@@ -1236,7 +1236,7 @@ Levels: кошки мышки собаки</code></pre>
 </div>
 </div>
 </div>
-<p>Кроме того <code>facet_grid()</code> позволяет делать обощающие поля, где представлены все данные по какой-то строчке или столбцу:</p>
+<p>Кроме того, <code>facet_grid()</code> позволяет делать обощающие поля, где представлены все данные по какой-то строчке или столбцу:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>diamonds <span class="sc">|&gt;</span> </span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(carat, price))<span class="sc">+</span></span>
@@ -1293,6 +1293,12 @@ Wickham, H., M. Çetinkaya-Rundel, and G. Grolemund. 2023. <em>R for Data Scienc
 Ляшевская, О. Н., and С. А. Шаров. 2011. <em>Новый Частотный Словарь Русской Лексики. Словари, Созданные На Основе Национального Корпуса Русского Языка</em>.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Стоит помнить, что понятие <em>выброса</em> — не является каким-то строго определенной математической сущностью. Что-то, что в точных науках следует считать выбросом (кабель не туда воткнули, биоптат не оттуда взяли…), в других областях может быть чем-то важным (например, в твиттере все сообщения имеют ограниченный размер, однако, некоторые <a href="https://www.kaggle.com/datasets/austinreese/trump-tweets">твиты Дональда Трампа</a> этот размер привышают).<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
