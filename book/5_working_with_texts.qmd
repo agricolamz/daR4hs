@@ -398,7 +398,7 @@ library(udpipe)
 ```{r download_en_model}
 #| cache: true
 
-enmodel <- udpipe_download_model(language = "english")
+enmodel <- udpipe_download_model(language =  "english")
 ```
 
 Теперь можно распарсить какое-нибудь предложение:
@@ -410,6 +410,7 @@ udpipe("The want of Miss Taylor would be felt every hour of every day.",
 Скачаем русскую модель:
 ```{r  download_ru_model}
 #| cache: true
+
 rumodel <- udpipe_download_model(language = "russian-syntagrus")
 ```
 
