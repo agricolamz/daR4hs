@@ -40,7 +40,7 @@ library("leaflet")
 library("tidyverse")
 ```
 
-[Здесь доступен cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/leaflet.pdf), посвященный пакету `leaflet`.
+[Здесь доступен cheatsheet](https://raw.githubusercontent.com/rstudio/cheatsheets/refs/heads/main/leaflet.pdf), посвященный пакету `leaflet`.
 
 ### `.csv` файлы
 
